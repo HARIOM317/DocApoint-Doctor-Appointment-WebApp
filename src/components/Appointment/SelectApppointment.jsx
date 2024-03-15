@@ -1,6 +1,6 @@
 import { Button } from 'antd'
 import moment from 'moment';
-import './index.css';
+import "../../stylesheets/AppointmentPage.css";
 import { doctorTimeSlot } from '../../constant/global';
 import { FaBriefcase, FaRegClock, FaLocationArrow, FaLink, FaCalendarAlt } from "react-icons/fa";
 

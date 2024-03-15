@@ -1,5 +1,5 @@
 import React from 'react';
-import './Reviews.css';
+import "../../../stylesheets/doctorStylesheets/Reviews.css";
 import DashboardLayout from '../DashboardLayout/DashboardLayout';
 import img from '../../../images/doc/doctor 3.jpg';
 import { useGetDoctorReviewsQuery } from '../../../redux/api/reviewsApi';

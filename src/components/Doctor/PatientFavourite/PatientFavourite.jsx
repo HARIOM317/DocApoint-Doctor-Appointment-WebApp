@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { Empty, message } from 'antd';
 import { FaLocationArrow, FaCheckCircle, FaBookmark, FaDollarSign, FaClock } from "react-icons/fa";
 import StarRatings from 'react-star-ratings';
-import './index.css';
+import "../../../stylesheets/doctorStylesheets/PatientFavorite.css"
 
 const PatientFavouriteDoctor = () => {
     const { data, isLoading, isError } = useGetFavouriteQuery();

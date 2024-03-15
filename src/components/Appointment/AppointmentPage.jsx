@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
-import CheckoutPage from "../Booking/BookingCheckout/CheckoutPage";
+import CheckoutPage from "../Booking/CheckoutPage";
 import PersonalInformation from "../Booking/PersonalInformation";
 import { Button, Steps, message } from "antd";
 import moment from "moment";
@@ -49,7 +49,7 @@ const AppointmentPage = () => {
   const prev = () => { setCurrent(current - 1) };
 
   useEffect(() => {
-    const { firstName, lastName, email, phone, nameOnCard, cardNumber, expiredMonth, cardExpiredYear, cvv, reasonForVisit, address, description} = selectValue;
+    const { firstName, lastName, email, phone, nameOnCard, cardNumber, expiredMonth, cardExpiredYear, cvv, reasonForVisit } = selectValue;
     const isInputEmpty = !firstName || !lastName || !email || !phone || !reasonForVisit;
     const isConfirmInputEmpty = !nameOnCard || !cardNumber || !expiredMonth || !cardExpiredYear || !cvv || !isCheck;
     setIsDisable(isInputEmpty);
@@ -63,9 +63,6 @@ const AppointmentPage = () => {
       lastName: selectValue.lastName,
       email: selectValue.email,
       phone: selectValue.phone,
-      reasonForVisit: selectValue.reasonForVisit,
-      address: selectValue.address,
-      description: selectValue.description,
       patientId: role !== '' && role === 'patient' ? data.id : undefined,
       scheduleDate: selectedDate,
       scheduleTime: selectTime,

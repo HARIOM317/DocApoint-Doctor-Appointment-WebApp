@@ -1,5 +1,5 @@
 import React from 'react';
-import './AdminSidebar.css';
+import "../../stylesheets/UIStylesheets/AdminSidebar.css";
 import { FaHome } from "react-icons/fa";
 import { FaListUl } from "react-icons/fa";
 import { FaPeopleArrows } from "react-icons/fa";

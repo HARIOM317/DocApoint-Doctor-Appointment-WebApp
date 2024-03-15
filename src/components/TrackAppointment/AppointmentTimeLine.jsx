@@ -1,4 +1,4 @@
-import './index.css';
+import "../../stylesheets/TrackAppointment.css";
 import { appointStatusDsc } from "../../constant/appointmentStatus";
 const AppointmentTimeLine = ({data}) => {
  

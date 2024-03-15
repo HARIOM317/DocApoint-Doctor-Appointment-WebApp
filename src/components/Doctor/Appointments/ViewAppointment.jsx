@@ -4,7 +4,7 @@ import { useGetSingleAppointmentQuery } from '../../../redux/api/appointmentApi'
 import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
 import moment from 'moment';
-import './index.css';
+import "../../../stylesheets/doctorStylesheets/ViewAppointments.css";
 import { Button, Tag, Tooltip } from 'antd';
 import { clickToCopyClipBoard } from '../../../utils/copyClipBoard';
 import { FaPrint } from "react-icons/fa";
@@ -78,16 +78,14 @@ const ViewAppointment = () => {
                         </div>
                         <div>
 
-                            <h4 className="mb-1">{data?.firstName + ' ' + data?.lastName}</h4>  
-                            {/* data?.firstName --> from APPOINTMENT table  or data?.patient?.firstName -->  from patient table */}
+                            <h4 className="mb-1">{data?.patient?.firstName + ' ' + data?.patient?.lastName}</h4>
                             <p className="mb-1 form-text">Age : {moment().diff(moment(data?.patient?.dateOfBirth), 'years')}</p>
                             <p className="mb-1 form-text">Blood Group : {data?.patient?.bloodGroup}</p>
-                            {/* <p className="mb-1 form-text">{data?.patient?.city + ' , ' + data?.patient?.state + ' , ' + data?.patient?.country}</p> */}
-                            <p className="mb-1 form-text">Address :{data?.address}</p>
+                            <p className="mb-1 form-text">{data?.patient?.city + ' , ' + data?.patient?.state + ' , ' + data?.patient?.country}</p>
 
                             <div className='mt-2'>
-                                <p className="mb-1 form-text">Reason for Visit : <span className='text-warning'>{data?.reasonForVisit}</span></p>
-                                <p className="mb-1 form-text">Description : <span className='text-warning'>{data?.description}</span></p>
+                                <p>Reason for Visit - <span className='text-warning'>{data?.reasonForVisit}</span></p>
+                                <p className='text-warning'>{data?.description}</p>
                             </div>
                         </div>
                     </div>

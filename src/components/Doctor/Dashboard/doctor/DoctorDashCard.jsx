@@ -1,4 +1,4 @@
-import './index.css';
+import "../../../../stylesheets/doctorStylesheets/Dashboard.css";
 import { FaHospitalUser, FaCalendarAlt, FaHospital } from "react-icons/fa";
 const DoctorDashCard = () => {
     const cardData = [

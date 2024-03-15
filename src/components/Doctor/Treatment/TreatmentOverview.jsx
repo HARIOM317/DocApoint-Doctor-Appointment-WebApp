@@ -14,12 +14,12 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
                             <img src={data?.patient?.img ? data?.patient?.img : profileImg} alt="" style={{ height: '90px', width: '90px' }} />
                         </Link>
                         <div className="patients-info mt-3">
-                            <h5>{data?.firstName + ' ' + data?.lastName}</h5>
+                            <h5>{data?.patient?.firstName + ' ' + data?.patient?.lastName}</h5>
                             <div className="info">
                                 <p><FaClock className='icon' /> {moment(data?.createdAt).format('LL')} </p>
-                                <p><FaLocationArrow className='icon' /> {data?.address}</p>
-                                <p><FaEnvelope className='icon' /> {data?.email}</p>
-                                <p><FaPhoneAlt className='icon' /> {data?.phone }</p>
+                                <p><FaLocationArrow className='icon' /> {data?.address + data?.city}</p>
+                                <p><FaEnvelope className='icon' /> {data?.patient?.email}</p>
+                                <p><FaPhoneAlt className='icon' /> {data?.patient?.contact ? data?.patient?.contact : '+8801751040425'}</p>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
                         <div className="text-start mt-3">
                             <h6>Patient Type : 
                                 <span className="btn-status btn-st-success">
-                                    <Tag color="#87d068" className='ms-2 text-uppercase'>{isAppointment ? data?.appointment?.patientType : "Normal"}</Tag>
+                                    <Tag color="#87d068" className='ms-2 text-uppercase'>{isAppointment ? data?.appointment?.patientType : data?.patientType}</Tag>
                                 </span>
                             </h6>
                             <h6>Current Status : 

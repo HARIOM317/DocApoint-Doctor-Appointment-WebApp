@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import moment from 'moment';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-// import { bloodGrupOptions } from '../../../constant/global';
+import { bloodGrupOptions } from '../../../constant/global';
 import { useUpdatePatientMutation } from '../../../redux/api/patientApi';
 import useAuthCheck from '../../../redux/hooks/useAuthCheck';
 import { message } from 'antd';
@@ -14,31 +14,38 @@ const PatientProfileSetting = () => {
     const { data } = useAuthCheck();
     const { register, handleSubmit } = useForm({});
     const [userId, setUserId] = useState('');
-    // const [selectBloodGroup, setSelectBloodGroup] = useState('');
+    const [selectBloodGroup, setSelectBloodGroup] = useState('');
     const [selectValue, setSelectValue] = useState({})
     const [updatePatient, { isSuccess, isError, error, isLoading }] = useUpdatePatientMutation();
     const [date, setDate] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
     const [file, setFile] = useState(null);
 
-    const onChange = (date, dateString) => {
+    const onChange = (date, dateString) => { 
         setDate(moment(dateString).format());
     };
 
     useEffect(() => {
         if (data) {
             setUserId(data.id)
-            // setSelectBloodGroup(data?.bloodGroup)
+            setSelectBloodGroup(data?.bloodGroup)
         }
     }, [data]);
 
-
+    useEffect(() => {
+        if (!isLoading && isError) {
+            message.error(error?.data?.message)
+        }
+        if (isSuccess) {
+            message.success('Successfully Profile Updated')
+        }
+    }, [isLoading, isError, error, isSuccess])
 
     const handleChange = (e) => {
-        // if (e.target.name === 'bloodGroup') {
-        //     setSelectBloodGroup(e.target.value);
-        // }
         setSelectValue({ ...selectValue, [e.target.name]: e.target.value })
+        if (e.target.name === 'bloodGroup') {
+            setSelectBloodGroup(e.target.value);
+        }
     }
 
     const onSubmit = (data) => {
@@ -53,15 +60,6 @@ const PatientProfileSetting = () => {
         updatePatient({ data: formData, id: userId })
     };
 
-    useEffect(() => {
-        if (!isLoading && isError) {
-            message.error(error?.data?.message)
-        }
-        if (isSuccess) {
-            message.success('Successfully Profile Updated')
-        }
-    }, [isLoading, isError, error, isSuccess])
-
     return (
         <div style={{ marginBottom: '10rem' }}>
             <div className="w-100 mb-3 rounded mb-5 p-2" style={{ background: '#f8f9fa' }}>
@@ -74,7 +72,7 @@ const PatientProfileSetting = () => {
                                     <img src={selectedImage ? selectedImage : data?.img || pImage} alt="" />
                                 </Link>
                                 <div className="mt-3">
-                                    <ImageUpload setSelectedImage={setSelectedImage} setFile={setFile} />
+                                    <ImageUpload setSelectedImage={setSelectedImage} setFile={setFile}/>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +117,7 @@ const PatientProfileSetting = () => {
                                 <option value={''}>Select</option>
                                 <option className='text-capitalize'>male</option>
                                 <option className='text-capitalize'>female</option>
-                                <option className='text-capitalize'>other</option>
+                                <option className='text-capitalize'>shemale</option>
                             </select>
                         </div>
                     </div>
@@ -130,16 +128,13 @@ const PatientProfileSetting = () => {
                             <select className="form-control select"
                                 onChange={handleChange}
                                 name='bloodGroup'
+                                value={selectBloodGroup}
                             >
-                                <option value={''}>Select</option>
-                                <option className='text-capitalize'>A+</option>
-                                <option className='text-capitalize'>A-</option>
-                                <option className='text-capitalize'>B+</option>
-                                <option className='text-capitalize'>B-</option>
-                                <option className='text-capitalize'>O+</option>
-                                <option className='text-capitalize'>O-</option>
-                                <option className='text-capitalize'>AB+</option>
-                                <option className='text-capitalize'>AB-</option>
+                                {
+                                    bloodGrupOptions.map((option, index) => (
+                                        <option key={index} value={option.value} className='text-capitalize'>{option.label}</option>
+                                    ))
+                                }
                             </select>
                         </div>
                     </div>

@@ -1,11 +1,11 @@
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
-import './index.css';
+import "../../stylesheets/TrackAppointment.css";
 import { Input, message } from 'antd';
 import { useTrackAppointmentMutation } from '../../redux/api/appointmentApi';
 import TrackDetailPage from './TrackDetailPage';
 import { useEffect, useState } from 'react';
-import AvailableServiceContent from '../Home/AvailableFeatures/AvailableServiceContent';
+import AvailableServiceContent from '../Home/AvailableServiceContent';
 const { Search } = Input;
 
 const TrackAppointment = () => {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Search from 'antd/es/input/Search';
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { truncate } from '../../utils/truncate';
-import './index.css';
+import "../../stylesheets/Blog.css";
 import moment from 'moment';
 
 const categories = [

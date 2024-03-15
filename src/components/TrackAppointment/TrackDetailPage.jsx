@@ -1,6 +1,6 @@
 import React from 'react'
 import img from '../../images/avatar.jpg';
-import './index.css';
+import "../../stylesheets/TrackAppointment.css";
 import { FaCalendarCheck, FaRegClock, FaArrowAltCircleLeft } from "react-icons/fa";
 import 'react-vertical-timeline-component/style.min.css';
 import AppointmentTimeLine from './AppointmentTimeLine';

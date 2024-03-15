@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../../Shared/Footer/Footer'
-import './index.css';
+import "../../../stylesheets/doctorStylesheets/DoctorProfile.css";
 import { useParams } from 'react-router-dom';
 import Header from '../../Shared/Header/Header';
 import SubHeader from '../../Shared/SubHeader';

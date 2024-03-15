@@ -5,11 +5,10 @@ import Header from "../../Shared/Header/Header";
 import { useGetPrescriptionQuery } from "../../../redux/api/prescriptionApi";
 import moment from "moment";
 import { Empty, Table, Button } from "antd";
-import './index.css';
+import "../../../stylesheets/doctorStylesheets/Prescription.css";
 import { useRef } from "react";
 import { FaPrint } from "react-icons/fa";
 import ReactToPrint from "react-to-print";
-import Item from "antd/es/list/Item";
 
 const PrescriptionView = () => {
     const ref = useRef();
@@ -80,7 +79,7 @@ const PrescriptionView = () => {
                                         <h3>Dr.{data?.doctor?.firstName + ' ' + data?.doctor?.lastName}</h3>
                                         <p>{data?.doctor?.designation} ,</p>
                                         <p>{data?.doctor?.college}</p>
-                                        <span className="form-text">{data?.doctor?.address}, {data?.doctor?.state}, {data?.doctor?.country}</span>
+                                        <span className="form-text">{data?.doctor?.address}, {data?.doctor?.state},{data?.doctor?.country}</span>
                                     </div>
                                 </div>
                             </div>
@@ -90,15 +89,13 @@ const PrescriptionView = () => {
                                     <div className="invoice-details invoice-details-two">
                                         <div className="d-flex justify-content-between patient-name">
                                             <div>
-                                                <h5 style={{ fontWeight: 700 }}>Patient Name : {data?.appointment?.firstName + ' ' + data?.appointment?.lastName}</h5>
-                                                <p className="form-text">Address: {data?.appointment?.address}</p>
-                                                
-                                                {/* <p className="form-text">Address: {data?.patient?.address}, {data?.patient?.city}, {data?.patient?.country}</p> */}
+                                                <h5 style={{ fontWeight: 700 }}>Patient Name : {data?.patient?.firstName + ' ' + data?.patient?.lastName}</h5>
+                                                <p className="form-text">Address: {data?.patient?.address}, {data?.patient?.city}, {data?.patient?.country}</p>
                                             </div>
                                             <div>
                                                 <p>Sex : {data?.patient?.gender}</p>
                                                 <p>Age : {moment().diff(data?.patient?.dateOfBirth, 'years')}</p>
-                                                {/* <p>Weight : {data?.patient?.weight}</p> */}
+                                                <p>Weight : {data?.patient?.weight}</p>
                                             </div>
                                         </div>
                                     </div>

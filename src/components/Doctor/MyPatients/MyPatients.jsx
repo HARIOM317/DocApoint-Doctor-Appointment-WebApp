@@ -4,7 +4,7 @@ import DashboardLayout from '../DashboardLayout/DashboardLayout';
 import { useGetDoctorPatientsQuery } from '../../../redux/api/appointmentApi';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { FaClock, FaEnvelope, FaEnvelopeOpen, FaLocationArrow, FaPhoneAlt } from "react-icons/fa";
+import { FaClock, FaEnvelope, FaLocationArrow, FaPhoneAlt } from "react-icons/fa";
 import { Empty } from 'antd';
 
 const MyPatients = () => {
@@ -18,16 +18,13 @@ const MyPatients = () => {
                 <div className="w-100 mb-3 rounded p-3 text-center" style={{ background: '#f8f9fa' }}>
                     <div className="">
                         <Link to={'/'} className="my-3 patient-img">
-                                <img src={item?.img ? item?.img : img}  alt="" />
-                                {/* {item?.img ? <img src={item?.img} alt="" /> : <img src={img} alt="" /> } */}
+                            <img src={img} alt="" />
                         </Link>
                         <div className="patients-info mt-4">
                             <h5>{item?.firstName + ' ' + item?.lastName}</h5>
                             <div className="info">
-                                <p><FaClock className='icon' /> {moment(item?.appointmentTime).format("MMM Do, YY")} </p>
+                                <p><FaClock className='icon' /> {moment(item?.appointmentTime).format("MMM Do YY")} </p>
                                 <p><FaLocationArrow className='icon' /> {item?.address}</p>
-                                
-                                {/* <p><FaEnvelopeOpen className='icon' /> {item?.email}</p> */}
                                 <p><FaEnvelope className='icon' /> {item?.email}</p>
                                 <p><FaPhoneAlt className='icon' /> {item?.mobile}</p>
                             </div>
@@ -39,8 +36,7 @@ const MyPatients = () => {
     return (
         <DashboardLayout>
             <div className="row">
-                <div className="col-md-6 col-lg-4 col-xl-4">
-                {/* <div className="col-md-12 col-lg-12 col-xl-9"> */}
+                <div className="col-md-6 col-lg-4 col-xl-3">
                     {content}
                 </div>
             </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import showImg from '../../../images/specialities/specialities-01.png'
 import StarRatings from 'react-star-ratings';
 import { Tag } from 'antd';
-import './index.css';
+import "../../../stylesheets/doctorStylesheets/SearchDoctor.css";
 import { FaLocationArrow, FaRegThumbsUp, FaDollarSign, FaComment } from "react-icons/fa";
 
 const SearchContent = ({ data }) => {
