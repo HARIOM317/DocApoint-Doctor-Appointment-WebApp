@@ -6,7 +6,7 @@
 }
 
 .patients-info>h5:hover {
-    color: #358fe2;
+    color: var(--primaryColor);
     transform: scale(1.1);
 }
 

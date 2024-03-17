@@ -108,11 +108,11 @@
 }
 .user-menu .dropdown-menu .dropdown-item:hover {
 	color: #fff;
-    background: #00d0f1;
+    background: var(--primaryColor);
 }
 .header .dropdown-menu > li > a:focus,
 .header .dropdown-menu > li > a:hover {
-	background-color: #00d0f1;
+	background-color: var(--primaryColor);
 	color: #fff;
 }
 .header .dropdown-menu > li > a:focus i,
@@ -123,13 +123,13 @@
 	padding: 10px 18px;
 }
 .header .dropdown-menu > li > a i {
-	color: #00d0f1;
+	color: var(--primaryColor);
 	margin-right: 10px;
 	text-align: center;
 	width: 18px;
 }
 .header .user-menu .dropdown-menu > li > a i {
-	color: #00d0f1;
+	color: var(--primaryColor);
 	font-size: 16px;
 	margin-right: 10px;
 	min-width: 18px;
@@ -178,6 +178,8 @@
 	background-color: #f9f9f9;
 	border-color: #e3e3e3;
 }
+
+
 .app-list > div + div {
 	margin-top: 5px;
 }

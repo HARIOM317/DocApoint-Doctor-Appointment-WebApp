@@ -6,7 +6,7 @@
     object-position: top;
 }
 .recomended{
-    color: #20b420;
+    color: var(--primaryColor);
 }
 .swiper {
     width: inherit !important;

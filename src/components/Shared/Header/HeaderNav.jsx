@@ -108,14 +108,13 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
         <FaBars className="mobile-nav-toggle" onClick={showDrawer} />
       </nav>
       <Drawer
-        placement={"left"}
+        placement={"right"}
         width={500}
         onClose={onClose}
         open={open}
         size={"default"}
         extra={
-          <Button type="primary" onClick={onClose}>
-            {" "}
+          <Button type="primary" onClick={onClose} style={{background: 'var(--primaryColor)', fontWeight: 'bold', color: 'white'}}>
             Close
           </Button>
         }
@@ -125,7 +124,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
             <NavLink
               to={"/"}
               className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : ""
+                isActive ? "nav-link scrollto active" : "nav-link"
               }
             >
               <FaHome className="icon" />
@@ -136,7 +135,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
             <NavLink
               to={"/about"}
               className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : ""
+                isActive ? "nav-link scrollto active" : "nav-link"
               }
             >
               <FaAddressBook className="icon" />
@@ -147,7 +146,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
             <NavLink
               to={"/service"}
               className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : ""
+                isActive ? "nav-link scrollto active" : "nav-link"
               }
             >
               <FaWrench className="icon" />
@@ -158,7 +157,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
             <NavLink
               to={"/doctors"}
               className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : ""
+                isActive ? "nav-link scrollto active" : "nav-link"
               }
             >
               <FaUserMd className="icon" />
@@ -169,7 +168,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
             <NavLink
               to={"/contact"}
               className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : ""
+                isActive ? "nav-link scrollto active" : "nav-link"
               }
             >
               <FaPhoneAlt className="icon" />
@@ -180,7 +179,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
             <NavLink
               to={"/blog"}
               className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : ""
+                isActive ? "nav-link scrollto active" : "nav-link"
               }
             >
               <FaBloggerB className="icon" />

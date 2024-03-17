@@ -64,7 +64,7 @@
 	width: 12px;
 	height: 12px;
 	border-radius: 50%;
-	background-color: #177dff;
+	background-color: var(--primaryColor);
 }
 .activity-feed .feed-item .feed-date {
 	display: block;

@@ -11,12 +11,14 @@ import Header from '../Shared/Header/Header';
 import Service from './Service';
 import Gallery from './Gallery';
 import OurDoctors from './OurDoctors';
+import HomePageHeader from './HomePageHeader';
 
 const Home = () => {
     return (
         <>
             <Header />
-            {/* <HeroSection />
+            {/* <HeroSection /> */}
+            <HomePageHeader />
             <InfoPage />
             <Service />
             <ClinicAndSpecialities />
@@ -26,7 +28,7 @@ const Home = () => {
             <OurDoctors/>
             <Testimonial />
             <Gallery/>
-            <Footer /> */}
+            <Footer />
         </>
     );
 };
