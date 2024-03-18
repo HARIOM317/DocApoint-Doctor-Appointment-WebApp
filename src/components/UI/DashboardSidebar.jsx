@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../../images/avatar.jpg';
+import img from '../../images/user.png';
 import "../../stylesheets/UIStylesheets/DashboardSidebar.css";
 import { Link, NavLink } from 'react-router-dom';
 import useAuthCheck from '../../redux/hooks/useAuthCheck';

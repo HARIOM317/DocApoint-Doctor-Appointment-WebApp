@@ -5,7 +5,6 @@ import Testimonial from './Testimonial';
 import ClinicAndSpecialities from './ClinicAndSpecialities';
 import BookDoctor from './BookDoctor';
 import Availabe from './Available';
-import HeroSection from './HeroSection';
 import InfoPage from './InfoPage';
 import Header from '../Shared/Header/Header';
 import Service from './Service';
@@ -17,7 +16,6 @@ const Home = () => {
     return (
         <>
             <Header />
-            {/* <HeroSection /> */}
             <HomePageHeader />
             <InfoPage />
             <Service />

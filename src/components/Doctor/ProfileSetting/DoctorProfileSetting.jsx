@@ -7,7 +7,7 @@ import { useUpdateDoctorMutation } from '../../../redux/api/doctorApi';
 import useAuthCheck from '../../../redux/hooks/useAuthCheck';
 import { doctorSpecialistOptions } from '../../../constant/global';
 import ImageUpload from '../../UI/form/ImageUpload';
-import dImage from '../../../images/avatar.jpg';
+import dImage from '../../../images/user.png';
 import { DatePicker } from 'antd';
 
 const DoctorProfileSetting = () => {

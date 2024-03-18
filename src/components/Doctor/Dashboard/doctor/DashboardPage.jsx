@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import img from '../../../../images/avatar.jpg';
+import img from '../../../../images/user.png';
 import { FaEye, FaCheck, FaTimes, FaBriefcaseMedical } from "react-icons/fa";
 import { useGetDoctorAppointmentsQuery, useUpdateAppointmentMutation } from '../../../../redux/api/appointmentApi';
 import moment from 'moment';

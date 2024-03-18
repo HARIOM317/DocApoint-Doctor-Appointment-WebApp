@@ -7,13 +7,14 @@
 }
 
 .profileImage img {
-  height: 30px;
+  box-shadow: none !important;
+  height: 40px;
   border-radius: 50%;
-  width: 30px;
+  width: 40px;
   object-fit: cover;
   object-position: top;
   margin-left: 11px;
-  border: 2px var(--primaryColor) solid;
+  border: none;
   cursor: pointer;
 }
 .hideTopHeader {
@@ -246,12 +247,9 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 413px) {
   .appointment-btn {
-    margin: 1rem 0.1rem;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 4px;
+    display: none;
   }
 }
 

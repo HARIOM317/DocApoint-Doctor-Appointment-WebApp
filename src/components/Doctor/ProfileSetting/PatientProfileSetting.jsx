@@ -7,7 +7,7 @@ import { useUpdatePatientMutation } from '../../../redux/api/patientApi';
 import useAuthCheck from '../../../redux/hooks/useAuthCheck';
 import { message } from 'antd';
 import ImageUpload from '../../UI/form/ImageUpload';
-import pImage from '../../../images/avatar.jpg';
+import pImage from '../../../images/user.png';
 import { DatePicker } from 'antd';
 
 const PatientProfileSetting = () => {

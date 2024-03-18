@@ -41,8 +41,9 @@
     content: "";
     position: absolute;
     width: 2000px;
-    height: 2000px;border-radius: 50%;
-    background: linear-gradient(-45deg, #795cf9, #7355F7);
+    height: 2000px;
+    border-radius: 100%;
+    background: linear-gradient(-45deg, #ec1839, #b9122c);
     top: -10%;
     right: 48%;
     transform: translateY(-50%);

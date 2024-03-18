@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import profileImg from '../../../images/avatar.jpg';
+import profileImg from '../../../images/user.png';
 import { FaClock, FaEnvelope, FaLocationArrow, FaPhoneAlt } from "react-icons/fa";
 import moment from "moment";
 import { Tag } from "antd";

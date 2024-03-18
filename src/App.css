@@ -7,11 +7,14 @@
   --bgColor: #f2f2fc;
   --bgLight: #fdf9ff;
   --textColor: #302e4d;
+  --headingColor: #2c4964;
   --textLight: #58567c;
   --borderColor: #d4cad9;
-  --borderLight: #e8dfec;
+  --borderLight: #dfd8e3;
   --skin-gradient: linear-gradient(97.05deg, #ec1839 3.76%, #b9122c 100%);
-  --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.25);
+  --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.15);
+  --shadowAll: 0px 2px 15px rgba(0, 0, 0, 0.15);
+  --shadowAllLight: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 * {

@@ -1,5 +1,5 @@
 import React from 'react';
-import userImg from '../../images/avatar.jpg';
+import userImg from '../../images/user.png';
 import { Button } from 'antd';
 
 const BlogComment = () => {
