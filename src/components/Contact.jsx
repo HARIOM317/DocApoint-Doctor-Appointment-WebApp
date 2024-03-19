@@ -10,7 +10,6 @@ import { message } from "antd";
 import Lottie from "lottie-react";
 import ContactSupport from "../animations/contact_us.json";
 
-
 const Contact = () => {
   const [contact, { isLoading, isError, error, isSuccess }] =
     useContactMutation();
@@ -37,7 +36,10 @@ const Contact = () => {
       />
 
       <section id="contact" className="contact">
-        <div className="container" style={{ marginTop: '50px', marginBottom: '50px' }}>
+        <div
+          className="container"
+          style={{ marginTop: "50px", marginBottom: "50px" }}
+        >
           <div className="row">
             <div className="col-12 col-lg-10 mx-auto">
               <div className="row">
