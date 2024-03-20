@@ -209,13 +209,13 @@ const PatientDashboard = () => {
           <>
             <div className="avatar avatar-sm mr-2 d-flex gap-2">
               <div>
-                <img className="avatar-img rounded-circle" src={img} alt="" />
+                <img className="avatar-img rounded-circle" src={data?.doctor?.img ? data?.doctor?.img : img} alt="" />
               </div>
               <div>
                 <h6 className="text-nowrap mb-0">
                   {data?.doctor?.firstName + " " + data?.doctor?.lastName}
                 </h6>
-                <p className="form-text">{data?.doctor?.designation}</p>
+                <p className="form-text">{data?.doctor?.specialization}</p>
               </div>
             </div>
           </>
