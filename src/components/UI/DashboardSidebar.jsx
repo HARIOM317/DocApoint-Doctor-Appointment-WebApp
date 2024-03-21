@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import img from '../../images/user.png';
-import "../../stylesheets/UIStylesheets/DashboardSidebar.css";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import useAuthCheck from '../../redux/hooks/useAuthCheck';
+import { loggedOut } from '../../service/auth.service';
+import { message } from 'antd';
+import "../../stylesheets/UIStylesheets/DashboardSidebar.css";
+
 import {
     FaTable,
     FaCalendarDay,
@@ -14,8 +17,43 @@ import {
     FaHouseUser
 } from "react-icons/fa";
 
+function formatDate(date) {
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+const calculateAge = (birthdate) => {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
 const DashboardSidebar = () => {
-    const { data, role } = useAuthCheck();
+    const { authChecked, data, role } = useAuthCheck();
+    const navigate = useNavigate();
+    const [isLoggedIn, setIsLogged] = useState(false);
+
+    useEffect(() => { authChecked && setIsLogged(true) }, [authChecked]);
+
+    const hanldeSignOut = () => {
+        loggedOut();
+        message.success("Successfully Logged Out")
+        setIsLogged(false)
+        navigate('/')
+    }
+
+    const dateObject = new Date(data?.dateOfBirth);
+
+    // Format date object to desired format
+    const formattedDate = formatDate(dateObject);
+
+    // Calculate age
+    const age = calculateAge(data?.dateOfBirth);
 
     return (
         <div className="profile-sidebar p-3 rounded">
@@ -37,8 +75,8 @@ const DashboardSidebar = () => {
                             <div className='profile-details'>
                                 <h5 className='mb-0'>{data?.firstName + " " + data?.lastName}</h5>
                                 <div className='mt-2'>
-                                    <p className=' form-text m-0'>24 Jul 1983, 38 Years</p>
-                                    <p className=' form-text m-0'> New Yourk , USA</p>
+                                    <p className=' form-text m-0'>{data?.dateOfBirth ? formattedDate+" - "+age+"Y" : data?.dateOfBirth}</p>
+                                    <p className=' form-text m-0'>{data?.city ? data?.city : data?.city}, {data?.country ? data?.country : data?.country}</p>
                                     <p className=' form-text m-0'>{data?.email}</p>
                                 </div>
                             </div>
@@ -78,7 +116,7 @@ const DashboardSidebar = () => {
                             <li>
                                 <NavLink to={'/'}>
                                     <FaSignOutAlt className="icon" />
-                                    <span>Logout</span>
+                                    <span onClick={hanldeSignOut}>Logout</span>
                                 </NavLink>
                             </li>
                         </ul>
@@ -151,7 +189,7 @@ const DashboardSidebar = () => {
                             <li>
                                 <NavLink to={'/'}>
                                     <FaSignOutAlt className="icon" end />
-                                    <span>Logout</span>
+                                    <span onClick={hanldeSignOut}>Logout</span>
                                 </NavLink>
                             </li>
                         </ul>
