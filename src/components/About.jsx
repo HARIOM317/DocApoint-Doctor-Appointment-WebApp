@@ -10,6 +10,7 @@ import { Empty, message } from "antd";
 import { Link } from "react-router-dom";
 import { truncate } from "../utils/truncate";
 import { useGetDoctorsQuery } from "../redux/api/doctorApi";
+import AboutUs from "./about/AboutUs";
 
 const About = () => {
   const { data, isError, isLoading } = useGetAllBlogsQuery({ limit: 4 });
@@ -100,6 +101,9 @@ const About = () => {
         title="about us"
         subtitle="Lorem ipsum dolor sit amet consectetur adipisicing."
       />
+
+      <AboutUs />
+
       <div className="container" style={{ marginBottom: 100, marginTop: 100 }}>
         <div className="row p-5">
           <div className="col-lg-4">

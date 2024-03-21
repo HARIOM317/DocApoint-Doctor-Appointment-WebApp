@@ -1,8 +1,8 @@
 import React from 'react';
 import "../../stylesheets/homeStylesheets/Service.css";
-import img from '../../images/doc/doc1.jpg'
-import img2 from '../../images/doc/doc4.jpg'
-import img3 from '../../images/doc/doctor 5.jpg'
+import img1 from "../../images/home/service1.jpg";
+import img2 from "../../images/home/service2.jpg";
+import img3 from "../../images/home/service3.jpg";
 import { Link } from 'react-router-dom';
 
 const Service = () => {
@@ -17,17 +17,23 @@ const Service = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing.
         </p>
       </div>
-      <div className="container">
+      <div className="container" style={{marginTop: '6rem'}}>
         <div className="row align-items-center">
           <div className="col-lg-4 col-sm-6">
             <div className="service-img">
-              <img src={img} alt="" className="img-fluid" />
-              <img src={img2} alt="" className="img-fluid mt-4" />
+              <div className="img-wrapper1">
+                <img src={img1} alt="" className="img-fluid img1" />
+              </div>
+              <div className="img-wrapper2 mt-4">
+                <img src={img2} alt="" className="img-fluid img2" />
+              </div>
             </div>
           </div>
           <div className="col-lg-4 col-sm-6">
             <div className="service-img mt-4 mt-lg-0">
-              <img src={img3} alt="" className="img-fluid" />
+              <div className="img-wrapper3">
+                <img src={img3} alt="" className="img-fluid img3" />
+              </div>
             </div>
           </div>
           <div className="col-lg-4">
@@ -36,7 +42,7 @@ const Service = () => {
                 Personal care <br />
                 healthy living
               </h2>
-              <p className="mt-4 mb-5 text-secondary form-text">
+              <p className="mt-4 mb-4">
                 We provide best leading medicle service Nulla perferendis veniam
                 deleniti ipsum officia dolores repellat laudantium obcaecati
                 neque.

@@ -1,9 +1,9 @@
 import React from 'react';
-import img1 from '../../images/specialities/specialities-01.png';
-import img2 from '../../images/specialities/specialities-02.png';
-import img3 from '../../images/specialities/specialities-03.png';
-import img4 from '../../images/specialities/specialities-04.png';
-import img5 from '../../images/specialities/specialities-05.png';
+import img1 from '../../images/specialities/illness.png';
+import img2 from '../../images/specialities/ent.png';
+import img3 from '../../images/specialities/bone.png';
+import img4 from '../../images/specialities/heart.png';
+import img5 from '../../images/specialities/tooth.png';
 import { FaCheckDouble } from "react-icons/fa";
 import "../../stylesheets/homeStylesheets/ClinicAndSpecialties.css";
 
@@ -30,7 +30,7 @@ const ClinicAndSpecialities = () => {
                     </i>
                   </span>
                 </div>
-                <p>Urology</p>
+                <p>Common Illnesses</p>
               </div>
               <div className="speicality-item text-center">
                 <div className="speicality-img">
@@ -41,7 +41,7 @@ const ClinicAndSpecialities = () => {
                     </i>
                   </span>
                 </div>
-                <p>Neurology</p>
+                <p>ENT</p>
               </div>
               <div className="speicality-item text-center">
                 <div className="speicality-img">

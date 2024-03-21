@@ -9,6 +9,7 @@ import { useContactMutation } from "../redux/api/contactApi";
 import { message } from "antd";
 import Lottie from "lottie-react";
 import ContactSupport from "../animations/contact_us.json";
+import ContactPageHeader from "./ContactPageHeader";
 
 const Contact = () => {
   const [contact, { isLoading, isError, error, isSuccess }] =
@@ -34,6 +35,7 @@ const Contact = () => {
         title="Contact us"
         subtitle="Lorem ipsum dolor sit amet consectetur adipisicing."
       />
+      <ContactPageHeader />
 
       <section id="contact" className="contact">
         <div
@@ -45,7 +47,7 @@ const Contact = () => {
               <div className="row">
                 {/* Left Side Part */}
                 <div className="col-12 col-lg-5">
-                  <h1 className="main-heading fw-bold">Contact Us</h1>
+                  
 
                   <figure>
                     <Lottie

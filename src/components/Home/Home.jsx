@@ -11,6 +11,7 @@ import Service from './Service';
 import Gallery from './Gallery';
 import OurDoctors from './OurDoctors';
 import HomePageHeader from './HomePageHeader';
+import HowToUse from './HowToUse';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <HomePageHeader />
             <InfoPage />
             <Service />
+            <HowToUse />
             <ClinicAndSpecialities />
             <BookDoctor />
             <Blog />
