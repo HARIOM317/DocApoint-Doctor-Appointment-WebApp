@@ -156,7 +156,7 @@ const Footer = () => {
               <hr />
 
               <div className="mt-4 flexRowSpaceBetween">
-                <p className="copyright">© Copyright SIH-2024. All rights reserved.
+                <p className="copyright">© Copyright DocApoint-2024. All rights reserved.
                 </p>
 
                 <div className="policy">
