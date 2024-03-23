@@ -17,14 +17,14 @@
 .our-services img {
   width: 70%;
   height: 80%;
-  margin-top: 8rem;
+  margin-top: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0.8rem 0.8rem;
   border: 1px solid var(--bg-black-50);
   border-radius: 1.5rem;
 }
 
 .common-section .btn-style {
-  width: 7.5rem;
+  width: 9rem;
   height: 3rem;
   border-radius: 1.5rem;
   color: var(--primaryColor);

@@ -37,7 +37,7 @@ const HomePageHeader = () => {
 
               <div className="d-flex justify-content-start gap-2">
                 <NavLink to={"/doctors"} className="btn-get-started scrollto">
-                  Get Started
+                  Book Appointment
                 </NavLink>
                 <NavLink
                   to={"/track-appointment"}

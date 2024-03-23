@@ -1,15 +1,15 @@
-import img2 from '../../images/features/feature-02.jpg';
-import img3 from '../../images/features/feature-01.jpg';
-import img4 from '../../images/features/feature-05.jpg';
-import img5 from '../../images/features/feature-06.jpg';
-import img from '../../images/features/feature.png';
+import img1 from '../../images/services/icu.jpg';
+import img2 from '../../images/services/patient_ward.jpg';
+import img3 from '../../images/services/test_room.jpg';
+import img4 from '../../images/services/laboratory.jpg';
+import img5 from '../../images/services/chamber.jpg';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
 const AvailableServiceContent = () => {
   const availabeServiceArray = [
-    { title: "ICU", img: img },
+    { title: "ICU", img: img1 },
     { title: "Chamber", img: img5 },
     { title: "Patient Ward", img: img2 },
     { title: "Test Room", img: img3 },
@@ -19,7 +19,7 @@ const AvailableServiceContent = () => {
     <div className="d-flex justify-content-center align-items-center gap-4">
       <Swiper
         spaceBetween={2}
-        slidesPerView={4}
+        slidesPerView={3}
         modules={[Navigation, Autoplay]}
         loop={true}
         centeredSlides={true}

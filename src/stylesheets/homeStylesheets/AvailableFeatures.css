@@ -1,7 +1,7 @@
 .section-features {
 	background-color: #fff;
 	padding: 80px 0;
-    margin: 7rem 0;
+    margin: 2rem 0;
 }
 .features-img img {
     text-align: center;
@@ -16,6 +16,7 @@
 }
 .feature-item img {
     border-radius: 100%;
+    border: 1.5px solid var(--borderLight);
     box-shadow: 1px 6px 14px rgba(0,0,0,0.2);
     height: 115px;
     object-fit: cover;

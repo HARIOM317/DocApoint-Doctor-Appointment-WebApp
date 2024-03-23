@@ -1,93 +1,98 @@
 .doctors {
-    background: #fff;
+  background: #fff;
 }
 
 .doctors .member {
-    position: relative;
-    box-shadow: 0px 2px 15px rgba(44, 73, 100, 0.08);
-    padding: 30px;
-    border-radius: 10px;
+  position: relative;
+  box-shadow: var(--shadowAll);
+  padding: 30px;
+  border: 1.5px solid var(--borderColor);
+  border-radius: 10px;
+  background: var(--bgLight);
 }
 
 .doctors .member .pic {
-    overflow: hidden;
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
+  overflow: hidden;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
 .doctors .member .pic img {
-    transition: ease-in-out 0.3s;
-    object-position: top;
+  transition: ease-in-out 0.3s;
+  object-position: top;
 }
 
 .doctors .member:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .doctors .member .member-info {
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .doctors .member h4 {
-    font-weight: 700;
-    margin-bottom: 5px;
-    font-size: 20px;
-    color: #2c4964;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: var(--headingColor);
 }
 
 .doctors .member span {
-    display: block;
-    font-size: 15px;
-    padding-bottom: 10px;
-    position: relative;
-    font-weight: 500;
+  display: block;
+  font-size: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
 }
 
 .doctors .member span::after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 50px;
-    height: 1px;
-    background: #b2c8dd;
-    bottom: 0;
-    left: 0;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--primaryColor);
+  bottom: 0;
+  left: 0;
 }
 
 .doctors .member p {
-    margin: 10px 0 0 0;
-    font-size: 14px;
+  margin: 10px 0 0 0;
+  font-size: 14px;
 }
 
 .doctors .member .social {
-    margin-top: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
 }
 
-.doctors .member .social a {
-    transition: ease-in-out 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    width: 32px;
-    height: 32px;
-    background: #a0bcd5;
+.doctors .member .social .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  margin: 0 6px;
+  background-color: var(--skin-color);
+  text-decoration: none;
+  transition: all 0.3s ease-in;
 }
 
-.doctors .member .social a .icon {
-    color: #fff;
-    font-size: 16px;
-    margin: 0 2px;
+.doctors .member .social .icon:hover {
+  transform: scale(1.1);
 }
 
-.doctors .member .social a:hover {
-    background: var(--primaryColor);
+.doctors .member .social .icon:nth-child(1) {
+  margin-left: 0;
 }
 
-.doctors .member .social a+a {
-    margin-left: 8px;
+.doctors .member .social a + a {
+  margin-left: 8px;
 }

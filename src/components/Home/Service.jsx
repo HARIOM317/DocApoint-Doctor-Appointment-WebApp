@@ -9,7 +9,7 @@ const Service = () => {
   return (
     <section
       className="container"
-      style={{ marginTop: 200, marginBottom: 200 }}
+      style={{ marginTop: 100, marginBottom: 100 }}
     >
       <div className="mb-5 section-title text-center">
         <h2>Services</h2>

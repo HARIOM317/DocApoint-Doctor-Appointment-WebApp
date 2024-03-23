@@ -1,5 +1,4 @@
 import React from 'react';
-import Blog from './Blog';
 import Footer from '../Shared/Footer/Footer';
 import Testimonial from './Testimonial';
 import ClinicAndSpecialities from './ClinicAndSpecialities';
@@ -12,6 +11,7 @@ import Gallery from './Gallery';
 import OurDoctors from './OurDoctors';
 import HomePageHeader from './HomePageHeader';
 import HowToUse from './HowToUse';
+import FAQs from './FAQs';
 
 const Home = () => {
     return (
@@ -23,11 +23,11 @@ const Home = () => {
             <HowToUse />
             <ClinicAndSpecialities />
             <BookDoctor />
-            <Blog />
             <Availabe />
             <OurDoctors/>
-            <Testimonial />
             <Gallery/>
+            <Testimonial />
+            <FAQs />
             <Footer />
         </>
     );
