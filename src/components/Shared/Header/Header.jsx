@@ -51,7 +51,7 @@ const Header = () => {
           {data?.firstName + " " + data?.lastName}
         </h5>
         <p className="my-0">{data?.email}</p>
-        <Link to="/dashboard">Deshboard</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </div>
       <Button
         variant="outline-danger"
