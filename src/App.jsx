@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import SignInForm from "./components/Login/SignInForm";
 import DoctorBooking from "./components/Booking/DoctorBooking";
 import BookingSuccess from "./components/Booking/BookingSuccess";
 import BookingInvoice from "./components/Booking/BookingInvoice";
@@ -91,7 +90,6 @@ function App() {
           <Route path="/dashboard/invoices" element={<DoctorInvoice />} />
         </Route>
 
-        {/* <Route path="/login" element={<SignInForm />} /> */}
         <Route path="/login" element={<Login />} />
 
         <Route path="/" element={<Home />} />

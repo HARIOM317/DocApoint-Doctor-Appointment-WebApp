@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import SignInImg from "../../images/doc/info.svg";
 import SignUpImg from "../../images/doc/register.svg";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+
+import { FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import "../../stylesheets/Login.css";
+import Lottie from "lottie-react";
+import SignInAnimation from "../../animations/sign-in.json";
+import SignUpAnimation from "../../animations/sign-up.json";
+
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -28,93 +38,22 @@ const Login = () => {
     <>
       <div className="login-form">
         <div
-          className={`login-container ${isSignUp ? "sign-up-mode" : ""} ${isSignUpMobile ? "sign-up-mode2" : ""}`}
+          className={`login-container ${isSignUp ? "sign-up-mode" : ""} ${
+            isSignUpMobile ? "sign-up-mode2" : ""
+          }`}
         >
+          <Link to="/">
+            <span className="pageCloseBtn">
+              <FaTimes />
+            </span>
+          </Link>
+
           <div className="signIn-signUp">
             {/* Sign In Form */}
-
-            <form action="" className="sign-in-form">
-              <h2 className="title">Sign In</h2>
-              <div className="input-field">
-                <i className="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
-              </div>
-
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
-              </div>
-
-              <input type="submit" value="Login" className="btn" />
-
-              <p className="social-text">Or Sign in with social platforms</p>
-
-              <div className="social-media">
-                <a href="" className="social-icon">
-                  <i className="fab fa-facebook"></i>
-                </a>
-                <a href="" className="social-icon">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="" className="social-icon">
-                  <i className="fab fa-google"></i>
-                </a>
-                <a href="" className="social-icon">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-              </div>
-
-              <p className="account-text">
-                Don't have an account?{" "}
-                <a href="" id="sign-up-btn2" onClick={handleSignUpMobileClick}>
-                  Sign Up
-                </a>
-              </p>
-            </form>
+            <SignIn handleSignUpMobileClick={handleSignUpMobileClick} />
 
             {/* Sign Up Form */}
-            <form action="" className="sign-up-form">
-              <h2 className="title">Sign Up</h2>
-              <div className="input-field">
-                <i className="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
-              </div>
-
-              <div className="input-field">
-                <i className="fas fa-envelope"></i>
-                <input type="text" placeholder="Email" />
-              </div>
-
-              <div className="input-field">
-                <i className="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
-              </div>
-
-              <input type="submit" value="Sign Up" className="btn" />
-
-              <p className="social-text">Or Sign in with social platforms</p>
-
-              <div className="social-media">
-                <a href="" className="social-icon">
-                  <i className="fab fa-facebook"></i>
-                </a>
-                <a href="" className="social-icon">
-                  <i className="fab fa-twitter"></i>
-                </a>
-                <a href="" className="social-icon">
-                  <i className="fab fa-google"></i>
-                </a>
-                <a href="" className="social-icon">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-              </div>
-              <p className="account-text">
-                Already have an account?{" "}
-                <a href="" id="sign-in-btn2" onClick={handleSignInMobileClick}>
-                  Sign In
-                </a>
-              </p>
-            </form>
+            <SignUp handleSignInMobileClick={handleSignInMobileClick} />
           </div>
 
           <div className="panels-container">
@@ -126,7 +65,7 @@ const Login = () => {
                   Laborum ratione placeat voluptas non incidunt debitis!
                 </p>
                 <button
-                  className="btn"
+                  className="btn-light"
                   id="sign-in-btn"
                   onClick={handleSignInClick}
                 >
@@ -134,7 +73,11 @@ const Login = () => {
                 </button>
               </div>
 
-              <img src={SignInImg} alt="" className="image" />
+              <Lottie
+                loop={true}
+                animationData={SignUpAnimation}
+                className="image"
+              />
             </div>
 
             <div className="panel right-panel">
@@ -145,7 +88,7 @@ const Login = () => {
                   Laborum ratione placeat voluptas non incidunt debitis!
                 </p>
                 <button
-                  className="btn"
+                  className="btn-light"
                   id="sign-up-btn"
                   onClick={handleSignUpClick}
                 >
@@ -153,7 +96,11 @@ const Login = () => {
                 </button>
               </div>
 
-              <img src={SignUpImg} alt="" className="image" />
+              <Lottie
+                loop={true}
+                animationData={SignInAnimation}
+                className="image"
+              />
             </div>
           </div>
         </div>
