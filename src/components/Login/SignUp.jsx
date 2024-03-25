@@ -174,7 +174,7 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
         </div>
 
         <div className="input-field">
-          <i className="fas fa-envelope"></i>
+          <i className="fas fa-user"></i>
           <input
             placeholder="Last Name"
             name="lastName"
@@ -185,7 +185,7 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
         </div>
 
         <div className="input-field">
-          <i className="fas fa-lock"></i>
+          <i className="fas fa-envelope"></i>
           <input
             placeholder="Email"
             name="email"
@@ -211,6 +211,7 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
         <button
           type="submit"
           className="btn btn-primary btn-block mt-2 btn"
+          style={{ boxShadow: "none" }}
           disabled={
             passwordValidation.carLength &&
             passwordValidation.numeric &&
@@ -221,7 +222,16 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
               : true
           }
         >
-          {loading ? <Spinner animation="border" variant="info" /> : "Sign Up"}
+          {loading ? (
+            <Spinner
+              animation="border"
+              variant="info"
+              role="status"
+              className="spinner-border text-light"
+            />
+          ) : (
+            "Sign Up"
+          )}
         </button>
 
         {/* Password Validation */}
@@ -294,15 +304,18 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
           </div>
         </div>
 
-        {/* <input type="submit" value="Sign Up" className="btn" /> */}
-
-        <p className="social-text">Or Sign up with social platforms</p>
+        <small className="social-text">Or Sign up with social platforms</small>
 
         <SocialSignUp />
 
         <p className="account-text">
           Already have an account?{" "}
-          <a href="" id="sign-in-btn2" onClick={handleSignInMobileClick}>
+          <a
+            href=""
+            id="sign-in-btn2"
+            style={{ color: "var(--primaryColor)" }}
+            onClick={handleSignInMobileClick}
+          >
             Sign In
           </a>
         </p>

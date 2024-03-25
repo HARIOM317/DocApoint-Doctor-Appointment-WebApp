@@ -107,3 +107,85 @@
     content: "";
     background: url("../images/doc/doc4.jpg") no-repeat 50% 50%;
 }
+
+.meet-our-doctor{
+  border-radius: 12px;
+  border: 2px solid var(--borderLight);
+  box-shadow: var(--shadowAll);
+}
+
+.meet-our-doctor img{
+  border-radius: 11px 11px 0 0;
+}
+
+
+
+/* Our Specialist Section */
+.top-specialist {
+  margin: 1.5rem 0;
+}
+
+.top-specialist .top-specialist-card {
+  margin: 2rem auto;
+}
+
+.top-specialist img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin: 1rem;
+  border: 1px solid var(--borderColor);
+}
+
+.top-specialist h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: var(--textColor);
+}
+
+.top-specialist .top-specialist-card p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--textLight);
+}
+
+.top-specialist .top-specialist-card .card-btn {
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--primaryColor);
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 1rem;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 1rem;
+  transition: 0.25s linear;
+}
+
+.top-specialist .top-specialist-card .card-btn:hover {
+  background-color: #bb2d3b;
+}
+
+/* Media Query */
+@media (max-width: 992px) {
+  .appointment .my-btn{
+    width: 50%;
+  }
+
+  .top-specialist .main-heading{
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .appointment .my-btn{
+    width: 80%;
+  }
+
+  .appointment .container{
+    padding: 0 3rem;
+  }
+}

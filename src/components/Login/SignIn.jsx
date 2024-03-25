@@ -73,8 +73,10 @@ const SignIn = ({ handleSignUpMobileClick }) => {
   return showForgotPassword ? (
     <>
       <form className="sign-in-form" onSubmit={onHandleForgotPassword}>
-        <h2 className="title">Forgot Password</h2>
-        <div>To Forgot Your Password Please Enter your email</div>
+        <h2 className="title" style={{ marginBottom: "3rem" }}>
+          Forgot Password
+        </h2>
+        <div style={{color: "var(--textLight)", textAlign: 'center', marginBottom: '0.5rem'}}>To Forgot Your Password Please Enter your email</div>
 
         <div className="input-field">
           <i className="fas fa-user"></i>
@@ -90,14 +92,31 @@ const SignIn = ({ handleSignUpMobileClick }) => {
         <div
           onClick={handleShowForgotPassword}
           className="text-bold"
-          style={{ cursor: "pointer", color: "#4C25F5" }}
+          style={{
+            cursor: "pointer",
+            color: "var(--primaryColor)",
+            width: "100%",
+            textAlign: "end",
+            marginRight: "2.5rem",
+            padding: "0.25rem 0 0.5rem 0.5rem",
+          }}
         >
           Stil Remember Password ?
         </div>
 
-        <button className="btn" type="submit" value="sign In">
+        <button
+          className="btn"
+          type="submit"
+          value="sign In"
+          style={{ marginTop: "2rem", boxShadow: "none" }}
+        >
           {resetIsLoading ? (
-            <Spinner animation="border" variant="info" />
+            <Spinner
+              animation="border"
+              variant="info"
+              role="status"
+              className="spinner-border text-light"
+            />
           ) : (
             "Submit"
           )}
@@ -109,7 +128,7 @@ const SignIn = ({ handleSignUpMobileClick }) => {
       <form className="sign-in-form" onSubmit={handleSubmit(onSubmit)}>
         <h2 className="title">Sign In</h2>
         <div className="input-field">
-          <i className="fas fa-user"></i>
+          <i class="fa-solid fa-envelope"></i>
           <input
             {...register("email", { required: true })}
             placeholder="Enter Your Email"
@@ -117,7 +136,17 @@ const SignIn = ({ handleSignUpMobileClick }) => {
           />
         </div>
         {errors.email && (
-          <span className="text-danger">This field is required</span>
+          <span
+            className="text-danger"
+            style={{
+              width: "100%",
+              textAlign: "start",
+              marginLeft: "3rem",
+              padding: "0.5rem",
+            }}
+          >
+            Email is required
+          </span>
         )}
 
         <div className="input-field">
@@ -129,20 +158,47 @@ const SignIn = ({ handleSignUpMobileClick }) => {
           />
         </div>
         {errors.password && (
-          <span className="text-danger">This field is required</span>
+          <span
+            className="text-danger"
+            style={{
+              width: "100%",
+              textAlign: "start",
+              marginLeft: "3rem",
+              padding: "0.5rem",
+            }}
+          >
+            Password is required
+          </span>
         )}
 
         {infoError && <p className="text-danger">{infoError}</p>}
         <div
           onClick={handleShowForgotPassword}
           className="text-bold"
-          style={{ cursor: "pointer", color: "#4C25F5" }}
+          style={{
+            cursor: "pointer",
+            color: "var(--primaryColor)",
+            width: "100%",
+            textAlign: "end",
+            marginRight: "2.5rem",
+            padding: "0.25rem 0 0.5rem 0.5rem",
+          }}
         >
           Forgot Password ?
         </div>
-        <button className="btn" type="submit" value="sign In">
+        <button
+          className="btn"
+          type="submit"
+          value="sign In"
+          style={{ marginBottom: "3rem", boxShadow: "none" }}
+        >
           {isLoading ? (
-            <Spinner animation="border" variant="info" />
+            <Spinner
+              animation="border"
+              variant="info"
+              role="status"
+              className="spinner-border text-light"
+            />
           ) : (
             "Sign In"
           )}
@@ -154,7 +210,7 @@ const SignIn = ({ handleSignUpMobileClick }) => {
 
         <p className="account-text">
           Don't have an account?{" "}
-          <a href="" id="sign-up-btn2" onClick={handleSignUpMobileClick}>
+          <a href="" id="sign-up-btn2" style={{color: 'var(--primaryColor)'}} onClick={handleSignUpMobileClick}>
             Sign Up
           </a>
         </p>

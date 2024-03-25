@@ -59,10 +59,9 @@ const Login = () => {
           <div className="panels-container">
             <div className="panel left-panel">
               <div className="content">
-                <h3>Member of Brand?</h3>
+                <h3>Already a Member?</h3>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Laborum ratione placeat voluptas non incidunt debitis!
+                 I have already an account
                 </p>
                 <button
                   className="btn-light"
@@ -77,15 +76,15 @@ const Login = () => {
                 loop={true}
                 animationData={SignUpAnimation}
                 className="image"
+                style={{ width: "75%" }}
               />
             </div>
 
             <div className="panel right-panel">
               <div className="content">
-                <h3>New to Brand?</h3>
+                <h3>New Member?</h3>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Laborum ratione placeat voluptas non incidunt debitis!
+                  I don't have an account
                 </p>
                 <button
                   className="btn-light"
@@ -100,6 +99,7 @@ const Login = () => {
                 loop={true}
                 animationData={SignInAnimation}
                 className="image"
+                style={{ width: "90%" }}
               />
             </div>
           </div>
