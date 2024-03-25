@@ -1,23 +1,60 @@
-import React from 'react'
-import SubHeader from './Shared/SubHeader'
-import Footer from './Shared/Footer/Footer'
-import Header from './Shared/Header/Header'
-import img from '../images/features/baby.png'
-import { Link } from 'react-router-dom'
-import doctorBg from '../images/img/doctors-bg.jpg';
+import React from "react";
+import SubHeader from "./Shared/SubHeader";
+import Footer from "./Shared/Footer/Footer";
+import Header from "./Shared/Header/Header";
+import ServicesHeader from "./services/ServicesHeader";
+import ClinicAndSpecialities from "./Home/ClinicAndSpecialities";
+import "../stylesheets/serviceStylesheets/Service.css";
+
+import img1 from "../images/services/icu.jpg";
+import img2 from "../images/services/chamber.jpg";
+import img3 from "../images/services/test_room.jpg";
+import img4 from "../images/services/patient_ward.jpg";
+import img5 from "../images/services/laboratory.jpg";
+
+const ServiceAPI = [
+  {
+    id: 1,
+    img: img1,
+    name: "ICU",
+    about:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+  },
+
+  {
+    id: 2,
+    img: img2,
+    name: "Chamber",
+    about:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+  },
+
+  {
+    id: 3,
+    img: img3,
+    name: "Test Room",
+    about:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+  },
+
+  {
+    id: 4,
+    img: img4,
+    name: "Patient Ward",
+    about:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+  },
+
+  {
+    id: 5,
+    img: img5,
+    name: "Laboratory",
+    about:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+  },
+];
 
 const Service = () => {
-  const weArePleaseStyle = {
-    backgroundColor: "antiquewhite",
-    height: "60vh",
-    background: `url(${doctorBg}) no-repeat`,
-    backgroundPosition: "center center",
-    backgroundSize: "cover",
-    padding: "10px",
-    position: "relative",
-    marginTop: 200,
-    marginBottom: 100,
-  };
   return (
     <>
       <Header />
@@ -26,62 +63,38 @@ const Service = () => {
         subtitle="Lorem ipsum dolor sit amet consectetur adipisicing."
       />
 
-      <div className="container" style={{ marginTop: 200, marginBottom: 100 }}>
-        <div className="row">
-          {Array(6)
-            .fill(null)
-            .map((_item, id) => (
-              <div className="col-lg-4 col-md-6 col-sm-6" key={id + 6}>
-                <div className="card shadow border-0 mb-5">
-                  <img
-                    src={img}
-                    alt=""
-                    className="img-fluid"
-                    style={{ maxHeight: "17rem", objectFit: "cover" }}
-                  />
-                  <div className="p-2">
-                    <h4 className="mt-4 mb-2">Child care</h4>
-                    <p className="mb-4">
-                      Saepe nulla praesentium eaque omnis perferendis a
-                      doloremque.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
+      <ServicesHeader />
 
-      <section style={weArePleaseStyle}>
-        <div
-          className="container"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
-        >
-          <div className="row">
-            <div className="col-lg-7">
-              <div className="d-flex align-items-center">
-                <div className="mb-4 section-title text-center">
-                  <h2 className="text-uppercase">
-                    We are pleased to offer you the
-                  </h2>
-                  <p className="form-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
-                    sed.
-                  </p>
-                  <Link to={"/doctors"} className="btn-get-started scrollto">
-                    Get Started
-                  </Link>
+      <ClinicAndSpecialities />
+
+      <div
+        className="container services"
+        style={{ marginTop: 100, marginBottom: 50 }}
+      >
+        <div className="section-title text-center">
+          <h2 className="text-uppercase">Our Services</h2>
+          <p className="form-text m-0">Lorem ipsum dolor sit amet.</p>
+        </div>
+
+        <div className="row" style={{ marginTop: 50 }}>
+          {ServiceAPI.map((item) => (
+            <div className="col-lg-4 col-md-6 col-sm-6" key={item.id}>
+              <div className="card mb-5 service-card">
+                <img
+                  src={item.img}
+                  alt="Service"
+                  className="img-fluid"
+                  style={{ maxHeight: "17rem", objectFit: "cover" }}
+                />
+                <div className="p-2">
+                  <h4 className="mt-4 mb-2">{item.name}</h4>
+                  <p className="mb-4">{item.about}</p>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
 
       <Footer />
     </>

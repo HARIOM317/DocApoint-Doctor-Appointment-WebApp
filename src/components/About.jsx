@@ -2,13 +2,9 @@ import React from "react";
 import "../stylesheets/About.css";
 import Header from "./Shared/Header/Header";
 import Footer from "./Shared/Footer/Footer";
-import ImageHeading from "../images/doc/doctor 5.jpg";
-import img from "../images/logo.png";
 import SubHeader from "./Shared/SubHeader";
 import { useGetAllBlogsQuery } from "../redux/api/blogApi";
-import { Empty, message } from "antd";
-import { Link } from "react-router-dom";
-import { truncate } from "../utils/truncate";
+import { Empty } from "antd";
 import { useGetDoctorsQuery } from "../redux/api/doctorApi";
 import AboutUs from "./about/AboutUs";
 import Achievements from "./about/Achievements";
@@ -63,35 +59,11 @@ const About = () => {
                     >
                       {"View Details »"}
                     </NavLink>
-
-                    {/* <button className="card-btn">{"View Details »"}</button> */}
                   </div>
                 ))}
             </div>
           </div>
         </div>
-
-        {/* {doctors &&
-          doctors.map((item, id) => (
-            <div className="col-lg-3 col-md-4 col-sm-6" key={id + item.id}>
-              <div className="meet-our-doctor mb-5 mb-lg-0">
-                <img
-                  src={item.img == null ? doctorProfile : item.img}
-                  class="img-fluid w-100"
-                  alt=""
-                />
-                <div className="p-2">
-                  <h4
-                    className="mt-4 mb-0"
-                    style={{ color: "var(--textColor)", textAlign: "center" }}
-                  >
-                    <a>{item?.firstName + " " + item?.lastName}</a>
-                  </h4>
-                  <p>{item?.designation}</p>
-                </div>
-              </div>
-            </div>
-          ))} */}
       </>
     );
 
