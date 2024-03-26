@@ -15,9 +15,9 @@ const AdminSidebar = () => {
             <div className="sidebar-inner slimscroll">
                 <div id="sidebar-menu" className="sidebar-menu">
                     <ul>
-                        <li className="menu-title">
+                        {/* <li className="menu-title">
                             <span>Main</span>
-                        </li>
+                        </li> */}
                         <li className="active">
                             <Link to={'/admin/dashboard'}>
                                 <FaHome /> <span>Dashboard</span>
@@ -30,11 +30,11 @@ const AdminSidebar = () => {
 
 
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to={'/admin/specialites'}>
                                 <FaPeopleArrows /> <span>Specialities</span>
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to={'/admin/doctors'}>
                                 <FaUserAstronaut /> <span>Doctors</span>
@@ -53,13 +53,13 @@ const AdminSidebar = () => {
                             </Link>
 
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to={'/admin/transaction'}>
                                 <FaBriefcase /><span>Transactions</span>
                             </Link>
 
-                        </li>
-
+                        </li> */}
+{/* 
                         <li className="submenu">
                             <a href="#"><i className="fe fe-document"></i> <span> Reports</span> <span className="menu-arrow"></span></a>
                             <ul style={{ display: "none" }}>
@@ -73,7 +73,7 @@ const AdminSidebar = () => {
                             <Link to={'/admin/profile'}>
                                 <FaRegUser /> <span>Profile</span>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>

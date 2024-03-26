@@ -1,45 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AdminLayout from "./AdminLayout";
 import userImg from "../../images/avatar.jpg";
-import "../../stylesheets/adminStylesheets/Doctors.css";
 
 const Doctors = () => {
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    fetchDoctors();
+  }, []);
+
+  const fetchDoctors = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/v1/doctor/");
+      const data = await response.json();
+      setDoctors(data.data.data);
+    } catch (error) {
+      console.error("Error fetching doctors:", error);
+    }
+  };
+
   return (
-    <>
-      <AdminLayout>
-        <div className="row">
-          <div className="col-md-12">
-            <div className="card card-table flex-fill">
-              <div className="card-header">
-                <h4 className="card-title">Doctors List</h4>
-              </div>
-              <div className="card-body">
-                <div className="table-responsive">
-                  <table className="table table-hover table-center mb-0">
-                    <thead>
-                      <tr>
-                        <th>Doctor Name</th>
-                        <th>Speciality</th>
-                        <th>Earned</th>
-                        <th>Reviews</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
+    <AdminLayout>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="card card-table flex-fill">
+            <div className="card-header">
+              <h4 className="card-title">Doctors List</h4>
+            </div>
+            <div className="card-body">
+              <div className="table-responsive">
+                <table className="table table-hover table-center mb-0">
+                  <thead>
+                    <tr>
+                      <th>Doctor Name</th>
+                      <th>Speciality</th>
+                      <th>Earned</th>
+                      <th>Reviews</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {doctors.map((doctor) => (
+                      <tr key={doctor.id}>
                         <td>
                           <h2 className="table-avatar">
                             <a className="avatar avatar-sm mr-2">
                               <img
                                 className="avatar-img rounded-circle"
-                                src={userImg}
+                                src={doctor.img ? doctor.img : userImg}
                                 alt=""
                               />
                             </a>
-                            <a>Dr. Ruby Perrin</a>
+                            <a>{doctor.firstName} {doctor.lastName}</a>
                           </h2>
                         </td>
-                        <td>Dental</td>
-                        <td>$3200.00</td>
+                        <td>{doctor.specialization}</td>
+                        <td>${doctor.price}</td>
                         <td>
                           <i className="fe fe-star text-warning"></i>
                           <i className="fe fe-star text-warning"></i>
@@ -48,15 +63,16 @@ const Doctors = () => {
                           <i className="fe fe-star-o text-secondary"></i>
                         </td>
                       </tr>
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
-      </AdminLayout>
-    </>
+      </div>
+    </AdminLayout>
   );
 };
+
 export default Doctors;
