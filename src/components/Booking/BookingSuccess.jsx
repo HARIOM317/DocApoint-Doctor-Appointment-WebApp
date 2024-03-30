@@ -21,6 +21,8 @@ const BookingSuccess = () => {
   const { id } = useParams();
   const { data } = useGetSingleAppointmentQuery(id);
 
+  console.log(data?.doctor?.email);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,32 +55,34 @@ const BookingSuccess = () => {
                 className="text-success"
               />
               <h6 className="py-2">Appointment is scheduled</h6>
-              <Tooltip title="Copy Tracking Id">
-                <Button>
-                  <h6>
-                    Tracking
-                    <Tag
-                      color="#87d068"
-                      className="ms-2 text-uppercase"
-                      onClick={() =>
-                        clickToCopyClipBoard(data?.trackingId)
-                      }
-                    >
-                      {data?.trackingId}
-                    </Tag>
-                  </h6>
-                </Button>
-              </Tooltip>
+
               <p className="text-secondary border rounded-pill form-text text-success border-success">
                 Check your Inbox an email with all details!
               </p>
             </div>
 
+
+            <Tooltip title="Copy Tracking Id">
+              <Button>
+                <h6>
+                  Tracking
+                  <Tag
+                    color="#87d068"
+                    className="ms-2 text-uppercase"
+                    onClick={() =>
+                      clickToCopyClipBoard(data?.trackingId)
+                    }
+                  >
+                    {data?.trackingId}
+                  </Tag>
+                </h6>
+              </Button>
+            </Tooltip>
             <div className="card border-0 p-3 rounded mb-5">
-              {/* <div className="d-flex gap-3 mb-1">
+              <div className="d-flex gap-3 mb-1">
                 <FaBriefcase style={{ fontSize: "1rem" }} />
-                <p>With Doctor : </p>
-              </div>  */}
+                <p>With Doctor : Dr. {data?.doctor?.firstName + " " + data?.doctor?.lastName}</p>
+              </div>
               <div className="d-flex gap-3 mb-1">
                 <div>
                   <FaLocationArrow style={{ fontSize: "1rem" }} />
