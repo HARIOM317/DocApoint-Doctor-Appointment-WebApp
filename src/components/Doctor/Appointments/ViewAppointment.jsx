@@ -88,10 +88,10 @@ const ViewAppointment = () => {
               <p className="mb-1">
                 Place of Meeting :{" "}
                 <Tag bordered={false} color="#f50">
-                  ONLINE
+                Sagar MultiSpeciality Hospital, Bhopal, In
                 </Tag>
               </p>
-              <p className="mb-1">
+              {/* <p className="mb-1">
                 Meeting Link :{" "}
                 <a
                   href="https://meet.google.com/udx-kieq-sng"
@@ -100,7 +100,7 @@ const ViewAppointment = () => {
                 >
                   https://meet.google.com/udx-kieq-sng
                 </a>
-              </p>
+              </p> */}
               <p className="mb-1">
                 Meeting Date :{" "}
                 <Tag bordered={false} color="orange">
