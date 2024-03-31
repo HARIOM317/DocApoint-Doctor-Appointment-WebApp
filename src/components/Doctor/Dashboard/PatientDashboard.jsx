@@ -15,15 +15,12 @@ import { clickToCopyClipBoard } from "../../../utils/copyClipBoard";
 
 const PatientDashboard = () => {
   const { data, isLoading: pIsLoading } = useGetPatientAppointmentsQuery();
-  // console.log({data});
 
   const { data: prescriptionData, prescriptionIsLoading } =
     useGetPatientPrescriptionQuery();
-    console.log({data});
 
   const { data: invoices, isLoading: InvoicesIsLoading } =
     useGetPatientInvoicesQuery();
-    // console.log({data?.appointment});
 
 
   const InvoiceColumns = [
@@ -32,7 +29,6 @@ const PatientDashboard = () => {
       key: 1,
       width: 180,
       render: function (data) {
-      console.log({data});
         return (
           <div className="avatar avatar-sm mr-2 d-flex gap-2">
             <div>
