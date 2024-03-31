@@ -5,6 +5,7 @@ import StarRatings from 'react-star-ratings';
 import { Tag } from 'antd';
 import "../../../stylesheets/doctorStylesheets/SearchDoctor.css";
 import { FaLocationArrow, FaRegThumbsUp, FaDollarSign, FaComment } from "react-icons/fa";
+import doctorProfile from "../../../images/home/doctorProfile.jpg";
 
 const SearchContent = ({ data }) => {
   const services = data?.services?.split(",");
@@ -13,7 +14,11 @@ const SearchContent = ({ data }) => {
       <div className="d-flex p-3 justify-content-between">
         <div className="d-flex gap-3">
           <div className="doc-img-fluid d-flex align-items-center">
-            {data?.img && <img src={data?.img} className="" alt="User Image" />}
+            <img
+              src={data.img == null ? doctorProfile : data?.img}
+              className=""
+              alt="Doctor Image"
+            />
           </div>
           <div className="doc-info">
             <h5 className="mb-0">
@@ -23,7 +28,6 @@ const SearchContent = ({ data }) => {
             </h5>
             <p className="m-0 form-text">{data?.designation}</p>
             <p className="doc-department m-0">
-              <img src={showImg} className="img-fluid" alt="Speciality" />
               {data?.specialization}
             </p>
 
@@ -43,7 +47,8 @@ const SearchContent = ({ data }) => {
 
             <div className="clinic-details">
               <p className="form-text text-secondary">
-                <FaLocationArrow /> {data?.city} {data?.city ? ", " : ""} {data?.country}
+                <FaLocationArrow /> {data?.city} {data?.city ? ", " : ""}{" "}
+                {data?.country}
               </p>
               <ul className="clinic-gallery mt-3">
                 <li>
@@ -91,7 +96,8 @@ const SearchContent = ({ data }) => {
                 <FaComment /> 4 Feedback
               </li>
               <li>
-                <FaLocationArrow /> {data?.city} {data?.city ? ", " : "Bhopal , In"} {data?.country}
+                <FaLocationArrow /> {data?.city}{" "}
+                {data?.city ? ", " : "Bhopal , In"} {data?.country}
               </li>
               <li>
                 <FaDollarSign /> {data?.price ? data?.price : "50"}

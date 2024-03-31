@@ -42,7 +42,7 @@ const SearchSidebar = ({
     setSearchTerm(value);
   };
   return (
-    <div className="col-md-12 col-lg-4 col-xl-3">
+    <div className="col-md-12 col-lg-4 col-xl-3 search-sidebar">
       <div className="p-3 rounded" style={{ background: "#f3f3f3" }}>
         <h5 className="text-center mb-3" style={{ color: "#05335c" }}>
           Doctor Filter
@@ -53,6 +53,7 @@ const SearchSidebar = ({
             onSearch={onSearch}
             enterButton
             allowClear
+            className="search-bar"
           />
         </div>
 
@@ -90,7 +91,7 @@ const SearchSidebar = ({
         <Button
           className="w-100 mt-4 mb-2"
           type="primary"
-          style={{ backgroundColor: "#1977cc" }}
+          style={{ backgroundColor: "#ec1839" }}
           shape="round"
           icon={<FaSearch />}
           size="sm"
@@ -100,7 +101,7 @@ const SearchSidebar = ({
         {Object.keys(query).length > 4 && (
           <Button
             className="w-100 mt-4 mb-2"
-            style={{ backgroundColor: "#1977cc" }}
+            style={{ backgroundColor: "#ec1839" }}
             onClick={resetFilter}
             type="primary"
             shape="round"

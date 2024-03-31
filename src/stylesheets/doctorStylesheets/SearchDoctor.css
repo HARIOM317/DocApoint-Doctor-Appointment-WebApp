@@ -10,3 +10,14 @@
 .doc-info a{
     color: var(--primaryColor) !important;
 }
+
+.search-sidebar{
+    padding: 10px;
+    border: 1.5px solid var(--borderColor);
+    border-radius: 12px;
+    background: var(--bgColor);
+}
+/* 
+.search-sidebar .search-bar{
+    background: ;
+} */

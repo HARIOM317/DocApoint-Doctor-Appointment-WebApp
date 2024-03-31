@@ -31,7 +31,7 @@
   bottom: 0;
   border: 1px solid var(--borderColor);
   border-radius: 7% 0px 25% 0px;
-  background: linear-gradient(97.05deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(97.05deg, rgba(56, 4, 12, 0.2), rgba(56, 4, 12, 0.1) 100%);
 }
 
 .service-img .img-wrapper2 {
@@ -48,7 +48,7 @@
   bottom: 0;
   border-radius: 0px 25% 0px 7%;
   border: 1px solid var(--borderColor);
-  background: linear-gradient(97.05deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(97.05deg, rgba(56, 4, 12, 0.2), rgba(56, 4, 12, 0.1) 100%);
 }
 
 .service-img .img-wrapper3 {
@@ -63,6 +63,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(97.05deg, rgba(0, 0, 0, 0.1) 1.76%, rgba(0, 0, 0, 0.2) 100%);
+  background: linear-gradient(97.05deg, rgba(56, 4, 12, 0.1) 1.76%, rgba(56, 4, 12, 0.2) 100%);
   border-radius: 0px 10px 10px 0px;
 }
