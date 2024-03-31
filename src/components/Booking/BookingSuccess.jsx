@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 
-
 import moment from "moment";
 import { Button, Empty, message, Tag, Tooltip } from "antd";
 import Header from "../Shared/Header/Header";
@@ -61,7 +60,6 @@ const BookingSuccess = () => {
               </p>
             </div>
 
-
             <Tooltip title="Copy Tracking Id">
               <Button>
                 <h6>
@@ -69,9 +67,7 @@ const BookingSuccess = () => {
                   <Tag
                     color="#87d068"
                     className="ms-2 text-uppercase"
-                    onClick={() =>
-                      clickToCopyClipBoard(data?.trackingId)
-                    }
+                    onClick={() => clickToCopyClipBoard(data?.trackingId)}
                   >
                     {data?.trackingId}
                   </Tag>
@@ -81,25 +77,19 @@ const BookingSuccess = () => {
             <div className="card border-0 p-3 rounded mb-5">
               <div className="d-flex gap-3 mb-1">
                 <FaBriefcase style={{ fontSize: "1rem" }} />
-                <p>With Doctor : Dr. {data?.doctor?.firstName + " " + data?.doctor?.lastName}</p>
+                <p>
+                  With Doctor : Dr.{" "}
+                  {data?.doctor?.firstName + " " + data?.doctor?.lastName}
+                </p>
               </div>
               <div className="d-flex gap-3 mb-1">
                 <div>
                   <FaLocationArrow style={{ fontSize: "1rem" }} />
                 </div>
                 <p className="text-start">
-<<<<<<< HEAD
-                  Bhopal, MP, India
+                  Care Multi-Specialties Hospital
                   <br />
-                  <span className="form-text">
-                    102030, MP Nagar, Bhopal
-=======
-                  Sagar MultiSpeciality Hospital
-                  <br />
-                  <span className="form-text">
-                    Bhopal, In
->>>>>>> b97b10a55140ca4e08d24375e799632c0b267834
-                  </span>
+                  <span className="form-text">102030, MP Nagar, Bhopal, India</span>
                 </p>
               </div>
               <div className="d-flex gap-3">
@@ -110,8 +100,8 @@ const BookingSuccess = () => {
                   {data.scheduleDate &&
                     data.scheduleTime &&
                     moment(data.scheduleDate).format("LL") +
-                    " " +
-                    data.scheduleTime}
+                      " " +
+                      data.scheduleTime}
                 </p>
               </div>
               <div className="d-flex gap-3 mb-1">
@@ -133,7 +123,6 @@ const BookingSuccess = () => {
                   </a>
                 </div>
               </div> */}
-
             </div>
           </div>
         ) : (
