@@ -47,10 +47,10 @@ const SelectApppointment = ({
               <div className="d-flex gap-3">
                 <FaLocationArrow className="icon" />
                 <p>
-                  Sylhet, Bangladesh
+                  Bhopal, MP, India
                   <br />
                   <span className="form-text">
-                    1020BD, Amertam, NorthEast,Srimongol
+                    102030, MP Nagar, Bhopal
                   </span>
                 </p>
               </div>

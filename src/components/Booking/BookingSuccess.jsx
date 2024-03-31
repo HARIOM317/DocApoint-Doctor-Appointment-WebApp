@@ -70,10 +70,10 @@ const BookingSuccess = () => {
                   <FaLocationArrow style={{ fontSize: "1rem" }} />
                 </div>
                 <p className="text-start">
-                  Sylhet, Bangladesh
+                  Bhopal, MP, India
                   <br />
                   <span className="form-text">
-                    1020BD, Amertam, NorthEast,Srimongol
+                    102030, MP Nagar, Bhopal
                   </span>
                 </p>
               </div>
