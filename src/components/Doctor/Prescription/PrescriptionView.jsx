@@ -15,6 +15,7 @@ const PrescriptionView = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetPrescriptionQuery(id);
 
+  console.log(data?.patient?.state);
   const columns = [
     {
       title: "Medicine",
@@ -83,10 +84,10 @@ const PrescriptionView = () => {
                         Dr.
                         {data?.doctor?.firstName + " " + data?.doctor?.lastName}
                       </h3>
-                      <p>{data?.doctor?.designation} ,</p>
+                      <p>{data?.doctor?.specialization}{data?.doctor?.specialization ? ", " : ""}</p>
                       <p>{data?.doctor?.college}</p>
                       <span className="form-text">
-                        {data?.doctor?.address}, {data?.doctor?.state},{" "}
+                        {data?.doctor?.address}{data?.doctor?.address ? ", " : ""}{data?.doctor?.state}{data?.doctor?.state ? ", " : ""}
                         {data?.doctor?.country}
                       </span>
                     </div>
@@ -106,16 +107,12 @@ const PrescriptionView = () => {
                               " " +
                               data?.appointment?.lastName}
                           </h5>
-                          <p className="form-text">
-                            Address: {data?.appointment?.address}
-                          </p>
-
-                          {/* <p className="form-text">Address: {data?.patient?.address}, {data?.patient?.city}, {data?.patient?.country}</p> */}
+                          <p className="form-text">Address: {data?.patient?.address + ", " + data?.patient?.city +", "+data?.patient?.state + ", "+data?.patient?.country}</p>
                         </div>
                         <div>
-                          <p>Sex : {data?.patient?.gender}</p>
+                          <p><b>Gender :</b> {data?.patient?.gender}</p>
                           <p>
-                            Age :{" "}
+                            <b>Age :</b>{" "}
                             {moment().diff(data?.patient?.dateOfBirth, "years")}
                           </p>
                           {/* <p>Weight : {data?.patient?.weight}</p> */}
