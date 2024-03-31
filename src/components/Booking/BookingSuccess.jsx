@@ -10,14 +10,18 @@ import {
 } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 import moment from "moment";
-import { Empty } from "antd";
+import { Button, Empty, message, Tag, Tooltip } from "antd";
 import Header from "../Shared/Header/Header";
 import { useGetSingleAppointmentQuery } from "../../redux/api/appointmentApi";
+import { clickToCopyClipBoard } from "../../utils/copyClipBoard";
 
 const BookingSuccess = () => {
   const { id } = useParams();
   const { data } = useGetSingleAppointmentQuery(id);
+
+  console.log(data?.doctor?.email);
 
   const navigate = useNavigate();
 
@@ -50,34 +54,72 @@ const BookingSuccess = () => {
                 style={{ fontSize: "2.5rem" }}
                 className="text-success"
               />
-              <h6 className="py-2">Meeting is scheduled</h6>
+              <h6 className="py-2">Appointment is scheduled</h6>
+
               <p className="text-secondary border rounded-pill form-text text-success border-success">
                 Check your Inbox an email with all details!
               </p>
             </div>
 
+
+            <Tooltip title="Copy Tracking Id">
+              <Button>
+                <h6>
+                  Tracking
+                  <Tag
+                    color="#87d068"
+                    className="ms-2 text-uppercase"
+                    onClick={() =>
+                      clickToCopyClipBoard(data?.trackingId)
+                    }
+                  >
+                    {data?.trackingId}
+                  </Tag>
+                </h6>
+              </Button>
+            </Tooltip>
             <div className="card border-0 p-3 rounded mb-5">
               <div className="d-flex gap-3 mb-1">
                 <FaBriefcase style={{ fontSize: "1rem" }} />
-                <p>With Doctor</p>
-              </div>
-              <div className="d-flex gap-3 mb-1">
-                <FaRegClock style={{ fontSize: "1rem" }} />
-                <p>30 Min</p>
+                <p>With Doctor : Dr. {data?.doctor?.firstName + " " + data?.doctor?.lastName}</p>
               </div>
               <div className="d-flex gap-3 mb-1">
                 <div>
                   <FaLocationArrow style={{ fontSize: "1rem" }} />
                 </div>
                 <p className="text-start">
+<<<<<<< HEAD
                   Bhopal, MP, India
                   <br />
                   <span className="form-text">
                     102030, MP Nagar, Bhopal
+=======
+                  Sagar MultiSpeciality Hospital
+                  <br />
+                  <span className="form-text">
+                    Bhopal, In
+>>>>>>> b97b10a55140ca4e08d24375e799632c0b267834
                   </span>
                 </p>
               </div>
-              <div className="d-flex gap-3 mb-2">
+              <div className="d-flex gap-3">
+                <div>
+                  <FaCalendarAlt style={{ fontSize: "1rem" }} />{" "}
+                </div>
+                <p>
+                  {data.scheduleDate &&
+                    data.scheduleTime &&
+                    moment(data.scheduleDate).format("LL") +
+                    " " +
+                    data.scheduleTime}
+                </p>
+              </div>
+              <div className="d-flex gap-3 mb-1">
+                <FaRegClock style={{ fontSize: "1rem" }} />
+                <p>30 Min</p>
+              </div>
+
+              {/* <div className="d-flex gap-3 mb-2">
                 <div>
                   <FaLink style={{ fontSize: "1rem" }} />
                 </div>
@@ -90,19 +132,8 @@ const BookingSuccess = () => {
                     https://meet.google.com/udx-kieq-sng
                   </a>
                 </div>
-              </div>
-              <div className="d-flex gap-3">
-                <div>
-                  <FaCalendarAlt style={{ fontSize: "1rem" }} />{" "}
-                </div>
-                <p>
-                  {data.scheduleDate &&
-                    data.scheduleTime &&
-                    moment(data.scheduleDate).format("LL") +
-                      " " +
-                      data.scheduleTime}
-                </p>
-              </div>
+              </div> */}
+
             </div>
           </div>
         ) : (

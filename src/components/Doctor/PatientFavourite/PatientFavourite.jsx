@@ -43,7 +43,7 @@ const PatientFavouriteDoctor = () => {
             >
               <div className="rounded position-relative">
                 <div className="fav-img my-3 d-flex justify-content-center">
-                  <img alt="" src={img} />
+                  <img alt="" src={item?.doctor?.img ? item?.doctor?.img : img} />
                 </div>
                 <div
                   style={{ cursor: "pointer" }}
@@ -63,8 +63,11 @@ const PatientFavouriteDoctor = () => {
                     </Link>
                     <FaCheckCircle className="verified text-success" />
                   </h5>
-                  <p className="form-text">
+                  {/* <p className="form-text">
                     MBBS, MD - General Medicine, DNB - Cardiology
+                  </p> */}
+                  <p className="form-text">
+                    {item?.doctor?.degree} {item?.doctor?.degree? "," :""} {item?.doctor?.college} {item?.doctor?.degree? " - General Medicine - " :"General Medicine"}{item?.doctor?.specialization}
                   </p>
                   <div className="w-100 d-flex align-items-center">
                     <StarRatings
@@ -82,13 +85,13 @@ const PatientFavouriteDoctor = () => {
                   </div>
                   <ul className="available-info">
                     <li>
-                      <FaLocationArrow className="icon" /> Georgia, USA
+                      <FaLocationArrow className="icon" /> {item?.doctor?.city}, {item?.doctor?.country}
                     </li>
-                    <li>
+                    {/* <li>
                       <FaClock className="icon" /> Available on Fri, 22 Mar
-                    </li>
+                    </li> */}
                     <li>
-                      <FaDollarSign className="icon" /> $100 - $400
+                      <FaDollarSign className="icon" /> {item?.doctor?.price}
                     </li>
                   </ul>
                   <div className="d-flex justify-content-between mb-3 mt-2">

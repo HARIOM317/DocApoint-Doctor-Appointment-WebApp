@@ -24,7 +24,7 @@ const SearchContent = ({ data }) => {
             <p className="m-0 form-text">{data?.designation}</p>
             <p className="doc-department m-0">
               <img src={showImg} className="img-fluid" alt="Speciality" />
-              Urology
+              {data?.specialization}
             </p>
 
             <div className="d-flex align-items-center">
@@ -43,7 +43,7 @@ const SearchContent = ({ data }) => {
 
             <div className="clinic-details">
               <p className="form-text text-secondary">
-                <FaLocationArrow /> {data?.address}, {data?.country}
+                <FaLocationArrow /> {data?.city} {data?.city ? ", " : ""} {data?.country}
               </p>
               <ul className="clinic-gallery mt-3">
                 <li>
@@ -91,10 +91,10 @@ const SearchContent = ({ data }) => {
                 <FaComment /> 4 Feedback
               </li>
               <li>
-                <FaLocationArrow /> Newyork, USA
+                <FaLocationArrow /> {data?.city} {data?.city ? ", " : "Bhopal , In"} {data?.country}
               </li>
               <li>
-                <FaDollarSign /> $150 - $250
+                <FaDollarSign /> {data?.price ? data?.price : "50"}
               </li>
             </ul>
           </div>
