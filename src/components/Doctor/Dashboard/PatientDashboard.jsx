@@ -15,21 +15,24 @@ import { clickToCopyClipBoard } from "../../../utils/copyClipBoard";
 
 const PatientDashboard = () => {
   const { data, isLoading: pIsLoading } = useGetPatientAppointmentsQuery();
+
   const { data: prescriptionData, prescriptionIsLoading } =
     useGetPatientPrescriptionQuery();
+
   const { data: invoices, isLoading: InvoicesIsLoading } =
     useGetPatientInvoicesQuery();
+
 
   const InvoiceColumns = [
     {
       title: "Doctor",
       key: 1,
-      width: 150,
+      width: 180,
       render: function (data) {
         return (
           <div className="avatar avatar-sm mr-2 d-flex gap-2">
             <div>
-              <img className="avatar-img rounded-circle" src={img} alt="" />
+              <img className="avatar-img rounded-circle" src={data?.appointment?.doctor?.img ? data?.appointment?.doctor?.img : img} alt="" />
             </div>
             <div>
               <h6 className="text-nowrap mb-0">
@@ -38,7 +41,7 @@ const PatientDashboard = () => {
                   data?.appointment?.doctor?.lastName}
               </h6>
               <p className="form-text">
-                {data?.appointment?.doctor?.designation}
+                {data?.appointment?.doctor?.specialization}
               </p>
             </div>
           </div>
@@ -90,19 +93,19 @@ const PatientDashboard = () => {
     {
       title: "App Doctor",
       key: 11,
-      width: 150,
+      width: 180,
       render: function (data) {
         return (
           <>
             <div className="avatar avatar-sm mr-2 d-flex gap-2">
               <div>
-                <img className="avatar-img rounded-circle" src={img} alt="" />
+                <img className="avatar-img rounded-circle" src={data?.doctor?.img ? data?.doctor?.img : img} alt="" />
               </div>
               <div>
                 <h6 className="text-nowrap mb-0">
                   {data?.doctor?.firstName + " " + data?.doctor?.lastName}
                 </h6>
-                <p className="form-text">{data?.doctor?.designation}</p>
+                <p className="form-text">{data?.doctor?.specialization}</p>
               </div>
             </div>
           </>
@@ -187,13 +190,13 @@ const PatientDashboard = () => {
               </Button>
             </Link>
             {/* <Link to={`/dashboard/appointment/treatment/edit/${data.id}`}>
-                            <Button type='primary' size='small' className="bg-primary" style={{ margin: "5px 5px" }}>
-                                <FaEdit />
-                            </Button>
-                        </Link> */}
+              <Button type='primary' size='small' className="bg-primary" style={{ margin: "5px 5px" }}>
+                <FaEdit />
+              </Button>
+            </Link> */}
             {/* <Button onClick={() => deleteHandler(data.id)} size='small' type='primary' style={{ margin: "5px 5px" }} danger>
-                            <FaRegTimesCircle />
-                        </Button> */}
+              <FaRegTimesCircle />
+            </Button> */}
           </div>
         );
       },

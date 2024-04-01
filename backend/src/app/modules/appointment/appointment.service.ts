@@ -297,7 +297,9 @@ const getPatientPaymentInfo = async (user: any): Promise<Payment[]> => {
                         select: {
                             firstName: true,
                             lastName: true,
-                            designation: true
+                            designation: true,
+                            img: true,
+                            specialization : true,
                         }
                     }
                 }

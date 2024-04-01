@@ -189,7 +189,9 @@ const getPatientPrescriptionById = async (user: any): Promise<Prescription[] | n
                 select: {
                     firstName: true,
                     lastName: true,
-                    designation: true
+                    designation: true,
+                    specialization: true,
+                    img: true
                 }
             },
             appointment: {
