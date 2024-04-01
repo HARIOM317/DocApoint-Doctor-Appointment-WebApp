@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import showImg from '../../../images/specialities/specialities-01.png'
 import StarRatings from 'react-star-ratings';
 import { Tag } from 'antd';
 import "../../../stylesheets/doctorStylesheets/SearchDoctor.css";
-import { FaLocationArrow, FaRegThumbsUp, FaDollarSign, FaComment } from "react-icons/fa";
+import { FaLocationArrow, FaRegThumbsUp, FaRupeeSign, FaComment } from "react-icons/fa";
 import doctorProfile from "../../../images/home/doctorProfile.jpg";
 
 const SearchContent = ({ data }) => {
   const services = data?.services?.split(",");
   return (
-    <div className="mb-4 rounded" style={{ background: "#f3f3f3" }}>
+    <div className="mb-4 rounded">
       <div className="d-flex p-3 justify-content-between">
         <div className="d-flex gap-3">
           <div className="doc-img-fluid d-flex align-items-center">
@@ -26,15 +25,13 @@ const SearchContent = ({ data }) => {
                 Dr. {data?.firstName + " " + data?.lastName}
               </Link>
             </h5>
-            <p className="m-0 form-text">{data?.designation}</p>
-            <p className="doc-department m-0">
-              {data?.specialization}
-            </p>
+            <p style={{ color: "var(--textLight)" }}>{data?.designation}</p>
+            <p style={{ color: "var(--textLight)" }}>{data?.specialization}</p>
 
             <div className="d-flex align-items-center">
               <div>
                 <StarRatings
-                  rating={5}
+                  rating={4.5}
                   starRatedColor="#f4c150"
                   numberOfStars={5}
                   name="rating"
@@ -47,39 +44,9 @@ const SearchContent = ({ data }) => {
 
             <div className="clinic-details">
               <p className="form-text text-secondary">
-                <FaLocationArrow /> {data?.city} {data?.city ? ", " : ""}{" "}
-                {data?.country}
+                <FaLocationArrow /> {data?.city}{" "}
+                {data?.city ? ", " : "Bhopal , In"} {data?.country}
               </p>
-              <ul className="clinic-gallery mt-3">
-                <li>
-                  <img
-                    src={showImg}
-                    alt="Feature"
-                    style={{ maxWidth: "30px" }}
-                  />
-                </li>
-                <li>
-                  <img
-                    src={showImg}
-                    alt="Feature"
-                    style={{ maxWidth: "30px" }}
-                  />
-                </li>
-                <li>
-                  <img
-                    src={showImg}
-                    alt="Feature"
-                    style={{ maxWidth: "30px" }}
-                  />
-                </li>
-                <li>
-                  <img
-                    src={showImg}
-                    alt="Feature"
-                    style={{ maxWidth: "30px" }}
-                  />
-                </li>
-              </ul>
             </div>
             {services?.map((item, id) => (
               <Tag key={id + 51}>{item}</Tag>
@@ -95,12 +62,9 @@ const SearchContent = ({ data }) => {
               <li>
                 <FaComment /> 4 Feedback
               </li>
+
               <li>
-                <FaLocationArrow /> {data?.city}{" "}
-                {data?.city ? ", " : "Bhopal , In"} {data?.country}
-              </li>
-              <li>
-                <FaDollarSign /> {data?.price ? data?.price : "50"}
+                <FaRupeeSign /> {data?.price ? data?.price : "50"}
               </li>
             </ul>
           </div>

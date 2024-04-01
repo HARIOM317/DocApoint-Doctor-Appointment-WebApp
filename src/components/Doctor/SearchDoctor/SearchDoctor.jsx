@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import Footer from '../../Shared/Footer/Footer';
-import SearchSidebar from './SearchSidebar';
-import SearchContent from './SearchContent';
-import { useDebounced } from '../../../utils/hooks/useDebounced';
-import { useGetDoctorsQuery } from '../../../redux/api/doctorApi';
-import { Empty } from 'antd';
-import { Pagination } from 'antd';
-import Header from '../../Shared/Header/Header';
-import SubHeader from '../../Shared/SubHeader';
+import React, { useState } from "react";
+import Footer from "../../Shared/Footer/Footer";
+import SearchContent from "./SearchContent";
+import { useDebounced } from "../../../utils/hooks/useDebounced";
+import { useGetDoctorsQuery } from "../../../redux/api/doctorApi";
+import { Empty } from "antd";
+import { Pagination, Select, Button, Slider } from "antd";
+import Header from "../../Shared/Header/Header";
+import SubHeader from "../../Shared/SubHeader";
+import Search from "antd/es/input/Search";
+import { FaSearch, FaRedoAlt } from "react-icons/fa";
 
 const SearchDoctor = () => {
   const query = {};
@@ -16,7 +17,9 @@ const SearchDoctor = () => {
   const [sortBy, setSortBy] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [gender, setGender] = useState("Gender");
   const [sortByGender, setSorByGender] = useState("");
+  const [specialization, setSpecialization] = useState("Specialization");
   const [specialist, setSpecialist] = useState("");
   const [priceRange, setPriceRange] = useState({});
 
@@ -46,6 +49,9 @@ const SearchDoctor = () => {
     setSorByGender("");
     setSpecialist("");
     setPriceRange({});
+
+    setGender("Gender");
+    setSpecialization("Specialization");
   };
 
   if (!!debounced) {
@@ -81,22 +87,140 @@ const SearchDoctor = () => {
     setSize(pageSize);
   };
 
+  const onSearch = (value) => {
+    setSearchTerm(value);
+  };
+
+  const onSelectGender = (value) => {
+    setGender(value);
+    setSorByGender(value);
+  };
+
+  const onSelectSpecialization = (value) => {
+    setSpecialization(value);
+    setSpecialist(value);
+  };
+
+  const onRangeChange = (range) => {
+    const obj = {
+      min: range[0],
+      max: range[1],
+    };
+    setPriceRange(obj);
+  };
+
   return (
     <div>
       <Header />
       <SubHeader title="Doctors" subtitle="Lorem ipsum dolor sit amet." />
+
       <div className="container" style={{ marginBottom: 200, marginTop: 80 }}>
+        <div className="filter-bar">
+          <div className="filter-group">
+            <Select
+              value={gender}
+              style={{
+                width: 120,
+              }}
+              onChange={onSelectGender}
+              options={[
+                {
+                  value: "male",
+                  label: "Male",
+                },
+                {
+                  value: "female",
+                  label: "Female",
+                },
+                {
+                  value: "other",
+                  label: "Other",
+                },
+              ]}
+            />
+
+            <Select
+              value={specialization}
+              style={{
+                width: 200,
+              }}
+              onChange={onSelectSpecialization}
+              options={[
+                {
+                  value: "Cardiologist",
+                  label: "Cardiologist",
+                },
+                {
+                  value: "Dermatologist",
+                  label: "Dermatologist",
+                },
+                {
+                  value: "Orthopedic Surgeon",
+                  label: "Orthopedic Surgeon",
+                },
+                {
+                  value: "Gynecologist",
+                  label: "Gynecologist",
+                },
+                {
+                  value: "Neurologist",
+                  label: "Neurologist",
+                },
+                {
+                  value: "Ophthalmologist",
+                  label: "Ophthalmologist",
+                },
+                {
+                  value: "Pediatrician",
+                  label: "Pediatrician",
+                },
+                {
+                  value: "Endocrinologist",
+                  label: "Endocrinologist",
+                },
+                {
+                  value: "Gastroenterologist",
+                  label: "Gastroenterologist",
+                },
+                {
+                  value: "Pulmonologist",
+                  label: "Pulmonologist",
+                },
+                {
+                  value: "Orthopedic",
+                  label: "Orthopedic",
+                },
+              ]}
+            />
+          </div>
+
+          <div className="filter-group">
+            <Search
+              placeholder="Search"
+              onSearch={onSearch}
+              enterButton
+              allowClear
+              className="search-bar"
+            />
+
+            {Object.keys(query).length > 4 && (
+              <Button
+                style={{ backgroundColor: "#ec1839" }}
+                onClick={resetFilter}
+                type="primary"
+                shape="round"
+                icon={<FaRedoAlt />}
+                size="sm"
+              >
+                Reset
+              </Button>
+            )}
+          </div>
+        </div>
+
         <div className="container-fluid">
           <div className="row">
-            <SearchSidebar
-              setSearchTerm={setSearchTerm}
-              setSorByGender={setSorByGender}
-              setSpecialist={setSpecialist}
-              setPriceRange={setPriceRange}
-              resetFilter={resetFilter}
-              query={query}
-            />
-            <div className="col-md-12 col-lg-8 col-xl-9">
+            <div className="col-md-12 col-lg-12 col-xl-12">
               {content}
               <div className="text-center mt-5 mb-5">
                 <Pagination
