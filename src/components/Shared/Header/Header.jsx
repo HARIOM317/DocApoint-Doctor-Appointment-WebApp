@@ -10,6 +10,7 @@ import HeaderNav from "./HeaderNav";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { role } = useAuthCheck();
   const { authChecked, data } = useAuthCheck();
   const [isLoggedIn, setIsLogged] = useState(false);
   const [open, setOpen] = useState(false);
@@ -62,9 +63,11 @@ const Header = () => {
           {/* <Link to={"/appointment"} className="appointment-btn scrollto">
             <span className="d-none d-md-inline">Make an</span> Appointment
           </Link> */}
-          <Link to={"/doctors"} className="appointment-btn scrollto">
-            <span className="d-none d-md-inline">Make an</span> Appointment
-          </Link>
+          { role === "doctor" ? <span></span> :
+            <Link to={"/doctors"} className="appointment-btn scrollto">
+              <span className="d-none d-md-inline">Make an</span> Appointment
+            </Link>
+          }
         </div>
       </header>
     </>

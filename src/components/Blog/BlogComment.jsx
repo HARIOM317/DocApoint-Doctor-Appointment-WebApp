@@ -1,6 +1,7 @@
 import React from "react";
 import userImg from "../../images/user.png";
 import { Button } from "antd";
+// import "../../stylesheets/Blog.css";
 
 const BlogComment = () => {
   return (
@@ -14,7 +15,7 @@ const BlogComment = () => {
         .map((_item, index) => (
           <div className="d-flex gap-3 mb-3" key={index + 5}>
             <div>
-              <img src={userImg} width={80} className="" alt="user imge" />
+              <img src={userImg} width={50} className="" alt="user imge" />
             </div>
             <div>
               <div className="mb-2">
@@ -36,48 +37,37 @@ const BlogComment = () => {
 
       <div
         className="mx-auto"
-        style={{ marginTop: "7rem", marginBottom: "7rem" }}
+        style={{ marginTop: "5rem", marginBottom: "5rem" }}
       >
-        <div className="card mb-5 p-3 shadow border-0">
-          <form className="row form-row">
-            <div className="col-md-6">
-              <div className="form-group mb-2 card-label">
-                <label>First Name</label>
-                <input placeholder="First Name" className="form-control" />
-              </div>
+        <form className="row form-row">
+          <div className="col-md-6">
+            <div className="form-group mb-4">
+              <input placeholder="First Name" className="input-field" />
             </div>
-            <div className="col-md-6">
-              <div className="form-group mb-2 card-label">
-                <label>Last Name</label>
-                <input placeholder="Last Name" className="form-control" />
-              </div>
-            </div>
+          </div>
 
-            <div className="col-md-12">
-              <div className="form-group mb-2 card-label">
-                <label>Subject</label>
-                <input placeholder="Subject" className="form-control" />
-              </div>
+          <div className="col-md-6">
+            <div className="form-group mb-4">
+              <input placeholder="Last Name" className="input-field" />
             </div>
+          </div>
 
-            <div className="col-md-12">
-              <div className="form-group mb-2 card-label">
-                <label>Comment</label>
-                <textarea
-                  placeholder="Your Comment"
-                  className="form-control"
-                  rows={5}
-                />
-              </div>
+          <div className="col-md-12">
+            <div className="form-group mb-4">
+              <textarea
+                placeholder="Your Comment"
+                className="input-field"
+                rows={6}
+              />
             </div>
+          </div>
 
-            <div className="text-center my-3">
-              <Button htmlType="submit" type="primary" size="large">
-                Comment
-              </Button>
-            </div>
-          </form>
-        </div>
+          <div className="text-center my-3">
+            <Button htmlType="submit" type="primary" size="large">
+              Comment
+            </Button>
+          </div>
+        </form>
       </div>
     </div>
   );

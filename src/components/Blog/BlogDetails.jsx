@@ -25,10 +25,10 @@ const BlogDetails = () => {
   if (!isLoading && !isError && data?.id === undefined) content = <Empty />;
   if (!isLoading && !isError && data?.id)
     content = (
-      <div className="card shadow-sm text-center border-0 rounded-bottom">
+      <div className="card text-center border-0">
         <div
           className="flex-column card-header p-0 border-0 d-flex justify-content-center align-items-center"
-          style={{ overflow: "hidden", maxHeight: "40rem" }}
+          style={{ overflow: "hidden", maxHeight: "40rem", background: "#fff" }}
         >
           {data?.img && (
             <img
@@ -36,35 +36,63 @@ const BlogDetails = () => {
               alt="blog Image"
               width={800}
               height={500}
-              className="image-hover w-100 rounded-top"
-              style={{ objectFit: "cover" }}
+              className="w-100"
+              style={{
+                objectFit: "cover",
+                borderRadius: "12px",
+                boxShadow: "var(--shadowAll)",
+                marginBottom: "2rem",
+              }}
             />
           )}
         </div>
 
         <div className="card-body p-0">
           <div className="p-2 my-2">
-            <h5 className="text-start mb-1" style={{ color: "#05335c" }}>
-              {data?.title}
-            </h5>
-            <div className="d-flex text-start gap-2">
-              <div className="d-flex gap-1 text-muted align-items-center justify-content-center">
-                <FaRegUser className="form-text" />
-                <span className="form-text">
+            <div
+              className="d-flex text-start gap-3"
+              style={{ margin: "0.5rem auto 2rem auto" }}
+            >
+              <div className="d-flex gap-1 align-items-center justify-content-center">
+                {/* <FaRegUser className="form-text" /> */}
+                <span className="blog-author-main">
                   {data?.user?.firstName + " " + data?.user?.lastName}
                 </span>
               </div>
               <div className="d-flex gap-1 text-muted align-items-center justify-content-center">
-                <FaBusinessTime className="form-text" />
-                <span className="form-text">
+                {/* <FaBusinessTime className="form-text" /> */}
+                <span className="blog-date-main">
                   {moment(data?.cretedAt).format("LL")}
                 </span>
               </div>
             </div>
-            <hr className="my-1 p-0" />
+
+            <h5
+              className="text-start mb-3"
+              style={{ color: "var(--headingColor)", fontWeight: "bold" }}
+            >
+              {data?.title}
+            </h5>
+
+            <hr
+              className="my-1 p-0"
+              style={{
+                height: "2px",
+                color: "var(--headingColor",
+                opacity: "0.6",
+              }}
+            />
           </div>
           <div className="px-3 my-3">
-            <p className="text-secondary text-start">{data?.description}</p>
+            <p
+              style={{
+                fontSize: "1rem",
+                textAlign: "justify",
+                color: "var(--textLight)",
+              }}
+            >
+              {data?.description}
+            </p>
           </div>
         </div>
         <div className="d-flex gap-2 ms-2 px-2 py-3">
@@ -87,18 +115,29 @@ const BlogDetails = () => {
         <div className="row mx-2">
           <div className="col-md-9 col-sm-12">
             {content}
-            <hr />
+            <hr style={{height: '2px', color: 'var(--headingColor', opacity: '0.6'}}/>
             <div className="d-flex justify-content-end">
               <div className="col-md-5 col-lg-4 ml-lg-0 text-end text-md-end">
-                <h5 className="text-dark rounded d-inline me-2">Share On </h5>
-                <a className="btn btn-outline-primary btn-floating m-1">
-                  <FaFacebookSquare />
+                <h5 className="d-inline me-2" style={{color: 'var(--headingColor)', fontSize: '1rem'}}>Share On </h5>
+                <a
+                  className="btn m-1 social-button"
+                  style={{ borderColor: "#3b5998", background: "#3b5998" }}
+                >
+                  <i class="fa-brands fa-facebook-f"></i>
                 </a>
-                <a className="btn btn-outline-primary btn-floating m-1">
-                  <FaInstagramSquare />
+
+                <a
+                  className="btn m-1 social-button"
+                  style={{ borderColor: "#db1c8a", background: "#db1c8a" }}
+                >
+                  <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a className="btn btn-outline-primary btn-floating m-1">
-                  <FaLinkedin />
+
+                <a
+                  className="btn m-1 social-button"
+                  style={{ borderColor: "#0a63bc", background: "#0a63bc" }}
+                >
+                  <i class="fa-brands fa-linkedin-in"></i>
                 </a>
               </div>
             </div>
