@@ -65,7 +65,7 @@ const DashboardSidebar = () => {
                             <div className='profile-details'>
                                 <h5 className='mb-0'>{data?.firstName + " " + data?.lastName}</h5>
                                 <div>
-                                    <p className="mb-0">{data?.designation}</p>
+                                    <p className="mb-0">{data?.specialization}</p>
                                 </div>
                             </div>
                         </div>
