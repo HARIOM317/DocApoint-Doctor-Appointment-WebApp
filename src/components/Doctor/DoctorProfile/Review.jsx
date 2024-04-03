@@ -159,6 +159,7 @@ const Review = ({ doctorId }) => {
               <div className="form-group">
                 <textarea
                   className="text-form-input-field"
+                  style={{borderRadius: '8px', background: 'var(--bgColor)'}}
                   {...register("description")}
                   placeholder="Write Description"
                   rows={6}

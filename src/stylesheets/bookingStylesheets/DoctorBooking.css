@@ -3,7 +3,7 @@
     width: 70px;
     object-fit: cover;
     object-position: top;
-    border: 6px solid #efefef;
+    border: 1.5px solid var(--borderColor);
     border-radius: 50%;
     margin-top: 10px;
 }
@@ -13,14 +13,15 @@
 }
 
 .booking-doc-img {
-    background: #f8f9fa;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 .date-card{
-    background: #f8f9fa;
-    height: 50vh;
+    padding: 11px;
+    background: var(--bgLight);
+    height: 286px;
     overflow: hidden;
     overflow-y: scroll;
+    border: 1.5px solid var(--borderColor);
 }

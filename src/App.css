@@ -83,7 +83,7 @@ body {
   width: 100%;
   border: 1.5px solid var(--borderLight);
   border-radius: 25px;
-  background: var(--bgColor);
+  background: var(--bgLight);
   padding: 10px 25px;
   font-size: 16px;
   color: var(--textLight);
@@ -97,7 +97,6 @@ body {
 
 textarea.text-form-input-field {
   height: 168px;
-  border-radius: 8px;
 }
 
 .margin-top-max {
@@ -138,6 +137,13 @@ textarea.text-form-input-field {
 
 .button:hover {
   transform: scale(1.025);
+}
+
+.heading{
+  color: var(--headingColor);
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1.3rem;
 }
 
 .sub-heading {

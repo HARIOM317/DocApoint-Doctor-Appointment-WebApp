@@ -10,7 +10,7 @@ import { Tabs } from 'antd';
 import OverView from './OverView';
 import Location from './Location';
 import Review from './Review';
-import Availibility from './Availibility';
+import Availability from './Availability';
 import DoctorProfileView from '../SearchDoctor/DoctorProfileView';
 
 const DoctorProfile = () => {
@@ -42,7 +42,7 @@ const DoctorProfile = () => {
     {
       key: "4",
       label: "Availability",
-      children: <Availibility />,
+      children: <Availability />,
     },
   ];
 
@@ -60,7 +60,7 @@ const DoctorProfile = () => {
         {content}
         <div
           className="p-4 rounded"
-          style={{ marginBottom: "7rem"}}
+          style={{ marginBottom: "3rem"}}
         >
           <Tabs defaultActiveKey="1" items={items} />
         </div>

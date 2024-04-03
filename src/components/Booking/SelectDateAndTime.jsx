@@ -11,33 +11,31 @@ const SelectDateAndTime = ({
 }) => {
   return (
     <div style={{ marginTop: "5rem" }}>
-      <div>
-        <h5 className="text-title">Selected Doctor</h5>
-        {content}
-      </div>
-
       <dir className="row">
-        <div className="col-md-5 col-sm-12 mt-3">
-          <h5 className="text-title mb-3">Please Select Date</h5>
+        <div className="col-md-5 col-sm-12">
+          <div>
+            <h5 className="heading">Selected Doctor</h5>
+            {content}
+          </div>
+          <h5 className="heading mt-5 mb-3">Please Select Date</h5>
           <DatePicker
             format="YYYY-MM-DD HH:mm:ss"
             disabledDate={disabledDateTime}
-            open={true}
             onChange={handleDateChange}
           />
         </div>
 
-        <div className="col-md-7 col-sm-12 mt-3">
+        <div className="col-md-7 col-sm-12">
           {selectedDate && (
-            <h5 className="text-title mb-3">
+            <h5 style={{color: "var(--textColor)", marginBottom: '1.5rem', fontSize: '1.3rem', fontWeight: '500'}}>
               Selected Date: {selectedDate && moment(selectedDate).format("LL")}
-              {selectTime && "Time :" + selectTime}
+              {selectTime && " and Time: " + selectTime}
             </h5>
           )}
           <div className="date-card rounded">
-            <div className="row text-center mt-3">
+            <div className="row text-center">
               {!selectedDate ? (
-                <h5 className="text-title d-flex justify-content-center align-items-center mt-5">
+                <h5 className="heading d-flex justify-content-center align-items-center mt-5">
                   Please Select A Date First
                 </h5>
               ) : (

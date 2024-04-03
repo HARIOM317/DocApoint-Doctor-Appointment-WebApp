@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Shared/Footer/Footer";
-import img from "../../images/doc/doctor 3.jpg";
+import img from "../../images/home/doctorProfile.jpg";
 import "../../stylesheets/bookingStylesheets/DoctorBooking.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Empty, Button, message, Steps } from "antd";
@@ -133,6 +133,7 @@ const DoctorBooking = () => {
                 shape="round"
                 size="large"
                 className="mb-3"
+                style={{background: 'var(--bgColor)', border: '1.5px solid var(--borderColor)', fontWeight: '500'}}
                 onClick={() => handleSelectTime(item?.slot?.time)}
               >
                 {" "}
@@ -152,7 +153,7 @@ const DoctorBooking = () => {
       <>
         <div className="booking-doc-img my-3 mb-3 rounded">
           <Link to={`/doctors/${data?.id}`}>
-            <img src={img} alt="" />
+            <img src={data?.img == null ? img : data?.img} alt="" />
           </Link>
           <div className="text-start">
             <Link
@@ -163,7 +164,9 @@ const DoctorBooking = () => {
             </Link>
             <p className="form-text mb-0">
               <FaArchway />{" "}
-              {data?.specialization + "," + data?.experienceHospitalName}
+              {data?.specialization === null
+                ? "Specialization not mentioned"
+                : data?.specialization}
             </p>
           </div>
         </div>
@@ -244,7 +247,7 @@ const DoctorBooking = () => {
 
   useEffect(() => {
     if (createIsSuccess) {
-      message.success("Succcessfully Appointment Scheduled");
+      message.success("Successfully Appointment Scheduled");
       setSelectValue(initialValue);
       dispatch(addInvoice({ ...appointmentData }));
       navigation(`/booking/success/${appointmentData.id}`);
