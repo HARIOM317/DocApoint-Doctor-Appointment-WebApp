@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import img from '../../../images/doc/doctor 3.jpg'
-import { FaRegThumbsUp } from "react-icons/fa";
+import img from '../../../images/user.png'
+import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 import moment from 'moment';
 import StarRatings from 'react-star-ratings';
 import { useCreateReviewMutation, useGetDoctorReviewsQuery } from '../../../redux/api/reviewsApi';
@@ -60,7 +60,7 @@ const Review = ({ doctorId }) => {
 
   let content = null;
   if (!isLoading && isError) content = <div>Something Went Wrong !</div>;
-  if (!isLoading && !isError && data?.length === 0) content = <div>Empty</div>;
+  if (!isLoading && !isError && data?.length === 0) content = <div>No Review Yet</div>;
   if (!isLoading && !isError && data?.length > 0)
     content = (
       <>
@@ -76,8 +76,12 @@ const Review = ({ doctorId }) => {
                     <h5 className="text-nowrap">
                       {item?.patient?.firstName + " " + item?.patient?.lastName}
                     </h5>
-                    <p className="text-success">
-                      <FaRegThumbsUp />{" "}
+                    <p className={item?.isRecommended ?"text-success" : "text-danger"}>
+                      {item?.isRecommended ? (
+                        <FaRegThumbsUp />
+                      ) : (
+                        <FaRegThumbsDown />
+                      )}{" "}
                       {item?.isRecommended
                         ? "I recommend the doctor"
                         : "I do not recommend the doctor"}
@@ -94,6 +98,7 @@ const Review = ({ doctorId }) => {
                       name="rating"
                       starDimension="15px"
                       starSpacing="2px"
+                      starEmptyColor="#e6e8eb"
                     />
                   </div>
                   <div className="">
@@ -111,63 +116,66 @@ const Review = ({ doctorId }) => {
   return (
     <>
       <div>
-        <div
-          className="w-100 mb-3 rounded py-3 px-2"
-          style={{ background: "#f8f9fa" }}
-        >
-          {content}
-        </div>
+        <div className="w-100 mb-3 rounded py-3 px-2">{content}</div>
 
-        <div className="text-center">
-          <Link to={"/"} className="more-btn">
-            Show all feedback <strong>(167)</strong>
-          </Link>
-        </div>
+        <div>
+          <div className="text-center mb-5">
+            <div className="section-title mb-3">
+              <h2>Write a review</h2>
+              <p>Write your experience with this doctor.</p>
+            </div>
+          </div>
 
-        <div className="mt-5">
-          <h4>Write a review..</h4>
-
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-group mb-3">
-              <div className="d-flex flex-column">
-                <label className="form-label">
-                  Your Review {value ? <strong>{desc[value - 1]}</strong> : ""}
-                </label>
-                <Space>
-                  <Rate tooltips={desc} onChange={setValue} value={value} />
-                </Space>
+          <div className="mt-5">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="form-group mb-3">
+                <div
+                  className="d-flex flex-column"
+                  style={{
+                    background: "#f1ebfc",
+                    padding: "1.5rem",
+                    border: "1.5px solid var(--borderColor)",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <label className="form-label">
+                    Your ratting is{" "}
+                    {value ? <strong>{desc[value - 1]}</strong> : ""}
+                  </label>
+                  <Space>
+                    <Rate tooltips={desc} onChange={setValue} value={value} />
+                  </Space>
+                </div>
               </div>
-            </div>
-            <div className="form-group mb-3">
-              <Radio.Group onChange={onChange} value={recommend}>
-                <Space direction="vertical">
-                  <Radio value={1}>Recommend Doctor</Radio>
-                  <Radio value={2}>Not Recommened Doctor</Radio>
-                </Space>
-              </Radio.Group>
-            </div>
+              <div className="form-group mb-3">
+                <Radio.Group onChange={onChange} value={recommend}>
+                  <Space direction="horizontal">
+                    <Radio value={1}>I Recommend the Doctor</Radio>
+                    <Radio value={2}>I Don't Recommend the Doctor</Radio>
+                  </Space>
+                </Radio.Group>
+              </div>
 
-            <div className="form-group">
-              <label className="form-label">Your review</label>
-              <textarea
-                className="form-control"
-                {...register("description")}
-                placeholder="Description..."
-                rows={8}
-              />
-            </div>
-            <hr />
-            <div className="submit-section">
-              <Button
-                htmlType="submit"
-                size="medium"
-                type="primary"
-                disabled={!showError}
-              >
-                Add Review
-              </Button>
-            </div>
-          </form>
+              <div className="form-group">
+                <textarea
+                  className="text-form-input-field"
+                  {...register("description")}
+                  placeholder="Write Description"
+                  rows={6}
+                />
+              </div>
+              <div className="submit-section mt-3">
+                <Button
+                  htmlType="submit"
+                  size="medium"
+                  type="primary"
+                  disabled={!showError}
+                >
+                  Add Review
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </>

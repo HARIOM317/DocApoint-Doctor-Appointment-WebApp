@@ -6,12 +6,12 @@ import Header from '../../Shared/Header/Header';
 import SubHeader from '../../Shared/SubHeader';
 import { useGetDoctorQuery } from '../../../redux/api/doctorApi';
 import { Empty, message } from 'antd';
-import SearchContent from '../SearchDoctor/SearchContent';
 import { Tabs } from 'antd';
 import OverView from './OverView';
 import Location from './Location';
 import Review from './Review';
 import Availibility from './Availibility';
+import DoctorProfileView from '../SearchDoctor/DoctorProfileView';
 
 const DoctorProfile = () => {
   const { id } = useParams();
@@ -21,7 +21,7 @@ const DoctorProfile = () => {
     content = <div>{message.error("Something went Wrong!")}</div>;
   if (!isLoading && !isError && data?.id === undefined) content = <Empty />;
   if (!isLoading && !isError && data?.id)
-    content = <SearchContent data={data} />;
+    content = <DoctorProfileView data={data} />;
 
   const items = [
     {
@@ -60,7 +60,7 @@ const DoctorProfile = () => {
         {content}
         <div
           className="p-4 rounded"
-          style={{ marginBottom: "7rem", backgroundColor: "#f3f3f3" }}
+          style={{ marginBottom: "7rem"}}
         >
           <Tabs defaultActiveKey="1" items={items} />
         </div>

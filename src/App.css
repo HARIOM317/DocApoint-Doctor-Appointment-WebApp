@@ -15,6 +15,7 @@
   --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.15);
   --shadowAll: 0px 2px 15px rgba(0, 0, 0, 0.15);
   --shadowAllLight: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  --line-color: #58567c !important;
 }
 
 * {
@@ -78,6 +79,27 @@ body {
 }
 
 /* Common Classes */
+.text-form-input-field {
+  width: 100%;
+  border: 1.5px solid var(--borderLight);
+  border-radius: 25px;
+  background: var(--bgColor);
+  padding: 10px 25px;
+  font-size: 16px;
+  color: var(--textLight);
+  transition: all 0.3s ease;
+}
+
+.text-form-input-field:focus {
+  box-shadow: 0 0 30px rgba(16, 15, 27, 0.15);
+  border: 1.5px solid var(--borderColor);
+}
+
+textarea.text-form-input-field {
+  height: 168px;
+  border-radius: 8px;
+}
+
 .margin-top-max {
   margin-top: 4.5rem !important;
 }

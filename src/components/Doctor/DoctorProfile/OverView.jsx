@@ -1,11 +1,109 @@
 import React from 'react'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { FaBriefcase } from "react-icons/fa";
+import "../../../stylesheets/doctorStylesheets/Overview.css";
+
 
 const OverView = () => {
+
+  const doctorServices = [
+    "Tooth cleaning",
+    "Root Canal Therapy",
+    "Implants",
+    "Composite Bonding",
+    "Fissure Sealants",
+    "Surgical Extractions",
+  ];
+
+  const doctorSpecializations = [
+    "Children Care",
+    "Dental Care",
+    "Oral Surgery",
+    "Orthodontist",
+    "Periodontist",
+    "Prosthodontics",
+  ];
+
+  const doctorEducationAPI = [
+    {
+      id: 1,
+      icon: "fa-solid fa-graduation-cap",
+      date: "2017 - 2019",
+      title: "NIT Bhopal",
+      description:
+        "Master in Pharmacy, Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
+    },
+
+    {
+      id: 2,
+      icon: "fa-solid fa-user-graduate",
+      date: "2013 - 2017",
+      title: "SISTec Bhopal",
+      description:
+        "Bachelor in Pharmacy, Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
+    },
+  ];
+
+  const doctorExperienceAPI = [
+    {
+      id: 1,
+      icon: "fa-solid fa-check-double",
+      date: "2020 - Present (4 years)",
+      title: "Glowing Smiles Family Dental Clinic",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed consequuntur maiores animi odio placeat. Molestiae alias vitae reprehenderit beatae voluptatibus, omnis, ratione assumenda quisquam quis ducimus officia odio eaque minima",
+    },
+
+    {
+      id: 2,
+      icon: "fa-solid fa-briefcase",
+      date: "2017 - 2020 (3 years)",
+      title: "Comfort Care Dental Clinic",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed consequuntur maiores animi odio placeat. Molestiae alias vitae reprehenderit beatae voluptatibus, omnis, ratione assumenda quisquam quis ducimus officia odio eaque minima",
+    },
+
+    {
+      id: 3,
+      icon: "fa-solid fa-user-doctor",
+      date: "2015 - 2017 (2 years)",
+      title: "Dream Smile Dental Practice",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed consequuntur maiores animi odio placeat. Molestiae alias vitae reprehenderit beatae voluptatibus, omnis, ratione assumenda quisquam quis ducimus officia odio eaque minima",
+    },
+  ];
+
+  const doctorAwardsAPI = [
+    {
+      id: 1,
+      icon: "fa-solid fa-trophy",
+      date: "July 2022",
+      title: "Humanitarian Award",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    },
+
+    {
+      id: 2,
+      icon: "fa-solid fa-medal",
+      date: "March 2020",
+      title: "Certificate for International Volunteer Service",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    },
+
+    {
+      id: 3,
+      icon: "fa-solid fa-award",
+      date: "August 2019",
+      title: "The Dental Professional of The Year Award",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    },
+  ];
+
   return (
-    <div className="col-md-12 col-lg-9">
+    <div className="col-md-12 col-lg-12">
       <div className="mb-3">
         <h5 className="overview-text">About Me</h5>
         <p className="text-secondary">
@@ -22,174 +120,104 @@ const OverView = () => {
       <div>
         <h5 className="overview-text">Education</h5>
 
-        <VerticalTimeline>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#000" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="2011 - 2000"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">American Dental Medical University</h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Creative Direction, User Experience, Visual Design, Project
-              Management, Team Leading
-            </p>
-          </VerticalTimelineElement>
-
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#000" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="2003 - 2005"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">American Dental Medical University</h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Creative Direction, User Experience, Visual Design, Project
-              Management, Team Leading
-            </p>
-          </VerticalTimelineElement>
+        <VerticalTimeline lineColor="var(--textLight)">
+          {doctorEducationAPI.map((item) => {
+            return (
+              <VerticalTimelineElement
+                iconStyle={{
+                  background: "var(--primaryColor)",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "1.25rem",
+                }}
+                icon={<i className={item.icon}></i>}
+                date={item.date}
+              >
+                <h3 className="timeline-heading">{item.title}</h3>
+                <p className="timeline-description">{item.description}</p>
+              </VerticalTimelineElement>
+            );
+          })}
         </VerticalTimeline>
       </div>
+
       <div className="my-5">
         <h5 className="overview-text">Work & Experience</h5>
-
-        <VerticalTimeline>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#000" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="2010 - Present (5 years)"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">Glowing Smiles Family Dental Clinic</h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Creative Direction, User Experience, Visual Design, Project
-              Management, Team Leading
-            </p>
-          </VerticalTimelineElement>
-
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#000" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="2007 - 2010 (3 years)"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">Comfort Care Dental Clinic</h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Creative Direction, User Experience, Visual Design, Project
-              Management, Team Leading
-            </p>
-          </VerticalTimelineElement>
-
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#000" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="2005 - 2007 (2 years)"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">Dream Smile Dental Practice</h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Consequuntur, dignissimos.
-            </p>
-          </VerticalTimelineElement>
+        <VerticalTimeline lineColor="var(--textLight)">
+          {doctorExperienceAPI.map((item) => {
+            return (
+              <VerticalTimelineElement
+                iconStyle={{
+                  background: "var(--primaryColor)",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "1.25rem",
+                }}
+                icon={<i className={item.icon}></i>}
+                date={item.date}
+              >
+                <h3 className="timeline-heading">{item.title}</h3>
+                <p className="timeline-description">{item.description}</p>
+              </VerticalTimelineElement>
+            );
+          })}
         </VerticalTimeline>
       </div>
       <div>
         <h5 className="overview-text">Awards</h5>
 
-        <VerticalTimeline>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#000" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="July 2019"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">Humanitarian Award</h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a
-              ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in
-              faucibus.
-            </p>
-          </VerticalTimelineElement>
-
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#000" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="March 2011"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">
-              Certificate for International Volunteer Service
-            </h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a
-              ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in
-              faucibus.
-            </p>
-          </VerticalTimelineElement>
-
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#2e81c4", color: "#00" }}
-            contentArrowStyle={{ borderRight: "7px solid  #2e81c4" }}
-            date="March 2011"
-            iconStyle={{ background: "#2e81c4", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <h5 className="text-white">
-              The Dental Professional of The Year Award
-            </h5>
-            <h6 className="text-white">Miami, FL</h6>
-            <p style={{ fontSize: "14px" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a
-              ipsum tellus. Interdum et malesuada fames ac ante ipsum primis in
-              faucibus.
-            </p>
-          </VerticalTimelineElement>
+        <VerticalTimeline lineColor="var(--textLight)">
+          {doctorAwardsAPI.map((item) => {
+            return (
+              <VerticalTimelineElement
+                iconStyle={{
+                  background: "var(--primaryColor)",
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "1.25rem",
+                }}
+                icon={<i className={item.icon}></i>}
+                date={item.date}
+              >
+                <h3 className="timeline-heading">{item.title}</h3>
+                <p className="timeline-description">{item.description}</p>
+              </VerticalTimelineElement>
+            );
+          })}
         </VerticalTimeline>
       </div>
-      <div>
+
+      <div className="row mt-5">
         <h5 className="overview-text">Services</h5>
-        <ul>
-          <li>Tooth cleaning </li>
-          <li>Root Canal Therapy</li>
-          <li>Implants</li>
-          <li>Composite Bonding</li>
-          <li>Fissure Sealants</li>
-          <li>Surgical Extractions</li>
-        </ul>
+        {doctorServices.map((service) => {
+          return (
+            <>
+              <div className="col-lg-3 col-md-4 col-sm-6">
+                <div className="doctor-service-card">{service}</div>
+              </div>
+            </>
+          );
+        })}
       </div>
-      <div>
+
+      <div className="row mt-5">
         <h5 className="overview-text">Specializations</h5>
-        <ul className="clearfix">
-          <li>Children Care</li>
-          <li>Dental Care</li>
-          <li>Oral and Maxillofacial Surgery </li>
-          <li>Orthodontist</li>
-          <li>Periodontist</li>
-          <li>Prosthodontics</li>
-        </ul>
+
+        {doctorSpecializations.map((service) => {
+          return (
+            <>
+              <div className="col-lg-3 col-md-4 col-sm-6">
+                <div className="doctor-specialization-card">{service}</div>
+              </div>
+            </>
+          );
+        })}
       </div>
     </div>
   );
