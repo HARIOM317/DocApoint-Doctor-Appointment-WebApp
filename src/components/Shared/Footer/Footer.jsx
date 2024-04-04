@@ -177,7 +177,7 @@ const Footer = () => {
                   </div>
                 ) : (
                   <div className="col-6 col-lg-3">
-                    <h2>Doctors</h2>
+                    <h2>User</h2>
                     <ul>
                       <li>
                         <NavLink to={"/login"}>
