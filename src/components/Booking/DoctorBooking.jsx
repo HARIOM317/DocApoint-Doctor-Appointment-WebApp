@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Shared/Footer/Footer";
-import img from "../../images/home/doctorProfile.jpg";
+import img from "../../images/doc/doctor 3.jpg";
 import "../../stylesheets/bookingStylesheets/DoctorBooking.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Empty, Button, message, Steps } from "antd";
@@ -16,11 +16,6 @@ import { useDispatch } from "react-redux";
 import { addInvoice } from "../../redux/feature/invoiceSlice";
 import Header from "../Shared/Header/Header";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
-
-import Lottie from "lottie-react";
-import Loading from "../../animations/loading.json";
-import NoDataFound from "../../animations/no_data_found.json";
-import SomethingWrong from "../../animations/something_wrong.json";
 
 const DoctorBooking = () => {
   const dispatch = useDispatch();
@@ -123,39 +118,10 @@ const DoctorBooking = () => {
   };
 
   let dContent = null;
-  if (dIsLoading) dContent = (
-    <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
-      <Lottie loop={true} animationData={Loading} style={{ width: "300px" }} />
-    </div>
-  );
-  if (!dIsLoading && dIsError) dContent = (
-    <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
-      <Lottie
-        loop={true}
-        animationData={SomethingWrong}
-        style={{ width: "150px" }}
-      />
-      <div
-        style={{
-          color: "var(--headingColor)",
-          fontWeight: "500",
-          fontSize: "1rem",
-        }}
-      >
-        Something went wrong!
-      </div>
-    </div>
-  );
+  if (dIsLoading) dContent = <div>Loading ...</div>;
+  if (!dIsLoading && dIsError) dContent = <div>Something went Wrong!</div>;
   if (!dIsLoading && !dIsError && time.length === 0)
-    dContent = (
-      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
-        <Lottie
-          loop={true}
-          animationData={NoDataFound}
-          style={{ width: "200px" }}
-        />
-      </div>
-    );
+    dContent = <Empty children="Doctor Is not Available" />;
   if (!dIsLoading && !dIsError && time.length > 0)
     dContent = (
       <>
@@ -167,7 +133,6 @@ const DoctorBooking = () => {
                 shape="round"
                 size="large"
                 className="mb-3"
-                style={{background: 'var(--bgColor)', border: '1.5px solid var(--borderColor)', fontWeight: '500'}}
                 onClick={() => handleSelectTime(item?.slot?.time)}
               >
                 {" "}
@@ -180,66 +145,14 @@ const DoctorBooking = () => {
 
   //What to render
   let content = null;
-  if (isLoading)
-    content = (
-      <div className=" m-0 p-0 d-flex flex-column align-align-items-start justify-align-content-start">
-        <Lottie
-          loop={true}
-          animationData={Loading}
-          style={{ width: "300px" }}
-        />
-      </div>
-    );
-  if (!isLoading && isError) content = (
-    <div className=" mt-5 p-0 d-flex flex-column align-items-start justify-content-start">
-      <div
-        style={{
-          color: "var(--primaryColor)",
-          fontWeight: "bold",
-          fontSize: "1.5rem",
-        }}
-      >
-        Oops..
-      </div>
-      <div
-        style={{
-          color: "var(--headingColor)",
-          fontWeight: "500",
-          fontSize: "1rem",
-        }}
-      >
-        Can not load profile!
-      </div>
-    </div>
-  );
-  if (!isLoading && !isError && data?.id === undefined) content = (
-    <div className=" mt-5 p-0 d-flex flex-column align-items-start justify-content-start">
-      <div
-        style={{
-          color: "var(--primaryColor)",
-          fontWeight: "bold",
-          fontSize: "1.5rem",
-        }}
-      >
-        Oops..
-      </div>
-      <div
-        style={{
-          color: "var(--headingColor)",
-          fontWeight: "500",
-          fontSize: "1rem",
-        }}
-      >
-        Doctor not available!
-      </div>
-    </div>
-  );
+  if (!isLoading && isError) content = <div>Something Went Wrong!</div>;
+  if (!isLoading && !isError && data?.id === undefined) content = <Empty />;
   if (!isLoading && !isError && data?.id)
     content = (
       <>
         <div className="booking-doc-img my-3 mb-3 rounded">
           <Link to={`/doctors/${data?.id}`}>
-            <img src={data?.img == null ? img : data?.img} alt="" />
+            <img src={data?.img ? data?.img : img} alt="" />
           </Link>
           <div className="text-start">
             <Link
@@ -250,9 +163,7 @@ const DoctorBooking = () => {
             </Link>
             <p className="form-text mb-0">
               <FaArchway />{" "}
-              {data?.specialization === null
-                ? "Specialization not mentioned"
-                : data?.specialization}
+              {data?.specialization + "," + data?.experienceHospitalName}
             </p>
           </div>
         </div>
@@ -333,7 +244,7 @@ const DoctorBooking = () => {
 
   useEffect(() => {
     if (createIsSuccess) {
-      message.success("Successfully Appointment Scheduled");
+      message.success("Succcessfully Appointment Scheduled");
       setSelectValue(initialValue);
       dispatch(addInvoice({ ...appointmentData }));
       navigation(`/booking/success/${appointmentData.id}`);
