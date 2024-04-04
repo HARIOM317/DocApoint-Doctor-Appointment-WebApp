@@ -44,13 +44,21 @@ export const timeSlotApi = baseApi.injectEndpoints({
             }),
             providesTags: [tagTypes.timeSlot]
         }),
-        deleteTimeSlot: build.query({
-            query: () => ({
-                url: `${TIMELOT_URL}/`,
+        deleteTimeSlot: build.mutation({
+            query: (id) => ({
+                url: `${TIMELOT_URL}/${id}`,
                 method: 'DELETE'
             }),
             invalidatesTags: [tagTypes.timeSlot]
         }),
+        
+        // deleteTimeSlot: build.query({
+        //     query: (id) => ({
+        //         url: `${TIMELOT_URL}/${id}`,
+        //         method: 'DELETE'
+        //     }),
+        //     invalidatesTags: [tagTypes.timeSlot]
+        // }),
         UpdateTimeSlot: build.mutation({
             query: (data) => ({
                 url: `${TIMELOT_URL}`,
@@ -64,7 +72,7 @@ export const timeSlotApi = baseApi.injectEndpoints({
 
 export const {
     useGetAllTimeSlotQuery,
-    useDeleteTimeSlotQuery,
+    useDeleteTimeSlotMutation,
     useGetDoctorTimeSlotQuery,
     useGetTimeSlotQuery,
     useUpdateTimeSlotMutation,
