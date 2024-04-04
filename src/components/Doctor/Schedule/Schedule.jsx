@@ -1,7 +1,7 @@
 import DashboardLayout from '../DashboardLayout/DashboardLayout';
 import React, { useEffect, useState } from 'react';
 import { Space, Tag, Button, Empty, message } from 'antd';
-import { useCreateTimeSlotMutation, useGetDoctorTimeSlotQuery, useUpdateTimeSlotMutation } from '../../../redux/api/timeSlotApi';
+import { useCreateTimeSlotMutation, useGetDoctorTimeSlotQuery, useUpdateTimeSlotMutation, useDeleteTimeSlotMutation } from '../../../redux/api/timeSlotApi';
 import { FaWindowClose, FaPlus } from "react-icons/fa";
 import UseModal from '../../UI/UseModal';
 import TimePicer from '../../UI/form/TimePicer';
@@ -12,6 +12,7 @@ const Schedule = () => {
   const [timeSlot, setTimeSlot] = useState([]);
   const [editTimeSlot, setEditTimeSlot] = useState([]);
   const [addTimeSlot, setAddTimeSlot] = useState([]);
+  const [deleteTimeSlot] = useDeleteTimeSlotMutation();
   const [
     UpdateTimeSlot,
     {
@@ -24,6 +25,10 @@ const Schedule = () => {
   const { data, refetch, isLoading, isError } = useGetDoctorTimeSlotQuery({
     day: key,
   });
+
+  console.log({ data });
+  console.log({ timeSlot });
+  console.log(timeSlot.id);
   const [
     createTimeSlot,
     { isError: AIsError, error, isLoading: AIsLoading, isSuccess },
@@ -172,6 +177,18 @@ const Schedule = () => {
     e.preventDefault();
   };
 
+  const deleteHandler = async (id) => {
+    // message.loading("Deleting ...");
+    try {
+      const res = await deleteTimeSlot(id);
+      if (res) {
+        message.success("Successfully Deleted !!");
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  };
+
   let content = null;
   if (!isLoading && isError) content = <div>Something Went Wrong !</div>;
   if (!isLoading && !isError && data?.length === 0) content = <Empty />;
@@ -191,12 +208,24 @@ const Schedule = () => {
                   item?.timeSlot.map((time, index) => (
                     <Tag
                       bordered={false}
-                      closable
+                      // closable
                       color="processing"
                       key={index + 2}
                     >
-                      {time?.startTime} - {time?.endTime}
+                      {time?.startTime} - {time?.endTime}  <span></span>
+                      <Button
+                        type="primary"
+                        size="small"
+                        htmlType="submit"
+                        onClick={() => deleteHandler(item?.id)}
+                        icon={<FaWindowClose />}
+                      >
+                      </Button>
                     </Tag>
+
+                    
+                    
+
                   ))}
               </Space>
             </div>
@@ -263,7 +292,7 @@ const Schedule = () => {
                       size="small"
                       htmlType="submit"
                       onClick={() => remove(item?.id)}
-                      block
+                      // block
                       icon={<FaWindowClose />}
                     ></Button>
                   </div>
@@ -328,7 +357,7 @@ const Schedule = () => {
                       size="small"
                       htmlType="submit"
                       onClick={() => removeFromAddTimeSlot(item?.id)}
-                      block
+                      // block
                       icon={<FaWindowClose />}
                     ></Button>
                   </div>
