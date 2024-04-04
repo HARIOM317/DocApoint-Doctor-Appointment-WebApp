@@ -11,6 +11,11 @@ import { truncate } from "../../utils/truncate";
 import moment from "moment";
 import "../../stylesheets/Blog.css";
 
+import Lottie from "lottie-react";
+import Loading from "../../animations/loading.json";
+import NoDataFound from "../../animations/no_data_found.json";
+import SomethingWrong from "../../animations/something_wrong.json";
+
 const Blog = () => {
   const query = {};
   const [size, setSize] = useState(10);
@@ -29,9 +34,57 @@ const Blog = () => {
   const meta = data?.meta;
 
   let content = null;
+
+  if (isLoading)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+
   if (!isLoading && isError)
-    content = <div>{message.error("Something went Wrong!")}</div>;
-  if (!isLoading && !isError && blogData?.length === 0) content = <Empty />;
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
+
+  if (!isLoading && !isError && blogData?.length === 0) content = (
+    <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+      <Lottie
+        loop={true}
+        animationData={NoDataFound}
+        style={{ width: "300px" }}
+      />
+      <div
+        style={{
+          color: "var(--headingColor)",
+          fontWeight: "bold",
+          fontSize: "1.3rem",
+        }}
+      >
+        No any blog found!
+      </div>
+    </div>
+  );
+
   if (!isLoading && !isError && blogData?.length > 0)
     content = (
       <>

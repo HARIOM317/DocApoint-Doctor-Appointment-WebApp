@@ -4,31 +4,69 @@ import Header from "./Shared/Header/Header";
 import Footer from "./Shared/Footer/Footer";
 import SubHeader from "./Shared/SubHeader";
 import { useGetAllBlogsQuery } from "../redux/api/blogApi";
-import { Empty } from "antd";
 import { useGetDoctorsQuery } from "../redux/api/doctorApi";
 import AboutUs from "./about/AboutUs";
 import Achievements from "./about/Achievements";
-import doctorProfile from "../images/home/doctorProfile.jpg"
+import doctorProfile from "../images/home/doctorProfile.jpg";
 import { NavLink } from "react-router-dom";
 
+import Lottie from "lottie-react";
+import Loading from "../animations/loading.json";
+import NoDataFound from "../animations/no_data_found.json";
+import SomethingWrong from "../animations/something_wrong.json";
+
 const About = () => {
-  const { data, isError, isLoading } = useGetAllBlogsQuery({ limit: 4 });
+  const { data, isError, isLoading } = useGetAllBlogsQuery({});
   const {
     data: doctorData,
     isLoading: DoctorIsLoading,
     isError: doctorIsError,
-  } = useGetDoctorsQuery({ limit: 4 });
+  } = useGetDoctorsQuery({});
 
   const blogData = data?.blogs;
   const doctors = doctorData?.doctors;
 
   let doctorContent = null;
+  if (DoctorIsLoading)
+    doctorContent = (
+      <>
+        <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+          <Lottie
+            loop={true}
+            animationData={Loading}
+            style={{ width: "300px" }}
+          />
+        </div>
+      </>
+    );
+
   if (!DoctorIsLoading && doctorIsError)
-    doctorContent = <div>Something Went Wrong !</div>;
+    doctorContent = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
   if (!DoctorIsLoading && !doctorIsError && doctors?.length === 0)
     doctorContent = (
-      <div>
-        <Empty />
+      <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{ width: "300px" }}
+        />
       </div>
     );
   if (!DoctorIsLoading && !doctorIsError && doctors?.length > 0)
@@ -78,7 +116,6 @@ const About = () => {
       <AboutUs />
       <Achievements />
 
-
       <div className="container" style={{ marginBottom: 100, marginTop: 100 }}>
         <div className="row justify-content-center">
           <div className="col-lg-6">
@@ -95,7 +132,6 @@ const About = () => {
         <div className="row">{doctorContent}</div>
       </div>
 
-      
       <Footer />
     </>
   );

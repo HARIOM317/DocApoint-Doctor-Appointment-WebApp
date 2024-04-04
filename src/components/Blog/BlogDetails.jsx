@@ -15,14 +15,64 @@ import {
 } from "react-icons/fa";
 import moment from "moment";
 
+import Lottie from "lottie-react";
+import Loading from "../../animations/loading.json";
+import NoDataFound from "../../animations/no_data_found.json";
+import SomethingWrong from "../../animations/something_wrong.json";
+
 const BlogDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useGetSingleBlogQuery(id);
 
   let content = null;
+  if (isLoading)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
   if (!isLoading && isError)
-    content = <div>{message.error("Something went Wrong!")}</div>;
-  if (!isLoading && !isError && data?.id === undefined) content = <Empty />;
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
+  if (!isLoading && !isError && data?.id === undefined) content = (
+    <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+      <Lottie
+        loop={true}
+        animationData={NoDataFound}
+        style={{ width: "300px" }}
+      />
+      <div
+        style={{
+          color: "var(--headingColor)",
+          fontWeight: "bold",
+          fontSize: "1.3rem",
+        }}
+      >
+        Can not load blog!
+      </div>
+    </div>
+  );
+
   if (!isLoading && !isError && data?.id)
     content = (
       <div className="card text-center border-0">

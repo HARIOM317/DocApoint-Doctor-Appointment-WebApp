@@ -17,6 +17,11 @@ import { addInvoice } from "../../redux/feature/invoiceSlice";
 import Header from "../Shared/Header/Header";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
 
+import Lottie from "lottie-react";
+import Loading from "../../animations/loading.json";
+import NoDataFound from "../../animations/no_data_found.json";
+import SomethingWrong from "../../animations/something_wrong.json";
+
 const DoctorBooking = () => {
   const dispatch = useDispatch();
   let initialValue = {
@@ -118,10 +123,39 @@ const DoctorBooking = () => {
   };
 
   let dContent = null;
-  if (dIsLoading) dContent = <div>Loading ...</div>;
-  if (!dIsLoading && dIsError) dContent = <div>Something went Wrong!</div>;
+  if (dIsLoading) dContent = (
+    <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+      <Lottie loop={true} animationData={Loading} style={{ width: "300px" }} />
+    </div>
+  );
+  if (!dIsLoading && dIsError) dContent = (
+    <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+      <Lottie
+        loop={true}
+        animationData={SomethingWrong}
+        style={{ width: "150px" }}
+      />
+      <div
+        style={{
+          color: "var(--headingColor)",
+          fontWeight: "500",
+          fontSize: "1rem",
+        }}
+      >
+        Something went wrong!
+      </div>
+    </div>
+  );
   if (!dIsLoading && !dIsError && time.length === 0)
-    dContent = <Empty children="Doctor Is not Available" />;
+    dContent = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{ width: "200px" }}
+        />
+      </div>
+    );
   if (!dIsLoading && !dIsError && time.length > 0)
     dContent = (
       <>
@@ -146,8 +180,60 @@ const DoctorBooking = () => {
 
   //What to render
   let content = null;
-  if (!isLoading && isError) content = <div>Something Went Wrong!</div>;
-  if (!isLoading && !isError && data?.id === undefined) content = <Empty />;
+  if (isLoading)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-align-items-start justify-align-content-start">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+  if (!isLoading && isError) content = (
+    <div className=" mt-5 p-0 d-flex flex-column align-items-start justify-content-start">
+      <div
+        style={{
+          color: "var(--primaryColor)",
+          fontWeight: "bold",
+          fontSize: "1.5rem",
+        }}
+      >
+        Oops..
+      </div>
+      <div
+        style={{
+          color: "var(--headingColor)",
+          fontWeight: "500",
+          fontSize: "1rem",
+        }}
+      >
+        Can not load profile!
+      </div>
+    </div>
+  );
+  if (!isLoading && !isError && data?.id === undefined) content = (
+    <div className=" mt-5 p-0 d-flex flex-column align-items-start justify-content-start">
+      <div
+        style={{
+          color: "var(--primaryColor)",
+          fontWeight: "bold",
+          fontSize: "1.5rem",
+        }}
+      >
+        Oops..
+      </div>
+      <div
+        style={{
+          color: "var(--headingColor)",
+          fontWeight: "500",
+          fontSize: "1rem",
+        }}
+      >
+        Doctor not available!
+      </div>
+    </div>
+  );
   if (!isLoading && !isError && data?.id)
     content = (
       <>

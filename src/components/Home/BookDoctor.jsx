@@ -13,8 +13,10 @@ import StarRatings from "react-star-ratings";
 import { Autoplay } from "swiper/modules";
 import { Pagination } from "swiper/modules";
 
-
-
+import Lottie from "lottie-react";
+import Loading from "../../animations/loading.json";
+import NoDataFound from "../../animations/no_data_found.json";
+import SomethingWrong from "../../animations/something_wrong.json";
 
 // Import Swiper styles
 import "swiper/css";
@@ -42,14 +44,44 @@ const BookDoctor = () => {
       message.error(error?.data?.message);
     }
     if (isSuccess) {
-      message.success("Successfully Favourite Adde");
+      message.success("Successfully Favourite Added!");
     }
   }, [isSuccess, fIsError, FIsLoading, error?.data?.message]);
 
   let content = null;
-  if (!isLoading && isError) content = <div>Something Went Wrong !</div>;
+  
+  if (isLoading)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+
+  if (!isLoading && isError)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div style={{color: 'var(--headingColor)', fontWeight: 'bold', fontSize: '1.3rem'}}>Something went wrong!</div>
+      </div>
+    );
   if (!isLoading && !isError && doctors?.length === 0)
-    content = <div>Empty</div>;
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
   if (!isLoading && !isError && doctors?.length > 0)
     content = (
       <>
@@ -120,7 +152,7 @@ const BookDoctor = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing.
         </p>
       </div>
-      <div className="paddings innerWidth">
+      <div className="innerWidth">
         <Swiper
           {...sliderSettings}
           modules={[Pagination, Autoplay]}
