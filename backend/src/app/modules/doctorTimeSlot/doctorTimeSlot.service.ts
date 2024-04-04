@@ -17,12 +17,12 @@ const createTimeSlot = async (user: any, payload: any): Promise<DoctorTimeSlot |
 
     const result = await prisma.$transaction(async (tx) => {
         const isAlreadyExist = await tx.doctorTimeSlot.findFirst({
-            where:{
+            where: {
                 doctorId: isDoctor.id,
                 day: payload.day
             }
         })
-        if(isAlreadyExist){
+        if (isAlreadyExist) {
             throw new ApiError(404, 'Time Slot Already Exist Please update or try another day')
         }
 
@@ -63,6 +63,13 @@ const createTimeSlot = async (user: any, payload: any): Promise<DoctorTimeSlot |
 }
 
 const deleteTimeSlot = async (id: string): Promise<DoctorTimeSlot | null> => {
+
+    const result_medi = await prisma.scheduleDay.deleteMany({
+        where: {
+            doctorTimeSlotId: id
+        }
+    });
+
     const result = await prisma.doctorTimeSlot.delete({
         where: {
             id: id
@@ -99,7 +106,7 @@ const getMyTimeSlot = async (user: any, filter: any): Promise<DoctorTimeSlot[] |
     const result = await prisma.doctorTimeSlot.findMany({
         where: whereCondition,
         include: {
-            timeSlot: true
+            timeSlot: true,
         }
     })
     return result;
