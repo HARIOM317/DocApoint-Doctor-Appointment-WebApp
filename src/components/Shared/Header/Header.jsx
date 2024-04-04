@@ -33,11 +33,11 @@ const Header = () => {
           {data?.firstName + " " + data?.lastName}
         </h5>
         <p className="my-0">{data?.email}</p>
-        <Link to="/dashboard">Deshboard</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </div>
       <Button
         variant="outline-danger"
-        className="w-100"
+        className="w-100 logout-btn"
         size="sm"
         onClick={handleSignOut}
       >
@@ -63,11 +63,12 @@ const Header = () => {
           {/* <Link to={"/appointment"} className="appointment-btn scrollto">
             <span className="d-none d-md-inline">Make an</span> Appointment
           </Link> */}
-          { role === "doctor" ? <span></span> :
+
+          {role === "patient" && (
             <Link to={"/doctors"} className="appointment-btn scrollto">
               <span className="d-none d-md-inline">Make an</span> Appointment
             </Link>
-          }
+          )}
         </div>
       </header>
     </>

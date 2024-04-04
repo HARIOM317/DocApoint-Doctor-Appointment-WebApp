@@ -384,7 +384,7 @@ const TreatmentEdit = () => {
                 <>
                   <div
                     className="card p-3 mb-3"
-                    style={{ background: "#e8e8e8" }}
+                    
                   >
                     <h5>Add New Medicine</h5>
                     {addMedicine?.map((item, index) => (

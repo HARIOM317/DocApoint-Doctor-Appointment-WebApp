@@ -111,7 +111,7 @@ const Prescription = () => {
 
   return (
     <DashboardLayout>
-      <div className="w-100 mb-3 rounded" style={{ background: "#f8f9fa" }}>
+      <div className="w-100 mb-3 rounded">
         <CustomTable
           loading={isLoading}
           columns={columns}

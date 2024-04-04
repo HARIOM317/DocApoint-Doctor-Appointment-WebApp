@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import { Tag } from "antd";
 import "../../../stylesheets/doctorStylesheets/DoctorProfileView.css";
+import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+
 import {
   FaLocationArrow,
   FaRegThumbsUp,
@@ -12,7 +14,9 @@ import {
 import doctorProfile from "../../../images/home/doctorProfile.jpg";
 
 const DoctorProfileView = ({ data }) => {
+  const { role } = useAuthCheck();
   const services = data?.services?.split(",");
+
   return (
     <div className="mb-4 profile-section">
       <div className="d-flex p-3 justify-content-between">
@@ -99,11 +103,13 @@ const DoctorProfileView = ({ data }) => {
               </li>
             </ul>
 
-            <div className="doctor-booking">
-              <Link to={`/booking/${data?.id}`} className="apt-btn">
-                Book Appointment
-              </Link>
-            </div>
+            {role === "patient" && (
+              <div className="doctor-booking">
+                <Link to={`/booking/${data?.id}`} className="apt-btn">
+                  Book Appointment
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

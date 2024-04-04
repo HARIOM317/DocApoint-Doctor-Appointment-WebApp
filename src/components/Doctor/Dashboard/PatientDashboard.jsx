@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../../images/doc/doctor 3.jpg";
+import img from "../../../images/home/doctorProfile.jpg";
 import moment from "moment";
 import {
   useGetPatientAppointmentsQuery,
@@ -233,7 +233,7 @@ const PatientDashboard = () => {
         return (
           <div>
             {moment(data?.scheduleDate).format("LL")}{" "}
-            <span className="d-block text-info">{data?.scheduleTime}</span>
+            <span className="d-block ">{data?.scheduleTime}</span>
           </div>
         );
       },

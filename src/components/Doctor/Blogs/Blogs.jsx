@@ -129,7 +129,7 @@ const Blogs = () => {
   };
   return (
     <DashboardLayout>
-      <div className="w-100 mb-3 rounded" style={{ background: "#f8f9fa" }}>
+      <div className="w-100 mb-3 rounded" >
         <Link
           to={`/dashboard/blogs/create`}
           className="d-flex justify-content-end p-3"

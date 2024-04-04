@@ -19,7 +19,7 @@ const MyPatients = () => {
           data?.map((item) => (
             <div
               className="w-100 mb-3 rounded p-3 text-center"
-              style={{ background: "#f8f9fa" }}
+              
             >
               <div className="">
                 <Link to={"/"} className="my-3 patient-img">

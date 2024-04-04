@@ -4,8 +4,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from "react-router-dom";
 import "../../stylesheets/homeStylesheets/HomePageHeader.css";
 import doctorImg from "../../images/img/doctor.jpeg";
+import useAuthCheck from "../../redux/hooks/useAuthCheck";
 
 const HomePageHeader = () => {
+  const { role } = useAuthCheck();
+
   return (
     <>
       <section className="homepage margin-top-max">
@@ -36,9 +39,22 @@ const HomePageHeader = () => {
               </p>
 
               <div className="d-flex justify-content-start gap-2">
-                <NavLink to={"/doctors"} className="btn-get-started scrollto">
-                  Book Appointment
-                </NavLink>
+                {role === "patient" ? (
+                  <NavLink to={"/doctors"} className="btn-get-started scrollto">
+                    Book Appointment
+                  </NavLink>
+                ) : role === "doctor" ? (
+                  <NavLink
+                    to={"/dashboard/appointments"}
+                    className="btn-get-started scrollto"
+                  >
+                    Check Appointments
+                  </NavLink>
+                ) : (
+                  <NavLink to={"/login"} className="btn-get-started scrollto">
+                    Book Appointment
+                  </NavLink>
+                )}
                 <NavLink
                   to={"/track-appointment"}
                   className="btn-get-started scrollto"

@@ -47,7 +47,7 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
             <hr />
             <div
               className="p-2 rounded"
-              style={{ background: "rgb(218 218 219)" }}
+              
             >
               <p className="form-text text-start m-0">
                 {isAppointment

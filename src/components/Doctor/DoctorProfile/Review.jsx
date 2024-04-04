@@ -132,7 +132,7 @@ const Review = ({ doctorId }) => {
                 <div
                   className="d-flex flex-column"
                   style={{
-                    background: "#f1ebfc",
+                   
                     padding: "1.5rem",
                     border: "1.5px solid var(--borderColor)",
                     borderRadius: "8px",

@@ -27,7 +27,6 @@ const ViewAppointment = () => {
         >
           <div
             className="d-flex justify-content-between rounded p-2"
-            style={{ background: "#f2f4fe" }}
           >
             <div>
               <p className="form-text text-black mb-0">

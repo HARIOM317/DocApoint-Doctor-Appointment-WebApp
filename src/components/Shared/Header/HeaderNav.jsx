@@ -2,6 +2,7 @@ import { Popover } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button } from "antd";
+import useAuthCheck from "../../../redux/hooks/useAuthCheck";
 import {
   FaHome,
   FaPhoneAlt,
@@ -13,6 +14,8 @@ import {
 } from "react-icons/fa";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
+  const { role } = useAuthCheck();
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -54,16 +57,18 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               Service
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to={"/doctors"}
-              className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : ""
-              }
-            >
-              Doctors
-            </NavLink>
-          </li>
+          {role === "patient" && (
+            <li>
+              <NavLink
+                to={"/doctors"}
+                className={({ isActive }) =>
+                  isActive ? "nav-link scrollto active" : ""
+                }
+              >
+                Doctors
+              </NavLink>
+            </li>
+          )}
           <li>
             <NavLink
               to={"/contact"}
@@ -114,7 +119,15 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
         open={open}
         size={"default"}
         extra={
-          <Button type="primary" onClick={onClose} style={{background: 'var(--primaryColor)', fontWeight: 'bold', color: 'white'}}>
+          <Button
+            type="primary"
+            onClick={onClose}
+            style={{
+              background: "var(--primaryColor)",
+              fontWeight: "bold",
+              color: "white",
+            }}
+          >
             Close
           </Button>
         }
@@ -153,17 +166,19 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               Service
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to={"/doctors"}
-              className={({ isActive }) =>
-                isActive ? "nav-link scrollto active" : "nav-link"
-              }
-            >
-              <FaUserMd className="icon" />
-              Doctors
-            </NavLink>
-          </li>
+          {role === "patient" && (
+            <li>
+              <NavLink
+                to={"/doctors"}
+                className={({ isActive }) =>
+                  isActive ? "nav-link scrollto active" : "nav-link"
+                }
+              >
+                <FaUserMd className="icon" />
+                Doctors
+              </NavLink>
+            </li>
+          )}
           <li>
             <NavLink
               to={"/contact"}

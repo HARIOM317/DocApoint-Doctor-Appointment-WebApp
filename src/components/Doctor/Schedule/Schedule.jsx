@@ -208,7 +208,7 @@ const Schedule = () => {
       <DashboardLayout>
         <div
           className="w-100 mb-3 rounded p-3"
-          style={{ background: "#f8f9fa", height: "90vh" }}
+          style={{ height: "90vh" }}
         >
           <h5 className="text-title">Schedule Timings</h5>
           <TabForm

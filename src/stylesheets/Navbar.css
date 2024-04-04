@@ -1,9 +1,31 @@
 .nav-popover h5 {
   font-size: 18px;
   margin-bottom: 0;
+  color: var(--textColor);
+}
+.nav-popover p{
+  color: var(--textLight);
 }
 .nav-popover a {
   margin: 0 0;
+  color: var(--headingColor);
+  font-weight: 500;
+}
+
+.nav-popover a:hover{
+  color: #152330;
+}
+
+.nav-popover .logout-btn{
+  border: 1.5px solid var(--primaryColor);
+  background: #fff;
+  color: var(--primaryColor);
+  font-weight: 500;
+}
+
+.nav-popover .logout-btn:hover{
+  color: #b9122c !important;
+  border-color: #b9122c !important;
 }
 
 .profileImage img {
