@@ -2,10 +2,17 @@ import React from "react";
 import "../../../stylesheets/Footer.css";
 import { NavLink } from "react-router-dom";
 import { FaAngleDoubleRight } from "react-icons/fa";
+<<<<<<< HEAD
+
+const Footer = () => {
+  const instructions = () => {};
+  const ideaTemplate = () => {};
+=======
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
 
 const Footer = () => {
   const { role } = useAuthCheck();
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
   return (
     <>
@@ -15,6 +22,71 @@ const Footer = () => {
             <div className="col-12 col-lg-10 mx-auto">
               <div className="row">
                 {/* First Column */}
+<<<<<<< HEAD
+                <div className="col-6 col-lg-3">
+                  <h2>Patients</h2>
+                  <ul>
+                    <li>
+                      <NavLink to="/doctors">
+                        <FaAngleDoubleRight className="icon" /> Search for
+                        Doctors
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/login">
+                        <FaAngleDoubleRight className="icon" /> Login
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/login">
+                        <FaAngleDoubleRight className="icon" /> Register
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/doctors">
+                        <FaAngleDoubleRight className="icon" /> Book Appointment
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/dashboard">
+                        <FaAngleDoubleRight className="icon" /> Dashboard
+                      </NavLink>
+                    </li>
+                    <li>
+                      <a href="#faq">
+                        <FaAngleDoubleRight className="icon" /> FAQs
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Second Column */}
+                <div className="col-6 col-lg-3">
+                  <h2>Doctors</h2>
+                  <ul>
+                    <li>
+                      <NavLink to={"/dashboard"}>
+                        <FaAngleDoubleRight className="icon" /> Appointments
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/login">
+                        <FaAngleDoubleRight className="icon" /> Login
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/login"}>
+                        <FaAngleDoubleRight className="icon" /> Register
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/dashboard">
+                        <FaAngleDoubleRight className="icon" /> Dashboard
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+=======
                 {role === "patient" ? (
                   <div className="col-6 col-lg-3">
                     <h2>DocApoint</h2>
@@ -205,6 +277,7 @@ const Footer = () => {
                     </ul>
                   </div>
                 )}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
                 {/* Third Column */}
                 <div className="col-6 col-lg-3">
@@ -283,6 +356,16 @@ const Footer = () => {
               <hr />
 
               <div className="mt-4 flexRowSpaceBetween">
+<<<<<<< HEAD
+                <p className="copyright">© Copyright DocApoint-2024. All rights reserved.
+                </p>
+
+                <div className="policy">
+                  <NavLink to="/" className="termsLinks">Privacy Policy</NavLink>
+                  <NavLink to="/" className="termsLinks">Term of Service</NavLink>
+                </div>
+
+=======
                 <p className="copyright">
                   © Copyright DocApoint-2024. All rights reserved.
                 </p>
@@ -295,6 +378,7 @@ const Footer = () => {
                     Term of Service
                   </NavLink>
                 </div>
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
               </div>
             </div>
           </div>

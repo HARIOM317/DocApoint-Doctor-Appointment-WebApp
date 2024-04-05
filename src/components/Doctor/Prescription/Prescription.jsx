@@ -8,7 +8,13 @@ import { useDeletePrescriptionMutation, useGetAllPrescriptionsQuery } from '../.
 
 const Prescription = () => {
   const { data, isLoading } = useGetAllPrescriptionsQuery();
+<<<<<<< HEAD
+  // const [deleteBlog] = useDeletePrescriptionMutation();
+  const [deletePrescription] = useDeletePrescriptionMutation();
+
+=======
   const [deleteBlog] = useDeletePrescriptionMutation();
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
   const columns = [
     {
@@ -83,7 +89,11 @@ const Prescription = () => {
               </Button>
             </Link>
             <Button
+<<<<<<< HEAD
+              onClick={() => deleteHandler(data.id)}              
+=======
               onClick={() => deleteHandler(data.id)}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
               size="small"
               type="primary"
               style={{ margin: "5px 5px" }}
@@ -98,9 +108,15 @@ const Prescription = () => {
   ];
 
   const deleteHandler = async (id) => {
+<<<<<<< HEAD
+    // message.loading("Deleting ...");
+    try {
+      const res = await deletePrescription(id);
+=======
     message.loading("Deleting ...");
     try {
       const res = await deleteBlog(id);
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
       if (res) {
         message.success("Successfully Deleted !!");
       }
@@ -111,7 +127,11 @@ const Prescription = () => {
 
   return (
     <DashboardLayout>
+<<<<<<< HEAD
+      <div className="w-100 mb-3 rounded" style={{ background: "#f8f9fa" }}>
+=======
       <div className="w-100 mb-3 rounded">
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         <CustomTable
           loading={isLoading}
           columns={columns}

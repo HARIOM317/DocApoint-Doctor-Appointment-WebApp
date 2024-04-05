@@ -33,11 +33,19 @@ const Header = () => {
           {data?.firstName + " " + data?.lastName}
         </h5>
         <p className="my-0">{data?.email}</p>
+<<<<<<< HEAD
+        <Link to="/dashboard">Deshboard</Link>
+      </div>
+      <Button
+        variant="outline-danger"
+        className="w-100"
+=======
         <Link to="/dashboard">Dashboard</Link>
       </div>
       <Button
         variant="outline-danger"
         className="w-100 logout-btn"
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         size="sm"
         onClick={handleSignOut}
       >
@@ -63,12 +71,20 @@ const Header = () => {
           {/* <Link to={"/appointment"} className="appointment-btn scrollto">
             <span className="d-none d-md-inline">Make an</span> Appointment
           </Link> */}
+<<<<<<< HEAD
+          { role === "doctor" ? <span></span> :
+            <Link to={"/doctors"} className="appointment-btn scrollto">
+              <span className="d-none d-md-inline">Make an</span> Appointment
+            </Link>
+          }
+=======
 
           {role === "patient" && (
             <Link to={"/doctors"} className="appointment-btn scrollto">
               <span className="d-none d-md-inline">Make an</span> Appointment
             </Link>
           )}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         </div>
       </header>
     </>

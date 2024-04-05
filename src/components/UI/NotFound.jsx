@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+import { Button, Result } from 'antd';
+import { Link } from 'react-router-dom';
+
+const NotFound = () => {
+    return (
+        <Result
+            status="404"
+            title="404"
+            subTitle="Sorry, the page you visited does not exist."
+            extra={<Link to="/"><Button type="primary">Back Home</Button></Link>}
+        />
+    )
+}
+export default NotFound
+=======
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Lottie from "lottie-react";
@@ -25,3 +41,4 @@ const NotFound = () => {
   );
 };
 export default NotFound;
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6

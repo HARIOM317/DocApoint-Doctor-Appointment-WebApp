@@ -1,4 +1,8 @@
 .profile-sidebar {
+<<<<<<< HEAD
+    background-color: #f8f9fa;
+=======
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 	overflow: hidden;
 }
 .dashboard-menu ul {
@@ -26,7 +30,11 @@
 	vertical-align: middle;
 }
 .dashboard-menu > ul > li > a {
+<<<<<<< HEAD
+	color: #757575;
+=======
 	color: var(--textLight);
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 	display: block;
 	padding: 16px 20px;
     transition: 0.2s ease-in;
@@ -38,11 +46,18 @@
 .dashboard-menu > ul > li:hover > a{
     transform: scale(1.05);
 }
+<<<<<<< HEAD
+/* .active {
+    color: var(--primaryColor) !important;
+    background: #fff;
+} */
+=======
 .dashboard-menu > ul > li > a.active {
     color: var(--primaryColor) !important;
     background: var(--bgColor);
     border: 1px solid var(--borderColor);
 }
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
 .dashboard-menu ul li a .icon {
     font-size: 16px;

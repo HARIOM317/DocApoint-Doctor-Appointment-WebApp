@@ -17,4 +17,8 @@ router.delete('/:id', auth(AuthUser.DOCTOR), PrescriptionController.deletePrescr
 router.patch('/', auth(AuthUser.DOCTOR, AuthUser.ADMIN), PrescriptionController.updatePrescription);
 router.patch('/update-prescription-appointment', auth(AuthUser.DOCTOR, AuthUser.ADMIN), PrescriptionController.updatePrescriptionAndAppointment);
 
+<<<<<<< HEAD
 export const PrescriptionRouter = router;
+=======
+export const PrescriptionRouter = router;
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6

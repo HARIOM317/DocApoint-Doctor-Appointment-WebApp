@@ -13,6 +13,11 @@ router.get('/doctor/invoices',auth(AuthUser.DOCTOR), AppointmentController.getDo
 
 router.get('/doctor/appointments',auth(AuthUser.DOCTOR), AppointmentController.getDoctorAppointmentsById);
 router.get('/doctor/patients',auth(AuthUser.DOCTOR), AppointmentController.getDoctorPatients);
+<<<<<<< HEAD
+router.get('/doctor/appointments/:id',auth(AuthUser.DOCTOR), AppointmentController.getAppointmentsByDoctorId);
+
+=======
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
 router.get('/patient-payment-info/:id',auth(AuthUser.PATIENT, AuthUser.DOCTOR), AppointmentController.getPaymentInfoViaAppintmentId);
 

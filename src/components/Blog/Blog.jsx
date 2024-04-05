@@ -11,11 +11,14 @@ import { truncate } from "../../utils/truncate";
 import moment from "moment";
 import "../../stylesheets/Blog.css";
 
+<<<<<<< HEAD
+=======
 import Lottie from "lottie-react";
 import Loading from "../../animations/loading.json";
 import NoDataFound from "../../animations/no_data_found.json";
 import SomethingWrong from "../../animations/something_wrong.json";
 
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 const Blog = () => {
   const query = {};
   const [size, setSize] = useState(10);
@@ -34,6 +37,11 @@ const Blog = () => {
   const meta = data?.meta;
 
   let content = null;
+<<<<<<< HEAD
+  if (!isLoading && isError)
+    content = <div>{message.error("Something went Wrong!")}</div>;
+  if (!isLoading && !isError && blogData?.length === 0) content = <Empty />;
+=======
 
   if (isLoading)
     content = (
@@ -85,6 +93,7 @@ const Blog = () => {
     </div>
   );
 
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   if (!isLoading && !isError && blogData?.length > 0)
     content = (
       <>

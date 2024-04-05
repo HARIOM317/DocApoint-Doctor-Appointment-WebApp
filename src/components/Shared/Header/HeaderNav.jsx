@@ -2,7 +2,10 @@ import { Popover } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button } from "antd";
+<<<<<<< HEAD
+=======
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 import {
   FaHome,
   FaPhoneAlt,
@@ -14,8 +17,11 @@ import {
 } from "react-icons/fa";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
+<<<<<<< HEAD
+=======
   const { role } = useAuthCheck();
 
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   const showDrawer = () => {
     setOpen(true);
   };
@@ -57,6 +63,18 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               Service
             </NavLink>
           </li>
+<<<<<<< HEAD
+          <li>
+            <NavLink
+              to={"/doctors"}
+              className={({ isActive }) =>
+                isActive ? "nav-link scrollto active" : ""
+              }
+            >
+              Doctors
+            </NavLink>
+          </li>
+=======
           {role === "patient" && (
             <li>
               <NavLink
@@ -69,6 +87,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               </NavLink>
             </li>
           )}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
           <li>
             <NavLink
               to={"/contact"}
@@ -119,6 +138,9 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
         open={open}
         size={"default"}
         extra={
+<<<<<<< HEAD
+          <Button type="primary" onClick={onClose} style={{background: 'var(--primaryColor)', fontWeight: 'bold', color: 'white'}}>
+=======
           <Button
             type="primary"
             onClick={onClose}
@@ -128,6 +150,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               color: "white",
             }}
           >
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
             Close
           </Button>
         }
@@ -166,6 +189,19 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               Service
             </NavLink>
           </li>
+<<<<<<< HEAD
+          <li>
+            <NavLink
+              to={"/doctors"}
+              className={({ isActive }) =>
+                isActive ? "nav-link scrollto active" : "nav-link"
+              }
+            >
+              <FaUserMd className="icon" />
+              Doctors
+            </NavLink>
+          </li>
+=======
           {role === "patient" && (
             <li>
               <NavLink
@@ -179,6 +215,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               </NavLink>
             </li>
           )}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
           <li>
             <NavLink
               to={"/contact"}

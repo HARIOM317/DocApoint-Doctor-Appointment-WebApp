@@ -66,8 +66,11 @@
   background: linear-gradient(97.05deg, rgba(56, 4, 12, 0.1) 1.76%, rgba(56, 4, 12, 0.2) 100%);
   border-radius: 0px 10px 10px 0px;
 }
+<<<<<<< HEAD
+=======
 
 .btn-get-started:hover{
   background: #b9122c;
   color: white;
 }
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6

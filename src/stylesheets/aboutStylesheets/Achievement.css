@@ -30,7 +30,11 @@
 }
 
 .about-achievement h3 {
+<<<<<<< HEAD
+  font-size: 1.5rem;
+=======
   font-size: 1.3rem;
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   margin: 0.5rem;
   text-align: start;
 }

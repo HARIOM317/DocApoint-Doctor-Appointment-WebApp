@@ -13,4 +13,8 @@ router.get('/', doctorTimeSlotController.getAllTimeSlot);
 router.patch('/', auth(AuthUser.DOCTOR), doctorTimeSlotController.updateTimeSlot);
 router.delete('/:id', auth(AuthUser.DOCTOR), doctorTimeSlotController.deleteTimeSlot);
 
+<<<<<<< HEAD
 export const DoctorTimeSlotRouter = router;
+=======
+export const DoctorTimeSlotRouter = router;
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6

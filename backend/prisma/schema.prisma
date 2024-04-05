@@ -237,6 +237,10 @@ model DoctorTimeSlot {
   doctorId       String
   doctor         Doctor        @relation(fields: [doctorId], references: [id])
   day            Day?
+<<<<<<< HEAD
+  date           DateTime?       
+=======
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   timeSlot       ScheduleDay[]
   weekDay        String?
   maximumPatient Int?
@@ -247,7 +251,11 @@ model DoctorTimeSlot {
 }
 
 model ScheduleDay {
+<<<<<<< HEAD
+  id               String   @id @default(uuid())
+=======
   id               Int             @id @default(autoincrement())
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   startTime        String
   endTime          String
   doctorTimeSlot   DoctorTimeSlot? @relation(fields: [doctorTimeSlotId], references: [id])

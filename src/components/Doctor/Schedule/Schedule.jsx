@@ -237,7 +237,11 @@ const Schedule = () => {
       <DashboardLayout>
         <div
           className="w-100 mb-3 rounded p-3"
+<<<<<<< HEAD
+          style={{ background: "#f8f9fa", height: "90vh" }}
+=======
           style={{ height: "90vh" }}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         >
           <h5 className="text-title">Schedule Timings</h5>
           <TabForm
@@ -382,4 +386,8 @@ const Schedule = () => {
     </>
   );
 };
+<<<<<<< HEAD
 export default Schedule;
+=======
+export default Schedule;
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
