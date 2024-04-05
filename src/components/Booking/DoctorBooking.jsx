@@ -61,7 +61,7 @@ const DoctorBooking = () => {
     isLoading: dIsLoading,
     isError: dIsError,
     error: dError,
-  } = useGetAppointmentTimeQuery({ day: selectDay, id: doctorId });
+  } = useGetAppointmentTimeQuery({ day: selectDay, date: selectedDate, id: doctorId });
 
   const [selectValue, setSelectValue] = useState(initialValue);
   const [IsdDisable, setIsDisable] = useState(true);
