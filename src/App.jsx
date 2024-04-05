@@ -45,6 +45,7 @@ import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Doctor/Dashboard/Dashboard";
 import PrivateOutlet from "./components/Shared/PrivateOutlet";
 import NotFound from "./components/UI/NotFound";
+import AddNewDoctor from "./components/Admin/AddDoctor";
 
 function App() {
   return (
@@ -112,6 +113,7 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/appointments" element={<AdminAppointments />} />
         <Route path="/admin/doctors" element={<Doctors />} />
+        <Route path="/admin/addDoctor" element={<AddNewDoctor />} />
         <Route path="/admin/patients" element={<Patients />} />
         <Route path="/admin/profile" element={<Profile />} />
         <Route path="/admin/reviews" element={<AdminReviews />} />

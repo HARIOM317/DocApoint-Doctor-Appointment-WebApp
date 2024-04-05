@@ -26,6 +26,18 @@ export const doctorApi = baseApi.injectEndpoints({
             }),
             providesTags: [tagTypes.doctor]
         }),
+        // Add a new mutation to add a new doctor
+        createDoctor: build.mutation({
+            query: (data) => ({
+                url: `${DOC_URL}`,
+                method: 'POST',
+                data: data,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }),
+            invalidatesTags: [tagTypes.admin, tagTypes.doctor]
+        }),
         updateDoctor: build.mutation({
             query: ({ data, id }) => ({
                 url: `${DOC_URL}/${id}`,
@@ -40,4 +52,4 @@ export const doctorApi = baseApi.injectEndpoints({
     })
 })
 
-export const { useGetDoctorsQuery, useGetDoctorQuery, useUpdateDoctorMutation } = doctorApi
+export const { useGetDoctorsQuery, useGetDoctorQuery, useUpdateDoctorMutation, useCreateDoctorMutation } = doctorApi

@@ -3,6 +3,7 @@ import AdminLayout from "./AdminLayout";
 import userImg from "../../images/avatar.jpg";
 import "../../stylesheets/adminStylesheets/Dashboard.css";
 
+
 import { getFromLocalStorage } from "../../utils/local-storage";
 
 const AdminDashboard = () => {
@@ -90,7 +91,7 @@ const AdminDashboard = () => {
     <>
       <AdminLayout>
       <div className="row">
-          <div className="col-xl-3 col-sm-6 col-12">
+          <div className="col-xl-3 col-sm-6 col-12 mb-3">
             <div className="card">
               <div className="card-body">
                 <div className="dash-widget-header">
@@ -171,11 +172,11 @@ const AdminDashboard = () => {
             </div>
           </div>
         </div>
-        <div className="row mt-5">
+        {/* <div className="row mt-5">
           <div className="col-md-12">
             <div className="card card-table">
               <div className="card-header">
-                <h4 className="card-title">Appointments (today)</h4>
+                <h4 className="card-title">Appointments</h4>
               </div>
               <div className="card-body">
                 <div className="table-responsive">
@@ -259,7 +260,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </AdminLayout>
     </>
   );

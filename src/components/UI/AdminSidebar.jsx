@@ -5,6 +5,7 @@ import { FaListUl } from "react-icons/fa";
 import { FaPeopleArrows } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { FaUserAstronaut } from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { FaBriefcase } from "react-icons/fa";
 import { Link } from 'react-router-dom';
@@ -40,6 +41,11 @@ const AdminSidebar = () => {
                                 <FaUserAstronaut /> <span>Doctors</span>
                             </Link>
 
+                        </li>
+                        <li>
+                            <Link to={'/admin/addDoctor'}>
+                            <FaPlusCircle /><span>Add Doctors</span>
+                            </Link>
                         </li>
                         <li>
                             <Link to={'/admin/patients'}>
