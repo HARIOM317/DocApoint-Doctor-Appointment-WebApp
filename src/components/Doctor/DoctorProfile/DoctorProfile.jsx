@@ -10,11 +10,7 @@ import { Tabs } from 'antd';
 import OverView from './OverView';
 import Location from './Location';
 import Review from './Review';
-<<<<<<< HEAD
-import Availibility from './Availibility';
-=======
 import Availability from './Availability';
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 import DoctorProfileView from '../SearchDoctor/DoctorProfileView';
 
 const DoctorProfile = () => {
@@ -46,11 +42,7 @@ const DoctorProfile = () => {
     {
       key: "4",
       label: "Availability",
-<<<<<<< HEAD
-      children: <Availibility />,
-=======
       children: <Availability />,
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     },
   ];
 
@@ -68,11 +60,7 @@ const DoctorProfile = () => {
         {content}
         <div
           className="p-4 rounded"
-<<<<<<< HEAD
-          style={{ marginBottom: "7rem"}}
-=======
           style={{ marginBottom: "3rem"}}
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         >
           <Tabs defaultActiveKey="1" items={items} />
         </div>

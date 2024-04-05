@@ -76,8 +76,4 @@ export const {
     useGetPatientPrescriptionQuery,
     useUpdatePrescriptionQuery,
     useUpdatePrescriptionAndAppointmentMutation
-<<<<<<< HEAD
 } = prescriptionApi;
-=======
-} = prescriptionApi;
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6

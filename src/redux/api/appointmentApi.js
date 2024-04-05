@@ -85,25 +85,11 @@ export const appointmentApi = baseApi.injectEndpoints({
                 method: 'GET'
             }),
             providesTags: [tagTypes.appointments]
-<<<<<<< HEAD
-        }),
-        getAppointmentsByDoctorId: build.query({
-            query: (id) => ({
-                url: `${APPOINTMENT_URL}/doctor/appointments/${id}`,
-                method: 'GET'
-            }),
-            providesTags: [tagTypes.appointments]
-=======
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         })
     })
 })
 
-<<<<<<< HEAD
-export const {
-=======
 export const { 
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     useGetDoctorAppointmentsQuery,
     useGetPatientAppointmentsQuery,
     useGetDoctorPatientsQuery,
@@ -113,12 +99,6 @@ export const {
     useGetPatientInvoicesQuery,
     useGetDoctorInvoicesQuery,
     useUpdateAppointmentMutation,
-<<<<<<< HEAD
-    useCreateAppointmentByUnauthenticateUserMutation,
-    useTrackAppointmentMutation,
-    useGetAppointmentsByDoctorIdQuery
-=======
     useCreateAppointmentByUnauthenticateUserMutation, 
     useTrackAppointmentMutation
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 } = appointmentApi;

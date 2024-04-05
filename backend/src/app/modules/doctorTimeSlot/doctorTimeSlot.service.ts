@@ -1,11 +1,7 @@
 import httpStatus from "http-status";
 import ApiError from "../../../errors/apiError";
 import prisma from "../../../shared/prisma";
-<<<<<<< HEAD
 import { Appointments, DoctorTimeSlot, ScheduleDay } from "@prisma/client";
-=======
-import { DoctorTimeSlot, ScheduleDay } from "@prisma/client";
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 import moment from "moment";
 
 const createTimeSlot = async (user: any, payload: any): Promise<DoctorTimeSlot | null> => {
@@ -197,7 +193,6 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
         },
     })
 
-<<<<<<< HEAD
     const appointment_data = await prisma.appointments.findMany({
         where: {
             doctorId: id,
@@ -205,8 +200,6 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
         }
     });
 
-=======
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     const allSlots = doctorTimSlot.map((item) => {
         const { day, timeSlot, ...others } = item;
         return { day, timeSlot }
@@ -224,10 +217,6 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
                 const { startTime, endTime } = slot;
                 const startDate = moment(startTime, 'hh:mm a');
                 const endDate = moment(endTime, 'hh:mm a');
-<<<<<<< HEAD
-=======
-
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
                 while (startDate < endDate) {
                     const selectableTime = {
                         id: newTimeSlots.length + 1,
@@ -237,7 +226,6 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
                     startDate.add(interval, 'minutes');
                 }
             })
-<<<<<<< HEAD
 
 
             if (filter.day) {
@@ -286,16 +274,6 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
     }
     const result = generateTimeSlot(allSlots)
     // console.log(result);
-=======
-            if (filter.day) {
-                const newTime = newTimeSlots.filter((item) => item.day === filter.day);
-                selectedTime.push(newTime);
-            }
-        })
-        return selectedTime.flat();
-    }
-    const result = generateTimeSlot(allSlots)
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     return result
 }
 
@@ -307,8 +285,4 @@ export const TimeSlotService = {
     deleteTimeSlot,
     getMyTimeSlot,
     getAppointmentTimeOfEachDoctor
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6

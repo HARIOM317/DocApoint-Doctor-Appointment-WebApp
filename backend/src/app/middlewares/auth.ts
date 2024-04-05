@@ -7,12 +7,9 @@ import { Secret } from "jsonwebtoken";
 export const auth = (...rules: string[]) => async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token = req.headers.authorization;
-<<<<<<< HEAD
         console.log(req.headers);
 
         console.log(token);
-=======
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         if (!token) {
             throw new ApiError(404, "Token is not Found !!")
         }

@@ -13,15 +13,10 @@ import StarRatings from "react-star-ratings";
 import { Autoplay } from "swiper/modules";
 import { Pagination } from "swiper/modules";
 
-<<<<<<< HEAD
-
-
-=======
 import Lottie from "lottie-react";
 import Loading from "../../animations/loading.json";
 import NoDataFound from "../../animations/no_data_found.json";
 import SomethingWrong from "../../animations/something_wrong.json";
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
 // Import Swiper styles
 import "swiper/css";
@@ -49,20 +44,11 @@ const BookDoctor = () => {
       message.error(error?.data?.message);
     }
     if (isSuccess) {
-<<<<<<< HEAD
-      message.success("Successfully Favourite Adde");
-=======
       message.success("Successfully Favourite Added!");
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     }
   }, [isSuccess, fIsError, FIsLoading, error?.data?.message]);
 
   let content = null;
-<<<<<<< HEAD
-  if (!isLoading && isError) content = <div>Something Went Wrong !</div>;
-  if (!isLoading && !isError && doctors?.length === 0)
-    content = <div>Empty</div>;
-=======
   
   if (isLoading)
     content = (
@@ -96,7 +82,6 @@ const BookDoctor = () => {
         />
       </div>
     );
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   if (!isLoading && !isError && doctors?.length > 0)
     content = (
       <>
@@ -167,11 +152,7 @@ const BookDoctor = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing.
         </p>
       </div>
-<<<<<<< HEAD
-      <div className="paddings innerWidth">
-=======
       <div className="innerWidth">
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         <Swiper
           {...sliderSettings}
           modules={[Pagination, Autoplay]}

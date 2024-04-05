@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import img from "../../../images/doc/doctor 3.jpg";
-=======
 import img from "../../../images/home/doctorProfile.jpg";
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 import moment from "moment";
 import {
   useGetPatientAppointmentsQuery,
@@ -303,11 +299,7 @@ const PatientDashboard = () => {
         return (
           <div style={{ color: "var(--textColor)" }}>
             {moment(data?.scheduleDate).format("LL")}{" "}
-<<<<<<< HEAD
-            <span className="d-block text-info">{data?.scheduleTime}</span>
-=======
             <span className="d-block ">{data?.scheduleTime}</span>
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
           </div>
         );
       },
