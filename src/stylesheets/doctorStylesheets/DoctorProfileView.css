@@ -1,0 +1,89 @@
+/* .profile-section{
+    border: 1.5px solid var(--borderLight);
+    border-radius: 12px;
+    background: var(--bgLight);
+    box-shadow: var(--shadowAll);
+} */
+
+.doc-img img {
+    height: 280px;
+    width: 280px;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: top;
+    box-shadow: var(--shadowAll);
+}
+
+.doc-profile{
+    margin-left: 2rem;
+}
+
+.doctor-name{
+    color: var(--textColor);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.doctor-detail{
+    font-size: 1rem;
+    color: var(--textLight);
+}
+
+.tags{
+    background: #ffd9d9;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ff4c4c;
+    padding: 3px 15px;
+    border: 1.5px solid #ffc4c4;
+    border-radius: 20px;
+}
+
+
+.social-media-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.social-media-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: 0;
+  background-color: var(--secondaryColor);
+  text-decoration: none;
+  color: white !important;
+  transition: all 0.3s ease-in;
+}
+
+.social-media-icons a:hover {
+  transform: scale(1.1);
+}
+
+.doctor-booking{
+    background: var(--primaryColor);
+    width: 200px;
+    text-align: center;
+    padding: 8px 16px;
+    border-radius: 50px;
+    margin-top: 1rem;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+
+.doctor-booking a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.doctor-booking:hover{
+    background: #b9122c;
+}

@@ -1,0 +1,148 @@
+import React, { useState } from "react";
+import Footer from "../Shared/Footer/Footer";
+import { useGetAllBlogsQuery } from "../../redux/api/blogApi";
+import { useDebounced } from "../../redux/hooks";
+import { Empty, Pagination, message } from "antd";
+import BlogAside from "./BlogAside";
+import { Link } from "react-router-dom";
+import Header from "../Shared/Header/Header";
+import SubHeader from "../Shared/SubHeader";
+import { truncate } from "../../utils/truncate";
+import moment from "moment";
+import "../../stylesheets/Blog.css";
+
+const Blog = () => {
+  const query = {};
+  const [size, setSize] = useState(10);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const debouncedTerm = useDebounced({
+    searchQuery: searchTerm,
+    delay: 600,
+  });
+
+  if (!!debouncedTerm) {
+    query["searchTerm"] = debouncedTerm;
+  }
+  const { data, isError, isLoading } = useGetAllBlogsQuery({ ...query });
+  const blogData = data?.blogs;
+  const meta = data?.meta;
+
+  let content = null;
+  if (!isLoading && isError)
+    content = <div>{message.error("Something went Wrong!")}</div>;
+  if (!isLoading && !isError && blogData?.length === 0) content = <Empty />;
+  if (!isLoading && !isError && blogData?.length > 0)
+    content = (
+      <>
+        {blogData &&
+          blogData?.map((item, index) => (
+            <div
+              className="col-md-4 col-sm-12 mb-5"
+              style={{ maxWidth: "25rem" }}
+              key={item?.id + index}
+            >
+              <div className="card text-center blog-card">
+                <div
+                  className="flex-column p-0 border-0 d-flex justify-content-center align-items-center"
+                  style={{ overflow: "hidden" }}
+                >
+                  <img
+                    src={item?.img}
+                    alt="blog Image"
+                    className="blog-img"
+                    style={{
+                      maxHeight: "10rem",
+                      minHeight: "10rem",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+                <div className="card-body p-0">
+                  <div className="p-2">
+                    <div
+                      className="d-flex justify-content-between gap-2"
+                      style={{ margin: "0.5rem auto 1rem auto" }}
+                    >
+                      <div className="d-flex gap-1 text-muted align-items-center justify-content-center">
+                        <span className="blog-author">
+                          {item?.user.firstName + " " + item?.user.lastName}
+                        </span>
+                      </div>
+                      <div className="d-flex gap-1 text-muted align-items-center justify-content-center">
+                        <span className="blog-date">
+                          {moment(item?.createdAt).format("LL")}
+                        </span>
+                      </div>
+                    </div>
+
+                    <Link to={`/blog/${item?.id}`}>
+                      <h6
+                        className="text-start mb-1 text-capitalize"
+                        style={{
+                          color: "var(--headingColor)",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {truncate(item?.title, 40)}
+                      </h6>
+                    </Link>
+
+                  </div>
+                  <div className="px-2">
+                    <p className="blog-description">
+                      {truncate(item?.description, 150)}
+                    </p>
+                  </div>
+                  <div className="mt-1 mb-3 text-end">
+                    <Link to={`/blog/${item?.id}`}>
+                      <button
+                        className="read-more-btn"
+                      >
+                        Read More
+                        <i class="fa-solid fa-arrow-right-long" style={{marginLeft: '4px'}}></i>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+      </>
+    );
+  return (
+    <>
+      <Header />
+      <SubHeader title="Blog" subtitle="Lorem ipsum dolor sit amet." />
+
+      <div
+        className="container-fluid"
+        style={{ marginTop: 50, marginBottom: 50 }}
+      >
+        <div className="row">
+          <div className="col-md-9 col-sm-12">
+            <div
+              className="p-3 py-5 mx-3 rounded"
+            >
+              <div className="row">{content}</div>
+              <div className="text-center mt-5">
+                <Pagination
+                  defaultCurrent={size}
+                  total={meta?.total}
+                  showSizeChanger={true}
+                  showPrevNextJumpers={true}
+                  pageSize={size}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3 col-sm-12">
+            <BlogAside setSearchTerm={setSearchTerm} />
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+};
+export default Blog;
