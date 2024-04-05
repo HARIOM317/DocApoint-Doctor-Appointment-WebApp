@@ -94,6 +94,7 @@ const getDoctorAppointmentsById = catchAsync(async (req: Request, res: Response)
     })
 })
 
+<<<<<<< HEAD
 
 const getAppointmentsByDoctorId = catchAsync(async (req: Request, res: Response) => {
     const result = await AppointmentService.getAppointmentsByDoctorId(req.params.id);
@@ -105,6 +106,8 @@ const getAppointmentsByDoctorId = catchAsync(async (req: Request, res: Response)
     })
 })
 
+=======
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 const updateAppointmentByDoctor = catchAsync(async (req: Request, res: Response) => {
     const result = await AppointmentService.updateAppointmentByDoctor(req.user, req.body);
     sendResponse<Appointments>(res, {
@@ -169,6 +172,10 @@ export const AppointmentController = {
     getPatientPaymentInfo,
     getDoctorInvoices,
     createAppointmentByUnAuthenticateUser,
+<<<<<<< HEAD
     getAppointmentByTrackingId,
     getAppointmentsByDoctorId
+=======
+    getAppointmentByTrackingId
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 }

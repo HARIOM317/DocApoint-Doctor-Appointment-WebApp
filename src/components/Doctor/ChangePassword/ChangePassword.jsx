@@ -5,7 +5,11 @@ import { Button } from "antd";
 const ChangePassword = () => {
   return (
     <DashboardLayout>
+<<<<<<< HEAD
       <div className="w-100 mb-3 rounded p-2" style={{ background: "#f8f9fa" }}>
+=======
+      <div className="w-100 mb-3 rounded p-2">
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         <h5 className="text-title mt-3">Change Your Password</h5>
         <form className="container row form-row px-5 mx-auto my-5">
           <div className="col-md-12">

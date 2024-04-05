@@ -5,7 +5,11 @@ const DashboardLayout = ({ children }) => {
 	return (
 		<>
 			<Header />
+<<<<<<< HEAD
 			<div className="container-fluid" style={{marginTop:160, marginBottom:200}}>
+=======
+			<div className="container-fluid" style={{marginTop:100, marginBottom:50}}>
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 				<div className="row">
 					<div className="col-md-5 col-lg-4 col-xl-3">
 						<DashboardSidebar />

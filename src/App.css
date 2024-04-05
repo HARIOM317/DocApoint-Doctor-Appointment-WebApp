@@ -83,7 +83,11 @@ body {
   width: 100%;
   border: 1.5px solid var(--borderLight);
   border-radius: 25px;
+<<<<<<< HEAD
   background: var(--bgColor);
+=======
+  background: var(--bgLight);
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   padding: 10px 25px;
   font-size: 16px;
   color: var(--textLight);
@@ -97,7 +101,10 @@ body {
 
 textarea.text-form-input-field {
   height: 168px;
+<<<<<<< HEAD
   border-radius: 8px;
+=======
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 }
 
 .margin-top-max {
@@ -129,15 +136,33 @@ textarea.text-form-input-field {
   font-weight: 500;
   padding: 0.6rem 1.4rem;
   color: white;
+<<<<<<< HEAD
   background: var(--skin-gradient);
   border: none;
   border-radius: 4px;
+=======
+  background: var(--primaryColor);
+  border: none;
+  border-radius: 8px;
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   transition: all 300ms ease-in;
   cursor: pointer;
 }
 
 .button:hover {
+<<<<<<< HEAD
   transform: scale(1.025);
+=======
+  color: white;
+  background: #b9122c;
+}
+
+.heading{
+  color: var(--headingColor);
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1.3rem;
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 }
 
 .sub-heading {

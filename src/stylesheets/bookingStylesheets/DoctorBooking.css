@@ -3,7 +3,11 @@
     width: 70px;
     object-fit: cover;
     object-position: top;
+<<<<<<< HEAD
     border: 6px solid #efefef;
+=======
+    border: 1.5px solid var(--borderColor);
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     border-radius: 50%;
     margin-top: 10px;
 }
@@ -13,14 +17,26 @@
 }
 
 .booking-doc-img {
+<<<<<<< HEAD
     background: #f8f9fa;
+=======
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     display: flex;
     align-items: center;
     gap: 10px;
 }
 .date-card{
+<<<<<<< HEAD
     background: #f8f9fa;
     height: 50vh;
     overflow: hidden;
     overflow-y: scroll;
+=======
+    padding: 11px;
+    background: var(--bgLight);
+    height: 286px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: 1.5px solid var(--borderColor);
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 }

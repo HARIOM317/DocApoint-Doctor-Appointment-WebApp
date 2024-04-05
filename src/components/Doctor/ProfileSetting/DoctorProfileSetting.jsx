@@ -68,7 +68,11 @@ const DoctorProfileSetting = () => {
     <div style={{ marginBottom: "10rem" }}>
       <div
         className="w-100 mb-3 rounded mb-5 p-2"
+<<<<<<< HEAD
         style={{ background: "#f8f9fa" }}
+=======
+       
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
       >
         <h5 className="text-title mb-2 mt-3">Update Your Information</h5>
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>

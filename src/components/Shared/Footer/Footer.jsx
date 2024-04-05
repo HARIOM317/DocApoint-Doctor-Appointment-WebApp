@@ -2,10 +2,17 @@ import React from "react";
 import "../../../stylesheets/Footer.css";
 import { NavLink } from "react-router-dom";
 import { FaAngleDoubleRight } from "react-icons/fa";
+<<<<<<< HEAD
 
 const Footer = () => {
   const instructions = () => {};
   const ideaTemplate = () => {};
+=======
+import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+
+const Footer = () => {
+  const { role } = useAuthCheck();
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
   return (
     <>
@@ -15,6 +22,7 @@ const Footer = () => {
             <div className="col-12 col-lg-10 mx-auto">
               <div className="row">
                 {/* First Column */}
+<<<<<<< HEAD
                 <div className="col-6 col-lg-3">
                   <h2>Patients</h2>
                   <ul>
@@ -78,6 +86,198 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
+=======
+                {role === "patient" ? (
+                  <div className="col-6 col-lg-3">
+                    <h2>DocApoint</h2>
+                    <ul>
+                      <li>
+                        <NavLink to="/">
+                          <FaAngleDoubleRight className="icon" /> Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/about">
+                          <FaAngleDoubleRight className="icon" /> About
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/service">
+                          <FaAngleDoubleRight className="icon" /> Services
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/doctors">
+                          <FaAngleDoubleRight className="icon" /> Doctors
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/contact">
+                          <FaAngleDoubleRight className="icon" /> Contact
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/blog">
+                          <FaAngleDoubleRight className="icon" /> Blog
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                ) : role === "doctor" ? (
+                  <div className="col-6 col-lg-3">
+                    <h2>DocApoint</h2>
+                    <ul>
+                      <li>
+                        <NavLink to="/">
+                          <FaAngleDoubleRight className="icon" /> Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/about">
+                          <FaAngleDoubleRight className="icon" /> About
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/service">
+                          <FaAngleDoubleRight className="icon" /> Services
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/contact">
+                          <FaAngleDoubleRight className="icon" /> Contact
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/blog">
+                          <FaAngleDoubleRight className="icon" /> Blog
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <div className="col-6 col-lg-3">
+                    <h2>DocApoint</h2>
+                    <ul>
+                      <li>
+                        <NavLink to="/">
+                          <FaAngleDoubleRight className="icon" /> Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/about">
+                          <FaAngleDoubleRight className="icon" /> About
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/service">
+                          <FaAngleDoubleRight className="icon" /> Services
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/contact">
+                          <FaAngleDoubleRight className="icon" /> Contact
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/blog">
+                          <FaAngleDoubleRight className="icon" /> Blog
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+
+                {/* Second Column */}
+                {role === "patient" ? (
+                  <div className="col-6 col-lg-3">
+                    <h2>Dashboard</h2>
+                    <ul>
+                      <li>
+                        <NavLink to={"/dashboard"}>
+                          <FaAngleDoubleRight className="icon" /> View all
+                          Appointments
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/favourite">
+                          <FaAngleDoubleRight className="icon" /> Favorite
+                          Doctors
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/dashboard/profile-setting"}>
+                          <FaAngleDoubleRight className="icon" /> Profile
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                ) : role === "doctor" ? (
+                  <div className="col-6 col-lg-3">
+                    <h2>Dashboard</h2>
+                    <ul>
+                      <li>
+                        <NavLink to={"/dashboard"}>
+                          <FaAngleDoubleRight className="icon" /> Dashboard
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/dashboard/appointments"}>
+                          <FaAngleDoubleRight className="icon" /> Appointments
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/my-patients">
+                          <FaAngleDoubleRight className="icon" /> Patients
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/dashboard/schedule"}>
+                          <FaAngleDoubleRight className="icon" /> Schedule Time
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/dashboard/blogs/create"}>
+                          <FaAngleDoubleRight className="icon" /> Write a Blog
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/profile-setting">
+                          <FaAngleDoubleRight className="icon" /> Profile
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <div className="col-6 col-lg-3">
+                    <h2>User</h2>
+                    <ul>
+                      <li>
+                        <NavLink to={"/login"}>
+                          <FaAngleDoubleRight className="icon" /> Search for
+                          Doctor
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/login">
+                          <FaAngleDoubleRight className="icon" /> Book
+                          Appointment
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/track-appointment"}>
+                          <FaAngleDoubleRight className="icon" /> Track
+                          Appointment
+                        </NavLink>
+                      </li>
+                      <li>
+                        <a href="#faq">
+                          <FaAngleDoubleRight className="icon" /> FAQs
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
                 {/* Third Column */}
                 <div className="col-6 col-lg-3">
@@ -156,6 +356,7 @@ const Footer = () => {
               <hr />
 
               <div className="mt-4 flexRowSpaceBetween">
+<<<<<<< HEAD
                 <p className="copyright">© Copyright DocApoint-2024. All rights reserved.
                 </p>
 
@@ -164,6 +365,20 @@ const Footer = () => {
                   <NavLink to="/" className="termsLinks">Term of Service</NavLink>
                 </div>
 
+=======
+                <p className="copyright">
+                  © Copyright DocApoint-2024. All rights reserved.
+                </p>
+
+                <div className="policy">
+                  <NavLink to="/" className="termsLinks">
+                    Privacy Policy
+                  </NavLink>
+                  <NavLink to="/" className="termsLinks">
+                    Term of Service
+                  </NavLink>
+                </div>
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
               </div>
             </div>
           </div>

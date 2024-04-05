@@ -132,7 +132,11 @@ const Review = ({ doctorId }) => {
                 <div
                   className="d-flex flex-column"
                   style={{
+<<<<<<< HEAD
                     background: "#f1ebfc",
+=======
+                   
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
                     padding: "1.5rem",
                     border: "1.5px solid var(--borderColor)",
                     borderRadius: "8px",
@@ -159,6 +163,10 @@ const Review = ({ doctorId }) => {
               <div className="form-group">
                 <textarea
                   className="text-form-input-field"
+<<<<<<< HEAD
+=======
+                  style={{borderRadius: '8px', background: 'var(--bgColor)'}}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
                   {...register("description")}
                   placeholder="Write Description"
                   rows={6}

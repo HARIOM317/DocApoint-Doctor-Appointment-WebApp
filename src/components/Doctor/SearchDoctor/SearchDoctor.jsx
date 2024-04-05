@@ -10,6 +10,15 @@ import SubHeader from "../../Shared/SubHeader";
 import Search from "antd/es/input/Search";
 import { FaSearch, FaRedoAlt } from "react-icons/fa";
 
+<<<<<<< HEAD
+=======
+import Lottie from "lottie-react";
+import Loading from "../../../animations/loading.json";
+import NoDataFound from "../../../animations/no_data_found.json";
+import SomethingWrong from "../../../animations/something_wrong.json";
+
+
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 const SearchDoctor = () => {
   const query = {};
   const [page, setPage] = useState(1);
@@ -64,12 +73,53 @@ const SearchDoctor = () => {
 
   //what to render
   let content = null;
+<<<<<<< HEAD
   if (isLoading) content = <>Loading ...</>;
   if (!isLoading && isError) content = <div>Something Went Wrong !</div>;
   if (!isLoading && !isError && doctorsData.length === 0)
     content = (
       <div>
         <Empty />
+=======
+  if (isLoading) content = (
+    <>
+      <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    </>
+  );
+  if (!isLoading && isError)
+    content = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
+  if (!isLoading && !isError && doctorsData.length === 0)
+    content = (
+      <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{ width: "300px" }}
+        />
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
       </div>
     );
   if (!isLoading && !isError && doctorsData.length > 0)
@@ -114,7 +164,11 @@ const SearchDoctor = () => {
       <Header />
       <SubHeader title="Doctors" subtitle="Lorem ipsum dolor sit amet." />
 
+<<<<<<< HEAD
       <div className="container" style={{ marginBottom: 200, marginTop: 80 }}>
+=======
+      <div className="container" style={{ marginBottom: 80, marginTop: 80 }}>
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         <div className="filter-bar">
           <div className="filter-group">
             <Select

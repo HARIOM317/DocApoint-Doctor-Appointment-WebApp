@@ -39,7 +39,11 @@ const PatientFavouriteDoctor = () => {
             <div
               className="col-md-4 col-sm-12 mb-4 mx-2 rounded shadow-sm"
               key={item?.id}
+<<<<<<< HEAD
               style={{ background: "#f8f9fa", maxWidth: "20rem" }}
+=======
+              style={{ maxWidth: "20rem" }}
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
             >
               <div className="rounded position-relative">
                 <div className="fav-img my-3 d-flex justify-content-center">
@@ -105,7 +109,11 @@ const PatientFavouriteDoctor = () => {
                     <Link
                       to={`/booking/${item?.doctor?.id}`}
                       className="btn book-btn"
+<<<<<<< HEAD
                       style={{ backgroundColor: "#1977cc" }}
+=======
+                      
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
                     >
                       Book Now
                     </Link>

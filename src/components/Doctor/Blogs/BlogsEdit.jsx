@@ -40,7 +40,11 @@ const BlogsEdit = () => {
 
   return (
     <DashboardLayout>
+<<<<<<< HEAD
       <div className="mb-5 p-2" style={{ background: "#f8f9fa" }}>
+=======
+      <div className="mb-5 p-2" >
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12">
             <div className="form-group mb-2 card-label">

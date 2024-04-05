@@ -29,7 +29,11 @@ const SelectApppointment = ({
 
   return (
     <div style={{ marginTop: "5rem" }}>
+<<<<<<< HEAD
       <dir className="p-3" style={{ background: "#f8f9fa" }}>
+=======
+      <dir className="p-3">
+>>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         <div className="row">
           <div className="col-md-3 col-sm-12 mt-3 info-part border-end">
             <p className="py-2 border-bottom info-head-date">
