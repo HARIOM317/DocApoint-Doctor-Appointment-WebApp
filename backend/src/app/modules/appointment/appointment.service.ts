@@ -10,11 +10,7 @@ import config from "../../../config";
 const createAppointment = async (payload: any): Promise<Appointments | null | any> => {
 
     const { patientInfo, payment } = payload;
-<<<<<<< HEAD
     if (patientInfo.patientId) {
-=======
-    if(patientInfo.patientId){
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         const isUserExist = await prisma.patient.findUnique({
             where: {
                 id: patientInfo.patientId
@@ -35,11 +31,7 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
         throw new ApiError(httpStatus.NOT_FOUND, 'Doctor Account is not found !!')
     }
     patientInfo['paymentStatus'] = paymentStatus.paid;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
     const result = await prisma.$transaction(async (tx) => {
         const previousAppointment = await tx.appointments.findFirst({
             orderBy: { createdAt: 'desc' },
@@ -87,7 +79,6 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
             status: appointment.status,
             paymentStatus: appointment.paymentStatus,
             prescriptionStatus: appointment.prescriptionStatus,
-<<<<<<< HEAD
             scheduleDate: moment(appointment.scheduleDate).format('LL'),
             scheduleTime: appointment.scheduleTime,
             doctorImg: appointment?.doctor?.img,
@@ -104,24 +95,6 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
             city: appointment?.patient?.city,
             state: appointment?.patient?.state,
             country: appointment?.patient?.country
-=======
-            scheduleDate:moment(appointment.scheduleDate).format('LL'),
-            scheduleTime:appointment.scheduleTime,
-            doctorImg: appointment?.doctor?.img,
-            doctorFirstName: appointment?.doctor?.firstName,
-            doctorLastName: appointment?.doctor?.lastName,
-            specialization:appointment?.doctor?.specialization,
-            designation:appointment?.doctor?.designation,
-            college:appointment?.doctor?.college,
-            patientImg:appointment?.patient?.img,
-            patientfirstName:appointment?.patient?.firstName,
-            patientLastName:appointment?.patient?.lastName,
-            dateOfBirth: moment().diff(moment(appointment?.patient?.dateOfBirth), 'years'),
-            bloodGroup:appointment?.patient?.bloodGroup,
-            city:appointment?.patient?.city,
-            state:appointment?.patient?.state,
-            country:appointment?.patient?.country
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         }
         const replacementObj = appointmentObj;
         const subject = `Appointment Confirm With Dr ${appointment?.doctor?.firstName + ' ' + appointment?.doctor?.lastName} at ${appointment.scheduleDate} + ' ' + ${appointment.scheduleTime}`
@@ -134,11 +107,7 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
 
 const createAppointmentByUnAuthenticateUser = async (payload: any): Promise<Appointments | null> => {
     const { patientInfo, payment } = payload;
-<<<<<<< HEAD
     if (patientInfo.patientId) {
-=======
-    if(patientInfo.patientId){
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         const isUserExist = await prisma.patient.findUnique({
             where: {
                 id: patientInfo.patientId
@@ -190,13 +159,8 @@ const createAppointmentByUnAuthenticateUser = async (payload: any): Promise<Appo
             status: appointment.status,
             paymentStatus: appointment.paymentStatus,
             prescriptionStatus: appointment.prescriptionStatus,
-<<<<<<< HEAD
             scheduleDate: moment(appointment.scheduleDate).format('LL'),
             scheduleTime: appointment.scheduleTime,
-=======
-            scheduleDate:moment(appointment.scheduleDate).format('LL'),
-            scheduleTime:appointment.scheduleTime,
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
         }
         const pathName = path.join(__dirname, '../../../../template/meeting.html')
         const replacementObj = appointmentObj;
@@ -335,11 +299,7 @@ const getPatientPaymentInfo = async (user: any): Promise<Payment[]> => {
                             lastName: true,
                             designation: true,
                             img: true,
-<<<<<<< HEAD
                             specialization: true,
-=======
-                            specialization : true,
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
                         }
                     }
                 }
@@ -394,7 +354,6 @@ const updateAppointment = async (id: string, payload: Partial<Appointments>): Pr
 }
 
 //doctor Side
-<<<<<<< HEAD
 const getAppointmentsByDoctorId = async (id: string): Promise<Appointments | null | any> => {
     const result = await prisma.appointments.findMany({
         where: {
@@ -407,8 +366,6 @@ const getAppointmentsByDoctorId = async (id: string): Promise<Appointments | nul
     return result;
 }
 
-=======
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 const getDoctorAppointmentsById = async (user: any, filter: any): Promise<Appointments[] | null> => {
     const { userId } = user;
     const isDoctor = await prisma.doctor.findUnique({
@@ -515,10 +472,6 @@ export const AppointmentService = {
     getPatientPaymentInfo,
     getDoctorInvoices,
     createAppointmentByUnAuthenticateUser,
-<<<<<<< HEAD
     getAppointmentByTrackingId,
     getAppointmentsByDoctorId
-=======
-    getAppointmentByTrackingId
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 }

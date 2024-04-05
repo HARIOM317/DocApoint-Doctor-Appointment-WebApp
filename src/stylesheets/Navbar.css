@@ -1,11 +1,6 @@
 .nav-popover h5 {
   font-size: 18px;
   margin-bottom: 0;
-<<<<<<< HEAD
-}
-.nav-popover a {
-  margin: 0 0;
-=======
   color: var(--textColor);
 }
 .nav-popover p{
@@ -31,7 +26,6 @@
 .nav-popover .logout-btn:hover{
   color: #b9122c !important;
   border-color: #b9122c !important;
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 }
 
 .profileImage img {

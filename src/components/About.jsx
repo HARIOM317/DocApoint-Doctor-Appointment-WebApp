@@ -4,17 +4,6 @@ import Header from "./Shared/Header/Header";
 import Footer from "./Shared/Footer/Footer";
 import SubHeader from "./Shared/SubHeader";
 import { useGetAllBlogsQuery } from "../redux/api/blogApi";
-<<<<<<< HEAD
-import { Empty } from "antd";
-import { useGetDoctorsQuery } from "../redux/api/doctorApi";
-import AboutUs from "./about/AboutUs";
-import Achievements from "./about/Achievements";
-import doctorProfile from "../images/home/doctorProfile.jpg"
-import { NavLink } from "react-router-dom";
-
-const About = () => {
-  const { data, isError, isLoading } = useGetAllBlogsQuery({ limit: 4 });
-=======
 import { useGetDoctorsQuery } from "../redux/api/doctorApi";
 import AboutUs from "./about/AboutUs";
 import Achievements from "./about/Achievements";
@@ -28,29 +17,16 @@ import SomethingWrong from "../animations/something_wrong.json";
 
 const About = () => {
   const { data, isError, isLoading } = useGetAllBlogsQuery({});
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   const {
     data: doctorData,
     isLoading: DoctorIsLoading,
     isError: doctorIsError,
-<<<<<<< HEAD
-  } = useGetDoctorsQuery({ limit: 4 });
-=======
   } = useGetDoctorsQuery({});
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 
   const blogData = data?.blogs;
   const doctors = doctorData?.doctors;
 
   let doctorContent = null;
-<<<<<<< HEAD
-  if (!DoctorIsLoading && doctorIsError)
-    doctorContent = <div>Something Went Wrong !</div>;
-  if (!DoctorIsLoading && !doctorIsError && doctors?.length === 0)
-    doctorContent = (
-      <div>
-        <Empty />
-=======
   if (DoctorIsLoading)
     doctorContent = (
       <>
@@ -91,7 +67,6 @@ const About = () => {
           animationData={NoDataFound}
           style={{ width: "300px" }}
         />
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
       </div>
     );
   if (!DoctorIsLoading && !doctorIsError && doctors?.length > 0)
@@ -141,10 +116,6 @@ const About = () => {
       <AboutUs />
       <Achievements />
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
       <div className="container" style={{ marginBottom: 100, marginTop: 100 }}>
         <div className="row justify-content-center">
           <div className="col-lg-6">
@@ -161,10 +132,6 @@ const About = () => {
         <div className="row">{doctorContent}</div>
       </div>
 
-<<<<<<< HEAD
-      
-=======
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
       <Footer />
     </>
   );

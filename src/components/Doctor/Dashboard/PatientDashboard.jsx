@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import img from "../../../images/doc/doctor 3.jpg";
-=======
 import img from "../../../images/home/doctorProfile.jpg";
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 import moment from "moment";
 import {
   useGetPatientAppointmentsQuery,
@@ -26,7 +22,6 @@ const PatientDashboard = () => {
   const { data: invoices, isLoading: InvoicesIsLoading } =
     useGetPatientInvoicesQuery();
 
-
   const InvoiceColumns = [
     {
       title: "Doctor",
@@ -36,15 +31,27 @@ const PatientDashboard = () => {
         return (
           <div className="avatar avatar-sm mr-2 d-flex gap-2">
             <div>
-              <img className="avatar-img rounded-circle" src={data?.appointment?.doctor?.img ? data?.appointment?.doctor?.img : img} alt="" />
+              <img
+                className="avatar-img rounded-circle"
+                style={{ width: "30px", height: "30px" }}
+                src={
+                  data?.appointment?.doctor?.img
+                    ? data?.appointment?.doctor?.img
+                    : img
+                }
+                alt=""
+              />
             </div>
             <div>
-              <h6 className="text-nowrap mb-0">
+              <h6
+                className="text-wrap mb-0"
+                style={{ color: "var(--textColor)" }}
+              >
                 {data?.appointment?.doctor?.firstName +
                   " " +
                   data?.appointment?.doctor?.lastName}
               </h6>
-              <p className="form-text">
+              <p className="form-text" style={{ color: "var(--textColor)" }}>
                 {data?.appointment?.doctor?.specialization}
               </p>
             </div>
@@ -63,7 +70,11 @@ const PatientDashboard = () => {
       key: 3,
       width: 100,
       render: function (data) {
-        return <div>{moment(data?.createdAt).format("LL")}</div>;
+        return (
+          <div style={{ color: "var(--textColor)" }}>
+            {moment(data?.createdAt).format("LL")}
+          </div>
+        );
       },
     },
     {
@@ -95,7 +106,7 @@ const PatientDashboard = () => {
   ];
   const prescriptionColumns = [
     {
-      title: "App Doctor",
+      title: "Doctor",
       key: 11,
       width: 180,
       render: function (data) {
@@ -103,13 +114,23 @@ const PatientDashboard = () => {
           <>
             <div className="avatar avatar-sm mr-2 d-flex gap-2">
               <div>
-                <img className="avatar-img rounded-circle" src={data?.doctor?.img ? data?.doctor?.img : img} alt="" />
+                <img
+                  className="avatar-img rounded-circle"
+                  style={{ width: "30px", height: "30px" }}
+                  src={data?.doctor?.img ? data?.doctor?.img : img}
+                  alt=""
+                />
               </div>
               <div>
-                <h6 className="text-nowrap mb-0">
+                <h6
+                  className="text-wrap mb-0"
+                  style={{ color: "var(--textColor)" }}
+                >
                   {data?.doctor?.firstName + " " + data?.doctor?.lastName}
                 </h6>
-                <p className="form-text">{data?.doctor?.specialization}</p>
+                <p className="form-text" style={{ color: "var(--textColor)" }}>
+                  {data?.doctor?.specialization}
+                </p>
               </div>
             </div>
           </>
@@ -123,17 +144,20 @@ const PatientDashboard = () => {
       render: ({ trackingId }) => {
         return (
           <Tooltip title="Copy Tracking Id">
-            <Button>
-              <h6>
-                <Tag
-                  color="#87d068"
-                  className="ms-2 text-uppercase"
-                  onClick={() => clickToCopyClipBoard(trackingId)}
-                >
-                  {trackingId}
-                </Tag>
-              </h6>
-            </Button>
+            <h6>
+              <Tag
+                color="#87d068"
+                className="text-uppercase "
+                style={{
+                  cursor: "pointer",
+                  padding: "4px 8px",
+                  border: "1.5px solid #649c4e",
+                }}
+                onClick={() => clickToCopyClipBoard(trackingId)}
+              >
+                {trackingId}
+              </Tag>
+            </h6>
           </Tooltip>
         );
       },
@@ -142,12 +166,14 @@ const PatientDashboard = () => {
     {
       title: "Appointment Date",
       key: 12,
-      width: 100,
       render: function (data) {
         return (
-          <div>
+          <div style={{ color: "var(--textColor)" }}>
             {moment(data?.appointment?.scheduleDate).format("LL")}{" "}
-            <span className="d-block text-info">
+            <span
+              className="d-block"
+              style={{ color: "var(--headingColor)", fontWeight: "500" }}
+            >
               {data?.appointment?.scheduleTime}
             </span>
           </div>
@@ -160,7 +186,18 @@ const PatientDashboard = () => {
       key: 4,
       render: function (data) {
         return (
-          <Tag color="#87d068">{dayjs(data).format("MMM D, YYYY hh:mm A")}</Tag>
+          <Tag
+            color="#c9fbc1"
+            style={{
+              color: "var(--textColor)",
+              border: "1.5px solid #a0c799",
+              fontWeight: "500",
+              textTransform: "capitalize",
+              padding: "4px 8px",
+            }}
+          >
+            {dayjs(data).format("MMM D, YYYY hh:mm A")}
+          </Tag>
         );
       },
     },
@@ -170,7 +207,17 @@ const PatientDashboard = () => {
       key: 4,
       render: function ({ isArchived }) {
         return (
-          <Tag color={isArchived ? "#f50" : "#108ee9"}>
+          <Tag
+            color={isArchived ? "#ffc9af" : "#b4d2e9"}
+            style={{
+              color: "var(--textColor)",
+              border: "1.5px solid",
+              borderColor: isArchived ? "#cca08c" : "#8ca4b5",
+              fontWeight: "500",
+              textTransform: "capitalize",
+              padding: "4px 8px",
+            }}
+          >
             {isArchived ? "Yes" : "Under Treatment"}
           </Tag>
         );
@@ -187,8 +234,13 @@ const PatientDashboard = () => {
               <Button
                 type="primary"
                 size="small"
-                className="bg-primary"
-                style={{ margin: "5px 5px" }}
+                className="d-flex align-items-center justify-content-center"
+                style={{
+                  padding: "8px",
+                  textAlign: "center",
+                  width: "30px",
+                  height: "30px",
+                }}
               >
                 <FaRegEye />
               </Button>
@@ -210,19 +262,29 @@ const PatientDashboard = () => {
     {
       title: "Doctor",
       key: 20,
-      width: 150,
+      width: 180,
       render: function (data) {
         return (
           <>
             <div className="avatar avatar-sm mr-2 d-flex gap-2">
               <div>
-                <img className="avatar-img rounded-circle" src={data?.doctor?.img ? data?.doctor?.img : img} alt="" />
+                <img
+                  className="avatar-img rounded-circle"
+                  style={{ width: "30px", height: "30px" }}
+                  src={data?.doctor?.img ? data?.doctor?.img : img}
+                  alt=""
+                />
               </div>
               <div>
-                <h6 className="text-nowrap mb-0">
+                <h6
+                  className="text-wrap mb-0"
+                  style={{ color: "var(--textColor)" }}
+                >
                   {data?.doctor?.firstName + " " + data?.doctor?.lastName}
                 </h6>
-                <p className="form-text">{data?.doctor?.specialization}</p>
+                <p className="form-text" style={{ color: "var(--textColor)" }}>
+                  {data?.doctor?.specialization}
+                </p>
               </div>
             </div>
           </>
@@ -235,13 +297,9 @@ const PatientDashboard = () => {
       width: 100,
       render: function (data) {
         return (
-          <div>
+          <div style={{ color: "var(--textColor)" }}>
             {moment(data?.scheduleDate).format("LL")}{" "}
-<<<<<<< HEAD
-            <span className="d-block text-info">{data?.scheduleTime}</span>
-=======
             <span className="d-block ">{data?.scheduleTime}</span>
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
           </div>
         );
       },
@@ -251,7 +309,11 @@ const PatientDashboard = () => {
       key: 22,
       width: 100,
       render: function (data) {
-        return <div>{moment(data?.createdAt).format("LL")}</div>;
+        return (
+          <div style={{ color: "var(--textColor)" }}>
+            {moment(data?.createdAt).format("LL")}
+          </div>
+        );
       },
     },
     {
@@ -259,7 +321,22 @@ const PatientDashboard = () => {
       key: 24,
       width: 100,
       render: function (data) {
-        return <Tag color="#f50">{data?.status}</Tag>;
+        return (
+          <Tag
+            color="#ffcacb"
+            style={{
+              border: "1.5px solid #cc9b9c",
+              fontWeight: "500",
+              textTransform: "capitalize",
+              padding: "4px 8px",
+              color: "var(--textColor)",
+              width: "100px",
+              textAlign: "center",
+            }}
+          >
+            {data?.status}
+          </Tag>
+        );
       },
     },
     {

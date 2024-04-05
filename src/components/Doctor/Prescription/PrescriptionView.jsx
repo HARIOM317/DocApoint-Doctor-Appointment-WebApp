@@ -77,11 +77,7 @@ const PrescriptionView = () => {
                 <div className="col-md-12">
                   <div
                     className="invoice-info p-2 rounded"
-<<<<<<< HEAD
-                    style={{ background: "#c9c9c92b" }}
-=======
                     
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
                   >
                     <div className="invoice-details invoice-details-two ">
                       <h3>

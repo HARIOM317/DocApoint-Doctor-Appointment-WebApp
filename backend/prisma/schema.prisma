@@ -237,6 +237,10 @@ model DoctorTimeSlot {
   doctorId       String
   doctor         Doctor        @relation(fields: [doctorId], references: [id])
   day            Day?
+<<<<<<< HEAD
+=======
+  date           DateTime?       
+>>>>>>> d91dba6270160089e11af16a9f4dd3c37864ae84
   timeSlot       ScheduleDay[]
   weekDay        String?
   maximumPatient Int?

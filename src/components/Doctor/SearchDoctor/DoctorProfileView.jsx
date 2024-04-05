@@ -3,11 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import { Tag } from "antd";
 import "../../../stylesheets/doctorStylesheets/DoctorProfileView.css";
-<<<<<<< HEAD
-=======
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
 
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 import {
   FaLocationArrow,
   FaRegThumbsUp,
@@ -17,13 +14,9 @@ import {
 import doctorProfile from "../../../images/home/doctorProfile.jpg";
 
 const DoctorProfileView = ({ data }) => {
-<<<<<<< HEAD
-  const services = data?.services?.split(",");
-=======
   const { role } = useAuthCheck();
   const services = data?.services?.split(",");
 
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
   return (
     <div className="mb-4 profile-section">
       <div className="d-flex p-3 justify-content-between">
@@ -110,13 +103,6 @@ const DoctorProfileView = ({ data }) => {
               </li>
             </ul>
 
-<<<<<<< HEAD
-            <div className="doctor-booking">
-              <Link to={`/booking/${data?.id}`} className="apt-btn">
-                Book Appointment
-              </Link>
-            </div>
-=======
             {role === "patient" && (
               <div className="doctor-booking">
                 <Link to={`/booking/${data?.id}`} className="apt-btn">
@@ -124,7 +110,6 @@ const DoctorProfileView = ({ data }) => {
                 </Link>
               </div>
             )}
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
           </div>
         </div>
       </div>

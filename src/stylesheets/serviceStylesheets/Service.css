@@ -12,14 +12,9 @@
 }
 
 .services .service-card img{
-<<<<<<< HEAD
-    border-radius: 9px 99px 0 0;
-    cursor: pointer;
-=======
     border-radius: 9px 9px 50px 0;
     cursor: pointer;
     height: 230px;
->>>>>>> 1ec088e47a2c63255e950fbafe538465ebfb07b6
 }
 
 .services .service-card h4{
