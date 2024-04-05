@@ -8,6 +8,7 @@ import "../../stylesheets/UIStylesheets/AdminHeader.css";
 
 const AdminHeader = () => {
   const { data } = useAuthCheck();
+  // some changes are here 
   const menu = (
     <Menu>
       <Menu.Item key="1">My Profile</Menu.Item>
