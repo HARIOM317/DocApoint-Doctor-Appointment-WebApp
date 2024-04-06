@@ -1,19 +1,42 @@
 .nav-popover h5 {
   font-size: 18px;
   margin-bottom: 0;
+  color: var(--textColor);
+}
+.nav-popover p{
+  color: var(--textLight);
 }
 .nav-popover a {
   margin: 0 0;
+  color: var(--headingColor);
+  font-weight: 500;
+}
+
+.nav-popover a:hover{
+  color: #152330;
+}
+
+.nav-popover .logout-btn{
+  border: 1.5px solid var(--primaryColor);
+  background: #fff;
+  color: var(--primaryColor);
+  font-weight: 500;
+}
+
+.nav-popover .logout-btn:hover{
+  color: #b9122c !important;
+  border-color: #b9122c !important;
 }
 
 .profileImage img {
-  height: 30px;
+  box-shadow: none !important;
+  height: 40px;
   border-radius: 50%;
-  width: 30px;
+  width: 40px;
   object-fit: cover;
   object-position: top;
   margin-left: 11px;
-  border: 2px var(--primaryColor) solid;
+  border: none;
   cursor: pointer;
 }
 .hideTopHeader {
@@ -37,7 +60,7 @@
 .fixed-effect {
   box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
   background-color: white;
-  border-bottom: 1.5px solid var(--borderColor);
+  border-bottom: 1.5px solid var(--borderColor) !important;
 }
 
 #header.header-scrolled {
@@ -246,12 +269,9 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 413px) {
   .appointment-btn {
-    margin: 1rem 0.1rem;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 4px;
+    display: none;
   }
 }
 

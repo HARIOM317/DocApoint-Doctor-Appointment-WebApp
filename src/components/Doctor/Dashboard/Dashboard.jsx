@@ -6,6 +6,7 @@ import DashboardPage from "./doctor/DashboardPage";
 import PatientDashboard from "./PatientDashboard";
 import AdminDashboard from "../../Admin/Dashboard";
 
+
 const Dashboard = () => {
   const { role } = useAuthCheck();
   return (
@@ -46,5 +47,4 @@ const Dashboard = () => {
     </>
   );
 };
-
 export default Dashboard;

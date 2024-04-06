@@ -31,9 +31,7 @@
     font-size: 15px;
 }
 .booking-total {
-    border-top: 1px solid #e4e4e4;
-    margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .booking-total ul li span {
@@ -48,4 +46,26 @@
 .checkmark {
     font-size: 18px;
     font-weight: 500;
+}
+
+.invoice-section{
+    background: var(--bgLight);
+    border: 1.5px solid var(--borderColor);
+}
+
+.payment-section{
+    background: var(--bgLight);
+    border: 1.5px solid var(--borderColor);
+}
+
+.input-field-style{
+    border: 1.5px solid var(--borderLight) !important;
+    transition: all 0.35s ease !important;
+    background: var(--bgLight) !important;
+    border-radius: 30px !important;
+}
+
+.input-field-style:focus{
+    border-color: var(--borderColor) !important;
+    box-shadow: var(--shadow);
 }

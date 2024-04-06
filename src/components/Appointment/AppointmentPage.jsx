@@ -49,7 +49,7 @@ const AppointmentPage = () => {
   const prev = () => { setCurrent(current - 1) };
 
   useEffect(() => {
-    const { firstName, lastName, email, phone, nameOnCard, cardNumber, expiredMonth, cardExpiredYear, cvv, reasonForVisit } = selectValue;
+    const { firstName, lastName, email, phone, nameOnCard, cardNumber, expiredMonth, cardExpiredYear, cvv, reasonForVisit, address, description} = selectValue;
     const isInputEmpty = !firstName || !lastName || !email || !phone || !reasonForVisit;
     const isConfirmInputEmpty = !nameOnCard || !cardNumber || !expiredMonth || !cardExpiredYear || !cvv || !isCheck;
     setIsDisable(isInputEmpty);
@@ -63,6 +63,9 @@ const AppointmentPage = () => {
       lastName: selectValue.lastName,
       email: selectValue.email,
       phone: selectValue.phone,
+      reasonForVisit: selectValue.reasonForVisit,
+      address: selectValue.address,
+      description: selectValue.description,
       patientId: role !== '' && role === 'patient' ? data.id : undefined,
       scheduleDate: selectedDate,
       scheduleTime: selectTime,

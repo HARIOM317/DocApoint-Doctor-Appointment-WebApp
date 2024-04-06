@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AdminLayout from "./AdminLayout";
-import userImg from "../../images/avatar.jpg";
+import userImg from "../../images/user.png";
 import "../../stylesheets/adminStylesheets/Dashboard.css";
 
 

@@ -1,46 +1,78 @@
-import React from 'react';
-import img2 from '../../images/features/baby.png';
-import img3 from '../../images/doc/doc4.jpg';
-import img4 from '../../images/doc/doctor 5.jpg';
-import img5 from '../../images/doc/doc1.jpg';
-import img6 from '../../images/doc/doctor chair 2.jpg';
-import img7 from '../../images/features/feature-03.jpg';
-import img8 from '../../images/doc/doctor 5.jpg';
-import img9 from '../../images/doc/doctor chair 2.jpg';
+import React from "react";
 import "../../stylesheets/homeStylesheets/Gallery.css";
-import { Image } from 'antd';
+import { Image } from "antd";
+import { sliderSettings } from "../../utils/common";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import "swiper/css";
+
+// Gallery images
+import image1 from "../../images/gallery/1.jpg";
+import image2 from "../../images/gallery/2.jpg";
+import image3 from "../../images/gallery/3.jpg";
+import image4 from "../../images/gallery/4.jpg";
+import image5 from "../../images/gallery/5.jpg";
+import image6 from "../../images/gallery/6.jpg";
+import image7 from "../../images/gallery/7.jpg";
+import image8 from "../../images/gallery/8.jpg";
+import image9 from "../../images/gallery/9.jpg";
+import image10 from "../../images/gallery/10.jpg";
 
 const Gallery = () => {
-    const imageArray = [img2,img3,img4,img5,img6,img7, img8, img9]
-    return (
-        <section className="gallery container">
-            <div className="text-center mb-5">
-                <div className="section-title mb-3">
-                    <h2>Gallery</h2>
-                    <p>Lorem ipsum dolor sit amet.</p>
+  const imageArray = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+  ];
+  return (
+    <section className="gallery container">
+      <div className="text-center mb-5">
+        <div className="section-title mb-3">
+          <h2>Gallery</h2>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+
+      <div className="paddings innerWidth">
+        <Swiper {...sliderSettings}>
+          {/* Buttons for slider */}
+          <SliderButtons />
+
+          {imageArray.map((element, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div className="flexColCenter gallery-item">
+                  <Image
+                    src={element}
+                    alt=""
+                    className="w-100 gallery-slider"
+                  />
                 </div>
-            </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+    </section>
+  );
+};
 
-            <div className="container-fluid">
-                <div className="row g-0">
-                    <Image.PreviewGroup>
-                        {
-                            imageArray.map((item, index) => (
-                                <div className="col-lg-3 col-md-4 col-sm-12" key={index + 55}>
-                                    <div className="gallery-item">
-                                        <div className="galelry-lightbox d-flex justify-content-center align-items-center">
-                                            <Image src={item} alt="" className="w-100" style={{objectFit:'cover',maxHeight:'280px', minHeight:'280px'}}/>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </Image.PreviewGroup>
-                </div>
+export default Gallery;
 
-            </div>
-        </section>
-    )
-}
+const SliderButtons = () => {
+  // useSwiper Hook
+  const swiper = useSwiper();
 
-export default Gallery
+  return (
+    <div className="slider-button">
+      <button onClick={() => swiper.slidePrev()}>&lt;</button>
+      <button onClick={() => swiper.slideNext()}>&gt;</button>
+    </div>
+  );
+};

@@ -1,0 +1,27 @@
+.services .service-card{
+    border: 1.5px solid var(--borderColor);
+    border-radius: 10px 100px 10px 10px;
+    box-shadow: var(--shadowAll);
+    height: 500px;
+    background: var(--bgColor);
+    transition: all 0.35s ease-in-out;
+}
+
+.services .service-card:hover{
+    transform: scale(1.015);
+}
+
+.services .service-card img{
+    border-radius: 9px 9px 50px 0;
+    cursor: pointer;
+    height: 230px;
+}
+
+.services .service-card h4{
+    color: var(--primaryColor);
+}
+
+.services .service-card p{
+    color: var(--textLight);
+    text-align: justify;
+}

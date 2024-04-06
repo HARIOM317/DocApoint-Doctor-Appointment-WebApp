@@ -1,7 +1,6 @@
 .section-specialities {
-	background-color: rgb(243, 241, 241);
 	padding: 80px 0;
-	margin: 7rem 0;
+	margin: 2rem 0;
 }
 
 @media (max-width: 600px) {
@@ -16,7 +15,7 @@
 		width: 20px;
 	}
 	.specialities-slider::-webkit-scrollbar-track {
-		background-color: #ebeaea;
+		background-color: var(--primaryColor);
 		border-radius: 100px;
 	}
 	.specialities-slider::-webkit-scrollbar-thumb {
@@ -32,13 +31,14 @@
 	box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.1);
 	border-radius: 100%;
 	width: 150px;
-	background: #fff;
+	border: 2px solid var(--borderColor);
+	background: var(--bgColor);
 	transition: 0.4s ease-in;
+	cursor: pointer;
 }
 
 .speicality-item :hover {
-	transform: scale(1.1);
-	background: rgb(221, 221, 223);
+	transform: scale(1.05);
 }
 
 .speicality-item :hover>img {
@@ -52,11 +52,6 @@
 	margin: 0 auto;
 }
 
-.speicality-item:hover p {
-	transform: scale(1.1);
-	color: var(--primaryColor);
-}
-
 .speicality-img img {
 	position: absolute;
 	top: 50%;
@@ -65,6 +60,7 @@
 	left: 0;
 	right: 0;
 	margin: 0 auto;
+	width: 80px;
 }
 
 .speicality-img span {

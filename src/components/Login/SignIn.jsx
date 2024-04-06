@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { FaEnvelope, FaLock } from "react-icons/fa";
 import SocialSignUp from "./SocialSignUp";
 import { useForm } from "react-hook-form";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
-import { Toast } from "react-bootstrap";
 import {
   useResetPasswordMutation,
   useUserLoginMutation,
@@ -12,7 +10,7 @@ import {
 import { message } from "antd";
 import { useMessageEffect } from "../../utils/messageSideEffect";
 
-const SignIn = ({ handleResponse }) => {
+const SignIn = ({ handleSignUpMobileClick }) => {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [infoError, setInfoError] = useState("");
   const [show, setShow] = useState(true);
@@ -72,103 +70,151 @@ const SignIn = ({ handleResponse }) => {
     setShowForgotPassword(!showForgotPassword);
   };
 
-  return (
+  return showForgotPassword ? (
     <>
-      {showForgotPassword ? (
-        <form className="sign-in-form" onSubmit={onHandleForgotPassword}>
-          <h2 className="title">Forgot Password</h2>
-          <div>To Forgot Your Password Please Enter your email</div>
-          <div className="input-field">
-            <span className="fIcon">
-              <FaEnvelope />
-            </span>
-            <input
-              value={forgotEmail !== undefined && forgotEmail}
-              onChange={(e) => setForgotEmail(e.target.value)}
-              placeholder="Enter Your Email"
-              type="email"
-              required
+      <form className="sign-in-form" onSubmit={onHandleForgotPassword}>
+        <h2 className="title" style={{ marginBottom: "3rem" }}>
+          Forgot Password
+        </h2>
+        <div style={{color: "var(--textLight)", textAlign: 'center', marginBottom: '0.5rem'}}>To Forgot Your Password Please Enter your email</div>
+
+        <div className="input-field">
+          <i className="fas fa-user"></i>
+          <input
+            value={forgotEmail !== undefined && forgotEmail}
+            onChange={(e) => setForgotEmail(e.target.value)}
+            placeholder="Enter Your Email"
+            type="email"
+            required
+          />
+        </div>
+
+        <div
+          onClick={handleShowForgotPassword}
+          className="text-bold"
+          style={{
+            cursor: "pointer",
+            color: "var(--primaryColor)",
+            width: "100%",
+            textAlign: "end",
+            marginRight: "2.5rem",
+            padding: "0.25rem 0 0.5rem 0.5rem",
+          }}
+        >
+          Stil Remember Password ?
+        </div>
+
+        <button
+          className="btn"
+          type="submit"
+          value="sign In"
+          style={{ marginTop: "2rem", boxShadow: "none" }}
+        >
+          {resetIsLoading ? (
+            <Spinner
+              animation="border"
+              variant="info"
+              role="status"
+              className="spinner-border text-light"
             />
-          </div>
-          <div
-            onClick={handleShowForgotPassword}
-            className="text-bold"
-            style={{ cursor: "pointer", color: "#4C25F5" }}
-          >
-            Stil Remember Password ?
-          </div>
-          <button className="iBtn" type="submit" value="sign In">
-            {resetIsLoading ? (
-              <Spinner animation="border" variant="info" />
-            ) : (
-              "Submit"
-            )}
-          </button>
-        </form>
-      ) : (
-        <form className="sign-in-form" onSubmit={handleSubmit(onSubmit)}>
-          {/* <Toast show={show} onClose={() => setShow(!show)} className="signInToast"> */}
-          {/* <Toast.Header>s
-                                <strong className="mr-auto">Demo credential</strong>
-                            </Toast.Header>
-                            <Toast.Body>Use this account to sign in as a doctor <br />
-                                <hr />
-                                <div className='bg-dark text-white p-2 px-3 rounded'>
-                                    email : doctor@gmail.com <br />
-                                    password : 123456 <br />
-                                </div>
-                                <hr />
-                                <div className='bg-primary p-2 rounded text-white'>
-                                    Please do not abuse the facility
-                                </div>
-                            </Toast.Body>
-                        </Toast> */}
-          <h2 className="title">Sign in</h2>
-          <div className="input-field">
-            <span className="fIcon">
-              <FaEnvelope />
-            </span>
-            <input
-              {...register("email", { required: true })}
-              placeholder="Enter Your Email"
-              type="email"
-            />
-          </div>
-          {errors.email && (
-            <span className="text-danger">This field is required</span>
+          ) : (
+            "Submit"
           )}
-          <div className="input-field">
-            <span className="fIcon">
-              <FaLock />
-            </span>
-            <input
-              {...register("password", { required: true })}
-              type="password"
-              placeholder="Enter Your Password"
-            />
-          </div>
-          {errors.password && (
-            <span className="text-danger">This field is required</span>
-          )}
-          {infoError && <p className="text-danger">{infoError}</p>}
-          <div
-            onClick={handleShowForgotPassword}
-            className="text-bold"
-            style={{ cursor: "pointer", color: "#4C25F5" }}
+        </button>
+      </form>
+    </>
+  ) : (
+    <>
+      <form className="sign-in-form" onSubmit={handleSubmit(onSubmit)}>
+        <h2 className="title">Sign In</h2>
+        <div className="input-field">
+          <i class="fa-solid fa-envelope"></i>
+          <input
+            {...register("email", { required: true })}
+            placeholder="Enter Your Email"
+            type="email"
+          />
+        </div>
+        {errors.email && (
+          <span
+            className="text-danger"
+            style={{
+              width: "100%",
+              textAlign: "start",
+              marginLeft: "3rem",
+              padding: "0.5rem",
+            }}
           >
-            Forgot Password ?
-          </div>
-          <button className="iBtn" type="submit" value="sign In">
-            {isLoading ? (
-              <Spinner animation="border" variant="info" />
-            ) : (
-              "Sign In"
-            )}
-          </button>
-          <p className="social-text">Or Sign in with social platforms</p>
-          <SocialSignUp handleResponse={handleResponse} />
-        </form>
-      )}
+            Email is required
+          </span>
+        )}
+
+        <div className="input-field">
+          <i className="fas fa-lock"></i>
+          <input
+            {...register("password", { required: true })}
+            type="password"
+            placeholder="Enter Your Password"
+          />
+        </div>
+        {errors.password && (
+          <span
+            className="text-danger"
+            style={{
+              width: "100%",
+              textAlign: "start",
+              marginLeft: "3rem",
+              padding: "0.5rem",
+            }}
+          >
+            Password is required
+          </span>
+        )}
+
+        {infoError && <p className="text-danger">{infoError}</p>}
+        <div
+          onClick={handleShowForgotPassword}
+          className="text-bold"
+          style={{
+            cursor: "pointer",
+            color: "var(--primaryColor)",
+            width: "100%",
+            textAlign: "end",
+            marginRight: "2.5rem",
+            padding: "0.25rem 0 0.5rem 0.5rem",
+          }}
+        >
+          Forgot Password ?
+        </div>
+        <button
+          className="btn"
+          type="submit"
+          value="sign In"
+          style={{ marginBottom: "3rem", boxShadow: "none" }}
+        >
+          {isLoading ? (
+            <Spinner
+              animation="border"
+              variant="info"
+              role="status"
+              className="spinner-border text-light"
+            />
+          ) : (
+            "Sign In"
+          )}
+        </button>
+
+        <p className="social-text">Or Sign in with social platforms</p>
+
+        <SocialSignUp />
+
+        <p className="account-text">
+          Don't have an account?{" "}
+          <a href="" id="sign-up-btn2" style={{color: 'var(--primaryColor)'}} onClick={handleSignUpMobileClick}>
+            Sign Up
+          </a>
+        </p>
+      </form>
     </>
   );
 };

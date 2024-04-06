@@ -1,7 +1,7 @@
 import httpStatus from "http-status";
 import ApiError from "../../../errors/apiError";
 import prisma from "../../../shared/prisma";
-import { DoctorTimeSlot, ScheduleDay } from "@prisma/client";
+import { Appointments, DoctorTimeSlot, ScheduleDay } from "@prisma/client";
 import moment from "moment";
 
 const createTimeSlot = async (user: any, payload: any): Promise<DoctorTimeSlot | null> => {
@@ -17,12 +17,12 @@ const createTimeSlot = async (user: any, payload: any): Promise<DoctorTimeSlot |
 
     const result = await prisma.$transaction(async (tx) => {
         const isAlreadyExist = await tx.doctorTimeSlot.findFirst({
-            where:{
+            where: {
                 doctorId: isDoctor.id,
                 day: payload.day
             }
         })
-        if(isAlreadyExist){
+        if (isAlreadyExist) {
             throw new ApiError(404, 'Time Slot Already Exist Please update or try another day')
         }
 
@@ -63,6 +63,13 @@ const createTimeSlot = async (user: any, payload: any): Promise<DoctorTimeSlot |
 }
 
 const deleteTimeSlot = async (id: string): Promise<DoctorTimeSlot | null> => {
+
+    const result_medi = await prisma.scheduleDay.deleteMany({
+        where: {
+            doctorTimeSlotId: id
+        }
+    });
+
     const result = await prisma.doctorTimeSlot.delete({
         where: {
             id: id
@@ -99,7 +106,7 @@ const getMyTimeSlot = async (user: any, filter: any): Promise<DoctorTimeSlot[] |
     const result = await prisma.doctorTimeSlot.findMany({
         where: whereCondition,
         include: {
-            timeSlot: true
+            timeSlot: true,
         }
     })
     return result;
@@ -186,6 +193,13 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
         },
     })
 
+    const appointment_data = await prisma.appointments.findMany({
+        where: {
+            doctorId: id,
+            scheduleDate: filter.date
+        }
+    });
+
     const allSlots = doctorTimSlot.map((item) => {
         const { day, timeSlot, ...others } = item;
         return { day, timeSlot }
@@ -203,7 +217,6 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
                 const { startTime, endTime } = slot;
                 const startDate = moment(startTime, 'hh:mm a');
                 const endDate = moment(endTime, 'hh:mm a');
-
                 while (startDate < endDate) {
                     const selectableTime = {
                         id: newTimeSlots.length + 1,
@@ -213,14 +226,54 @@ const getAppointmentTimeOfEachDoctor = async (id: string, filter: any): Promise<
                     startDate.add(interval, 'minutes');
                 }
             })
+
+
             if (filter.day) {
                 const newTime = newTimeSlots.filter((item) => item.day === filter.day);
-                selectedTime.push(newTime);
+                newTime.forEach((item) => {
+                    const exists = selectedTime.some((slot) => slot.slot.time === item.slot.time);
+            
+                    // Check if appointment_data exists and there is no existing slot with the same time
+                    if (appointment_data && !exists) {
+                        const hasConflictingAppointment = appointment_data.some(appointment => {
+                            return item.slot.time === appointment.scheduleTime;
+                        });
+            
+                        // If there is no conflicting appointment, push the slot to selectedTime
+                        if (!hasConflictingAppointment) {
+                            selectedTime.push(item);
+                        }
+                    } 
+                    // If appointment_data doesn't exist or there is no existing slot with the same time
+                    else if (!exists) {
+                        selectedTime.push(item);
+                    }
+                });
             }
+            
+
+            // if (filter.day) {
+            //     const newTime = newTimeSlots.filter((item) => item.day === filter.day);
+            //     newTime.forEach((item) => {
+            //         const exists = selectedTime.some((slot) => slot.slot.time === item.slot.time);
+            //         console.log(appointment_data);
+            //         if (appointment_data && !exists) {
+            //             appointment_data.forEach(appointment => {
+            //                 if (!exists && item.slot.time !== appointment.scheduleTime) {
+            //                     selectedTime.push(item);
+            //                 }
+            //             });
+            //         } else if (!exists) {
+            //             selectedTime.push(item);
+            //         }
+            //     });
+            // }
         })
+
         return selectedTime.flat();
     }
     const result = generateTimeSlot(allSlots)
+    // console.log(result);
     return result
 }
 

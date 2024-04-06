@@ -1,5 +1,4 @@
 .profile-sidebar {
-    background-color: #f8f9fa;
 	overflow: hidden;
 }
 .dashboard-menu ul {
@@ -27,7 +26,7 @@
 	vertical-align: middle;
 }
 .dashboard-menu > ul > li > a {
-	color: #757575;
+	color: var(--textLight);
 	display: block;
 	padding: 16px 20px;
     transition: 0.2s ease-in;
@@ -39,10 +38,11 @@
 .dashboard-menu > ul > li:hover > a{
     transform: scale(1.05);
 }
-/* .active {
+.dashboard-menu > ul > li > a.active {
     color: var(--primaryColor) !important;
-    background: #fff;
-} */
+    background: var(--bgColor);
+    border: 1px solid var(--borderColor);
+}
 
 .dashboard-menu ul li a .icon {
     font-size: 16px;
@@ -61,7 +61,7 @@
     border-radius: 50%;
     height: 100px;
     width: 100px;
-    border: 6px solid #efefef;
+    border: none;
     object-fit: cover;
 }
 .profile-details h5{

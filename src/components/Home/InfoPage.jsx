@@ -34,20 +34,23 @@ const InfoPage = () => {
                     <h4>Appointment</h4>
                     <small className="text-secondary">24 Hours Service</small>
                     <p>
-                      Consequuntur sunt aut quasi enim aliquam quae harum
-                      pariatur laboris nisi ut aliquip
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Deleniti ut adipisci eaque sed dolorem eligendi nostrum,
+                      sunt odit cumque labore doloremque quisquam asperiores
+                      tempore. Quisquam laboriosam animi qui quia temporibus.
                     </p>
                   </div>
                 </div>
                 <div className="col-xl-4 d-flex align-items-stretch">
                   <div className="icon-box mt-4 mt-xl-0">
                     <FaHeadset className="icon" />
-                    <h4>Emegency Cases</h4>
+                    <h4>Customer Care</h4>
                     <h6 className="text-secondary">+88 01751 040425</h6>
                     <p>
                       Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Qui facilis perferendis quia maxime. Laborum excepturi
-                      pariatur laboriosam nihil, dolor molestias.
+                      Aspernatur deleniti ut quam explicabo voluptates dolor,
+                      quisquam nemo. Quis pariatur laboriosam placeat amet quasi
+                      beatae sed magni veritatis, aut, temporibus cum!
                     </p>
                   </div>
                 </div>
@@ -56,17 +59,29 @@ const InfoPage = () => {
                     <FaClock className="icon" />
                     <h4>Working Hours</h4>
                     <small className="text-secondary">Timing schedule</small>
-                    <ul className="list-group list-group-flush">
-                      <li className="list-group-item d-flex justify-content-between text-nowrap">
-                        <p>Sun - Wed : </p> <p>8:00 - 17: 00</p>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between text-nowrap">
-                        <p>Thus - Fri : </p> <p>9:00 - 17: 00</p>
-                      </li>
-                      <li className="list-group-item d-flex justify-content-between text-nowrap">
-                        <p>Sat - Sun : </p> <p>10:00 - 17: 00</p>
-                      </li>
-                    </ul>
+
+                    <div>
+                      <div className="box">
+                        <div className="day-range">Mon - Wed</div>
+                        <div className="available-time">
+                          08:00 AM - 05:00 PM
+                        </div>
+                      </div>
+
+                      <div className="box">
+                        <div className="day-range">Thu - Fri</div>
+                        <div className="available-time">
+                          09:00 AM - 05:00 PM
+                        </div>
+                      </div>
+
+                      <div className="box">
+                        <div className="day-range">Sat - Sun</div>
+                        <div className="available-time">
+                          10:00 AM - 05:00 PM
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

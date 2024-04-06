@@ -1,11 +1,10 @@
 .track-detail {
     padding: 30px 0;
     margin-bottom: 8rem;
-    background-color: #f8f9fa;
 }
 .img-div{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     overflow: hidden;
 }
 .track-detail img{
@@ -13,104 +12,49 @@
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #c2c2c2;
+    border: none;
 }
 
-/* Time Line Style */
-.timeline {
-    list-style: none;
-    padding: 20px;
-    position: relative;
-}
-
-.timeline:before {
-    position: absolute;
-    content: " ";
-    background-color: #eeeeee;
-}
-
-.timeline-item {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.timeline-badge {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    border: 3px solid #b3b0b0;
-    border-radius: 50%;
-}
-
-.timeline-panel:before {
-    position: absolute;
-    display: inline-block;
-    content: " ";
-}
-
-.timeline-horizontal:before {
-    height: 3px;
-    top: auto;
-    bottom: 26px;
-    left: 56px;
-    right: 0;
-    width: 100%;
-}
-
-.timeline-horizontal .timeline-item {
-    display: table-cell;
-    height: 180px;
-    width: 20%;
-    min-width: 250px;
-    float: none !important;
-    padding-left: 0;
-    padding-right: 20px;
-    margin: 0 auto;
-    vertical-align: bottom;
-}
-
-.timeline-horizontal .timeline-panel {
-    bottom: 50px;
-    display: inline-block;
-    &:before {
-        top: auto;
-        bottom: -16px;
-        left: 28px !important;
-        right: auto;
-        border-right: 16px solid transparent !important;
-        border-top: 16px solid #b3b0b0 !important;
-        border-bottom: 0 solid #b3b0b0 !important;
-        border-left: 16px solid transparent !important;
-    }
-}
-.timeline-horizontal .timeline-badge {
-    top: auto;
-    bottom: 0;
-    left: 37px;
-}
-.trackpage ::-webkit-scrollbar {
-    width: 10px;
+  .profile-card{
+    background: var(--bgColor);
+    border: 1.5px solid var(--borderColor);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
   }
 
-  .time-line-section{
-    display: inline-block;
-    width: 100%;
-    overflow-y: auto;
-  }
-
-
-  .time-line-section::-webkit-scrollbar {
-    width: 20px;
+  .profile-card .label{
+    color: var(--headingColor);
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
   }
   
-  .time-line-section::-webkit-scrollbar-track {
-    background-color: #ebeaea;
-    border-radius: 100px;
+  .profile-card .name{
+    color: var(--textColor);
+    font-weight: 500;
+    font-size: 1.15rem;
   }
-  
-  .time-line-section::-webkit-scrollbar-thumb {
-    border-radius: 100px;
-    border: 5px solid transparent;
-    background-clip: content-box;
-    background-color: #4588c4;
+
+  .profile-card .address{
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--textLight);
+  }
+
+  .detail-card{
+    margin-left: 2rem;
+  }
+
+  .detail-card .detail-label{
+    color: var(--headingColor);
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--headingColor);
+  }
+
+  .detail-card h4{
+    color: var(--textColor);
+    font-size: 1.25rem;
+    font-weight: 500;
   }

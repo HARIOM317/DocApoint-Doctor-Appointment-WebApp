@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaCheck, FaEnvelope, FaLock, FaTimes, FaUser } from "react-icons/fa";
+import { FaCheck, FaTimes } from "react-icons/fa";
 import SocialSignUp from "./SocialSignUp";
 import Spinner from "react-bootstrap/Spinner";
 import swal from "sweetalert";
@@ -9,15 +9,7 @@ import {
 } from "../../redux/api/authApi";
 import { message } from "antd";
 
-// password regex
-// ^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$
-// At least one upper case English letter, (?=.*?[A-Z])
-// At least one lower case English letter, (?=.*?[a-z])
-// At least one digit, (?=.*?[0-9])
-// At least one special character, (?=.*?[#?!@$%^&*-])
-// Minimum eight in length .{8,} (with the anchors)
-
-const SignUp = ({ setSignUp }) => {
+const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
   const [error, setError] = useState({});
   const [infoError, setInfoError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,7 +20,7 @@ const SignUp = ({ setSignUp }) => {
     password: "",
   };
   const [user, setUser] = useState(formField);
-  const [userType, setUserType] = useState("patient");
+  const [userType, setUserType] = useState("doctor");
   const [
     doctorSignUp,
     {
@@ -155,9 +147,6 @@ const SignUp = ({ setSignUp }) => {
     }
   };
 
-  const handleUserTypeChange = (e) => {
-    setUserType(e.target.value);
-  };
   const hanldeOnSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -169,150 +158,169 @@ const SignUp = ({ setSignUp }) => {
   };
 
   return (
-    <form className="sign-up-form" onSubmit={hanldeOnSubmit}>
-      <h2 className="title">Sign Up</h2>
-      <div className="input-field">
-        <span className="fIcon">
-          <FaUser />
-        </span>
-        <input
-          placeholder="First Name"
-          name="firstName"
-          type="text"
-          onChange={(e) => hanldeOnChange(e)}
-          value={user.firstName}
-        />
-      </div>
-      <div className="input-field">
-        <span className="fIcon">
-          <FaUser />
-        </span>
-        <input
-          placeholder="Last Name"
-          name="lastName"
-          type="text"
-          onChange={(e) => hanldeOnChange(e)}
-          value={user.lastName}
-        />
-      </div>
-      <div className="input-field">
-        <span className="fIcon">
-          <FaEnvelope />
-        </span>
-        <input
-          placeholder="Email"
-          name="email"
-          type="email"
-          onChange={(e) => hanldeOnChange(e)}
-          value={user.email}
-        />
-      </div>
-      <div className="input-field">
-        <span className="fIcon">
-          <FaLock />
-        </span>
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          onChange={(e) => hanldeOnChange(e)}
-          value={user.password}
-        />
-      </div>
-      <div className="input-field d-flex align-items-center gap-2 justify-content-center">
-        <div className="text-nowrap">I'M A</div>
-        <select
-          className="form-select w-50"
-          aria-label="select"
-          onChange={(e) => handleUserTypeChange(e)}
-          defaultValue="patient"
-        >
-          <option value="patient">Patient</option>
-          <option value="doctor">Doctor</option>
-        </select>
-      </div>
-      {error.length && <h6 className="text-danger text-center">{error}</h6>}
-      {infoError && <h6 className="text-danger text-center">{infoError}</h6>}
-      <button
-        type="submit"
-        className="btn btn-primary btn-block mt-2 iBtn"
-        disabled={
-          passwordValidation.carLength &&
-          passwordValidation.numeric &&
-          passwordValidation.upperLowerCase &&
-          passwordValidation.specailChar &&
-          emailError.emailError
-            ? ""
-            : true
-        }
-      >
-        {loading ? <Spinner animation="border" variant="info" /> : "Sign Up"}
-      </button>
-
-      <div className="password-validatity mx-auto">
-        <div
-          style={emailError.emailError ? { color: "green" } : { color: "red" }}
-        >
-          <p>
-            {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-            <span className="ms-2">Must Have Valid Email.</span>
-          </p>
+    <>
+      {/* Sign Up Form */}
+      <form className="sign-up-form" onSubmit={hanldeOnSubmit}>
+        <h2 className="title">Sign Up</h2>
+        <div className="input-field">
+          <i className="fas fa-user"></i>
+          <input
+            placeholder="First Name"
+            name="firstName"
+            type="text"
+            onChange={(e) => hanldeOnChange(e)}
+            value={user.firstName}
+          />
         </div>
 
-        <div
-          style={
-            passwordValidation.carLength ? { color: "green" } : { color: "red" }
+        <div className="input-field">
+          <i className="fas fa-user"></i>
+          <input
+            placeholder="Last Name"
+            name="lastName"
+            type="text"
+            onChange={(e) => hanldeOnChange(e)}
+            value={user.lastName}
+          />
+        </div>
+
+        <div className="input-field">
+          <i className="fas fa-envelope"></i>
+          <input
+            placeholder="Email"
+            name="email"
+            type="email"
+            onChange={(e) => hanldeOnChange(e)}
+            value={user.email}
+          />
+        </div>
+
+        <div className="input-field">
+          <i className="fas fa-lock"></i>
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            onChange={(e) => hanldeOnChange(e)}
+            value={user.password}
+          />
+        </div>
+
+        {error.length && <h6 className="text-danger text-center">{error}</h6>}
+        {infoError && <h6 className="text-danger text-center">{infoError}</h6>}
+        <button
+          type="submit"
+          className="btn btn-primary btn-block mt-2 btn"
+          style={{ boxShadow: "none" }}
+          disabled={
+            passwordValidation.carLength &&
+            passwordValidation.numeric &&
+            passwordValidation.upperLowerCase &&
+            passwordValidation.specailChar &&
+            emailError.emailError
+              ? ""
+              : true
           }
         >
-          <p>
-            {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-            <span className="ms-2">Password Must Have atlast 8 character.</span>
-          </p>
+          {loading ? (
+            <Spinner
+              animation="border"
+              variant="info"
+              role="status"
+              className="spinner-border text-light"
+            />
+          ) : (
+            "Sign Up"
+          )}
+        </button>
+
+        {/* Password Validation */}
+        <div className="password-validatity mx-auto">
+          <div
+            style={
+              emailError.emailError ? { color: "green" } : { color: "red" }
+            }
+          >
+            <p>
+              {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
+              <span className="ms-2">Must Have Valid Email.</span>
+            </p>
+          </div>
+
+          <div
+            style={
+              passwordValidation.carLength
+                ? { color: "green" }
+                : { color: "red" }
+            }
+          >
+            <p>
+              {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
+              <span className="ms-2">
+                Password Must Have atlast 8 character.
+              </span>
+            </p>
+          </div>
+
+          <div
+            style={
+              passwordValidation.specailChar
+                ? { color: "green" }
+                : { color: "red" }
+            }
+          >
+            <p>
+              {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
+              <span className="ms-2">
+                Password Must Have a special cracter.
+              </span>
+            </p>
+          </div>
+
+          <div
+            style={
+              passwordValidation.upperLowerCase
+                ? { color: "green" }
+                : { color: "red" }
+            }
+          >
+            <p>
+              {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
+              <span className="ms-2">
+                Password Must Have uppercase and lower case.
+              </span>
+            </p>
+          </div>
+
+          <div
+            style={
+              passwordValidation.numeric ? { color: "green" } : { color: "red" }
+            }
+          >
+            <p>
+              {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
+              <span className="ms-2">Password Must Have Number.</span>
+            </p>
+          </div>
         </div>
 
-        <div
-          style={
-            passwordValidation.specailChar
-              ? { color: "green" }
-              : { color: "red" }
-          }
-        >
-          <p>
-            {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-            <span className="ms-2">Password Must Have a special cracter.</span>
-          </p>
-        </div>
+        <small className="social-text">Or Sign up with social platforms</small>
 
-        <div
-          style={
-            passwordValidation.upperLowerCase
-              ? { color: "green" }
-              : { color: "red" }
-          }
-        >
-          <p>
-            {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-            <span className="ms-2">
-              Password Must Have uppercase and lower case.
-            </span>
-          </p>
-        </div>
+        <SocialSignUp />
 
-        <div
-          style={
-            passwordValidation.numeric ? { color: "green" } : { color: "red" }
-          }
-        >
-          <p>
-            {passwordValidation.numeric ? <FaCheck /> : <FaTimes />}
-            <span className="ms-2">Password Must Have Number.</span>
-          </p>
-        </div>
-      </div>
-
-      <p className="social-text">Or Sign up with social account</p>
-      <SocialSignUp />
-    </form>
+        <p className="account-text">
+          Already have an account?{" "}
+          <a
+            href=""
+            id="sign-in-btn2"
+            style={{ color: "var(--primaryColor)" }}
+            onClick={handleSignInMobileClick}
+          >
+            Sign In
+          </a>
+        </p>
+      </form>
+    </>
   );
 };
 

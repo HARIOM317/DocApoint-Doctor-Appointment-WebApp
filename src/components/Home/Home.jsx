@@ -1,36 +1,39 @@
-import React from 'react';
-import Blog from './Blog';
-import Footer from '../Shared/Footer/Footer';
-import Testimonial from './Testimonial';
-import ClinicAndSpecialities from './ClinicAndSpecialities';
-import BookDoctor from './BookDoctor';
-import Availabe from './Available';
-import HeroSection from './HeroSection';
-import InfoPage from './InfoPage';
-import Header from '../Shared/Header/Header';
-import Service from './Service';
-import Gallery from './Gallery';
-import OurDoctors from './OurDoctors';
-import HomePageHeader from './HomePageHeader';
+import React from "react";
+import Footer from "../Shared/Footer/Footer";
+import Testimonial from "./Testimonial";
+import ClinicAndSpecialities from "./ClinicAndSpecialities";
+import BookDoctor from "./BookDoctor";
+import Availabe from "./Available";
+import InfoPage from "./InfoPage";
+import Header from "../Shared/Header/Header";
+import Service from "./Service";
+import Gallery from "./Gallery";
+import OurDoctors from "./OurDoctors";
+import HomePageHeader from "./HomePageHeader";
+import HowToUse from "./HowToUse";
+import FAQs from "./FAQs";
+import useAuthCheck from "../../redux/hooks/useAuthCheck";
 
 const Home = () => {
-    return (
-        <>
-            <Header />
-            {/* <HeroSection /> */}
-            <HomePageHeader />
-            <InfoPage />
-            <Service />
-            <ClinicAndSpecialities />
-            <BookDoctor />
-            <Blog />
-            <Availabe />
-            <OurDoctors/>
-            <Testimonial />
-            <Gallery/>
-            <Footer />
-        </>
-    );
+  const { role } = useAuthCheck();
+
+  return (
+    <>
+      <Header />
+      <HomePageHeader />
+      <InfoPage />
+      <Service />
+      <HowToUse />
+      <ClinicAndSpecialities />
+      {role === "patient" && <BookDoctor />}
+      <Availabe />
+      <OurDoctors />
+      <Gallery />
+      <Testimonial />
+      <FAQs />
+      <Footer />
+    </>
+  );
 };
 
 export default Home;

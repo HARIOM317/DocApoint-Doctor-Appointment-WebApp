@@ -1,138 +1,185 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import "../../stylesheets/homeStylesheets/BookDoctor.css";
-import { Link } from 'react-router-dom';
-import { useGetDoctorsQuery } from '../../redux/api/doctorApi';
-import { FaLocationArrow, FaCheckCircle, FaRegHeart, FaDollarSign, FaClock } from "react-icons/fa";
-import { useAddFavouriteMutation } from '../../redux/api/favouriteApi';
-import StarRatings from 'react-star-ratings';
-import { message } from 'antd';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { NavLink } from "react-router-dom";
+import { useGetDoctorsQuery } from "../../redux/api/doctorApi";
+import { FaRegHeart } from "react-icons/fa";
+import { useAddFavouriteMutation } from "../../redux/api/favouriteApi";
+import { message } from "antd";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { sliderSettings } from "../../utils/common";
+import profileImage from "../../images/home/doctorProfile.jpg";
+import { useNavigate } from "react-router-dom";
+import StarRatings from "react-star-ratings";
+import { Autoplay } from "swiper/modules";
+import { Pagination } from "swiper/modules";
+
+import Lottie from "lottie-react";
+import Loading from "../../animations/loading.json";
+import NoDataFound from "../../animations/no_data_found.json";
+import SomethingWrong from "../../animations/something_wrong.json";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/autoplay';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const BookDoctor = () => {
-	const { data, isError, isLoading } = useGetDoctorsQuery({ limit: 10 });
-	const doctors = data?.doctors;
-	const [addFavourite, { isSuccess, isLoading: FIsLoading, isError: fIsError, error }] = useAddFavouriteMutation();
+  const navigate = useNavigate();
 
-	const handleAddFavourite = (id) => {
-		addFavourite({ doctorId: id });
-	};
+  const { data, isError, isLoading } = useGetDoctorsQuery({ limit: 10 });
+  const doctors = data?.doctors;
+  const [
+    addFavourite,
+    { isSuccess, isLoading: FIsLoading, isError: fIsError, error },
+  ] = useAddFavouriteMutation();
 
-	useEffect(() => {
-		if (!FIsLoading && fIsError) {
-			message.error(error?.data?.message)
-		}
-		if (isSuccess) {
-			message.success('Successfully Favourite Adde')
-		}
-	}, [isSuccess, fIsError, FIsLoading, error?.data?.message])
+  const handleAddFavourite = (id) => {
+    addFavourite({ doctorId: id });
+  };
 
-	// what to render 
-	let content = null;
-	if (!isLoading && isError) content = <div>Something Went Wrong !</div>
-	if (!isLoading && !isError && doctors?.length === 0) content = <div>Empty</div>
-	if (!isLoading && !isError && doctors?.length > 0) content =
-		<>
-			{
-				doctors && doctors?.map((item) => (
-					<SwiperSlide key={item.id}>
-						<div className="profile-widget">
-							<div className="doc-img">
-								<Link to={`/doctors/profile/${item?.id}`}>
-									{item?.img && <img className="img-fluid" alt="" src={item?.img} />}
-								</Link>
-								<a style={{ cursor: 'pointer' }} className="position-absolute top-0 end-0 me-2" onClick={() => handleAddFavourite(item?.id)}>
-									<FaRegHeart />
-								</a>
-							</div>
-							<div className="pro-content">
-								<h3 className="title">
-									<Link to={`/doctors/profile/${item?.id}`}>
-										<a>{item?.firstName + ' ' + item?.lastName}</a>
-									</Link>
-									<FaCheckCircle className='verified' />
-								</h3>
-								<p className="speciality">{item?.designation}, {item?.specialization}</p>
-								<div className="w-100 d-flex align-items-center">
-									<StarRatings
-										rating={5}
-										starRatedColor="#f4c150"
-										numberOfStars={5}
-										name='rating'
-										className="star"
-										starDimension="20px"
-										starSpacing="5px"
-									/>
-									<span className="d-inline-block text-secondary mt-2">(27)</span>
-								</div>
-								<ul className="available-info">
-									<li>
-										<FaLocationArrow className='icon' /> Georgia, USA
-									</li>
-									<li>
-										<FaClock className='icon' /> Available on Fri, 22 Mar
-									</li>
-									<li>
-										<FaDollarSign className='icon' /> $100 - $400
-									</li>
-								</ul>
-								<div className="d-flex justify-content-between align-items-center">
-									<Link to={`/doctors/profile/${item?.id}`} className="btn  btn-outline-info btn-sm view-profile-btn">Profile</Link>
-									<Link to={`/booking/${item?.id}`} className="btn btn-sm book-btn">Book</Link>
-								</div>
-							</div>
-						</div >
-					</SwiperSlide>
-				))
-			}
-		</>
-	return (
-		<section className="section-doctor container">
-			<div className="container-fluid">
-				<div className="row">
-					<div className="col-12 col-md-3 col-lg-3">
-						<div className='mb-2 section-title text-center'>
-							<h2>Book Our Doctor</h2>
-							<p className='m-0 text-secondary'>Lorem ipsum dolor sit.</p>
-						</div>
-						<div className="form-text">
-							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
-							<p>Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover  Various versions have evolved over the years, sometimes</p>
-							<div className='text-center text-md-start my-3 my-md-0'>
-								<Link to={'/doctors'} className='more-btn text-center text-md-start'>See More</Link>
-							</div>
-						</div>
-					</div>
-					<div className="col-12 col-md-9 col-lg-9">
-						<div className="d-flex justify-content-center align-items-center gap-3 border-0">
-							<Swiper
-								spaceBetween={10}
-								slidesPerView={1}
-								modules={[Navigation, Autoplay]}
-								navigation={true}
-								loop={true}
-								centeredSlides={true}
-								autoplay={{ delay: 5000, disableOnInteraction: false }}
-								breakpoints={{
-									640: { slidesPerView: 2 },
-									768: { slidesPerView: 2},
-									1024: { slidesPerView: 3},
-								}}
-							>
-								{content}
-							</Swiper>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section >
-	);
+  useEffect(() => {
+    if (!FIsLoading && fIsError) {
+      message.error(error?.data?.message);
+    }
+    if (isSuccess) {
+      message.success("Successfully Favourite Added!");
+    }
+  }, [isSuccess, fIsError, FIsLoading, error?.data?.message]);
+
+  let content = null;
+  
+  if (isLoading)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+
+  if (!isLoading && isError)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div style={{color: 'var(--headingColor)', fontWeight: 'bold', fontSize: '1.3rem'}}>Something went wrong!</div>
+      </div>
+    );
+  if (!isLoading && !isError && doctors?.length === 0)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+  if (!isLoading && !isError && doctors?.length > 0)
+    content = (
+      <>
+        {doctors &&
+          doctors?.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="flexColCenter profile-card">
+                <a
+                  style={{
+                    cursor: "pointer",
+                    position: "absolute",
+                    top: "10px",
+                    right: "10px",
+                  }}
+                  onClick={() => handleAddFavourite(item?.id)}
+                >
+                  <FaRegHeart />
+                </a>
+
+                <div className="image">
+                  <img
+                    className="profile-img"
+                    alt=""
+                    src={item.img == null ? profileImage : item.img}
+                  />
+                </div>
+
+                <div className="text-data">
+                  <span className="name">
+                    {item?.firstName + " " + item?.lastName}
+                  </span>
+                  <span className="job">
+                    {item?.designation} {item?.specialization}
+                  </span>
+                </div>
+
+                <div className="actionBtn">
+                  <NavLink to={`/doctors/profile/${item?.id}`}>
+                    View Profile
+                  </NavLink>
+                  <NavLink to={`/booking/${item?.id}`}>Book Now</NavLink>
+                </div>
+
+                <div className="w-100 d-flex align-items-center justify-content-center">
+                  <StarRatings
+                    rating={5}
+                    starRatedColor="#ffba22"
+                    numberOfStars={5}
+                    name="rating"
+                    className="star"
+                    starDimension="20px"
+                    starSpacing="5px"
+                  />
+                  <span className="d-inline-block text-secondary mt-2">
+                    (27)
+                  </span>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+      </>
+    );
+  return (
+    <section className="our-doctors container">
+      <div className="mb-5 section-title text-center">
+        <h2>Book Doctor</h2>
+        <p className="m-0">
+          Lorem ipsum dolor sit amet consectetur adipisicing.
+        </p>
+      </div>
+      <div className="innerWidth">
+        <Swiper
+          {...sliderSettings}
+          modules={[Pagination, Autoplay]}
+          loop={true}
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+        >
+          {/* <SliderButtons /> */}
+          {content}
+        </Swiper>
+      </div>
+    </section>
+  );
 };
 
 export default BookDoctor;
+
+const SliderButtons = () => {
+  // useSwiper Hook
+  const swiper = useSwiper();
+
+  return (
+    <div className="slider-button">
+      <button onClick={() => swiper.slidePrev()}>&lt;</button>
+      <button onClick={() => swiper.slideNext()}>&gt;</button>
+    </div>
+  );
+};

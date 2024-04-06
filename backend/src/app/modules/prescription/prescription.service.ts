@@ -120,6 +120,7 @@ const getAllPrescriptions = async (): Promise<Prescription[] | null> => {
 }
 
 const getPrescriptionById = async (id: string): Promise<Prescription | null> => {
+    // console.log(id);
     const result = await prisma.prescription.findUnique({
         where: {
             id: id
@@ -161,6 +162,8 @@ const getPrescriptionById = async (id: string): Promise<Prescription | null> => 
                     address: true,
                     img: true,
                     city: true,
+                    country: true,
+                    state: true,
                 }
             }
         }
@@ -187,7 +190,9 @@ const getPatientPrescriptionById = async (user: any): Promise<Prescription[] | n
                 select: {
                     firstName: true,
                     lastName: true,
-                    designation: true
+                    designation: true,
+                    specialization: true,
+                    img: true
                 }
             },
             appointment: {
@@ -226,6 +231,14 @@ const getDoctorPrescriptionById = async (user: any): Promise<Prescription[] | nu
 }
 
 const deletePrescription = async (id: string): Promise<any> => {
+    // console.log(id);
+
+    const result_medi = await prisma.medicine.deleteMany({
+        where: {
+            prescriptionId: id
+        }
+    });
+
     const result = await prisma.prescription.delete({
         where: {
             id: id
