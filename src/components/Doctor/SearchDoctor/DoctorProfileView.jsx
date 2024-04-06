@@ -17,6 +17,12 @@ const DoctorProfileView = ({ data }) => {
   const { role } = useAuthCheck();
   const services = data?.services?.split(",");
 
+  const linkedinLink = `${data.linkedin}`;
+  const facebookLink = `${data.facebook}`;
+  const instagramLink = `${data.instagram}`;
+  const twitterLink = `${data.twitter}`;
+
+
   return (
     <div className="mb-4 profile-section">
       <div className="d-flex p-3 justify-content-between">
@@ -71,16 +77,16 @@ const DoctorProfileView = ({ data }) => {
             </div>
 
             <div className="social-media-icons">
-              <NavLink to="/" style={{ background: "#0a63bc" }} target="_blank">
+              <NavLink to={linkedinLink} style={{ background: "#0a63bc" }} target="_blank">
                 <i className="bx bxl-linkedin"></i>
               </NavLink>
-              <NavLink to="/" style={{ background: "#3b5998" }} target="_blank">
+              <NavLink to={facebookLink} style={{ background: "#3b5998" }} target="_blank">
                 <i className="bx bxl-facebook"></i>
               </NavLink>
-              <NavLink to="/" style={{ background: "#db1c8a" }} target="_blank">
+              <NavLink to={instagramLink} style={{ background: "#db1c8a" }} target="_blank">
                 <i className="bx bxl-instagram"></i>
               </NavLink>
-              <NavLink to="/" style={{ background: "#03a9f4" }} target="_blank">
+              <NavLink to={twitterLink} style={{ background: "#03a9f4" }} target="_blank">
                 <i className="bx bxl-twitter"></i>
               </NavLink>
             </div>
