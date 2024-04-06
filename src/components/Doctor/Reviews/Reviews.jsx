@@ -1,9 +1,9 @@
 import React from 'react';
 import "../../../stylesheets/doctorStylesheets/Reviews.css";
 import DashboardLayout from '../DashboardLayout/DashboardLayout';
-import img from '../../../images/doc/doctor 3.jpg';
+import img from '../../../images/user.png';
 import { useGetDoctorReviewsQuery } from '../../../redux/api/reviewsApi';
-import { FaRegThumbsUp } from "react-icons/fa";
+import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 import moment from 'moment';
 import StarRatings from 'react-star-ratings';
 import useAuthCheck from '../../../redux/hooks/useAuthCheck';
@@ -25,14 +25,22 @@ const Reviews = () => {
               <div className="d-flex gap-3 justify-content-between">
                 <div className="d-flex gap-4">
                   <div className="review-img">
-                    <img className="" alt="" src={img} />
+                    <img alt="" src={img} />
                   </div>
                   <div>
                     <h5 className="text-nowrap">
                       {item?.patient?.firstName + " " + item?.patient?.lastName}
                     </h5>
-                    <p className="text-success">
-                      <FaRegThumbsUp />{" "}
+                    <p
+                      className={
+                        item?.isRecommended ? "text-success" : "text-danger"
+                      }
+                    >
+                      {item?.isRecommended ? (
+                        <FaRegThumbsUp />
+                      ) : (
+                        <FaRegThumbsDown />
+                      )}{" "}
                       {item?.isRecommended
                         ? "I recommend the doctor"
                         : "I do not recommend the doctor"}
@@ -57,7 +65,12 @@ const Reviews = () => {
                 </div>
               </div>
               <div>
-                <p className="mx-2 form-text">{item?.description}</p>
+                <p className="mx-2 form-text">
+                  <strong>
+                    Dr. {item?.doctor?.firstName + " " + item?.doctor?.lastName}
+                  </strong>{" "}
+                  {item?.description}
+                </p>
               </div>
             </div>
           ))}

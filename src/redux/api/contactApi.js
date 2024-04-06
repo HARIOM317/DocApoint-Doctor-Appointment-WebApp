@@ -1,4 +1,5 @@
 import { baseApi } from "./baseApi"
+import { tagTypes } from "../tag-types";
 const CONTACT_URL = '/contact'
 
 export const contactApi = baseApi.injectEndpoints({

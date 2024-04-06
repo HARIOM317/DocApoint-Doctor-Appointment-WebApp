@@ -5,8 +5,9 @@ import { useGetDoctorAppointmentsQuery, useUpdateAppointmentMutation } from '../
 import moment from 'moment';
 import { Button, message } from 'antd';
 import CustomTable from '../../../UI/component/CustomTable';
-import { Tabs } from 'antd';
+import { Tabs, Tag } from 'antd';
 import { Link } from 'react-router-dom';
+import "../../../../stylesheets/DashboardStyle.css";
 
 const DashboardPage = () => {
   const [sortBy, setSortBy] = useState("upcoming");
@@ -50,12 +51,16 @@ const DashboardPage = () => {
           <>
             <div className="table-avatar">
               <a className="avatar avatar-sm mr-2 d-flex gap-2">
-                <img className="avatar-img rounded-circle" src={img} alt="" />
+                <img
+                  className="avatar-img rounded-circle"
+                  style={{ width: "30px", height: "30px" }}
+                  src={data?.patient?.img ? data?.patient?.img : img}
+                  alt=""
+                />
                 <div>
                   <p className="p-0 m-0 text-nowrap">
                     {data?.patient?.firstName + " " + data?.patient?.lastName}
                   </p>
-                  <p className="p-0 m-0">{data?.patient?.designation}</p>
                 </div>
               </a>
             </div>
@@ -71,7 +76,7 @@ const DashboardPage = () => {
         return (
           <div>
             {moment(data?.scheduleDate).format("LL")}{" "}
-            <span className="d-block text-info">{data?.scheduleTime}</span>
+            <span className="d-block" style={{color: 'var(--textLight)', fontWeight: '500'}}>{data?.scheduleTime}</span>
           </div>
         );
       },
@@ -81,7 +86,22 @@ const DashboardPage = () => {
       key: "4",
       width: 100,
       render: function (data) {
-        return <div>{data?.status}</div>;
+        return (
+          <Tag
+            color="#ffcacb"
+            style={{
+              border: "1.5px solid #cc9b9c",
+              fontWeight: "500",
+              textTransform: "capitalize",
+              padding: "4px 8px",
+              color: "var(--textColor)",
+              width: "100px",
+              textAlign: "center",
+            }}
+          >
+            {data?.status}
+          </Tag>
+        );
       },
     },
     {
@@ -90,13 +110,13 @@ const DashboardPage = () => {
       width: 100,
       render: function (data) {
         return (
-          <div className="d-flex gap-2">
+          <div className="d-flex flex-column gap-2">
             {data.prescriptionStatus === "notIssued" ? (
               <Link to={`/dashboard/appointment/treatment/${data?.id}`}>
                 <Button
-                  type="primary"
                   icon={<FaBriefcaseMedical />}
-                  size="small"
+                  size="medium"
+                  className="treatment-btn"
                 >
                   Treatment
                 </Button>
@@ -104,33 +124,36 @@ const DashboardPage = () => {
             ) : (
               <Link to={`/dashboard/prescription/${data?.prescription[0]?.id}`}>
                 <Button
-                  type="primary"
-                  shape="circle"
                   icon={<FaEye />}
-                  size="small"
-                />
+                  size="medium"
+                  className="view-btn"
+                >
+                  View
+                </Button>
               </Link>
             )}
-            {data?.status === "pending" && (
-              <>
-                <Button
-                  type="primary"
-                  icon={<FaCheck />}
-                  size="medium"
-                  onClick={() => updatedApppointmentStatus(data, "accept")}
-                >
-                  Accept
-                </Button>
-                <Button
-                  type="primary"
-                  icon={<FaTimes />}
-                  danger
-                  onClick={() => updatedApppointmentStatus(data, "cancel")}
-                >
-                  Cancel
-                </Button>
-              </>
-            )}
+            <div className="d-flex flex-row justify-content-between gap-2">
+              {data?.status === "pending" && (
+                <>
+                  <Button
+                    icon={<FaCheck />}
+                    size="medium"
+                    className="accept-btn"
+                    onClick={() => updatedApppointmentStatus(data, "accept")}
+                  >
+                    Accept
+                  </Button>
+                  <Button
+                    icon={<FaTimes />}
+                    size="medium"
+                    className="cancel-btn"
+                    onClick={() => updatedApppointmentStatus(data, "cancel")}
+                  >
+                    Cancel
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
         );
       },
