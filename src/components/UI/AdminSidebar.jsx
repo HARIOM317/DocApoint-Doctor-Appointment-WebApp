@@ -5,6 +5,7 @@ import { FaListUl } from "react-icons/fa";
 import { FaPeopleArrows } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { FaUserAstronaut } from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { FaBriefcase } from "react-icons/fa";
 import { Link } from 'react-router-dom';
@@ -15,9 +16,9 @@ const AdminSidebar = () => {
             <div className="sidebar-inner slimscroll">
                 <div id="sidebar-menu" className="sidebar-menu">
                     <ul>
-                        <li className="menu-title">
+                        {/* <li className="menu-title">
                             <span>Main</span>
-                        </li>
+                        </li> */}
                         <li className="active">
                             <Link to={'/admin/dashboard'}>
                                 <FaHome /> <span>Dashboard</span>
@@ -30,16 +31,21 @@ const AdminSidebar = () => {
 
 
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to={'/admin/specialites'}>
                                 <FaPeopleArrows /> <span>Specialities</span>
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to={'/admin/doctors'}>
                                 <FaUserAstronaut /> <span>Doctors</span>
                             </Link>
 
+                        </li>
+                        <li>
+                            <Link to={'/admin/addDoctor'}>
+                            <FaPlusCircle /><span>Add Doctors</span>
+                            </Link>
                         </li>
                         <li>
                             <Link to={'/admin/patients'}>
@@ -53,13 +59,13 @@ const AdminSidebar = () => {
                             </Link>
 
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to={'/admin/transaction'}>
                                 <FaBriefcase /><span>Transactions</span>
                             </Link>
 
-                        </li>
-
+                        </li> */}
+{/* 
                         <li className="submenu">
                             <a href="#"><i className="fe fe-document"></i> <span> Reports</span> <span className="menu-arrow"></span></a>
                             <ul style={{ display: "none" }}>
@@ -73,7 +79,7 @@ const AdminSidebar = () => {
                             <Link to={'/admin/profile'}>
                                 <FaRegUser /> <span>Profile</span>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
