@@ -21,6 +21,7 @@ const TabForm = ({
               type="primary"
               shape="circle"
               onClick={data && data?.length > 0 ? showEditModal : showModal}
+              className="d-flex align-items-center justify-content-center"
             >
               {data && data?.length > 0 ? <FaEdit /> : <FaPlus />}
             </Button>

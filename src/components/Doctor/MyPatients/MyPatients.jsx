@@ -3,9 +3,9 @@ import img from '../../../images/doc/doctor 3.jpg';
 import DashboardLayout from '../DashboardLayout/DashboardLayout';
 import { useGetDoctorPatientsQuery } from '../../../redux/api/appointmentApi';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
 import { FaClock, FaEnvelope, FaLocationArrow, FaPhoneAlt } from "react-icons/fa";
 import { Empty } from 'antd';
+import "../../../stylesheets/doctorStylesheets/MyPatient.css";
 
 const MyPatients = () => {
   const { data, isLoading, isError } = useGetDoctorPatientsQuery();
@@ -17,34 +17,32 @@ const MyPatients = () => {
       <>
         {data &&
           data?.map((item) => (
-            <div
-              className="w-100 mb-3 rounded p-3 text-center"
-              
-            >
-              <div className="">
-                <Link to={"/"} className="my-3 patient-img">
-                  <img src={item?.img ? item?.img : img} alt="" />
-                  {/* {item?.img ? <img src={item?.img} alt="" /> : <img src={img} alt="" /> } */}
-                </Link>
-                <div className="patients-info mt-4">
-                  <h5>{item?.firstName + " " + item?.lastName}</h5>
-                  <div className="info">
-                    <p>
-                      <FaClock className="icon" />{" "}
-                      {moment(item?.appointmentTime).format("MMM Do, YY")}{" "}
-                    </p>
-                    <p>
-                      <FaLocationArrow className="icon" /> {item?.address}
-                    </p>
+            <div className="my-patient col-md-4 col-sm-12">
+              <div className="flexColCenter profile-card">
+                <div className="image">
+                  <img
+                    className="profile-img"
+                    alt=""
+                    src={item?.img ? item?.img : img}
+                  />
+                </div>
 
-                    {/* <p><FaEnvelopeOpen className='icon' /> {item?.email}</p> */}
-                    <p>
-                      <FaEnvelope className="icon" /> {item?.email}
-                    </p>
-                    <p>
-                      <FaPhoneAlt className="icon" /> {item?.mobile}
-                    </p>
-                  </div>
+                <div>
+                  <p className="text-data">
+                    <FaClock className="icon" />{" "}
+                    {moment(item?.appointmentTime).format("MMM Do, YY")}{" "}
+                  </p>
+
+                  <p className="text-data">
+                    <FaLocationArrow className="icon" /> {item?.address}
+                  </p>
+
+                  <p className="text-data">
+                    <FaEnvelope className="icon" /> {item?.email}
+                  </p>
+                  <p className="text-data">
+                    <FaPhoneAlt className="icon" /> {item?.mobile}
+                  </p>
                 </div>
               </div>
             </div>
@@ -54,10 +52,7 @@ const MyPatients = () => {
   return (
     <DashboardLayout>
       <div className="row">
-        <div className="col-md-6 col-lg-4 col-xl-4">
-          {/* <div className="col-md-12 col-lg-12 col-xl-9"> */}
-          {content}
-        </div>
+        {content}
       </div>
     </DashboardLayout>
   );
