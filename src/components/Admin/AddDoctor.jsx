@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { getFromLocalStorage } from "../../utils/local-storage";
 import { doctorSpecialistOptions } from "../../constant/global";
 import ImageUpload from "../UI/form/ImageUpload";
-// import dImage from "../../images/avatar.jpg";
+import dImage from "../../images/avatar.jpg";
 import { DatePicker } from "antd";
 import AdminLayout from "./AdminLayout";
 

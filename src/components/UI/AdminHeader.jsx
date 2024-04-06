@@ -2,7 +2,7 @@ import React from "react";
 import { Menu, Dropdown, Avatar } from "antd";
 import { SearchOutlined, BarsOutlined, BellOutlined } from "@ant-design/icons";
 import logo from "../../images/logo.png";
-// import userImg from "../../images/avatar.jpg";
+import userImg from "../../images/avatar.jpg";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
 import "../../stylesheets/UIStylesheets/AdminHeader.css";
 
@@ -58,7 +58,7 @@ const AdminHeader = () => {
               data-toggle="dropdown"
             >
               <span className="user-img">
-                <Avatar src={userImg} size={31} alt="Ryan Taylor" />
+                <Avatar src={userImg} size={31} alt="" />
               </span>
             </a>
           </Dropdown>
