@@ -24,6 +24,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use('/api/v1', router);
+
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof ApiError) {
         res.status(err.statusCode).json({ success: false, message: err.message })

@@ -16,6 +16,16 @@ const createDoctor = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const addDoctor = catchAsync(async (req: Request, res: Response) => {
+    const result = await DoctorService.add_doctor(req);
+    sendResponse(res, {
+        statusCode: 200,
+        message: 'Successfully Doctor Added !!',
+        success: true,
+        data: result
+    })
+})
+
 const getAllDoctors = catchAsync(async (req: Request, res: Response) => {
     const filter = pick(req.query, IDoctorFiltersData);
     const options = pick(req.query, IDoctorOptions);
@@ -60,6 +70,7 @@ const updateDoctor = catchAsync(async (req: Request, res: Response) => {
 
 export const DoctorController = {
     createDoctor,
+    addDoctor,
     updateDoctor,
     deleteDoctor,
     getAllDoctors,

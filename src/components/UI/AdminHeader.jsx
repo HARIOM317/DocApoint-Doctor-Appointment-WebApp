@@ -1,64 +1,71 @@
-import React from 'react'
-import logo from '../../images/logo.png';
-import userImg from '../../images/user.png';
+import React from "react";
+import { Menu, Dropdown, Avatar } from "antd";
+import { SearchOutlined, BarsOutlined, BellOutlined } from "@ant-design/icons";
+import logo from "../../images/logo.png";
+import userImg from "../../images/avatar.jpg";
+import useAuthCheck from "../../redux/hooks/useAuthCheck";
 import "../../stylesheets/UIStylesheets/AdminHeader.css";
 
 const AdminHeader = () => {
-    return (
-        <div className="header">
-            <div className="header-left">
-                <a href="index.html" className="logo">
-                    <img src={logo} alt="Logo" />
-                </a>
-            </div>
+  const { data } = useAuthCheck();
+  // some changes are here 
+  const menu = (
+    <Menu>
+      <Menu.Item key="1">My Profile</Menu.Item>
+      <Menu.Item key="2">Settings</Menu.Item>
+      <Menu.Item key="3">Logout</Menu.Item>
+    </Menu>
+  );
 
-            <a id="toggle_btn">
-                <i className="fe fe-text-align-left"></i>
-            </a>
+  return (
+    <div className="header">
+      <div className="header-left">
+        <a href="index.html" className="logo">
+          <img src={logo} alt="Logo" />
+        </a>
+      </div>
 
-            <div className="top-nav-search">
-                <form>
-                    <input type="text" className="form-control" placeholder="Search here" />
-                    <button className="btn" type="submit"><i className="fa fa-search"></i></button>
-                </form>
-            </div>
+      {/* <a id="toggle_btn">
+        <BarsOutlined />
+      </a> */}
 
-            <a className="mobile_btn" id="mobile_btn">
-                <i className="fa fa-bars"></i>
-            </a>
-            <ul className="nav user-menu">
+      <div className="top-nav-search">
+        <form>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search here"
+          />
+          <button className="btn" type="submit">
+            <SearchOutlined />
+          </button>
+        </form>
+      </div>
 
-                <li className="nav-item dropdown noti-dropdown">
-                    <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i className="fe fe-bell"></i> <span className="badge badge-pill">3</span>
-                    </a>
-                    <div className="dropdown-menu notifications">
-                    </div>
-                </li>
-                <li className="nav-item dropdown has-arrow">
-                    <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <span className="user-img"><img className="rounded-circle" src={userImg} width="31" alt="Ryan Taylor" /></span>
-                    </a>
-                    <div className="dropdown-menu">
-                        <div className="user-header">
-                            <div className="avatar avatar-sm">
-                                <img src={userImg} alt="" className="avatar-img rounded-circle" />
-                            </div>
-                            <div className="user-text">
-                                <h6>Ryan Taylor</h6>
-                                <p className="text-muted mb-0">Administrator</p>
-                            </div>
+      <ul className="nav user-menu">
+        {/* <li className="nav-item dropdown noti-dropdown">
+                        <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <BellOutlined /> <span className="badge badge-pill">3</span>
+                        </a>
+                        <div className="dropdown-menu notifications">
                         </div>
-                        <a className="dropdown-item" href="profile.html">My Profile</a>
-                        <a className="dropdown-item" href="settings.html">Settings</a>
-                        <a className="dropdown-item" href="login.html">Logout</a>
-                    </div>
-                </li>
+                    </li> */}
+        <li className="nav-item dropdown has-arrow me-4">
+          <Dropdown overlay={menu} trigger={["click"]}>
+            <a
+              href="#"
+              className="dropdown-toggle nav-link"
+              data-toggle="dropdown"
+            >
+              <span className="user-img">
+                <Avatar src={userImg} size={31} alt="" />
+              </span>
+            </a>
+          </Dropdown>
+        </li>
+      </ul>
+    </div>
+  );
+};
 
-            </ul>
-
-        </div>
-    )
-}
-
-export default AdminHeader
+export default AdminHeader;

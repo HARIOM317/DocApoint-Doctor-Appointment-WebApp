@@ -4,23 +4,40 @@ import useAuthCheck from "../../../redux/hooks/useAuthCheck";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
 import DashboardPage from "./doctor/DashboardPage";
 import PatientDashboard from "./PatientDashboard";
+import AdminDashboard from "../../Admin/Dashboard";
+
 
 const Dashboard = () => {
   const { role } = useAuthCheck();
   return (
     <>
+      {/* for admin */}
+      {
+        role === "admin" && <AdminDashboard />
+        // <div className="col-md-12 rounded" style={{ background: '#f8f9fa' }}>
+        //     {/* <h5 className="text-title">Appointments</h5> */}
+
+        // </div>
+      }
+
       <DashboardLayout>
         {role === "doctor" && <DoctorDashCard />}
 
         <div className="row">
           {role === "patient" && (
-            <div className="col-md-12 rounded">
+            <div
+              className="col-md-12 rounded"
+              style={{ background: "#f8f9fa" }}
+            >
               <h5 className="text-title my-3">My Appointments</h5>
               <PatientDashboard />
             </div>
           )}
           {role === "doctor" && (
-            <div className="col-md-12 rounded">
+            <div
+              className="col-md-12 rounded"
+              style={{ background: "#f8f9fa" }}
+            >
               <h5 className="text-title">Appointments</h5>
               <DashboardPage />
             </div>
@@ -30,5 +47,4 @@ const Dashboard = () => {
     </>
   );
 };
-
 export default Dashboard;

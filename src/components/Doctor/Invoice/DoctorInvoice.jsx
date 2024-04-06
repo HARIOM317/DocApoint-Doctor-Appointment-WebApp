@@ -12,7 +12,7 @@ const DoctorInvoice = () => {
   const { data, isLoading } = useGetDoctorInvoicesQuery();
   const columns = [
     {
-      title: "Doctor",
+      title: "Patient",
       key: "1",
       width: 150,
       render: function (data) {
@@ -21,9 +21,9 @@ const DoctorInvoice = () => {
             <a className="avatar avatar-sm mr-2 d-flex gap-2">
               <img className="avatar-img rounded-circle" src={img} alt="" />
               <p className="p-0 m-0 text-nowrap">
-                {data?.appointment?.patient?.firstName +
+                {data?.appointment?.firstName +
                   " " +
-                  data?.appointment?.patient?.lastName}
+                  data?.appointment?.lastName}
               </p>
             </a>
           </div>
@@ -31,12 +31,10 @@ const DoctorInvoice = () => {
       },
     },
     {
-      title: "Paid",
+      title: <div className="text-nowrap">Payment Type</div>,
       key: "2",
-      width: 100,
-      render: function (data) {
-        return <div>{data?.totalAmount} $</div>;
-      },
+      width: 120,
+      dataIndex: "paymentType",
     },
     {
       title: "Paid On",
@@ -47,20 +45,24 @@ const DoctorInvoice = () => {
       },
     },
     {
-      title: <div className="text-nowrap">Payment Method</div>,
+      title: "OrderId",
       key: "4",
       width: 150,
-      dataIndex: "paymentMethod",
+      render: function (data) {
+        return <div>{data?.OrderId?data?.OrderId:"Cash"}</div>;
+      },
     },
     {
-      title: <div className="text-nowrap">Payment Type</div>,
-      key: "4",
-      width: 120,
-      dataIndex: "paymentType",
+      title: "Paid",
+      key: "5",
+      width: 100,
+      render: function (data) {
+        return <div>${data?.totalAmount}</div>;
+      },
     },
     {
       title: "Action",
-      key: "5",
+      key: "6",
       width: 100,
       render: function (data) {
         return (

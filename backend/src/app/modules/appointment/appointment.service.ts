@@ -30,7 +30,12 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
     if (!isDoctorExist) {
         throw new ApiError(httpStatus.NOT_FOUND, 'Doctor Account is not found !!')
     }
-    patientInfo['paymentStatus'] = paymentStatus.paid;
+
+    const { orderId, paymentId, paymentType } = payment;
+
+    if(paymentType === "razorpay"){
+        patientInfo['paymentStatus'] = paymentStatus.paid;
+    }
 
     const result = await prisma.$transaction(async (tx) => {
         const previousAppointment = await tx.appointments.findFirst({
@@ -55,19 +60,21 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
                 patient: true
             }
         });
-        const { paymentMethod, paymentType } = payment;
+        
         const docFee = Number(isDoctorExist.price);
-        const vat = (15 / 100) * (docFee + 10)
+        const gst = (5 / 100) * docFee;
+        const totalAmount = docFee + 10 + gst;
         if (appointment.id) {
             await tx.payment.create({
                 data: {
                     appointmentId: appointment.id,
                     bookingFee: 10,
-                    paymentMethod: paymentMethod,
                     paymentType: paymentType,
-                    vat: vat,
+                    PaymentId: paymentId,
+                    OrderId: orderId,
+                    Gst: gst,
                     DoctorFee: docFee,
-                    totalAmount: (vat + docFee),
+                    totalAmount: totalAmount,
                 }
             })
         }
@@ -136,16 +143,16 @@ const createAppointmentByUnAuthenticateUser = async (payload: any): Promise<Appo
         const appointment = await tx.appointments.create({
             data: patientInfo,
         });
-        const { paymentMethod, paymentType } = payment;
+        const { PaymentId, paymentType } = payment;
         const vat = (15 / 100) * (60 + 10)
         if (appointment.id) {
             await tx.payment.create({
                 data: {
                     appointmentId: appointment.id,
                     bookingFee: 10,
-                    paymentMethod: paymentMethod,
+                    PaymentId: PaymentId,
                     paymentType: paymentType,
-                    vat: vat,
+                    Gst: vat,
                     DoctorFee: 60,
                     totalAmount: (vat + 60),
                 }
@@ -173,6 +180,9 @@ const createAppointmentByUnAuthenticateUser = async (payload: any): Promise<Appo
 
     return result;
 }
+
+
+
 
 const getAllAppointments = async (): Promise<Appointments[] | null> => {
     const result = await prisma.appointments.findMany();
@@ -360,7 +370,7 @@ const getAppointmentsByDoctorId = async (id: string): Promise<Appointments | nul
             doctorId: id
         },
         include: {
-            doctor: true           
+            doctor: true
         }
     });
     return result;

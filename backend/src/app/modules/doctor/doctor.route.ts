@@ -8,8 +8,9 @@ const router = express.Router();
 
 router.get('/', DoctorController.getAllDoctors);
 router.post('/', DoctorController.createDoctor);
+router.post('/admin/addDoctor',auth(AuthUser.ADMIN), DoctorController.addDoctor);
 router.get('/:id', DoctorController.getDoctor);
-router.delete('/:id', auth(AuthUser.DOCTOR), DoctorController.deleteDoctor);
+router.delete('/:id', auth(AuthUser.ADMIN) || auth(AuthUser.DOCTOR), DoctorController.deleteDoctor);
 router.patch('/:id',
     CloudinaryHelper.upload.single('file'),
     auth(AuthUser.DOCTOR),

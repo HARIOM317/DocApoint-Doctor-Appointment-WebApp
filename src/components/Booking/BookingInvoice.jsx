@@ -33,7 +33,7 @@ const BookingInvoice = () => {
                 </div>
                 <div className="col-md-6">
                   <p className="invoice-details">
-                    <strong>Order:</strong> #00124 <br />
+                    {/* <strong>Order:</strong> #00124 <br /> */}
                     <strong>Issued:</strong>{" "}
                     {moment(data.createdAt).format("LL")}
                   </p>
@@ -50,11 +50,11 @@ const BookingInvoice = () => {
                       Dr.{" "}
                       {data?.appointment?.doctor?.firstName
                         ? `${data?.appointment?.doctor?.firstName} ${data?.appointment?.doctor?.lastName}`
-                        : " Of DoctorOnCall"}{" "}
+                        : ""}{" "}
                       <br />
                       {data?.appointment?.doctor?.address
                         ? data?.appointment?.doctor?.address
-                        : "Sylhet, Dhaka ,BD,3214"}
+                        : ""}
                       ,{" "}
                       {data?.appointment?.doctor?.city &&
                         data?.appointment?.doctor?.city}
@@ -69,12 +69,12 @@ const BookingInvoice = () => {
                   <div className="invoice-info invoice-info2">
                     <strong className="customer-text">Invoice To</strong>
                     <p className="invoice-details">
-                      {data?.appointment?.patient?.firstName +
+                      {data?.appointment?.firstName +
                         " " +
-                        data?.appointment?.patient?.lastName}{" "}
+                        data?.appointment?.lastName}{" "}
                       <br />
-                      {data?.appointment?.patient?.address},{" "}
-                      {data?.appointment?.patient?.city} ,<br />
+                      {data?.appointment?.address},{" "}
+                      {data?.appointment?.patient?.city},<br />
                       {data?.appointment?.patient?.country} <br />
                     </p>
                   </div>
@@ -87,9 +87,8 @@ const BookingInvoice = () => {
                   <div className="invoice-info">
                     <strong className="customer-text">Payment Method</strong>
                     <p className="invoice-details invoice-details-two">
-                      {data?.paymentType} <br />
-                      XXXXXXXXXXXX-2541 <br />
-                      {data?.paymentMethod}
+                    Payment Type: {data?.paymentType} <br />
+                      {data?.paymentType == "razorpay" ? `Order Id: ${data?.OrderId}`: ""}
                       <br />
                     </p>
                   </div>
@@ -105,7 +104,8 @@ const BookingInvoice = () => {
                         <tr>
                           <th>Description</th>
                           <th className="text-center">Doctor Fee</th>
-                          <th className="text-center">VAT</th>
+                          <th className="text-center">Gst</th>
+                          <th className="text-center">Booking Fee</th>
                           <th className="text-right">Total</th>
                         </tr>
                       </thead>
@@ -113,7 +113,8 @@ const BookingInvoice = () => {
                         <tr>
                           <td>General Consultation</td>
                           <td className="text-center">${data?.DoctorFee}</td>
-                          <td className="text-center">${data?.vat}</td>
+                          <td className="text-center">${data?.Gst}</td>
+                          <td className="text-center">${data?.bookingFee}</td>
                           <td className="text-right">${data?.totalAmount}</td>
                         </tr>
                       </tbody>
