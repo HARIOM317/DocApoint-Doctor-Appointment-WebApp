@@ -68,7 +68,7 @@ const DoctorProfileSetting = () => {
     <div style={{ marginBottom: "10rem" }}>
       <div
         className="w-100 mb-3 rounded mb-5 p-2"
-       
+
       >
         <h5 className="text-title mb-2 mt-3">Update Your Information</h5>
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
@@ -273,6 +273,61 @@ const DoctorProfileSetting = () => {
               </div>
             </div>
           </div>
+
+          <div className="col-md-12">
+            <div className="card mb-2 p-3 mt-2">
+              <h6 className="card-title text-secondary">Social Media Links</h6>
+              <div className="row form-row">
+                <div className="col-md-6">
+                  <div className="form-group mb-2 card-label">
+                    <label>LinkdIn</label>
+                    <input
+                      defaultValue={data?.linkedin}
+                      {...register("linkedin")}
+                      type="url"
+                      className="form-control"
+                    />
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="form-group mb-2 card-label">
+                    <label>Facebook</label>
+                    <input
+                      defaultValue={data?.facebook}
+                      {...register("facebook")}
+                      type="url"
+                      className="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="row form-row">
+                <div className="col-md-6">
+                  <div className="form-group mb-2 card-label">
+                    <label>Instagram</label>
+                    <input
+                      defaultValue={data?.instagram}
+                      {...register("instagram")}
+                      type="url"
+                      className="form-control"
+                    />
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="form-group mb-2 card-label">
+                    <label>Twitter</label>
+                    <input
+                      defaultValue={data?.twitter}
+                      {...register("twitter")}
+                      type="url"
+                      className="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           <div className="col-md-12">
             <div className="card mb-2 p-3 mt-2">

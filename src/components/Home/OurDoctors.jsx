@@ -76,29 +76,33 @@ const OurDoctors = () => {
 
                   <div className="social">
                     <NavLink
-                      to={""}
+                      to={item.linkedin}
                       style={{ background: "#0a63bc" }}
+                      target="_blank"
                       className="icon"
                     >
                       <i className="bx bxl-linkedin"></i>
                     </NavLink>
                     <NavLink
-                      to={""}
+                      to={item.facebook}
                       style={{ background: "#3b5998" }}
+                      target="_blank"
                       className="icon"
                     >
                       <i className="bx bxl-facebook"></i>
                     </NavLink>
                     <NavLink
-                      to={""}
+                      to={item.instagram}
                       style={{ background: "#db1c8a" }}
+                      target="_blank"
                       className="icon"
                     >
                       <i className="bx bxl-instagram"></i>
                     </NavLink>
                     <NavLink
-                      to={""}
+                      to={item.twitter}
                       style={{ background: "#03a9f4" }}
+                      target="_blank"
                       className="icon"
                     >
                       <i className="bx bxl-twitter"></i>
