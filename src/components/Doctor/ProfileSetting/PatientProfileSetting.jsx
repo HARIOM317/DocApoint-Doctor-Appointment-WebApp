@@ -146,19 +146,8 @@ const PatientProfileSetting = () => {
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
               <label className="label-style">Gender</label>
-              {/* <select
-                className="text-input-field select"
-                onChange={handleChange}
-                name="gender"
-              >
-                <option value={""}>Select</option>
-                <option className="text-capitalize">male</option>
-                <option className="text-capitalize">female</option>
-                <option className="text-capitalize">other</option>
-              </select> */}
-
               <Select
-                defaultValue={data?.gender === null ? "Select" : data?.gender}
+                defaultValue={data?.gender ? data?.gender : "Select"}
                 className="dropdown"
                 onChange={(value) => handleChange(value, "gender")}
                 placeholder="Select Gender"
@@ -173,25 +162,8 @@ const PatientProfileSetting = () => {
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
               <label className="label-style">Blood Group</label>
-              {/* <select
-                className="text-input-field select"
-                onChange={handleChange}
-                name="bloodGroup"
-              >
-                <option value={""}>Select</option>
-                <option className="text-capitalize">A+</option>
-                <option className="text-capitalize">A-</option>
-                <option className="text-capitalize">B+</option>
-                <option className="text-capitalize">B-</option>
-                <option className="text-capitalize">O+</option>
-                <option className="text-capitalize">O-</option>
-                <option className="text-capitalize">AB+</option>
-                <option className="text-capitalize">AB-</option>
-              </select> */}
               <Select
-                defaultValue={
-                  "Select"
-                }
+                defaultValue={data?.bloodGroup ? data?.bloodGroup : "Select"}
                 className="dropdown"
                 onChange={(value) => handleChange(value, "bloodGroup")}
                 placeholder="Select Blood Group"
@@ -211,11 +183,12 @@ const PatientProfileSetting = () => {
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
               <DatePicker
+                defaultValue={moment(data?.dob)}
                 placeholder="Select DOB"
                 onChange={onChange}
                 format={"YYYY-MM-DD"}
-                className="text-input-field"
-                style={{ marginTop: "14.5px", padding: "12.8px 16px" }}
+                className="text-input-field date-picker"
+                style={{ marginTop: "14.5px", padding: "12px 16px" }}
               />
             </div>
           </div>

@@ -1,12 +1,13 @@
 .profile-setting .text-input-field {
   width: 100%;
-  border: 1px solid var(--borderLight);
-  border-radius: 6px;
+  border: 1.5px solid var(--borderLight);
+  border-radius: 8px;
   background: var(--bgLight);
   padding: 10px 14px;
   font-size: 16px;
   color: var(--textLight);
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .profile-setting .text-input-field:focus {
@@ -22,5 +23,29 @@
 
 .profile-setting .dropdown{
   width: 100%;
-  height: 46px;
+  height: 50px;
+}
+
+.profile-setting .dropdown .ant-select-selector {
+  border: 1.5px solid #d9d9d9 !important;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: var(--bgLight);
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.profile-setting .dropdown .ant-select-selector:focus {
+  border: 1.5px solid var(--borderColor);
+  box-shadow: 0 0 30px rgba(16, 15, 27, 0.15);
+}
+
+/* .profile-setting .date-picker{
+  padding: 10px 14px;
+} */
+
+.profile-setting .date-picker .ant-picker-input input {
+  font-size: 16px;
+  font-weight: 500;
 }

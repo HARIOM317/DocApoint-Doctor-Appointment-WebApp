@@ -119,7 +119,10 @@ const PatientFavouriteDoctor = () => {
     );
   return (
     <DashboardLayout>
-      <div className="row">{content}</div>
+      <h5 className="text-title mb-2 mt-3">My Favorite Doctors</h5>
+      <div className="row">
+        {content}
+      </div>
     </DashboardLayout>
   );
 };

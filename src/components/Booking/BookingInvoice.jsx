@@ -88,7 +88,7 @@ const BookingInvoice = () => {
                     <strong className="customer-text">Payment Method</strong>
                     <p className="invoice-details invoice-details-two">
                     Payment Type: {data?.paymentType} <br />
-                      {data?.paymentType == "razorpay" ? `Order Id: ${data?.OrderId}`: ""}
+                      {data?.paymentType === "razorpay" ? `Order Id: ${data?.OrderId}`: ""}
                       <br />
                     </p>
                   </div>
