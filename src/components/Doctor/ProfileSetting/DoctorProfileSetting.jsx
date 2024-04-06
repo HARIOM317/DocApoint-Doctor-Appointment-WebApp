@@ -69,11 +69,8 @@ const DoctorProfileSetting = () => {
   }, [isLoading, isError, error, isSuccess]);
 
   return (
-    <div style={{ marginBottom: "10rem" }}>
-      <div
-        className="w-100 mb-3 rounded mb-5 p-2"
-       
-      >
+    <div className="profile-setting" style={{ marginBottom: "10rem" }}>
+      <div className="w-100 mb-3 rounded mb-5 p-2">
         <h5 className="text-title mb-2 mt-3">Update Your Information</h5>
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12 mb-5">
