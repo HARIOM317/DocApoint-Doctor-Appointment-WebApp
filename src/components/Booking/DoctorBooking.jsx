@@ -20,8 +20,6 @@ import useAuthCheck from "../../redux/hooks/useAuthCheck";
 const DoctorBooking = () => {
   const dispatch = useDispatch();
   let initialValue = {
-    paymentMethod: "paypal",
-    paymentType: "creditCard",
     firstName: "",
     lastName: "",
     email: "",
@@ -29,19 +27,18 @@ const DoctorBooking = () => {
     reasonForVisit: "",
     description: "",
     address: "",
-    nameOnCard: "",
-    cardNumber: "",
-    expiredMonth: "",
-    cardExpiredYear: "",
-    cvv: "",
+    paymentType: "",
   };
+
   const { data: loggedInUser, role } = useAuthCheck();
   const [current, setCurrent] = useState(0);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectDay, setSelecDay] = useState("");
+  const [paymentId, setpaymentId] = useState("");
   const [selectTime, setSelectTime] = useState("");
   const [isCheck, setIsChecked] = useState(false);
   const [patientId, setPatientId] = useState("");
+  const [orderId, setOrderId] = useState("");
   const [
     createAppointment,
     {
@@ -77,22 +74,13 @@ const DoctorBooking = () => {
       lastName,
       email,
       phone,
-      nameOnCard,
-      cardNumber,
-      expiredMonth,
-      cardExpiredYear,
-      cvv,
       reasonForVisit,
+      paymentType,
     } = selectValue;
     const isInputEmpty =
       !firstName || !lastName || !email || !phone || !reasonForVisit;
     const isConfirmInputEmpty =
-      !nameOnCard ||
-      !cardNumber ||
-      !expiredMonth ||
-      !cardExpiredYear ||
-      !cvv ||
-      !isCheck;
+      !isCheck || !paymentType;
     setIsDisable(isInputEmpty);
     setIsConfirmDisable(isConfirmInputEmpty);
   }, [selectValue, isCheck]);
@@ -205,6 +193,10 @@ const DoctorBooking = () => {
           data={data}
           selectedDate={selectedDate}
           selectTime={selectTime}
+          paymentId={paymentId}
+          setpaymentId={setpaymentId}
+          orderId={orderId}
+          setOrderId={setOrderId}
         />
       ),
     },
@@ -232,12 +224,8 @@ const DoctorBooking = () => {
     };
     obj.payment = {
       paymentType: selectValue.paymentType,
-      paymentMethod: selectValue.paymentMethod,
-      cardNumber: selectValue.cardNumber,
-      cardExpiredYear: selectValue.cardExpiredYear,
-      cvv: selectValue.cvv,
-      expiredMonth: selectValue.expiredMonth,
-      nameOnCard: selectValue.nameOnCard,
+      paymentId: paymentId,
+      orderId: orderId
     };
     createAppointment(obj);
   };

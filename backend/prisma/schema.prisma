@@ -145,12 +145,13 @@ model Payment {
   id            String       @id @default(uuid())
   appointmentId String
   appointment   Appointments @relation(fields: [appointmentId], references: [id])
-  paymentMethod String
-  paymentType   String
 
+  paymentType   String?
+  PaymentId   String?
+  OrderId   String?
   DoctorFee   Int
   bookingFee  Int
-  vat         Int?
+  Gst         Int?
   totalAmount Int
 
   @@map("Payment")

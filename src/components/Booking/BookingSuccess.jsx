@@ -20,8 +20,6 @@ const BookingSuccess = () => {
   const { id } = useParams();
   const { data } = useGetSingleAppointmentQuery(id);
 
-  console.log(data?.doctor?.email);
-
   const navigate = useNavigate();
 
   useEffect(() => {
