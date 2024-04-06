@@ -175,8 +175,53 @@ const updateDoctor = async (req: Request): Promise<Doctor> => {
     return result;
 }
 
+
+const add_doctor = async (req: Request): Promise<any> => {
+    //this files are showing null in console
+    // const file = req.file as IUpload;
+    // const user = JSON.parse(req.body.data);
+    // console.log("user data: "+user);
+
+    // if (file) {
+    //     const uploadImage = await CloudinaryHelper.uploadFile(file);
+    //     if (uploadImage) {
+    //         user.img = uploadImage.secure_url
+    //     } else {
+    //         throw new ApiError(httpStatus.EXPECTATION_FAILED, 'Failed to Upload Image');
+    //     }
+    // }
+    const user = req.body;
+    console.log("user data: "+user);
+
+    const data = await prisma.$transaction(async (tx) => {
+        const { password, ...othersData } = user;
+        const existEmail = await tx.auth.findUnique({ where: { email: othersData.email } });
+        if (existEmail) {
+            throw new Error("Email Already Exist !!")
+        }
+        const doctor = await tx.doctor.create({ data: othersData });
+        await tx.auth.create({
+            data: {
+                email: doctor.email,
+                password: password && await bcrypt.hashSync(password, 12),
+                role: UserRole.doctor,
+                userId: doctor.id
+            },
+        });
+        return doctor
+    });
+
+    if (data.id) {
+        await sendVerificationEmail(data)
+    }
+    return data;
+
+}
+
+
 export const DoctorService = {
     create,
+    add_doctor,
     updateDoctor,
     deleteDoctor,
     getAllDoctors,
