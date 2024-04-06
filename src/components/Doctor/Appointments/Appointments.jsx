@@ -33,6 +33,8 @@ const Appointments = () => {
     }
   };
 
+  // console.log(data.length);
+
   useEffect(() => {
     if (isSuccess) {
       message.success("Succcessfully Appointment Updated");
