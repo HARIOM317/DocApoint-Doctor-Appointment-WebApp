@@ -76,7 +76,7 @@ const DoctorProfileSetting = () => {
           <div className="col-md-12 mb-5">
             <div className="form-group">
               <div className="change-avatar d-flex gap-2 align-items-center">
-                <Link to={"/"} className="my-3 patient-img">
+                <Link to={"/dashboard"} className="my-3 patient-img">
                   <img
                     src={selectedImage ? selectedImage : data?.img || dImage}
                     alt=""

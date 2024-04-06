@@ -40,15 +40,23 @@ const BlogsEdit = () => {
 
   return (
     <DashboardLayout>
-      <div className="mb-5 p-2" >
+      <div
+        className="card mb-5 p-2 shadow-sm profile-setting"
+        style={{ background: "var(--bgLight)" }}
+      >
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12">
             <div className="form-group mb-2 card-label">
-              <label>Title</label>
+              <label
+                className="label-style"
+                style={{ background: "linear-gradient(var(--bgLight), #fff)" }}
+              >
+                Title
+              </label>
               <input
                 defaultValue={data?.title}
                 {...register("title")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
@@ -59,8 +67,8 @@ const BlogsEdit = () => {
               <textarea
                 defaultValue={data?.description}
                 {...register("description")}
-                className="form-control"
-                rows={5}
+                className="text-input-field"
+                rows={13}
               />
             </div>
           </div>

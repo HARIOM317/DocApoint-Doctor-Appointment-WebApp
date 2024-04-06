@@ -31,12 +31,12 @@
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
-    border: 8px solid #efefef;
-    transition: 0.6s ease-in;
+    border: 2px solid var(--borderColor);
+    transition: all 0.3s ease;
 }
 
 .patient-img img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .appointment-status > p{
     font-size: 14px;

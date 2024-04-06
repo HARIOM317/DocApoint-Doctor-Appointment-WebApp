@@ -78,7 +78,7 @@ const Service = () => {
 
         <div className="row" style={{ marginTop: 50 }}>
           {ServiceAPI.map((item) => (
-            <div className="col-lg-4 col-md-6 col-sm-6" key={item.id}>
+            <div className="col-lg-3 col-md-6 col-sm-12" key={item.id}>
               <div className="card mb-5 service-card">
                 <img
                   src={item.img}
@@ -87,7 +87,9 @@ const Service = () => {
                   style={{ maxHeight: "17rem", objectFit: "cover" }}
                 />
                 <div className="p-2">
-                  <h4 className="mt-4 mb-2">{item.name}</h4>
+                  <div className="mt-2 mb-4">
+                    <span>{item.name}</span>
+                  </div>
                   <p className="mb-4">{item.about}</p>
                 </div>
               </div>

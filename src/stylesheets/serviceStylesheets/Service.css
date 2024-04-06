@@ -2,7 +2,7 @@
     border: 1.5px solid var(--borderColor);
     border-radius: 10px 100px 10px 10px;
     box-shadow: var(--shadowAll);
-    height: 500px;
+    height: 420px;
     background: var(--bgColor);
     transition: all 0.35s ease-in-out;
 }
@@ -12,16 +12,22 @@
 }
 
 .services .service-card img{
-    border-radius: 9px 9px 50px 0;
+    border-radius: 9px 9px 30px 0;
     cursor: pointer;
-    height: 230px;
+    height: 160px;
 }
 
-.services .service-card h4{
-    color: var(--primaryColor);
+.services .service-card span{
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: linear-gradient(#ff6242, #d7363d);
+    padding: 2px 14px;
+    border-radius: 20px;
 }
 
 .services .service-card p{
     color: var(--textLight);
     text-align: justify;
+    font-size: 14px;
 }

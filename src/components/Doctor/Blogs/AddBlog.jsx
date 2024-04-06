@@ -40,11 +40,19 @@ const AddBlog = () => {
   }, [isLoading, isError, error, isSuccess]);
   return (
     <DashboardLayout>
-      <div className="card mb-5 p-2 shadow-sm profile-setting">
+      <div
+        className="card mb-5 p-2 shadow-sm profile-setting"
+        style={{ background: "var(--bgLight)" }}
+      >
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12">
             <div className="form-group mb-2 card-label">
-              <label className="label-style">Title</label>
+              <label
+                className="label-style"
+                style={{ background: "linear-gradient(var(--bgLight), #fff)" }}
+              >
+                Title
+              </label>
               <input
                 placeholder="Title"
                 {...register("title")}
@@ -55,7 +63,12 @@ const AddBlog = () => {
 
           <div className="col-md-12">
             <div className="form-group mb-2 card-label">
-              <label className="label-style">Description</label>
+              <label
+                className="label-style"
+                style={{ background: "linear-gradient(var(--bgLight), #fff)" }}
+              >
+                Description
+              </label>
               <textarea
                 placeholder="Description"
                 {...register("description")}
