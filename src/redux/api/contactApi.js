@@ -1,3 +1,4 @@
+import { tagTypes } from "../tag-types";
 import { baseApi } from "./baseApi"
 const CONTACT_URL = '/contact'
 
@@ -15,10 +16,10 @@ export const contactApi = baseApi.injectEndpoints({
                 url: `${CONTACT_URL}`,
                 method: 'GET'
             }),
-            providesTags: [tagTypes.appointments]
+            providesTags: [tagTypes.contacts]
         }),
 
     })
 })
 
-export const { useContactMutation } = contactApi;
+export const { useContactMutation, useGetAllContactUsQuery } = contactApi;

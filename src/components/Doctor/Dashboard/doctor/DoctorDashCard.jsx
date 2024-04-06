@@ -1,24 +1,59 @@
 import "../../../../stylesheets/doctorStylesheets/Dashboard.css";
 import { FaHospitalUser, FaCalendarAlt, FaHospital } from "react-icons/fa";
+import { useGetDoctorAppointmentsQuery } from "../../../../redux/api/appointmentApi";
+import { useGetDoctorPatientsQuery } from '../../../../redux/api/appointmentApi';
+
 const DoctorDashCard = () => {
+
+  const timestamp = Date.now();
+  const date = new Date(timestamp);
+  const formattedDate = new Intl.DateTimeFormat('en-US', { day: '2-digit', month: 'short', year: 'numeric' }).format(date);
+
+
+
+  // const { data, isLoading, isError } = useGetDoctorPatientsQuery();
+  // const totalPatient = Array.isArray(data) ? data.length : 0;
+
+  // const { data, isError, isLoading } = useGetDoctorAppointmentsQuery({});
+  //     const totalAppoint = Array.isArray(data) ? data.length : 0;
+
+  const { data: patientData, isLoading: patientIsLoading, isError: patientIsError } = useGetDoctorPatientsQuery();
+  const totalPatient = Array.isArray(patientData) ? patientData.length : 0;
+
+  const { data: appointmentData, isError: appointmentIsError, isLoading: appointmentIsLoading } = useGetDoctorAppointmentsQuery({});
+  const totalAppoint = Array.isArray(appointmentData) ? appointmentData.length : 0;
+
+
+
+  const today = new Date();
+  const formattedToday = today.toISOString().split('T')[0];
+
+  const todayAppointments = Array.isArray(appointmentData)
+    ? appointmentData.filter(appointment => {
+      const appointmentDate = appointment.scheduleDate.split(' ')[0];
+      return appointmentDate === formattedToday;
+    })
+    : [];
+
+
   const cardData = [
     {
       icon: <FaHospital className="icon" />,
       title: "Total Patient",
-      amount: 1500,
-      date: "10 Jan 2024",
+      amount: totalPatient,
+      date: formattedDate,
     },
     {
       icon: <FaHospitalUser className="icon active" />,
-      title: "Today Patient",
-      amount: 1500,
-      date: "10 Jan 2024",
+      title: "Total Appointments",
+      amount: totalAppoint,
+      date: formattedDate,
     },
     {
       icon: <FaCalendarAlt className="icon danger" />,
-      title: "Appointments",
-      amount: 85,
-      date: "10 Jan 2024",
+      title: "Today Appointments",
+      amount: todayAppointments.length,
+      date: formattedDate,
     },
   ];
   return (
