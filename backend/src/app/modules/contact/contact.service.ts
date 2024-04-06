@@ -1,6 +1,8 @@
 import ApiError from '../../../errors/apiError';
 import httpStatus from 'http-status';
-import { Transporter } from '../../../helpers/Transporter';
+import { Contact, PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 interface ContactPayload {
     email: string;
@@ -10,28 +12,28 @@ interface ContactPayload {
     text: string;
 }
 
-const contactUs = async (payload: ContactPayload): Promise<{ message: string }> => {
+const contactUs = async (payload: ContactPayload): Promise<Contact | null | any>=> {
     const { email, firstName, lastName, subject, text } = payload;
 
     if (!email || !firstName || !lastName || !subject || !text) {
         throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Mising Email required fields!');
     }
+
     try {
-        const mailOptions = {
-            from: `"${firstName + ' ' + lastName}" <${email}>`,
-            to: 'ravikumarahirwar971338@gmail.com',
-            subject: subject,
-            text: text
-        };
-        await Transporter.sendMail(mailOptions);
-        return {
-            message: "Successfull message has been sent !"
-        }
+        const contact_res = await prisma.contact.create({
+            data: payload,
+        });
     } catch (error) {
         throw new ApiError(httpStatus.NO_CONTENT, "Unable to send message !")
     }
 }
 
+const getAllContactUs = async (): Promise<Contact[] | null> => {
+    const result = await prisma.contact.findMany();
+    return result;
+}
+
 export const ContactService = {
-    contactUs
+    contactUs,
+    getAllContactUs
 }
