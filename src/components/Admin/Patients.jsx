@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AdminLayout from "./AdminLayout";
-import userImg from "../../images/avatar.jpg";
+// import userImg from "../../images/avatar.jpg";
 
 const Patients = () => {
   const [patients, setPatients] = useState([]);

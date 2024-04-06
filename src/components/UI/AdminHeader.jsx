@@ -2,7 +2,7 @@ import React from "react";
 import { Menu, Dropdown, Avatar } from "antd";
 import { SearchOutlined, BarsOutlined, BellOutlined } from "@ant-design/icons";
 import logo from "../../images/logo.png";
-import userImg from "../../images/avatar.jpg";
+// import userImg from "../../images/avatar.jpg";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
 import "../../stylesheets/UIStylesheets/AdminHeader.css";
 
