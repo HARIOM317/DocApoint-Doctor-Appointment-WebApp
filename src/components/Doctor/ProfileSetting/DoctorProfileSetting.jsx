@@ -102,6 +102,7 @@ const DoctorProfileSetting = () => {
                 defaultValue={data?.firstName}
                 {...register("firstName")}
                 className="text-input-field"
+                placeholder="First Name"
               />
             </div>
           </div>
@@ -115,6 +116,7 @@ const DoctorProfileSetting = () => {
                 defaultValue={data?.lastName}
                 {...register("lastName")}
                 className="text-input-field"
+                placeholder="Last Name"
               />
             </div>
           </div>
@@ -126,6 +128,7 @@ const DoctorProfileSetting = () => {
                 defaultValue={data?.email}
                 {...register("email")}
                 className="text-input-field"
+                placeholder="Email Address"
               />
             </div>
           </div>
@@ -137,6 +140,7 @@ const DoctorProfileSetting = () => {
                 defaultValue={data?.phone}
                 {...register("phone")}
                 className="text-input-field"
+                placeholder="10 Digit Phone Number"
               />
             </div>
           </div>
@@ -185,6 +189,7 @@ const DoctorProfileSetting = () => {
                     {...register("biography")}
                     className="text-input-field"
                     rows={5}
+                    placeholder="Write a short biography about yourself..."
                   />
                 </div>
               </div>
@@ -203,6 +208,7 @@ const DoctorProfileSetting = () => {
                       {...register("clinicName")}
                       className="text-input-field"
                       rows={5}
+                      placeholder="Clinic Name"
                     />
                   </div>
                 </div>
@@ -215,6 +221,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.clinicAddress}
                       {...register("clinicAddress")}
                       className="text-input-field"
+                      placeholder="Clinic Address"
                     />
                   </div>
                 </div>
@@ -233,6 +240,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.address}
                       {...register("address")}
                       className="text-input-field"
+                      placeholder="Address Line"
                     />
                   </div>
                 </div>
@@ -244,6 +252,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.city}
                       {...register("city")}
                       className="text-input-field"
+                      placeholder="City"
                     />
                   </div>
                 </div>
@@ -255,6 +264,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.state}
                       {...register("state")}
                       className="text-input-field"
+                      placeholder="State/Province"
                     />
                   </div>
                 </div>
@@ -265,6 +275,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.country}
                       {...register("country")}
                       className="text-input-field"
+                      placeholder="Country"
                     />
                   </div>
                 </div>
@@ -275,6 +286,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.postalCode}
                       {...register("postalCode")}
                       className="text-input-field"
+                      placeholder="Postal Code"
                     />
                   </div>
                 </div>
@@ -288,23 +300,25 @@ const DoctorProfileSetting = () => {
               <div className="row form-row">
                 <div className="col-md-6">
                   <div className="form-group mb-2 card-label">
-                    <label>LinkdIn</label>
+                    <label className="label-style">LinkedIn</label>
                     <input
                       defaultValue={data?.linkedin}
                       {...register("linkedin")}
                       type="url"
-                      className="form-control"
+                      className="text-input-field"
+                      placeholder="Your LinkedIn Profile"
                     />
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="form-group mb-2 card-label">
-                    <label>Facebook</label>
+                    <label className="label-style">Facebook</label>
                     <input
                       defaultValue={data?.facebook}
                       {...register("facebook")}
                       type="url"
-                      className="form-control"
+                      className="text-input-field"
+                      placeholder="Your Facebook Profile"
                     />
                   </div>
                 </div>
@@ -312,30 +326,31 @@ const DoctorProfileSetting = () => {
               <div className="row form-row">
                 <div className="col-md-6">
                   <div className="form-group mb-2 card-label">
-                    <label>Instagram</label>
+                    <label className="label-style">Instagram</label>
                     <input
                       defaultValue={data?.instagram}
                       {...register("instagram")}
                       type="url"
-                      className="form-control"
+                      className="text-input-field"
+                      placeholder="Your Instagram Profile"
                     />
                   </div>
                 </div>
                 <div className="col-md-6">
                   <div className="form-group mb-2 card-label">
-                    <label>Twitter</label>
+                    <label className="label-style">Twitter</label>
                     <input
                       defaultValue={data?.twitter}
                       {...register("twitter")}
                       type="url"
-                      className="form-control"
+                      className="text-input-field"
+                      placeholder="Your Twitter Profile"
                     />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
 
           <div className="col-md-12">
             <div className="card mb-2 p-3 mt-2">
@@ -344,12 +359,13 @@ const DoctorProfileSetting = () => {
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group mb-2 card-label">
-                    <label className="label-style">30 Min Fee</label>
+                    <label className="label-style">Appointment Fee</label>
                     <input
                       defaultValue={data?.price}
                       {...register("price")}
                       type="number"
                       className="text-input-field"
+                      placeholder="Appointment Fee"
                     />
                   </div>
                 </div>
@@ -406,6 +422,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.degree}
                       {...register("degree")}
                       className="text-input-field"
+                      placeholder="Degree"
                     />
                   </div>
                 </div>
@@ -417,6 +434,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.college}
                       {...register("college")}
                       className="text-input-field"
+                      placeholder="College/Institute Name"
                     />
                   </div>
                 </div>
@@ -427,6 +445,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.completionYear}
                       {...register("completionYear")}
                       className="text-input-field"
+                      placeholder="Year of Completion"
                     />
                   </div>
                 </div>
@@ -445,6 +464,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.experienceHospitalName}
                       {...register("experienceHospitalName")}
                       className="text-input-field"
+                      placeholder="Hospital Name"
                     />
                   </div>
                 </div>
@@ -455,6 +475,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.expericenceStart}
                       {...register("expericenceStart")}
                       className="text-input-field"
+                      placeholder="MM/DD/YYYY"
                     />
                   </div>
                 </div>
@@ -465,6 +486,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.expericenceEnd}
                       {...register("expericenceEnd")}
                       className="text-input-field"
+                      placeholder="Present or MM/DD/YYYY"
                     />
                   </div>
                 </div>
@@ -475,6 +497,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.designation}
                       {...register("designation")}
                       className="text-input-field"
+                      placeholder="Designation"
                     />
                   </div>
                 </div>
@@ -493,6 +516,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.award}
                       {...register("award")}
                       className="text-input-field"
+                      placeholder="Award Name (if any)"
                     />
                   </div>
                 </div>
@@ -503,6 +527,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.awardYear}
                       {...register("awardYear")}
                       className="text-input-field"
+                      placeholder="Year"
                     />
                   </div>
                 </div>
@@ -521,6 +546,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.registration}
                       {...register("registration")}
                       className="text-input-field"
+                      placeholder="Registrations"
                     />
                   </div>
                 </div>
@@ -531,6 +557,7 @@ const DoctorProfileSetting = () => {
                       defaultValue={data?.year}
                       {...register("year")}
                       className="text-input-field"
+                      placeholder="Year of Registration"
                     />
                   </div>
                 </div>

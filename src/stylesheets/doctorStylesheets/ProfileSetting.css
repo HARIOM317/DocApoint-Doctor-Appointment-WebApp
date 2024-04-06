@@ -4,7 +4,7 @@
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 16px;
-  color: var(--textLight);
+  color: var(--textColor);
   transition: all 0.3s ease;
   font-weight: 500;
 }
