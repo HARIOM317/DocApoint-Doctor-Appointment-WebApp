@@ -23,20 +23,20 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
               />
             </Link>
             <div className="patients-info mt-3">
-              <h5>{data?.firstName + " " + data?.lastName}</h5>
+              <h5>{data?.appointment?.firstName + " " + data?.appointment?.lastName}</h5>
               <div className="info">
                 <p>
                   <FaClock className="icon" />{" "}
                   {moment(data?.createdAt).format("LL")}{" "}
                 </p>
                 <p>
-                  <FaLocationArrow className="icon" /> {data?.address}
+                  <FaLocationArrow className="icon" /> {data?.appointment?.address}
                 </p>
                 <p>
-                  <FaEnvelope className="icon" /> {data?.email}
+                  <FaEnvelope className="icon" /> {data?.appointment?.email}
                 </p>
                 <p>
-                  <FaPhoneAlt className="icon" /> {data?.phone}
+                  <FaPhoneAlt className="icon" /> {data?.appointment?.phone}
                 </p>
               </div>
             </div>
@@ -50,9 +50,7 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
               
             >
               <p className="form-text text-start m-0">
-                {isAppointment
-                  ? data?.appointment?.description
-                  : data?.description}
+                {data?.appointment?.description ? data?.appointment?.description : data?.description}
               </p>
             </div>
 
