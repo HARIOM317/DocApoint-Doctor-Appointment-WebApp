@@ -8,7 +8,10 @@ import useAuthCheck from '../../../redux/hooks/useAuthCheck';
 import { message } from 'antd';
 import ImageUpload from '../../UI/form/ImageUpload';
 import pImage from '../../../images/user.png';
-import { DatePicker } from 'antd';
+import { DatePicker, Select } from 'antd';
+import "../../../stylesheets/doctorStylesheets/ProfileSetting.css"
+
+const { Option } = Select;
 
 const PatientProfileSetting = () => {
   const { data } = useAuthCheck();
@@ -33,12 +36,16 @@ const PatientProfileSetting = () => {
     }
   }, [data]);
 
-  const handleChange = (e) => {
-    // if (e.target.name === 'bloodGroup') {
-    //     setSelectBloodGroup(e.target.value);
-    // }
-    setSelectValue({ ...selectValue, [e.target.name]: e.target.value });
+  const handleChange = (value, name) => {
+    setSelectValue({ ...selectValue, [name]: value });
   };
+
+  // const handleChange = (e) => {
+  //   // if (e.target.name === 'bloodGroup') {
+  //   //     setSelectBloodGroup(e.target.value);
+  //   // }
+  //   setSelectValue({ ...selectValue, [e.target.name]: e.target.value });
+  // };
 
   const onSubmit = (data) => {
     const obj = data;
@@ -64,11 +71,8 @@ const PatientProfileSetting = () => {
   }, [isLoading, isError, error, isSuccess]);
 
   return (
-    <div style={{ marginBottom: "10rem" }}>
-      <div
-        className="w-100 mb-3 rounded mb-5 p-2"
-        
-      >
+    <div className="profile-setting" style={{ marginBottom: "10rem" }}>
+      <div className="w-100 mb-3 rounded mb-5 p-2">
         <h5 className="text-title mb-2 mt-3">Update Your Information</h5>
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12">
@@ -78,6 +82,7 @@ const PatientProfileSetting = () => {
                   <img
                     src={selectedImage ? selectedImage : data?.img || pImage}
                     alt=""
+                    style={{ border: "none" }}
                   />
                 </Link>
                 <div className="mt-3">
@@ -92,69 +97,57 @@ const PatientProfileSetting = () => {
 
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>
+              <label className="label-style">
                 First Name <span className="text-danger">*</span>
               </label>
               <input
                 defaultValue={data?.firstName}
                 {...register("firstName")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>
+              <label className="label-style">
                 Last Name <span className="text-danger">*</span>
               </label>
               <input
                 defaultValue={data?.lastName}
                 {...register("lastName")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>
+              <label className="label-style">
                 Email <span className="text-danger">*</span>
               </label>
               <input
                 defaultValue={data?.email}
                 disabled
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
 
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>
-                Date of Birth {moment(data?.dateOfBirth).format("LL")}
-              </label>
-              <DatePicker
-                onChange={onChange}
-                format={"YYYY-MM-DD"}
-                style={{ width: "100%", padding: "6px" }}
-              />
-            </div>
-          </div>
-
-          <div className="col-md-6">
-            <div className="form-group mb-2 card-label">
-              <label>Phone Number</label>
+              <label className="label-style">Phone Number</label>
               <input
                 defaultValue={data?.mobile}
                 {...register("mobile")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
+
           <div className="col-md-6">
-            <div className="form-group mb-2">
-              <label>Gender</label>
-              <select
-                className="form-control select"
+            <div className="form-group mb-2 card-label">
+              <label className="label-style">Gender</label>
+              {/* <select
+                className="text-input-field select"
                 onChange={handleChange}
                 name="gender"
               >
@@ -162,15 +155,26 @@ const PatientProfileSetting = () => {
                 <option className="text-capitalize">male</option>
                 <option className="text-capitalize">female</option>
                 <option className="text-capitalize">other</option>
-              </select>
+              </select> */}
+
+              <Select
+                defaultValue={data?.gender === null ? "Select" : data?.gender}
+                className="dropdown"
+                onChange={(value) => handleChange(value, "gender")}
+                placeholder="Select Gender"
+              >
+                <Option value="male">Male</Option>
+                <Option value="female">Female</Option>
+                <Option value="other">Other</Option>
+              </Select>
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="form-group mb-2">
-              <label className="form-label">Blood Group</label>
-              <select
-                className="form-control select"
+            <div className="form-group mb-2 card-label">
+              <label className="label-style">Blood Group</label>
+              {/* <select
+                className="text-input-field select"
                 onChange={handleChange}
                 name="bloodGroup"
               >
@@ -183,68 +187,97 @@ const PatientProfileSetting = () => {
                 <option className="text-capitalize">O-</option>
                 <option className="text-capitalize">AB+</option>
                 <option className="text-capitalize">AB-</option>
-              </select>
+              </select> */}
+              <Select
+                defaultValue={
+                  "Select"
+                }
+                className="dropdown"
+                onChange={(value) => handleChange(value, "bloodGroup")}
+                placeholder="Select Blood Group"
+              >
+                <Option value="A+">A+</Option>
+                <Option value="A-">A-</Option>
+                <Option value="B+">B+</Option>
+                <Option value="B-">B-</Option>
+                <Option value="O+">O+</Option>
+                <Option value="O-">O-</Option>
+                <Option value="AB+">AB+</Option>
+                <Option value="AB-">AB-</Option>
+              </Select>
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="form-group mb-2">
-              <label className="form-label">City</label>
+            <div className="form-group mb-2 card-label">
+              <DatePicker
+                placeholder="Select DOB"
+                onChange={onChange}
+                format={"YYYY-MM-DD"}
+                className="text-input-field"
+                style={{ marginTop: "14.5px", padding: "12.8px 16px" }}
+              />
+            </div>
+          </div>
+
+          <div className="col-md-6">
+            <div className="form-group mb-2 card-label">
+              <label className="label-style">City</label>
               <input
                 defaultValue={data?.city}
                 {...register("city")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
 
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>State</label>
+              <label className="label-style">State</label>
               <input
                 defaultValue={data?.state}
                 {...register("state")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>Zip Code</label>
+              <label className="label-style">Zip Code</label>
               <input
                 defaultValue={data?.zipCode}
                 {...register("zipCode")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>Country</label>
+              <label className="label-style">Country</label>
               <input
                 defaultValue={data?.country}
                 {...register("country")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
           <div className="col-md-6">
             <div className="form-group mb-2 card-label">
-              <label>Address</label>
+              <label className="label-style">Address</label>
               <input
                 defaultValue={data?.address}
                 {...register("address")}
-                className="form-control"
+                className="text-input-field"
               />
             </div>
           </div>
           <div className="text-center">
             <button
               type="submit"
-              className="btn btn-primary my-3"
+              className="btn btn-danger my-3"
               disabled={isLoading ? true : false}
             >
-              {isLoading ? "Updating.." : "Save Changes"}
+              {isLoading ? "Updating.." : "Update Profile"}
             </button>
           </div>
         </form>

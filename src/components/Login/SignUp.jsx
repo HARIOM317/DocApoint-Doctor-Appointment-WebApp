@@ -20,7 +20,7 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
     password: "",
   };
   const [user, setUser] = useState(formField);
-  const [userType, setUserType] = useState("doctor");
+  const [userType, setUserType] = useState("patient");
   const [
     doctorSignUp,
     {

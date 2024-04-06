@@ -1,12 +1,22 @@
-import img from '../../../images/doc/doctor 3.jpg';
-import { Link } from 'react-router-dom';
-import DashboardLayout from '../DashboardLayout/DashboardLayout';
-import { useGetFavouriteQuery, useRemoveFavouriteMutation } from '../../../redux/api/favouriteApi';
-import { useEffect } from 'react';
-import { Empty, message } from 'antd';
-import { FaLocationArrow, FaCheckCircle, FaBookmark, FaDollarSign, FaClock } from "react-icons/fa";
-import StarRatings from 'react-star-ratings';
-import "../../../stylesheets/doctorStylesheets/PatientFavorite.css"
+import img from "../../../images/doc/doctor 3.jpg";
+import { Link, NavLink } from "react-router-dom";
+import DashboardLayout from "../DashboardLayout/DashboardLayout";
+import {
+  useGetFavouriteQuery,
+  useRemoveFavouriteMutation,
+} from "../../../redux/api/favouriteApi";
+import { useEffect } from "react";
+import { Empty, message, Tooltip } from "antd";
+import {
+  FaLocationArrow,
+  FaCheckCircle,
+  FaBookmark,
+  FaDollarSign,
+  FaClock,
+} from "react-icons/fa";
+import StarRatings from "react-star-ratings";
+import "../../../stylesheets/doctorStylesheets/PatientFavorite.css";
+import profileImage from "../../../images/home/doctorProfile.jpg";
 
 const PatientFavouriteDoctor = () => {
   const { data, isLoading, isError } = useGetFavouriteQuery();
@@ -36,80 +46,71 @@ const PatientFavouriteDoctor = () => {
       <>
         {data &&
           data?.map((item) => (
-            <div
-              className="col-md-4 col-sm-12 mb-4 mx-2 rounded shadow-sm"
-              key={item?.id}
-              style={{ maxWidth: "20rem" }}
-            >
-              <div className="rounded position-relative">
-                <div className="fav-img my-3 d-flex justify-content-center">
-                  <img alt="" src={item?.doctor?.img ? item?.doctor?.img : img} />
-                </div>
-                <div
-                  style={{ cursor: "pointer" }}
-                  className="m-2 text-success position-absolute top-0 end-0 me-2"
+            <div className="favorite-doctor col-md-4 col-sm-12">
+              <div className="flexColCenter profile-card">
+                <a
+                  style={{
+                    cursor: "pointer",
+                    position: "absolute",
+                    top: "10px",
+                    right: "10px",
+                  }}
                   onClick={() => handleRemoveFavourite(item?.doctor?.id)}
                 >
-                  <FaBookmark />
+                  <Tooltip title="Remove from Favorite">
+                    <FaBookmark />
+                  </Tooltip>
+                </a>
+
+                <div className="image">
+                  <img
+                    className="profile-img"
+                    alt=""
+                    src={
+                      item?.doctor?.img == null
+                        ? profileImage
+                        : item?.doctor?.img
+                    }
+                  />
                 </div>
 
-                <div className="p-2">
-                  <h5
-                    className="d-flex align-items-center gap-2 mb-0"
-                    style={{ color: "#1977cc" }}
-                  >
-                    <Link to={`/doctors/profile/${item?.doctor?.id}`}>
-                      {item?.doctor?.firstName + " " + item?.doctor?.lastName}
-                    </Link>
-                    <FaCheckCircle className="verified text-success" />
-                  </h5>
-                  {/* <p className="form-text">
-                    MBBS, MD - General Medicine, DNB - Cardiology
-                  </p> */}
+                <div className="text-data">
+                  <span className="name">
+                    {item?.doctor?.firstName + " " + item?.doctor?.lastName}
+                  </span>
+                  <span className="job">
+                    {item?.doctor?.designation === null
+                      ? item?.doctor?.specialization
+                      : item?.doctor?.designation}
+                  </span>
                   <p className="form-text">
-                    {item?.doctor?.degree} {item?.doctor?.degree? "," :""} {item?.doctor?.college} {item?.doctor?.degree? " - General Medicine - " :"General Medicine"}{item?.doctor?.specialization}
+                    {item?.doctor?.degree} {item?.doctor?.degree ? "," : ""}{" "}
+                    {item?.doctor?.college}
                   </p>
-                  <div className="w-100 d-flex align-items-center">
-                    <StarRatings
-                      rating={5}
-                      starRatedColor="#f4c150"
-                      numberOfStars={5}
-                      name="rating"
-                      className="star"
-                      starDimension="20px"
-                      starSpacing="5px"
-                    />
-                    <span className="d-inline-block text-secondary mt-2">
-                      (27)
-                    </span>
-                  </div>
-                  <ul className="available-info">
-                    <li>
-                      <FaLocationArrow className="icon" /> {item?.doctor?.city}, {item?.doctor?.country}
-                    </li>
-                    {/* <li>
-                      <FaClock className="icon" /> Available on Fri, 22 Mar
-                    </li> */}
-                    <li>
-                      <FaDollarSign className="icon" /> {item?.doctor?.price}
-                    </li>
-                  </ul>
-                  <div className="d-flex justify-content-between mb-3 mt-2">
-                    <Link
-                      to={"/doctors/profile"}
-                      className="btn  btn-outline-info"
-                      style={{ borderColor: "#1977cc", color: "#1977cc" }}
-                    >
-                      Profile
-                    </Link>
-                    <Link
-                      to={`/booking/${item?.doctor?.id}`}
-                      className="btn book-btn"
-                      
-                    >
-                      Book Now
-                    </Link>
-                  </div>
+                </div>
+
+                <div className="actionBtn">
+                  <NavLink to={`/doctors/profile/${item?.doctor?.id}`}>
+                    View Profile
+                  </NavLink>
+                  <NavLink to={`/booking/${item?.doctor?.id}`}>
+                    Book Now
+                  </NavLink>
+                </div>
+
+                <div className="w-100 d-flex align-items-center justify-content-center">
+                  <StarRatings
+                    rating={5}
+                    starRatedColor="#ffba22"
+                    numberOfStars={5}
+                    name="rating"
+                    className="star"
+                    starDimension="20px"
+                    starSpacing="5px"
+                  />
+                  <span className="d-inline-block text-secondary mt-2">
+                    (27)
+                  </span>
                 </div>
               </div>
             </div>

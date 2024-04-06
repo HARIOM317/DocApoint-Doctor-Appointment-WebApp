@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "../../stylesheets/homeStylesheets/BookDoctor.css";
 import { NavLink } from "react-router-dom";
 import { useGetDoctorsQuery } from "../../redux/api/doctorApi";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaRegBookmark } from "react-icons/fa";
 import { useAddFavouriteMutation } from "../../redux/api/favouriteApi";
-import { message } from "antd";
+import { message, Tooltip } from "antd";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { sliderSettings } from "../../utils/common";
 import profileImage from "../../images/home/doctorProfile.jpg";
@@ -98,7 +98,9 @@ const BookDoctor = () => {
                   }}
                   onClick={() => handleAddFavourite(item?.id)}
                 >
-                  <FaRegHeart />
+                  <Tooltip title="Add to Favorite">
+                    <FaRegBookmark />
+                  </Tooltip>
                 </a>
 
                 <div className="image">
