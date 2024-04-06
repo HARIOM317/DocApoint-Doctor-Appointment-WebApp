@@ -8,6 +8,7 @@ import { FaRegEye, FaEdit, FaRegTimesCircle } from "react-icons/fa";
 import { useDebounced } from '../../../redux/hooks';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
+import "../../../stylesheets/DashboardStyle.css";
 
 const Blogs = () => {
   const query = {};
@@ -42,7 +43,7 @@ const Blogs = () => {
       sorter: true,
       key: 1,
       render: function (data) {
-        return data && truncate(data.title, 30);
+        return <span style={{fontWeight: '500'}}>{data && truncate(data.title, 30)}</span>;
       },
     },
     {
@@ -68,29 +69,20 @@ const Blogs = () => {
       render: function (data) {
         return (
           <div className="d-flex">
-            <Link to={`/blogs/${data.id}`}>
-              <Button
-                type="primary"
-                className="bg-primary"
-                style={{ margin: "5px 5px" }}
-              >
+            <Link to={`/blog/${data.id}`}>
+              <Button className="view-btn" style={{ margin: "5px 5px" }}>
                 <FaRegEye />
               </Button>
             </Link>
             <Link to={`/dashboard/blogs/${data.id}`}>
-              <Button
-                type="primary"
-                className="bg-primary"
-                style={{ margin: "5px 5px" }}
-              >
+              <Button className="treatment-btn" style={{ margin: "5px 5px" }}>
                 <FaEdit />
               </Button>
             </Link>
             <Button
               onClick={() => deleteHandler(data.id)}
-              type="primary"
+              className="cancel-btn"
               style={{ margin: "5px 5px" }}
-              danger
             >
               <FaRegTimesCircle />
             </Button>

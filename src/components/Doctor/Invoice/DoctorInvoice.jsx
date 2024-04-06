@@ -19,7 +19,12 @@ const DoctorInvoice = () => {
         return (
           <div className="table-avatar">
             <a className="avatar avatar-sm mr-2 d-flex gap-2">
-              <img className="avatar-img rounded-circle" src={img} alt="" />
+              <img
+                className="avatar-img rounded-circle"
+                style={{ width: "30px", height: "30px" }}
+                src={img}
+                alt=""
+              />
               <p className="p-0 m-0 text-nowrap">
                 {data?.appointment?.firstName +
                   " " +
@@ -69,7 +74,6 @@ const DoctorInvoice = () => {
           <Link to={`/booking/invoice/${data?.appointmentId}`}>
             <Button
               type="primary"
-              shape="circle"
               icon={<FaEye />}
               size="medium"
             />
@@ -80,7 +84,7 @@ const DoctorInvoice = () => {
   ];
   return (
     <DashboardLayout>
-      <div className="w-100 mb-3 rounded" style={{ background: "#f8f9fa" }}>
+      <div className="w-100 mb-3 rounded">
         <CustomTable
           loading={isLoading}
           columns={columns}

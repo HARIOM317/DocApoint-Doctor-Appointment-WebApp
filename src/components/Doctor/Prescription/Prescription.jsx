@@ -5,6 +5,7 @@ import { FaRegEye, FaEdit, FaRegTimesCircle } from "react-icons/fa";
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 import { useDeletePrescriptionMutation, useGetAllPrescriptionsQuery } from '../../../redux/api/prescriptionApi';
+import "../../../stylesheets/DashboardStyle.css";
 
 const Prescription = () => {
   const { data, isLoading } = useGetAllPrescriptionsQuery();
@@ -16,7 +17,20 @@ const Prescription = () => {
       dataIndex: "appointment",
       key: 1,
       render: ({ trackingId }) => {
-        return <Tag color="#f50">{trackingId}</Tag>;
+        return (
+          <Tag
+            color="#f50"
+            style={{
+              color: "#fff",
+              border: "1.5px solid #cc4300",
+              fontWeight: "500",
+              textTransform: "capitalize",
+              padding: "4px 8px",
+            }}
+          >
+            {trackingId}
+          </Tag>
+        );
       },
     },
     {
@@ -31,7 +45,18 @@ const Prescription = () => {
       key: 4,
       render: function (data) {
         return (
-          <Tag color="#87d068">{dayjs(data).format("MMM D, YYYY hh:mm A")}</Tag>
+          <Tag
+            color="#87d068"
+            style={{
+              color: "#fff",
+              border: "1.5px solid #659d4e",
+              fontWeight: "500",
+              textTransform: "capitalize",
+              padding: "4px 8px",
+            }}
+          >
+            {dayjs(data).format("MMM D, YYYY hh:mm A")}
+          </Tag>
         );
       },
     },
@@ -41,7 +66,17 @@ const Prescription = () => {
       key: 4,
       render: function ({ isArchived }) {
         return (
-          <Tag color={isArchived ? "#f50" : "#108ee9"}>
+          <Tag
+            color={isArchived ? "#f50" : "#108ee9"}
+            style={{
+              color: "#fff",
+              border: "1.5px solid",
+              borderColor: isArchived ? "#cc4300" : "#0c6eb5",
+              fontWeight: "500",
+              textTransform: "capitalize",
+              padding: "4px 8px",
+            }}
+          >
             {isArchived ? "Yes" : "Under Treatment"}
           </Tag>
         );
@@ -64,20 +99,18 @@ const Prescription = () => {
           <div className="d-flex">
             <Link to={`/dashboard/prescription/${data.id}`}>
               <Button
-                type="primary"
                 size="small"
-                className="bg-primary"
-                style={{ margin: "5px 5px" }}
+                className="view-btn"
+                style={{ margin: "5px", width: "30px", height: "30px" }}
               >
                 <FaRegEye />
               </Button>
             </Link>
             <Link to={`/dashboard/appointment/treatment/edit/${data.id}`}>
               <Button
-                type="primary"
                 size="small"
-                className="bg-primary"
-                style={{ margin: "5px 5px" }}
+                className="treatment-btn"
+                style={{ margin: "5px", width: "30px", height: "30px" }}
               >
                 <FaEdit />
               </Button>
@@ -85,8 +118,8 @@ const Prescription = () => {
             <Button
               onClick={() => deleteHandler(data.id)}
               size="small"
-              type="primary"
-              style={{ margin: "5px 5px" }}
+              className="cancel-btn"
+              style={{ margin: "5px", width: "30px", height: "30px", color: 'white' }}
               danger
             >
               <FaRegTimesCircle />
