@@ -113,7 +113,7 @@ const DashboardSidebar = () => {
             <li>
               <NavLink to={"/dashboard/favourite"} activeClassName="active">
                 <FaStar className="icon" />
-                <span>Favourites</span>
+                <span>Favorites</span>
               </NavLink>
             </li>
             <li>
