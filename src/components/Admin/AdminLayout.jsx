@@ -38,7 +38,7 @@ const AdminLayout = ({ children }) => {
               </div>
             </div>
           </div>
-          {children}
+          <div>{children}</div>
         </div>
       </div>
     </div>

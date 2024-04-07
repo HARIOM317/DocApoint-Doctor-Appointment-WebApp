@@ -13,7 +13,7 @@
 }
 
 .info-card:hover{
-    transform: scaleY(1.05);
+    transform: scaleY(1.025);
 }
 
 .info-card .info-icon{

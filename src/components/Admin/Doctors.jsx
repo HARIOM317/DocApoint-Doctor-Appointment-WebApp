@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import AdminLayout from "./AdminLayout";
 import userImg from "../../images/avatar.jpg";
+import "../../stylesheets/adminStylesheets/Appointments.css";
+
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
@@ -23,17 +25,21 @@ const Doctors = () => {
     <AdminLayout>
       <div className="row">
         <div className="col-md-12">
-          <div className="card card-table flex-fill">
-            <div className="card-header">
+          <div className="card card-table">
+            <div className="card-header table-top-heading">
               <h4 className="card-title">Doctors List</h4>
             </div>
             <div className="card-body">
               <div className="table-responsive">
                 <table className="table table-hover table-center mb-0">
                   <thead>
-                    <tr>
-                      <th>Doctor Name</th>
-                      <th>Speciality</th>
+                    <tr
+                      style={{
+                        borderBottom: "1.5px solid var(--borderColor)",
+                      }}
+                    >
+                      <th>Doctor</th>
+                      <th>Specialization</th>
                       <th>Clinic Name</th>
                       <th>City</th>
                       <th>State</th>
@@ -42,7 +48,12 @@ const Doctors = () => {
                   </thead>
                   <tbody>
                     {doctors.map((doctor) => (
-                      <tr key={doctor.id}>
+                      <tr
+                        key={doctor.id}
+                        style={{
+                          borderBottom: "1px solid var(--borderColor)",
+                        }}
+                      >
                         <td>
                           <h2 className="table-avatar">
                             <a className="avatar avatar-sm mr-2">
@@ -50,16 +61,31 @@ const Doctors = () => {
                                 className="avatar-img rounded-circle"
                                 src={doctor.img ? doctor.img : userImg}
                                 alt=""
+                                style={{width: '30px', height: '30px', marginRight: '10px'}}
                               />
                             </a>
-                            <a>{doctor.firstName} {doctor.lastName}</a>
+                            <a>
+                              {doctor.firstName} {doctor.lastName}
+                            </a>
                           </h2>
                         </td>
-                        <td>{doctor.specialization}</td>
-                        <td>{doctor.clinicName}</td>
-                        <td>{doctor.city}</td>
-                        <td>{doctor.state}</td>
-                        <td>₹{doctor.price}</td>
+                        <td>
+                          <span>{doctor.specialization}</span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            {doctor.clinicName}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">{doctor.city}</span>
+                        </td>
+                        <td>
+                          <span className="table-data">{doctor.state}</span>
+                        </td>
+                        <td>
+                          <span className="table-data">₹{doctor.price}</span>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
