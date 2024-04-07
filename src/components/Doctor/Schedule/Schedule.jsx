@@ -207,25 +207,20 @@ const Schedule = () => {
                 {item?.timeSlot &&
                   item?.timeSlot.map((time, index) => (
                     <Tag
+                      closable
+                      onClose={() => deleteHandler(item?.id)}
+                      closeIcon={
+                        <span style={{ color: "white", fontSize: '14px', marginLeft: '10px' }}>
+                          <FaWindowClose />
+                        </span>
+                      }
                       bordered={false}
-                      // closable
                       color="processing"
                       key={index + 2}
+                      style={{ background: "var(--primaryColor)", color: "#fff", padding: '8px 16px', fontSize: '14px', fontWeight: '500' }}
                     >
-                      {time?.startTime} - {time?.endTime}  <span></span>
-                      <Button
-                        type="primary"
-                        size="small"
-                        htmlType="submit"
-                        onClick={() => deleteHandler(item?.id)}
-                        icon={<FaWindowClose />}
-                      >
-                      </Button>
+                      {time?.startTime} - {time?.endTime}
                     </Tag>
-
-                    
-                    
-
                   ))}
               </Space>
             </div>
@@ -235,10 +230,7 @@ const Schedule = () => {
   return (
     <>
       <DashboardLayout>
-        <div
-          className="w-100 mb-3 rounded p-3"
-          style={{ height: "90vh" }}
-        >
+        <div className="w-100 mb-3 rounded p-3" style={{ height: "90vh" }}>
           <h5 className="text-title">Schedule Timings</h5>
           <TabForm
             content={content}
@@ -289,11 +281,16 @@ const Schedule = () => {
                     </div>
                     <Button
                       type="primary"
-                      size="small"
+                      size="medium"
                       htmlType="submit"
                       onClick={() => remove(item?.id)}
-                      // block
                       icon={<FaWindowClose />}
+                      className="d-flex align-items-center justify-content-center"
+                      style={{
+                        width: "40px",
+                        height: "30px",
+                        marginTop: "20px",
+                      }}
                     ></Button>
                   </div>
                 ))}
@@ -357,7 +354,12 @@ const Schedule = () => {
                       size="small"
                       htmlType="submit"
                       onClick={() => removeFromAddTimeSlot(item?.id)}
-                      // block
+                      className="d-flex align-items-center justify-content-center"
+                      style={{
+                        width: "40px",
+                        height: "30px",
+                        marginTop: "20px",
+                      }}
                       icon={<FaWindowClose />}
                     ></Button>
                   </div>

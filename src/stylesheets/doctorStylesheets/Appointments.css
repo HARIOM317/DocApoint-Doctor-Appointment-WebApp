@@ -1,46 +1,172 @@
-.patients-info>h5 {
-    color: #2c4964;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.6s ease-in;
+/* Appointment Tab Style */
+.appointment-details {
+  border: 1.5px solid var(--borderColor);
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  background: var(--bgLight);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-animation: fadeIn 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fadeIn 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
-.patients-info>h5:hover {
-    color: var(--primaryColor);
-    transform: scale(1.1);
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.appointments .profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 390px;
+  min-width: 380px;
+  background: var(--bgLight);
+  border-radius: 8px;
+  padding: 10px 15px;
+  border: none;
+}
+
+.appointments .image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background: var(--secondaryColor);
+  margin-bottom: 10px;
+}
+
+.appointments .image .profile-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.appointments .profile-card h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--headingColor);
+}
+
+.appointments .profile-card .tracking-id {
+  margin: 10px;
+}
+
+.appointments .profile-card .copyBtn {
+  background: #fff;
+}
+
+.appointments .profile-card .copyBtn:hover {
+  color: var(--textColor);
+  border-color: var(--borderColor);
+  background: var(--bgColor);
+}
+
+.appointments .profile-card .text-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  color: var(--textLight);
+  font-size: 14px;
+  font-weight: 500;
+  gap: 10px;
+}
+
+.appointments .profile-card .icon {
+  color: var(--headingColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--bgColor);
+  border: 1px solid var(--borderColor);
+  padding: 4px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.appointments .profile-card .tag {
+  padding: 4px 8px;
+}
+
+.appointments .profile-card .accept-button {
+  background: #30b774;
+  color: white;
+  font-weight: 500;
+  border: 1.5px solid #30b774;
+}
+
+.appointments .profile-card .accept-button:hover {
+  background: white !important;
+  color: #228353 !important;
+  border-color: #228353 !important;
+}
+
+.appointments .profile-card .cancel-button {
+  background: #c4384e;
+  color: white;
+  font-weight: 500;
+  border: 1.5px solid #c4384e;
+}
+
+.appointments .profile-card .cancel-button:hover {
+  background: white;
+  color: #912939 !important;
+  border-color: #912939;
+}
+
+/* Common Style for Dashboard */
+.patients-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .patients-info .info {
-    color: #757575;
+  color: #757575;
 }
 
 .patients-info .info p {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .patients-info .info .icon {
-    font-size: 23px !important;
+  font-size: 23px !important;
 }
 
 .patient-img img {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top;
-    border: 2px solid var(--borderColor);
-    transition: all 0.3s ease;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid var(--borderColor);
+  transition: all 0.3s ease;
 }
 
 .patient-img img:hover {
-    transform: scale(1.05);
+  box-shadow: var(--shadowAll);
 }
-.appointment-status > p{
-    font-size: 14px;
-    font-weight: 600;
-    color: #757575;
-    margin-bottom: 3px;
+.appointment-status > p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #757575;
 }
