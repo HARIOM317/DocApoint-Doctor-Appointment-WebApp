@@ -1,6 +1,7 @@
 import React from "react";
 import "../../../stylesheets/doctorStylesheets/Location.css";
-const Location = () => {
+const Location = ({ data }) => {
+
   return (
     <section className="mt-3">
       <div className="row">
@@ -10,15 +11,13 @@ const Location = () => {
               <i class="fa-solid fa-map-location-dot"></i>
             </div>
 
-            <h4 className="clinic-name">Sagar Multi-Care Hospital</h4>
+            <h4 className="clinic-name">{data?.clinicName ? data?.clinicName : "Clinic Name Not Found"}</h4>
 
-            <div className="specialization">
-              MDS - Periodontology and Oral Implantology, BDS
-            </div>
+            <div className="specialization">{data?.specialization ? data?.specialization : "Specialization Not Found"}</div>
 
-            <div className="clinic-address">
-              <i className="fas fa-map-marker-alt"></i>Gandhi Nagar, Bhopal, 123321, MP
-              (INDIA)
+            <div className="clinic-address text-center">
+              <i className="fas fa-map-marker-alt"></i>
+              {data?.clinicAddress ? data?.clinicAddress : "Clinic Address Not Available"}
             </div>
           </div>
         </div>
@@ -29,15 +28,24 @@ const Location = () => {
               <i class="fa-solid fa-map-location-dot"></i>
             </div>
 
-            <h4 className="clinic-name">HSR Clinic</h4>
+            <h4 className="clinic-name">
+              Dr. {data?.firstName + " " + data?.lastName}
+            </h4>
 
-            <div className="specialization">
-              MDS - Periodontology and Oral Implantology, BDS
-            </div>
+            <div className="specialization">{data?.specialization ? data?.specialization : "Specialization Not Found"}</div>
 
-            <div className="clinic-address">
-              <i className="fas fa-map-marker-alt"></i>MP Nagar, Bhopal, 102030, MP
-              (INDIA)
+            <div className="clinic-address text-center">
+              <i className="fas fa-map-marker-alt"></i>
+              {data?.address ? data?.address +
+                ", " +
+                data?.city +
+                ", " +
+                data?.postalCode +
+                ", " +
+                data?.state +
+                ", (" +
+                data?.country +
+                ")" : "N/A"}
             </div>
           </div>
         </div>

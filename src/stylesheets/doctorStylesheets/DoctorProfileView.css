@@ -1,9 +1,9 @@
-/* .profile-section{
+.profile-section{
     border: 1.5px solid var(--borderLight);
     border-radius: 12px;
     background: var(--bgLight);
-    box-shadow: var(--shadowAll);
-} */
+    box-shadow: var(--shadow);
+}
 
 .doc-img img {
     height: 280px;

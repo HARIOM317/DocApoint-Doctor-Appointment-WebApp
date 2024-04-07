@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import img from '../../../images/user.png'
 import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 import moment from 'moment';
@@ -132,10 +131,10 @@ const Review = ({ doctorId }) => {
                 <div
                   className="d-flex flex-column"
                   style={{
-                   
                     padding: "1.5rem",
                     border: "1.5px solid var(--borderColor)",
                     borderRadius: "8px",
+                    background: "#ffebeb",
                   }}
                 >
                   <label className="form-label">
@@ -159,7 +158,7 @@ const Review = ({ doctorId }) => {
               <div className="form-group">
                 <textarea
                   className="text-form-input-field"
-                  style={{borderRadius: '8px', background: 'var(--bgColor)'}}
+                  style={{ borderRadius: "8px", background: "var(--bgColor)" }}
                   {...register("description")}
                   placeholder="Write Description"
                   rows={6}
