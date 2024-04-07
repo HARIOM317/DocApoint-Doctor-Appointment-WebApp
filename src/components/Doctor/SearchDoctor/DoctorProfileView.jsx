@@ -6,7 +6,6 @@ import "../../../stylesheets/doctorStylesheets/DoctorProfileView.css";
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
 
 import {
-  FaLocationArrow,
   FaRegThumbsUp,
   FaRupeeSign,
   FaComment,
@@ -44,7 +43,7 @@ const DoctorProfileView = ({ data }) => {
                   class="fa-solid fa-hand-holding-medical"
                   style={{ fontSize: "1.3rem", marginRight: "6px" }}
                 ></i>{" "}
-                {data?.specialization}
+                {data?.specialization ? data?.specialization : "N/A"}
               </p>
 
               <p className="doctor-detail my-3">

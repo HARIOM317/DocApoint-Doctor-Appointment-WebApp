@@ -1,10 +1,9 @@
 page {
     background: white;
     display: block;
-    margin: 0 auto;
-    margin-bottom: 0.5cm;
-    /* border: 1px solid gray; */
-    /* box-shadow: 0 0 0.5cm rgba(0,0,0,0.5); */
+    border: 1.5px solid var(--borderColor);
+    border-radius: 8px;
+    width: 90%;
   }
   page[size="A4"] {  
     width: 21cm;
@@ -19,4 +18,38 @@ page {
       margin: 0;
       box-shadow: 0;
     }
+  }
+
+  .tracking-id-btn{
+    background: white;
+    border: 1.5px solid var(--borderColor);
+    margin: 1rem 0;
+  }
+
+  .tracking-id-btn:hover{
+    color: var(--textColor) !important;
+    background: var(--bgColor) !important;
+    border-color: var(--borderColor) !important;
+  }
+
+  .appointment-heading{
+    text-align: center;
+    color: var(--headingColor);
+    font-weight: bold;
+    text-transform:  uppercase;
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+
+  .appointment-text{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--textColor);
+  }
+
+  .appointment-para{
+    text-align: justify;
+    font-size: 1rem;
+    color: var(--textColor);
+    font-weight: 500;
   }
