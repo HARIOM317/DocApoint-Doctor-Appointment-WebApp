@@ -136,6 +136,12 @@ const getPrescriptionById = async (id: string): Promise<Prescription | null> => 
                     firstName: true,
                     lastName: true,
                     address:true,
+                    email: true,
+                    phone: true,
+                    patientType: true,
+                    paymentStatus: true,
+                    prescriptionStatus: true,
+                    description: true,
                 }
             },
             doctor: {

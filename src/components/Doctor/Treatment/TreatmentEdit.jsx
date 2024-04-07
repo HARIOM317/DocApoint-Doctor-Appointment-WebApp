@@ -178,6 +178,8 @@ const TreatmentEdit = () => {
     "Successfully Medicine Updated!"
   );
 
+  console.log({data});
+
   return (
     <DashboardLayout>
       <TreatmentOverview data={data} isAppointment={true} />
