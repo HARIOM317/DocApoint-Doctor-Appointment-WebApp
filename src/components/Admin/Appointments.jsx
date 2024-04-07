@@ -35,7 +35,7 @@ const AdminAppointments = () => {
           <div className="col-md-12">
             <div className="card card-table">
               <div className="card-header">
-                <h4 className="card-title">Appointments (today)</h4>
+                <h4 className="card-title">Appointments</h4>
               </div>
               <div className="card-body">
                 <div className="table-responsive">
@@ -43,11 +43,9 @@ const AdminAppointments = () => {
                     <thead>
                       <tr>
                         <th>Doctor Name</th>
-                        <th>Speciality</th>
                         <th>Patient Name</th>
                         <th>Appointment Time</th>
                         <th>Status</th>
-                        <th className="text-right">Amount</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -57,34 +55,13 @@ const AdminAppointments = () => {
                             <h2 className="table-avatar">
                               <a
                                 href={`profile.html?id=${appointment.doctorId}`}
-                                className="avatar avatar-sm mr-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src="./images/avatar.jpg"
-                                  alt=""
-                                />
-                              </a>
-                              <a
-                                href={`profile.html?id=${appointment.doctorId}`}
                               >
                                 {appointment.firstName} {appointment.lastName}
                               </a>
                             </h2>
                           </td>
-                          <td>Dentist</td>
                           <td>
                             <h2 className="table-avatar">
-                              <a
-                                href={`profile.html?id=${appointment.patientId}`}
-                                className="avatar avatar-sm mr-2"
-                              >
-                                <img
-                                  className="avatar-img rounded-circle"
-                                  src={userImg}
-                                  alt=""
-                                />
-                              </a>
                               <a
                                 href={`profile.html?id=${appointment.patientId}`}
                               >
@@ -108,7 +85,6 @@ const AdminAppointments = () => {
                               </label>
                             </div>
                           </td>
-                          <td className="text-right">$200</td>
                         </tr>
                       ))}
                     </tbody>

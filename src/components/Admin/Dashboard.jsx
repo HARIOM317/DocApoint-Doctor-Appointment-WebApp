@@ -51,7 +51,8 @@ const AdminDashboard = () => {
       const appointmentData = await appointmentResponse.json();
       setAppointmentCount(appointmentData.data.length);
 
-      // Fetch revenue count
+      // Fetch revenue count 
+      //(total revenue from all appointments currently not working due to no payment table in the database)
       const revenueResponse = await fetch("http://localhost:5000/api/v1/revenue",
       {
         method: "GET",

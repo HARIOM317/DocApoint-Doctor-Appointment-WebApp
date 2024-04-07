@@ -59,6 +59,12 @@ const AdminSidebar = () => {
                             </Link>
 
                         </li>
+                        <li>
+                            <Link to={'/admin/contact'}>
+                            <FaUserAstronaut /> <span>Contact</span>
+                            </Link>
+
+                        </li>
                         {/* <li>
                             <Link to={'/admin/transaction'}>
                                 <FaBriefcase /><span>Transactions</span>

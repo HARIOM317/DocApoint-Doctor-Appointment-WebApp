@@ -47,6 +47,7 @@ import NotFound from "./components/UI/NotFound";
 import AddNewDoctor from "./components/Admin/AddDoctor";
 
 import Login from "./components/Login/Login";
+import AdminContacts from "./components/Admin/Contacts";
 
 function App() {
   return (
@@ -122,6 +123,7 @@ function App() {
         <Route path="/admin/reviews" element={<AdminReviews />} />
         <Route path="/admin/transaction" element={<Transactions />} />
         <Route path="/admin/specialites" element={<Specialites />} />
+        <Route path="/admin/contact" element={<AdminContacts />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

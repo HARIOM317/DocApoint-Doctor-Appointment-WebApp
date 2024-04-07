@@ -12,6 +12,7 @@ import { BlogRoutes } from '../modules/blog/blog.route';
 import { MedicineRouter } from '../modules/medicines/medicine.route';
 import { ContactRouter } from '../modules/contact/contact.route';
 import { PaymentRouter } from '../modules/payment/payment.route';
+import { AdminRouter } from '../modules/admin/admin.route';
 
 const router = express.Router();
 
@@ -19,6 +20,10 @@ const moduleRoutes = [
     {
         path: '/doctor',
         route: DoctorRouter,
+    },
+    {
+        path: '/admin',
+        route: AdminRouter,
     },
     {
         path: '/review',
