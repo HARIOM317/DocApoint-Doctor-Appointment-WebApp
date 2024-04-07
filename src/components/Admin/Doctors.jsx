@@ -34,8 +34,10 @@ const Doctors = () => {
                     <tr>
                       <th>Doctor Name</th>
                       <th>Speciality</th>
-                      <th>Earned</th>
-                      <th>Reviews</th>
+                      <th>Clinic Name</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Charges</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -54,14 +56,10 @@ const Doctors = () => {
                           </h2>
                         </td>
                         <td>{doctor.specialization}</td>
-                        <td>${doctor.price}</td>
-                        <td>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star-o text-secondary"></i>
-                        </td>
+                        <td>{doctor.clinicName}</td>
+                        <td>{doctor.city}</td>
+                        <td>{doctor.state}</td>
+                        <td>₹{doctor.price}</td>
                       </tr>
                     ))}
                   </tbody>

@@ -44,21 +44,12 @@ const Patients = () => {
                     {patients.map((patient) => (
                       <tr key={patient.id}>
                         <td>
-                          <h2 className="table-avatar">
-                            <a
-                              href={`profile.html?id=${patient.id}`}
-                              className="avatar avatar-sm mr-2"
-                            >
                               <img
                                 className="avatar-img rounded-circle"
                                 src={patient.img ? patient.img : userImg}
                                 alt=""
                               />
-                            </a>
-                            <a href={`profile.html?id=${patient.id}`}>
                               {patient.firstName} {patient.lastName}
-                            </a>
-                          </h2>
                         </td>
                         <td>{calculateAge(patient.dateOfBirth)}</td>
                         <td>{patient.gender}</td>

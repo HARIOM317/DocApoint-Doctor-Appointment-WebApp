@@ -30,7 +30,7 @@ const Header = () => {
     <div className="nav-popover">
       <div className="my-2">
         <h5 className="text-capitalize">
-          {data?.firstName + " " + data?.lastName}
+          {data?.firstName || "Hari"} {data?.lastName || "Admin"}
         </h5>
         <p className="my-0">{data?.email}</p>
         <Link to="/dashboard">Dashboard</Link>
