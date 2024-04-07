@@ -27,6 +27,8 @@ const MyPatients = () => {
                   />
                 </div>
 
+                <h5>{item?.firstName + " " + item?.lastName}</h5>
+
                 <div>
                   <p className="text-data">
                     <FaClock className="icon" />{" "}

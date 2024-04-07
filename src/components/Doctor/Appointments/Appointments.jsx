@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
 import img from "../../../images/doc/doctor 3.jpg";
 import "../../../stylesheets/doctorStylesheets/Appointments.css";
@@ -33,7 +33,6 @@ const Appointments = () => {
     }
   };
 
-
   useEffect(() => {
     if (isSuccess) {
       message.success("Successfully Appointment Updated");
@@ -51,158 +50,7 @@ const Appointments = () => {
       <>
         {data &&
           data.map((item) => (
-            // <div
-            //   className="w-100 mb-3 rounded p-3"
-            //   key={item.id}
-            // >
-            //   <div className="d-flex justify-content-between align-items-center">
-            //     <div className="d-flex align-items-center gap-3">
-            //       <Link to={`/`} className="patient-img">
-            //         {/* <img src={img} alt="" /> */}
-            //         <img
-            //           src={item?.patient?.img ? item?.patient?.img : img}
-            //           alt=""
-            //         />
-            //       </Link>
-            //       <div className="patients-info">
-            //         <h5>{item?.firstName + " " + item?.lastName}</h5>
-            //         <Tooltip title="Copy Tracking Id">
-            //           <Button>
-            //             <h6>
-            //               Tracking
-            //               <Tag
-            //                 color="#87d068"
-            //                 className="ms-2 text-uppercase"
-            //                 onClick={() =>
-            //                   clickToCopyClipBoard(item?.trackingId)
-            //                 }
-            //               >
-            //                 {item?.trackingId}
-            //               </Tag>
-            //             </h6>
-            //           </Button>
-            //         </Tooltip>
-
-            //         <div className="info">
-            //           <p>
-            //             <FaClock className="icon" />{" "}
-            //             {moment(item?.appointmentTime).format("MMM Do YY")}{" "}
-            //           </p>
-            //           <p>
-            //             <FaLocationArrow className="icon" /> {item?.address}
-            //           </p>
-            //           <p>
-            //             <FaEnvelope className="icon" /> {item?.email}
-            //           </p>
-            //           <p>
-            //             <FaPhoneAlt className="icon" /> {item?.phone}
-            //           </p>
-            //         </div>
-            //       </div>
-            //       <div className="appointment-status card p-3 border-primary">
-            //         <p>
-            //           Current Status -{" "}
-            //           <Tag color="#f50" className="text-uppercase">
-            //             {item?.status}
-            //           </Tag>
-            //         </p>
-            //         <p>
-            //           Patient Status -{" "}
-            //           <Tag color="#2db7f5" className="text-uppercase">
-            //             {item?.patientType ? item?.patientType : "Normal"}
-            //           </Tag>
-            //         </p>
-            //         <p>
-            //           Is Follow Up -{" "}
-            //           <Tag color="#f50" className="text-uppercase">
-            //             {item?.isFollowUp ? "Yes" : "No"}
-            //           </Tag>
-            //         </p>
-            //         <p>
-            //           {" "}
-            //           Is Paid -{" "}
-            //           <Tag color="#87d068" className="text-uppercase">
-            //             {item?.paymentStatus}
-            //           </Tag>
-            //         </p>
-            //         <p>
-            //           {" "}
-            //           Prescribed -{" "}
-            //           <Tag color="#2db7f5" className="text-uppercase">
-            //             {item?.prescriptionStatus}
-            //           </Tag>
-            //         </p>
-            //       </div>
-            //     </div>
-            //     <div className="d-flex gap-2">
-            //       <Link to={`/dashboard/appointments/${item?.id}`}>
-            //         <Button type="primary" icon={<FaEye />} size="small">
-            //           View
-            //         </Button>
-            //       </Link>
-            //       {item.prescriptionStatus === "notIssued" ? (
-            //         <Link to={`/dashboard/appointment/treatment/${item?.id}`}>
-            //           <Button
-            //             type="primary"
-            //             icon={<FaBriefcaseMedical />}
-            //             size="small"
-            //           >
-            //             Treatment
-            //           </Button>
-            //         </Link>
-            //       ) : (
-            //         <Link
-            //           to={`/dashboard/prescription/${item?.prescription[0]?.id}`}
-            //         >
-            //           <Button type="primary" icon={<FaEye />} size="small">
-            //             Prescription
-            //           </Button>
-            //         </Link>
-            //       )}
-            //       {item?.isFollowUp && (
-            //         <Link
-            //           to={`/dashboard/appointment/treatment/edit/${item?.prescription[0]?.id}`}
-            //         >
-            //           <Button
-            //             type="primary"
-            //             icon={<FaBriefcaseMedical />}
-            //             size="small"
-            //           >
-            //             Follow Up
-            //           </Button>
-            //         </Link>
-            //       )}
-
-            //       {item?.status === "pending" && (
-            //         <>
-            //           <Button
-            //             type="primary"
-            //             icon={<FaCheck />}
-            //             size="small"
-            //             onClick={() =>
-            //               updatedApppointmentStatus(item.id, "scheduled")
-            //             }
-            //           >
-            //             Accept
-            //           </Button>
-            //           <Button
-            //             type="primary"
-            //             icon={<FaTimes />}
-            //             size="small"
-            //             danger
-            //             onClick={() =>
-            //               updatedApppointmentStatus(item.id, "cancel")
-            //             }
-            //           >
-            //             Cancel
-            //           </Button>
-            //         </>
-            //       )}
-            //     </div>
-            //   </div>
-            // </div>
-
-            <div className="d-flex justify-content-between flex-row appointment-details">
+            <div className="appointment-details">
               <div className="profile-card">
                 <div className="image">
                   <img
@@ -214,12 +62,12 @@ const Appointments = () => {
 
                 <h5>{item?.firstName + " " + item?.lastName}</h5>
 
-                <Tooltip title="Copy Tracking Id">
-                  <Button>
+                <Tooltip title="Copy Tracking ID" className="tracking-id">
+                  <Button className="copyBtn">
                     <h6>
                       Tracking
                       <Tag
-                        color="#87d068"
+                        color="#12c762"
                         className="ms-2 text-uppercase"
                         onClick={() => clickToCopyClipBoard(item?.trackingId)}
                       >
@@ -251,34 +99,34 @@ const Appointments = () => {
               <div className="profile-card d-flex flex-column align-items-center justify-content-between">
                 <div className="w-100">
                   <p className="text-data">
-                    Current Status -{" "}
-                    <Tag color="#f50" className="text-uppercase">
+                    Current Status{" "}
+                    <Tag color="#f50" className="text-uppercase tag">
                       {item?.status}
                     </Tag>
                   </p>
                   <p className="text-data">
-                    Patient Status -{" "}
-                    <Tag color="#2db7f5" className="text-uppercase">
+                    Patient Status{" "}
+                    <Tag color="#2db7f5" className="text-uppercase tag">
                       {item?.patientType ? item?.patientType : "Normal"}
                     </Tag>
                   </p>
                   <p className="text-data">
-                    Is Follow Up -{" "}
-                    <Tag color="#f50" className="text-uppercase">
+                    Is Follow Up{" "}
+                    <Tag color="#f50" className="text-uppercase tag">
                       {item?.isFollowUp ? "Yes" : "No"}
                     </Tag>
                   </p>
                   <p className="text-data">
                     {" "}
-                    Is Paid -{" "}
-                    <Tag color="#87d068" className="text-uppercase">
+                    Is Paid{" "}
+                    <Tag color="#87d068" className="text-uppercase tag">
                       {item?.paymentStatus}
                     </Tag>
                   </p>
                   <p className="text-data">
                     {" "}
                     Prescribed -{" "}
-                    <Tag color="#2db7f5" className="text-uppercase">
+                    <Tag color="#2db7f5" className="text-uppercase tag">
                       {item?.prescriptionStatus}
                     </Tag>
                   </p>
@@ -287,7 +135,7 @@ const Appointments = () => {
                 <div className="d-flex gap-2 flex-column w-100">
                   <div className="d-flex flex-row align-items-center justify-content-between gap-3">
                     <Link to={`/dashboard/appointments/${item?.id}`}>
-                      <Button type="primary" icon={<FaEye />} size="small">
+                      <Button type="primary" icon={<FaEye />} size="medium">
                         View
                       </Button>
                     </Link>
@@ -296,7 +144,7 @@ const Appointments = () => {
                         <Button
                           type="primary"
                           icon={<FaBriefcaseMedical />}
-                          size="small"
+                          size="medium"
                         >
                           Treatment
                         </Button>
@@ -305,7 +153,7 @@ const Appointments = () => {
                       <Link
                         to={`/dashboard/prescription/${item?.prescription[0]?.id}`}
                       >
-                        <Button type="primary" icon={<FaEye />} size="small">
+                        <Button type="primary" icon={<FaEye />} size="medium">
                           Prescription
                         </Button>
                       </Link>
@@ -317,7 +165,7 @@ const Appointments = () => {
                         <Button
                           type="primary"
                           icon={<FaBriefcaseMedical />}
-                          size="small"
+                          size="medium"
                         >
                           Follow Up
                         </Button>
@@ -329,9 +177,9 @@ const Appointments = () => {
                     {item?.status === "pending" && (
                       <>
                         <Button
-                          type="primary"
+                          className="accept-button"
                           icon={<FaCheck />}
-                          size="small"
+                          size="medium"
                           onClick={() =>
                             updatedApppointmentStatus(item.id, "scheduled")
                           }
@@ -339,10 +187,9 @@ const Appointments = () => {
                           Accept
                         </Button>
                         <Button
-                          type="primary"
+                          className="cancel-button"
                           icon={<FaTimes />}
-                          size="small"
-                          danger
+                          size="medium"
                           onClick={() =>
                             updatedApppointmentStatus(item.id, "cancel")
                           }
