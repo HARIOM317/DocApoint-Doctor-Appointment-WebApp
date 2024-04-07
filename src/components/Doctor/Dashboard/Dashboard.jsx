@@ -6,42 +6,33 @@ import DashboardPage from "./doctor/DashboardPage";
 import PatientDashboard from "./PatientDashboard";
 import AdminDashboard from "../../Admin/Dashboard";
 
-
 const Dashboard = () => {
   const { role } = useAuthCheck();
   return (
     <>
       {/* for admin */}
-      {
-        role === "admin" && <AdminDashboard />
-        // <div className="col-md-12 rounded">
-        //     {/* <h5 className="text-title">Appointments</h5> */}
+      {role === "admin" ? (
+        <AdminDashboard />
+      ) : (
+        <DashboardLayout>
+          {role === "doctor" && <DoctorDashCard />}
 
-        // </div>
-      }
-
-      <DashboardLayout>
-        {role === "doctor" && <DoctorDashCard />}
-
-        <div className="row">
-          {role === "patient" && (
-            <div
-              className="col-md-12 rounded"
-            >
-              <h5 className="text-title my-3">My Appointments</h5>
-              <PatientDashboard />
-            </div>
-          )}
-          {role === "doctor" && (
-            <div
-              className="col-md-12 rounded"
-            >
-              <h5 className="text-title">Appointments</h5>
-              <DashboardPage />
-            </div>
-          )}
-        </div>
-      </DashboardLayout>
+          <div className="row">
+            {role === "patient" && (
+              <div className="col-md-12 rounded">
+                <h5 className="text-title my-3">My Appointments</h5>
+                <PatientDashboard />
+              </div>
+            )}
+            {role === "doctor" && (
+              <div className="col-md-12 rounded">
+                <h5 className="text-title">Appointments</h5>
+                <DashboardPage />
+              </div>
+            )}
+          </div>
+        </DashboardLayout>
+      )}
     </>
   );
 };
