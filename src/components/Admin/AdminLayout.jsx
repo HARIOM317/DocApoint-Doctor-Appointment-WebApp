@@ -1,13 +1,11 @@
 import React from "react";
 import AdminSidebar from "../UI/AdminSidebar";
-import AdminHeader from "../UI/AdminHeader";
 import "../../stylesheets/adminStylesheets/AdminLayout.css";
 import Header from "../Shared/Header/Header";
 
 const AdminLayout = ({ children }) => {
   return (
     <div className="main-wrapper">
-      {/* <AdminHeader /> */}
       <Header />
 
       <AdminSidebar />

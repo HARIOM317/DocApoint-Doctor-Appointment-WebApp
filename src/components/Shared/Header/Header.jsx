@@ -63,10 +63,6 @@ const Header = () => {
             open={open}
             setOpen={setOpen}
           />
-          {/* <Link to={"/appointment"} className="appointment-btn scrollto">
-            <span className="d-none d-md-inline">Make an</span> Appointment
-          </Link> */}
-
           {role === "patient" && (
             <Link to={"/doctors"} className="appointment-btn scrollto">
               <span className="d-none d-md-inline">Make an</span> Appointment

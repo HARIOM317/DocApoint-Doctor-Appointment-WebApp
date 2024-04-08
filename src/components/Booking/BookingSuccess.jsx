@@ -15,6 +15,8 @@ import { Button, Empty, message, Tag, Tooltip } from "antd";
 import Header from "../Shared/Header/Header";
 import { useGetSingleAppointmentQuery } from "../../redux/api/appointmentApi";
 import { clickToCopyClipBoard } from "../../utils/copyClipBoard";
+import Lottie from "lottie-react";
+import SuccessFullyBooked from "../../animations/booked-appointment.json";
 
 const BookingSuccess = () => {
   const { id } = useParams();
@@ -34,65 +36,113 @@ const BookingSuccess = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto d-flex justify-content-center align-items-center text-center">
+      <div
+        className="container mx-auto d-flex justify-content-center align-items-center text-center"
+        style={{ marginTop: "50px", marginBottom: '50px' }}
+      >
         {data?.id ? (
           <div
             className=" p-3"
             style={{
-              marginTop: "8rem",
-              marginBottom: "5rem",
-              height: "60vh",
-              background: "#f8f9fa",
-              maxWidth: "400px",
+              maxWidth: "500px",
             }}
           >
-            <div className="border-bottom my-2">
-              <FaCalendarCheck
-                style={{ fontSize: "2.5rem" }}
-                className="text-success"
-              />
-              <h6 className="py-2">Appointment is scheduled</h6>
+            <div
+              className="my-2"
+              style={{ borderBottom: "1.5px solid var(--borderColor)" }}
+            >
+              <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+                <Lottie
+                  loop={true}
+                  animationData={SuccessFullyBooked}
+                  style={{ width: "150px" }}
+                />
+              </div>
+              <h6
+                className="py-2"
+                style={{
+                  color: "var(--headingColor)",
+                  fontWeight: "bold",
+                  fontSize: "1.25rem",
+                }}
+              >
+                Appointment is scheduled
+              </h6>
 
-              <p className="text-secondary border rounded-pill form-text text-success border-success">
+              <p
+                style={{
+                  color: "green",
+                  border: "1.5px solid green",
+                  padding: "4px 8px",
+                  borderRadius: "8px",
+                  background: "#e1ffdc",
+                  fontWeight: "500",
+                  fontSize: "1rem",
+                }}
+              >
                 Check your Inbox an email with all details!
               </p>
             </div>
 
-            <Tooltip title="Copy Tracking Id">
-              <Button>
+            <Tooltip title="Copy Appointment Id" className="mt-3 mb-3">
+              <Button
+                onClick={() => clickToCopyClipBoard(data?.trackingId)}
+                className="copyBtn"
+              >
                 <h6>
-                  Tracking
-                  <Tag
-                    color="#87d068"
-                    className="ms-2 text-uppercase"
-                    onClick={() => clickToCopyClipBoard(data?.trackingId)}
-                  >
+                  Appointment ID
+                  <Tag color="#87d068" className="ms-2 text-uppercase">
                     {data?.trackingId}
                   </Tag>
                 </h6>
               </Button>
             </Tooltip>
             <div className="card border-0 p-3 rounded mb-5">
-              <div className="d-flex gap-3 mb-1">
-                <FaBriefcase style={{ fontSize: "1rem" }} />
+              <div
+                className="d-flex flex-row gap-3 mb-1"
+                style={{
+                  fontSize: "1rem",
+                  color: "var(--textColor)",
+                  fontWeight: "500",
+                }}
+              >
+                <div>
+                  <FaBriefcase />
+                </div>
                 <p>
-                  With Doctor : Dr.{" "}
+                  With Dr.{" "}
                   {data?.doctor?.firstName + " " + data?.doctor?.lastName}
                 </p>
               </div>
-              <div className="d-flex gap-3 mb-1">
+              <div
+                className="d-flex gap-3 mb-1"
+                style={{
+                  fontSize: "1rem",
+                  color: "var(--textColor)",
+                  fontWeight: "500",
+                }}
+              >
                 <div>
-                  <FaLocationArrow style={{ fontSize: "1rem" }} />
+                  <FaLocationArrow />
                 </div>
                 <p className="text-start">
-                  Care Multi-Specialties Hospital
+                  Sagar Care Multi-Specialties Hospital
                   <br />
-                  <span className="form-text">102030, MP Nagar, Bhopal, India</span>
+                  <span className="form-text">
+                    102030, MP Nagar, Bhopal, India
+                  </span>
                 </p>
               </div>
-              <div className="d-flex gap-3">
+              <div
+                className="d-flex gap-3 mb-1"
+                style={{
+                  fontSize: "1rem",
+                  color: "var(--textColor)",
+                  fontWeight: "500",
+                }}
+              >
                 <div>
-                  <FaCalendarAlt style={{ fontSize: "1rem" }} />{" "}
+                  <FaCalendarAlt />{" "}
                 </div>
                 <p>
                   {data.scheduleDate &&
@@ -102,35 +152,24 @@ const BookingSuccess = () => {
                       data.scheduleTime}
                 </p>
               </div>
-              <div className="d-flex gap-3 mb-1">
-                <FaRegClock style={{ fontSize: "1rem" }} />
+              <div
+                className="d-flex gap-3 mb-1"
+                style={{
+                  fontSize: "1rem",
+                  color: "var(--textColor)",
+                  fontWeight: "500",
+                }}
+              >
+                <div>
+                  <FaRegClock />
+                </div>
                 <p>30 Min</p>
               </div>
-
-              {/* <div className="d-flex gap-3 mb-2">
-                <div>
-                  <FaLink style={{ fontSize: "1rem" }} />
-                </div>
-                <div>
-                  <a
-                    href="https://meet.google.com/udx-kieq-sng"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    https://meet.google.com/udx-kieq-sng
-                  </a>
-                </div>
-              </div> */}
             </div>
           </div>
         ) : (
           <div
             className="rounded p-3 d-flex flex-column justify-content-center align-items-center"
-            style={{
-              background: "#f8f9fa",
-              marginTop: "8rem",
-              marginBottom: "5rem",
-            }}
           >
             <Empty />
             <h6 className="p-2 my-3">You will be redirect to homepage !</h6>

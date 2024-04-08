@@ -141,6 +141,18 @@ textarea.text-form-input-field {
   background: #b9122c;
 }
 
+.copyBtn {
+  background: #fff;
+  color: var(--textColor) !important;
+}
+
+.copyBtn:hover {
+  color: var(--textColor) !important;
+  border-color: var(--borderColor) !important;
+  background: var(--bgColor) !important;
+}
+
+
 .heading{
   color: var(--headingColor);
   text-transform: capitalize;

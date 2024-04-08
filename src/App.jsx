@@ -19,10 +19,9 @@ import Doctors from "./components/Admin/Doctors";
 import Patients from "./components/Admin/Patients";
 import AdminPrescription from "./components/Admin/adminPrescription";
 import AdminBlogs from "./components/Admin/AdminBlog";
-import Profile from "./components/Admin/Profile";
-import Transactions from "./components/Admin/Transactions";
-import Specialites from "./components/Admin/Specialites";
 import AdminReviews from "./components/Admin/Reviews";
+import AddNewDoctor from "./components/Admin/AddDoctor";
+import AdminContacts from "./components/Admin/Contacts";
 
 import PatientFavouriteDoctor from "./components/Doctor/PatientFavourite/PatientFavourite";
 import DoctorInvoice from "./components/Doctor/Invoice/DoctorInvoice";
@@ -35,7 +34,7 @@ import BlogDetails from "./components/Blog/BlogDetails";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Service from "./components/Service";
-import AppointmentPage from "./components/Appointment/AppointmentPage";
+// import AppointmentPage from "./components/Appointment/AppointmentPage";
 import TrackAppointment from "./components/TrackAppointment/TrackAppointment";
 import Treatment from "./components/Doctor/Treatment/Treatment";
 import Prescription from "./components/Doctor/Prescription/Prescription";
@@ -46,30 +45,19 @@ import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Doctor/Dashboard/Dashboard";
 import PrivateOutlet from "./components/Shared/PrivateOutlet";
 import NotFound from "./components/UI/NotFound";
-import AddNewDoctor from "./components/Admin/AddDoctor";
-
 import Login from "./components/Login/Login";
-import AdminContacts from "./components/Admin/Contacts";
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Dashboard Routs */}
         <Route element={<PrivateOutlet />}>
-          <Route path="/dashboard/blogs" element={<Blogs />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/my-patients" element={<MyPatients />} />
-          <Route path="/dashboard/reviews" element={<Reviews />} />
-          <Route path="/dashboard/schedule" element={<Schedule />} />
           <Route path="/dashboard/appointments" element={<Appointments />} />
           <Route
             path="/dashboard/appointments/:id"
             element={<ViewAppointment />}
-          />
-          <Route path="/dashboard/prescription" element={<Prescription />} />
-          <Route
-            path="/dashboard/prescription/:id"
-            element={<PrescriptionView />}
           />
           <Route
             path="/dashboard/appointment/treatment/:id"
@@ -79,42 +67,55 @@ function App() {
             path="/dashboard/appointment/treatment/edit/:id"
             element={<TreatmentEdit />}
           />
+          <Route path="/dashboard/my-patients" element={<MyPatients />} />
+          <Route path="/dashboard/prescription" element={<Prescription />} />
           <Route
-            path="/dashboard/change-password"
-            element={<ChangePassword />}
+            path="/dashboard/prescription/:id"
+            element={<PrescriptionView />}
           />
+          <Route path="/dashboard/schedule" element={<Schedule />} />
+          <Route path="/dashboard/invoices" element={<DoctorInvoice />} />
+          <Route path="/dashboard/reviews" element={<Reviews />} />
           <Route
             path="/dashboard/profile-setting"
             element={<ProfileSetting />}
           />
+          <Route path="/dashboard/blogs" element={<Blogs />} />
+          <Route path="/dashboard/blogs/:id" element={<BlogsEdit />} />
+          <Route path="/dashboard/blogs/create" element={<AddBlog />} />
+          <Route
+            path="/dashboard/change-password"
+            element={<ChangePassword />}
+          />
+
+          {/* For Patient dashboard */}
           <Route
             path="/dashboard/favourite"
             element={<PatientFavouriteDoctor />}
           />
-          <Route path="/dashboard/invoices" element={<DoctorInvoice />} />
         </Route>
 
-        <Route path="/login" element={<Login />} />
-
+        {/* Routes */}
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/doctors" element={<SearchDoctor />} />
+        <Route path="/doctors/profile/:id" element={<DoctorProfile />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetails />} />
+        <Route path="/track-appointment" element={<TrackAppointment />} />
         <Route
           path="/reset-password/:userId/:uniqueString"
           element={<ForgotPassword />}
         />
-        <Route path="/appointment" element={<AppointmentPage />} />
-        <Route path="/track-appointment" element={<TrackAppointment />} />
-        <Route path="/doctors" element={<SearchDoctor />} />
-        <Route path="/doctors/profile/:id" element={<DoctorProfile />} />
-        <Route path="/dashboard/blogs/:id" element={<BlogsEdit />} />
-        <Route path="/dashboard/blogs/create" element={<AddBlog />} />
+        {/* <Route path="/appointment" element={<AppointmentPage />} /> */}
+
         <Route path="/booking/:doctorId" element={<DoctorBooking />} />
         <Route path="/booking/success/:id" element={<BookingSuccess />} />
         <Route path="/booking/invoice/:id" element={<BookingInvoice />} />
+
         {/* Admin Dashboard  */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/appointments" element={<AdminAppointments />} />
@@ -122,12 +123,11 @@ function App() {
         <Route path="/admin/addDoctor" element={<AddNewDoctor />} />
         <Route path="/admin/patients" element={<Patients />} />
         <Route path="/admin/prescription" element={<AdminPrescription />} />
-
         <Route path="/admin/blogs" element={<AdminBlogs />} />
         <Route path="/admin/reviews" element={<AdminReviews />} />
-        <Route path="/admin/transaction" element={<Transactions />} />
         <Route path="/admin/contact" element={<AdminContacts />} />
 
+        {/* Error 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
