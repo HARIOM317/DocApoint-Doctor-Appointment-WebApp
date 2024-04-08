@@ -141,7 +141,7 @@ const PrescriptionView = () => {
                       <p>{data?.test}</p>
                     </div>
                     <div>
-                      <h5>NEXT APOINTMENT</h5>
+                      <h5>FOLLOW UP</h5>
                       <p>
                         <span>
                           Date : {moment(data?.followUpdate).format("LL")}

@@ -196,7 +196,7 @@ const getAppointment = async (id: string): Promise<Appointments | null> => {
         },
         include: {
             doctor: true,
-            patient: true
+            patient: true,
         }
     });
     return result;

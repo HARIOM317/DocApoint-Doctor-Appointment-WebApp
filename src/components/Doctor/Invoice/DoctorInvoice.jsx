@@ -62,7 +62,7 @@ const DoctorInvoice = () => {
       key: "5",
       width: 100,
       render: function (data) {
-        return <div>${data?.totalAmount}</div>;
+        return <div>&#8377;{data?.totalAmount}</div>;
       },
     },
     {

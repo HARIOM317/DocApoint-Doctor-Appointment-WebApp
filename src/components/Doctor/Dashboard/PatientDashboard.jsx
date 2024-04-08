@@ -89,7 +89,10 @@ const PatientDashboard = () => {
       title: "Total Paid",
       key: 5,
       width: 100,
-      dataIndex: "totalAmount",
+      render: function (data) {
+        return <div>&#8377;{data?.totalAmount}</div>;
+      },
+      // dataIndex: "totalAmount",
     },
 
     {

@@ -10,6 +10,8 @@ import moment from "moment";
 import { Tag } from "antd";
 
 const TreatmentOverview = ({ data, isAppointment = false }) => {
+  console.log({data});
+  // console.log(data.firstName);
   return (
     <>
       <div className="w-100 mb-3 rounded p-3 text-center d-flex justify-content-between bg-gray-g">
@@ -22,21 +24,21 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
                 style={{ height: "90px", width: "90px" }}
               />
             </Link>
-            <div className="patients-info mt-3">
-              <h5>{data?.appointment?.firstName + " " + data?.appointment?.lastName}</h5>
+            <div className="patients-info info mt-3">
+              <h5 className="text-dark ">{data?.firstName + " " + data?.lastName}</h5>
               <div className="info">
                 <p>
                   <FaClock className="icon" />{" "}
                   {moment(data?.createdAt).format("LL")}{" "}
                 </p>
                 <p>
-                  <FaLocationArrow className="icon" /> {data?.appointment?.address}
+                  <FaLocationArrow className="icon" /> {data?.address}
                 </p>
                 <p>
-                  <FaEnvelope className="icon" /> {data?.appointment?.email}
+                  <FaEnvelope className="icon" /> {data?.email}
                 </p>
                 <p>
-                  <FaPhoneAlt className="icon" /> {data?.appointment?.phone}
+                  <FaPhoneAlt className="icon" /> {data?.phone}
                 </p>
               </div>
             </div>
