@@ -2,13 +2,18 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle
 import numpy as np
+import pandas as pd
 
+# Create an instance of the Flask class
 app = Flask(__name__)
 CORS(app)
 
 # Load the pretrained model
-loaded_model = pickle.load(open('model_disease.pkl', 'rb'))
+disease_model = pickle.load(open('model_disease.pkl', 'rb'))
+heart_model = pickle.load(open('model_heart.pkl', 'rb'))
+diabetes_model = pickle.load(open('model_diabetes.pkl', 'rb'))
 
+#setting the route for the prediction
 @app.route('/predict/disease', methods=['POST'])
 def predict_disease():
     # Get the data from the request
@@ -77,15 +82,43 @@ def SVM(psymptoms):
        3, 5, 2, 7, 6, 4, 5, 4, 5, 6, 4, 2, 2, 2, 2, 3, 2, 2, 2, 4, 2, 3,
        5])
     
+    #replace symptoms with weights
     for j in range(len(psymptoms)):
         for k in range(len(a)):
             if psymptoms[j] == a[k]:
                 psymptoms[j] = b[k]
     nulls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     psy = [psymptoms + nulls]
-    pred2 = loaded_model.predict(psy)
+    pred2 = disease_model.predict(psy)
     predicted_disease = pred2[0]
     return predicted_disease
 
+
+#setting the route for the heart disease prediction
+@app.route('/predict/heart_disease', methods=['POST'])
+def predict_heart_disease():
+    data = request.get_json()
+    user_data = data['symptoms']
+    user_data = pd.DataFrame({user_data},index=[0])
+    prediction = heart_model.predict(user_data)
+    if (prediction[0]== 0):
+        return jsonify({"Is heart disease: false"})
+    else:
+        return jsonify({"Is heart disease: true"})
+
+
+#setting the route for the diabetes prediction
+@app.route('/predict/diabetes', methods=['POST'])
+def predict_diabetes(user_data):
+    data = request.get_json()
+    user_data = data['symptoms']
+    user_data = pd.DataFrame({user_data},index=[0])
+    predict1 = diabetes_model.predict(user_data)
+    if predict1[0] == 0:
+        return jsonify({"Is Diabetic: false"})
+    else:
+        return jsonify({"Is Diabetic: true"})
+
+#run the app
 if __name__ == '__main__':
     app.run(debug=False)
