@@ -13,6 +13,7 @@ import HomePageHeader from "./HomePageHeader";
 import HowToUse from "./HowToUse";
 import FAQs from "./FAQs";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
+import Chatbot from "./Chatbot";
 
 const Home = () => {
   const { role } = useAuthCheck();
@@ -21,6 +22,7 @@ const Home = () => {
     <>
       <Header />
       <HomePageHeader />
+      <Chatbot/>
       <InfoPage />
       <Service />
       <HowToUse />
