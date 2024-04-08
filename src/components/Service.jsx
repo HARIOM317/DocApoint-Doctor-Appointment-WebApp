@@ -18,7 +18,7 @@ const ServiceAPI = [
     img: img1,
     name: "ICU",
     about:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+      "Our ICU service offers advanced care and monitoring for critically ill patients, ensuring timely and effective interventions. With state-of-the-art facilities and a skilled team of medical professionals, we provide comprehensive ICU care for optimal patient outcomes.",
   },
 
   {
@@ -26,7 +26,7 @@ const ServiceAPI = [
     img: img2,
     name: "Chamber",
     about:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+      "Our chambers offer a professional and confidential space for consultations and examinations. Designed for comfort and privacy, our chambers provide an ideal environment for personalized care, ensuring a positive experience for both patients and healthcare providers.",
   },
 
   {
@@ -34,7 +34,7 @@ const ServiceAPI = [
     img: img3,
     name: "Test Room",
     about:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+      "Our Test Room provides a dedicated space for diagnostic procedures, ensuring a comfortable and efficient experience for patients. Equipped with state-of-the-art technology and staffed by experienced professionals, our Test Room facilitates accurate and timely diagnostic testing.",
   },
 
   {
@@ -42,7 +42,7 @@ const ServiceAPI = [
     img: img4,
     name: "Patient Ward",
     about:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+      "Our Patient Ward offers a caring and supportive environment for patients, ensuring their comfort and well-being during their stay. With dedicated healthcare staff and modern amenities, our Patient Ward provides high-quality care and promotes a positive healing experience.",
   },
 
   {
@@ -50,7 +50,7 @@ const ServiceAPI = [
     img: img5,
     name: "Laboratory",
     about:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet voluptate enim aut? Dolor officiis et quos voluptas, totam ipsum quisquam omnis ut autem reprehenderit facere, at, quia natus numquam dolore!",
+      "Our Laboratory is equipped with advanced technology and staffed by skilled professionals, ensuring accurate and timely test results. We maintain strict quality control measures to deliver reliable diagnostic services, supporting our commitment to providing high-quality healthcare to our patients.",
   },
 ];
 
@@ -60,7 +60,7 @@ const Service = () => {
       <Header />
       <SubHeader
         title="Service"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing."
+        subtitle="Explore our service ad professional environment"
       />
 
       <ServicesHeader />
@@ -73,7 +73,9 @@ const Service = () => {
       >
         <div className="section-title text-center">
           <h2 className="text-uppercase">Our Services</h2>
-          <p className="form-text m-0">Lorem ipsum dolor sit amet.</p>
+          <p style={{ color: "var(--textLight)" }}>
+            These are the services we provided in our Clinic/Hospital.
+          </p>
         </div>
 
         <div className="row" style={{ marginTop: 50 }}>

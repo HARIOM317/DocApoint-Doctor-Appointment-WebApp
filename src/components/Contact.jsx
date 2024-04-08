@@ -32,7 +32,7 @@ const Contact = () => {
       <Header />
       <SubHeader
         title="Contact us"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing."
+        subtitle="have you any question or need help? We are always at your services."
       />
       <ContactPageHeader />
 
@@ -46,8 +46,6 @@ const Contact = () => {
               <div className="row">
                 {/* Left Side Part */}
                 <div className="col-12 col-lg-5">
-                  
-
                   <figure>
                     <Lottie
                       loop={true}

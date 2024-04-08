@@ -1,9 +1,9 @@
-import React from 'react';
-import img1 from '../../images/specialities/illness.png';
-import img2 from '../../images/specialities/ent.png';
-import img3 from '../../images/specialities/bone.png';
-import img4 from '../../images/specialities/heart.png';
-import img5 from '../../images/specialities/tooth.png';
+import React from "react";
+import img1 from "../../images/specialities/illness.png";
+import img2 from "../../images/specialities/ent.png";
+import img3 from "../../images/specialities/bone.png";
+import img4 from "../../images/specialities/heart.png";
+import img5 from "../../images/specialities/tooth.png";
 import { FaCheckDouble } from "react-icons/fa";
 import "../../stylesheets/homeStylesheets/ClinicAndSpecialties.css";
 
@@ -12,9 +12,9 @@ const ClinicAndSpecialities = () => {
     <section className="section section-specialities position-relative">
       <div className="container-fluid">
         <div className="mb-5 section-title text-center">
-          <h2>Clinic and Specialities</h2>
-          <p className="m-0">
-            Lorem ipsum dolor sit amet consectetur adipisicing.
+          <h2>Clinic and Specialties</h2>
+          <p style={{ color: "var(--textLight)" }}>
+            Here is Specialties of our clinics, you can choose the one
           </p>
         </div>
 

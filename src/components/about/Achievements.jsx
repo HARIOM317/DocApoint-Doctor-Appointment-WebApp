@@ -12,7 +12,7 @@ const Achievements = () => {
       >
         <div className="section-title text-center">
           <h2 className="text-uppercase">Our Achievements</h2>
-          <p className="form-text m-0">Lorem ipsum dolor sit amet.</p>
+          <p style={{color: 'var(--textLight)'}}>Here is the achievements of DocApoint</p>
         </div>
 
         <div className="container" style={{ marginBottom: 50, marginTop: 50 }}>

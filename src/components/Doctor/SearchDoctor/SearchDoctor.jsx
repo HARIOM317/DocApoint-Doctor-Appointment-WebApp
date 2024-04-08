@@ -14,7 +14,6 @@ import Loading from "../../../animations/loading.json";
 import NoDataFound from "../../../animations/no_data_found.json";
 import SomethingWrong from "../../../animations/something_wrong.json";
 
-
 const SearchDoctor = () => {
   const query = {};
   const [page, setPage] = useState(1);
@@ -69,17 +68,18 @@ const SearchDoctor = () => {
 
   //what to render
   let content = null;
-  if (isLoading) content = (
-    <>
-      <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
-        <Lottie
-          loop={true}
-          animationData={Loading}
-          style={{ width: "300px" }}
-        />
-      </div>
-    </>
-  );
+  if (isLoading)
+    content = (
+      <>
+        <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+          <Lottie
+            loop={true}
+            animationData={Loading}
+            style={{ width: "300px" }}
+          />
+        </div>
+      </>
+    );
   if (!isLoading && isError)
     content = (
       <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
@@ -149,7 +149,10 @@ const SearchDoctor = () => {
   return (
     <div>
       <Header />
-      <SubHeader title="Doctors" subtitle="Lorem ipsum dolor sit amet." />
+      <SubHeader
+        title="Doctors"
+        subtitle="Make an appointment with your favorite doctor."
+      />
 
       <div className="container" style={{ marginBottom: 80, marginTop: 80 }}>
         <div className="filter-bar">

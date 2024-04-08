@@ -138,30 +138,31 @@ const BlogDetails = () => {
             </p>
           </div>
         </div>
-        <div className="d-flex gap-2 ms-2 px-2 py-3">
-          <span className="">Tags:</span>
-          <div className="d-flex gap-2">
-            {Array(4)
-              .fill(null)
-              .map((_item, index) => (
-                <h5 key={index + 2}>#tag{index}</h5>
-              ))}
-          </div>
-        </div>
       </div>
     );
   return (
     <>
       <Header />
-      <SubHeader title="Blog Details" subtitle="Lorem ipsum dolor sit amet." />
+      <SubHeader title="Blog Details" subtitle={data?.title} />
       <div className="container-fluid" style={{ marginTop: 150 }}>
         <div className="row mx-2">
           <div className="col-md-9 col-sm-12">
             {content}
-            <hr style={{height: '2px', color: 'var(--headingColor', opacity: '0.6'}}/>
+            <hr
+              style={{
+                height: "2px",
+                color: "var(--headingColor",
+                opacity: "0.6",
+              }}
+            />
             <div className="d-flex justify-content-end">
               <div className="col-md-5 col-lg-4 ml-lg-0 text-end text-md-end">
-                <h5 className="d-inline me-2" style={{color: 'var(--headingColor)', fontSize: '1rem'}}>Share On </h5>
+                <h5
+                  className="d-inline me-2"
+                  style={{ color: "var(--headingColor)", fontSize: "1rem" }}
+                >
+                  Share On{" "}
+                </h5>
                 <a
                   className="btn m-1 social-button"
                   style={{ borderColor: "#3b5998", background: "#3b5998" }}

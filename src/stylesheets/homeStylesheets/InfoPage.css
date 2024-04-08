@@ -8,10 +8,10 @@
 }
 
 .why-us .content h3 {
-  font-weight: 700;
+  font-weight: bold;
   font-size: 34px;
   margin-bottom: 30px;
-  color: var(--textColor);
+  color: var(--headingColor);
 }
 
 .why-us .content p {

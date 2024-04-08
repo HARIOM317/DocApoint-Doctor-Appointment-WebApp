@@ -13,8 +13,8 @@ const Availabe = () => {
           <div className="col-md-7">
             <div className="mb-4 section-title text-center">
               <h2 className="text-uppercase">Availabe Service</h2>
-              <p className="m-0">
-                Lorem ipsum dolor sit amet consectetur adipisicing.
+              <p style={{ color: "var(--textLight)" }}>
+                These are the Services available in our Clinic/Hospital
               </p>
             </div>
             <AvailableServiceContent />

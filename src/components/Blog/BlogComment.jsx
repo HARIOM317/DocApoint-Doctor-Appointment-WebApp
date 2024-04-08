@@ -10,7 +10,7 @@ const BlogComment = () => {
         COMMENTS
       </h5>
 
-      {Array(4)
+      {/* {Array(4)
         .fill(null)
         .map((_item, index) => (
           <div className="d-flex gap-3 mb-3" key={index + 5}>
@@ -33,11 +33,11 @@ const BlogComment = () => {
               </p>
             </div>
           </div>
-        ))}
+        ))} */}
 
       <div
         className="mx-auto"
-        style={{ marginTop: "5rem", marginBottom: "5rem" }}
+        style={{ marginTop: "2rem", marginBottom: "5rem" }}
       >
         <form className="row form-row">
           <div className="col-md-6">

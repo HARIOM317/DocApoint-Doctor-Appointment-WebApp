@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Footer from "../Shared/Footer/Footer";
 import { useGetAllBlogsQuery } from "../../redux/api/blogApi";
 import { useDebounced } from "../../redux/hooks";
-import { Pagination} from "antd";
+import { Pagination } from "antd";
 import BlogAside from "./BlogAside";
 import { Link } from "react-router-dom";
 import Header from "../Shared/Header/Header";
@@ -66,24 +66,25 @@ const Blog = () => {
       </div>
     );
 
-  if (!isLoading && !isError && blogData?.length === 0) content = (
-    <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
-      <Lottie
-        loop={true}
-        animationData={NoDataFound}
-        style={{ width: "300px" }}
-      />
-      <div
-        style={{
-          color: "var(--headingColor)",
-          fontWeight: "bold",
-          fontSize: "1.3rem",
-        }}
-      >
-        No any blog found!
+  if (!isLoading && !isError && blogData?.length === 0)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          No any blog found!
+        </div>
       </div>
-    </div>
-  );
+    );
 
   if (!isLoading && !isError && blogData?.length > 0)
     content = (
@@ -140,7 +141,6 @@ const Blog = () => {
                         {truncate(item?.title, 40)}
                       </h6>
                     </Link>
-
                   </div>
                   <div className="px-2">
                     <p className="blog-description">
@@ -149,11 +149,12 @@ const Blog = () => {
                   </div>
                   <div className="mt-1 mb-3 text-end">
                     <Link to={`/blog/${item?.id}`}>
-                      <button
-                        className="read-more-btn"
-                      >
+                      <button className="read-more-btn">
                         Read More
-                        <i class="fa-solid fa-arrow-right-long" style={{marginLeft: '4px'}}></i>
+                        <i
+                          class="fa-solid fa-arrow-right-long"
+                          style={{ marginLeft: "4px" }}
+                        ></i>
                       </button>
                     </Link>
                   </div>
@@ -166,7 +167,10 @@ const Blog = () => {
   return (
     <>
       <Header />
-      <SubHeader title="Blog" subtitle="Lorem ipsum dolor sit amet." />
+      <SubHeader
+        title="Blog"
+        subtitle="Read our blogs and stay updated with the latest news."
+      />
 
       <div
         className="container-fluid"
@@ -174,9 +178,7 @@ const Blog = () => {
       >
         <div className="row">
           <div className="col-md-9 col-sm-12">
-            <div
-              className="p-3 py-5 mx-3 rounded"
-            >
+            <div className="p-3 py-5 mx-3 rounded">
               <div className="row">{content}</div>
               <div className="text-center mt-5">
                 <Pagination

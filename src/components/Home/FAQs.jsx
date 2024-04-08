@@ -12,7 +12,7 @@ const FAQs = () => {
         <div className="container">
           <div className="mb-5 section-title text-center">
             <h2>FAQs</h2>
-            <p className="m-0 text-secondary">Here is some FAQs.</p>
+            <p style={{ color: "var(--textLight)" }}>Here is some FAQs.</p>
           </div>
 
           <Accordion className="mt-2">

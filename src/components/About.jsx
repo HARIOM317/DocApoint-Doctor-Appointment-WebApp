@@ -110,7 +110,7 @@ const About = () => {
       <Header />
       <SubHeader
         title="about us"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing."
+        subtitle="Explore the DocApoint team and our mission."
       />
 
       <AboutUs />
@@ -121,9 +121,8 @@ const About = () => {
           <div className="col-lg-6">
             <div className="mb-4 section-title text-center">
               <h2 className="text-uppercase">Meet Our Specialist</h2>
-              <p className="form-text m-0">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-                ipsum!
+              <p style={{ color: "var(--textLight)" }}>
+                Here is our specialist registered with DocApoint
               </p>
             </div>
           </div>

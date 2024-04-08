@@ -13,7 +13,7 @@ const ContactPageHeader = () => {
                 <i class="fa fa-phone"></i>
               </div>
               <h4>Helpline Number</h4>
-              <p>+91 0000000000</p>
+              <p>+91 9302765839</p>
             </div>
 
             {/* <!-- Contact Info item --> */}
@@ -22,7 +22,7 @@ const ContactPageHeader = () => {
                 <i class="fa fa-map"></i>
               </div>
               <h4>Address</h4>
-              <p>City, Pin Code, State, Country</p>
+              <p>Bhopal, 102030, MP, India</p>
             </div>
 
             {/* <!-- Contact Info item --> */}
@@ -31,7 +31,7 @@ const ContactPageHeader = () => {
                 <i class="fa fa-envelope"></i>
               </div>
               <h4>Email</h4>
-              <p>xyz@gmail.com</p>
+              <p>support.docapoint@gmail.com</p>
             </div>
           </div>
         </div>

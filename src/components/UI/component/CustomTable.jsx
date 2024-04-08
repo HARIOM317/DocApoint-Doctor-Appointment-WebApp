@@ -29,9 +29,9 @@ const CustomTable = ({
       columns={columns}
       onChange={onTableChange}
       pagination={paginationConfig}
-      // scroll={{
-      //   y: 420,
-      // }}
+      scroll={{
+        y: 500,
+      }}
     />
   );
 };

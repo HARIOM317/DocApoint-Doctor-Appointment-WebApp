@@ -51,8 +51,8 @@ const TrackAppointment = () => {
             <div>
               <div className="mb-5 section-title text-center">
                 <h2>Track Your Apppointment</h2>
-                <p className="m-0">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                <p style={{color: 'var(--textLight)'}}>
+                  Enter your appointment id to track your appointment status
                 </p>
               </div>
               <div className="mx-auto d-flex justify-content-center">

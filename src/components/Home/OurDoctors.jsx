@@ -76,7 +76,7 @@ const OurDoctors = () => {
 
                   <div className="social">
                     <NavLink
-                      to={item.linkedin}
+                      to={item?.linkedin}
                       style={{ background: "#0a63bc" }}
                       target="_blank"
                       className="icon"
@@ -84,7 +84,7 @@ const OurDoctors = () => {
                       <i className="bx bxl-linkedin"></i>
                     </NavLink>
                     <NavLink
-                      to={item.facebook}
+                      to={item?.facebook}
                       style={{ background: "#3b5998" }}
                       target="_blank"
                       className="icon"
@@ -92,7 +92,7 @@ const OurDoctors = () => {
                       <i className="bx bxl-facebook"></i>
                     </NavLink>
                     <NavLink
-                      to={item.instagram}
+                      to={item?.instagram}
                       style={{ background: "#db1c8a" }}
                       target="_blank"
                       className="icon"
@@ -100,7 +100,7 @@ const OurDoctors = () => {
                       <i className="bx bxl-instagram"></i>
                     </NavLink>
                     <NavLink
-                      to={item.twitter}
+                      to={item?.twitter}
                       style={{ background: "#03a9f4" }}
                       target="_blank"
                       className="icon"
@@ -119,9 +119,9 @@ const OurDoctors = () => {
       <div className="container">
         <div className="section-title text-center mb-3">
           <h2>OUR DOCTORS</h2>
-          <p className="form-text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus,
-            adipisci?
+          <p style={{ color: "var(--textLight)" }}>
+            Our professional doctors who are dedicated to providing the best
+            possible care for our clients.
           </p>
         </div>
 

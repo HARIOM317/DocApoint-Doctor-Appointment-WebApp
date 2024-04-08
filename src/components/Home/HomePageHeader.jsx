@@ -32,10 +32,11 @@ const HomePageHeader = () => {
               </h3>
 
               <p className="main-header-para">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde
-                voluptate rerum, adipisci ullam, perferendis quis vitae dolorum
-                et voluptatum sit modi, sequi tenetur hic veritatis dolorem
-                repudiandae. Adipisci, numquam ut!
+                DocApoint is a user-friendly doctor appointment website that
+                simplifies appointment scheduling and management for patients
+                and doctors. It offers convenient features such as online
+                booking, schedule updates, digital prescriptions, and patient
+                reviews, improving the healthcare experience for all.
               </p>
 
               <div className="d-flex justify-content-start gap-2">

@@ -21,11 +21,11 @@ const DoctorInvoice = () => {
             <a className="avatar avatar-sm mr-2 d-flex gap-2">
               <img
                 className="avatar-img rounded-circle"
-                style={{ width: "30px", height: "30px" }}
+                style={{ width: "30px", height: "30px", minWidth: '30px', minHeight: '30px' }}
                 src={data?.appointment?.patient?.img ? data?.appointment?.patient?.img : img}
                 alt=""
               />
-              <p className="p-0 m-0 text-nowrap">
+              <p className="p-0 m-0 text-wrap" style={{color: 'var(--textColor)'}}>
                 {data?.appointment?.firstName +
                   " " +
                   data?.appointment?.lastName}

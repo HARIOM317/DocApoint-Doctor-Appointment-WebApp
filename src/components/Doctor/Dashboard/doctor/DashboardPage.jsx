@@ -58,7 +58,7 @@ const DashboardPage = () => {
                   alt=""
                 />
                 <div>
-                  <p className="p-0 m-0 text-nowrap">
+                  <p className="p-0 m-0 text-nowrap" style={{color: 'var(--textColor)'}}>
                     {data?.firstName + " " + data?.lastName}
                   </p>
                 </div>

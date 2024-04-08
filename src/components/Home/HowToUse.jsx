@@ -5,11 +5,15 @@ import HowToUseImage from "../../images/home/how-to-use.jpg";
 import CallCenterImage from "../../images/home/call-center.jpg";
 import "../../stylesheets/About.css";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
+import { useNavigate } from "react-router-dom";
 
 const HowToUse = () => {
   const [howToUseData] = useState(useTipsAPI);
   const [customerSupportData] = useState(customerSupportAPI);
   const { role } = useAuthCheck();
+
+    const navigate = useNavigate();
+
 
   return (
     <>
@@ -18,7 +22,9 @@ const HowToUse = () => {
         <section className="common-section our-services">
           <div className="mb-5 section-title text-center">
             <h2>How to Book Appointment</h2>
-            <p className="m-0">Here is the steps to book appointment</p>
+            <p style={{ color: "var(--textLight)" }}>
+              Here is the steps to book appointment
+            </p>
           </div>
           <div className="container mb-5">
             <div className="row">
@@ -43,7 +49,12 @@ const HowToUse = () => {
                 })}
 
                 <br />
-                <button className="btn-style btn-style-border">Book Now</button>
+                <button
+                  className="btn-style btn-style-border"
+                  onClick={() => navigate("/doctors")}
+                >
+                  Book Now
+                </button>
               </div>
             </div>
           </div>
@@ -75,7 +86,10 @@ const HowToUse = () => {
               })}
 
               <br />
-              <button className="btn-style btn-style-border">
+              <button
+                className="btn-style btn-style-border"
+                onClick={() => navigate("/contact")}
+              >
                 Contact Now
               </button>
             </div>

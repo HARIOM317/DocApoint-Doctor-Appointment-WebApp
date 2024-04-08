@@ -69,9 +69,9 @@ const Doctors = () => {
                                 }}
                               />
                             </a>
-                            <a>
+                            <span className="table-data">
                               {doctor.firstName} {doctor.lastName}
-                            </a>
+                            </span>
                           </h2>
                         </td>
                         <td>

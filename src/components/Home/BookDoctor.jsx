@@ -8,7 +8,7 @@ import { message, Tooltip } from "antd";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { sliderSettings } from "../../utils/common";
 import profileImage from "../../images/home/doctorProfile.jpg";
-import { useNavigate } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 import { Autoplay } from "swiper/modules";
 import { Pagination } from "swiper/modules";
 
@@ -25,8 +25,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const BookDoctor = () => {
-  const navigate = useNavigate();
-
   const { data, isError, isLoading } = useGetDoctorsQuery({ limit: 10 });
   const doctors = data?.doctors;
   const [
@@ -68,7 +66,15 @@ const BookDoctor = () => {
           animationData={SomethingWrong}
           style={{ width: "300px" }}
         />
-        <div style={{ color: 'var(--headingColor)', fontWeight: 'bold', fontSize: '1.3rem' }}>Something went wrong!</div>
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Something went wrong!
+        </div>
       </div>
     );
   if (!isLoading && !isError && doctors?.length === 0)
@@ -126,7 +132,7 @@ const BookDoctor = () => {
                   <NavLink to={`/booking/${item?.id}`}>Book Now</NavLink>
                 </div>
 
-                {/* <div className="w-100 d-flex align-items-center justify-content-center">
+                <div className="w-100 d-flex align-items-center justify-content-center">
                   <StarRatings
                     rating={5}
                     starRatedColor="#ffba22"
@@ -139,7 +145,7 @@ const BookDoctor = () => {
                   <span className="d-inline-block text-secondary mt-2">
                     (27)
                   </span>
-                </div> */}
+                </div>
               </div>
             </SwiperSlide>
           ))}
@@ -149,8 +155,9 @@ const BookDoctor = () => {
     <section className="our-doctors container">
       <div className="mb-5 section-title text-center">
         <h2>Book Doctor</h2>
-        <p className="m-0">
-          Lorem ipsum dolor sit amet consectetur adipisicing.
+        <p style={{ color: "var(--textLight)" }}>
+          Find your perfect doctor here. <br /> We have a wide range of doctors
+          in various specialties and expertise levels.
         </p>
       </div>
       <div className="innerWidth">
@@ -163,7 +170,6 @@ const BookDoctor = () => {
           }}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
         >
-          {/* <SliderButtons /> */}
           {content}
         </Swiper>
       </div>
@@ -172,15 +178,3 @@ const BookDoctor = () => {
 };
 
 export default BookDoctor;
-
-const SliderButtons = () => {
-  // useSwiper Hook
-  const swiper = useSwiper();
-
-  return (
-    <div className="slider-button">
-      <button onClick={() => swiper.slidePrev()}>&lt;</button>
-      <button onClick={() => swiper.slideNext()}>&gt;</button>
-    </div>
-  );
-};

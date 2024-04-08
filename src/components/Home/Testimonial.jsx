@@ -79,7 +79,7 @@ const Testimonial = () => {
     <div className="container" style={{ marginTop: "0.5rem" }}>
       <div className="mb-4 section-title text-center">
         <h2>TESTIMONIAL</h2>
-        <p className="m-0 text-secondary">What Our Patients Says.</p>
+        <p style={{ color: "var(--textLight)" }}>What Our Patients Says.</p>
       </div>
       {isLoading ? (
         <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">

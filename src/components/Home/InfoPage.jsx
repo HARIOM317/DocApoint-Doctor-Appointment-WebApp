@@ -10,16 +10,16 @@ const InfoPage = () => {
         <div className="row">
           <div className="col-lg-4 d-flex align-items-stretch">
             <div className="content">
-              <h3>Why Choose Us?</h3>
+              <h3>Why DocApoint?</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
-                aute irure dolor in reprehenderit Asperiores dolores sed et.
-                Tenetur quia eos. Autem tempore quibusdam vel necessitatibus
-                optio ad corporis.
+                Choose DocApoint for effortless healthcare management. Our
+                platform offers seamless appointment booking, real-time schedule
+                updates, and secure digital prescriptions. With user-friendly
+                features for patients and doctors, docApoint streamlines the
+                healthcare process, ensuring a smooth experience for all.
               </p>
               <div className="text-center">
-                <Link href="/" className="more-btn">
+                <Link to="/about" className="more-btn">
                   Learn More <i className="bx bx-chevron-right"></i>
                 </Link>
               </div>
@@ -34,10 +34,10 @@ const InfoPage = () => {
                     <h4>Appointment</h4>
                     <small className="text-secondary">24 Hours Service</small>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Deleniti ut adipisci eaque sed dolorem eligendi nostrum,
-                      sunt odit cumque labore doloremque quisquam asperiores
-                      tempore. Quisquam laboriosam animi qui quia temporibus.
+                      Discover the ease of our 24/7 healthcare services. With
+                      us, you can book appointments, consult with doctors, and
+                      manage health records at any time, all designed for your
+                      convenience.
                     </p>
                   </div>
                 </div>
@@ -47,10 +47,10 @@ const InfoPage = () => {
                     <h4>Customer Care</h4>
                     <h6 className="text-secondary">+88 01751 040425</h6>
                     <p>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Aspernatur deleniti ut quam explicabo voluptates dolor,
-                      quisquam nemo. Quis pariatur laboriosam placeat amet quasi
-                      beatae sed magni veritatis, aut, temporibus cum!
+                      Our dedicated customer care team is here to support you.
+                      With prompt assistance and personalized service, we ensure
+                      that your healthcare needs are met with care and
+                      efficiency, every step of the way.
                     </p>
                   </div>
                 </div>
