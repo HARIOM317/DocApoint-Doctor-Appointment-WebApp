@@ -3,36 +3,37 @@ import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 
 const theme = {
-  background: "#fdf5e6",
-  fontFamily: "Helvetica Neue",
-  headerBgColor: "#d9004c",
+  background: "var(--bgColor)",
+  fontFamily: "Poppins",
+  headerBgColor: "var(--primaryHoverColor)",
   headerFontColor: "#fff",
-  headerFontSize: "19px",
-  botBubbleColor: "#d9004c",
-  botFontColor: "#fff",
-  userBubbleColor: "#c4c3d0",
-  userFontColor: "#080808",
+  headerFontSize: "1rem",
+  botBubbleColor: "#f1e1ff",
+  botFontColor: "var(--headingColor)",
+  userBubbleColor: "var(--primaryColor)",
+  userFontColor: "white",
 };
 
 // all available config props
 const config = {
-  width: "380px",
-  height: "480px",
+  width: "350px",
+  height: "90vh",
   hideUserAvatar: true,
-  placeholder: "Type your response.",
-  headerTitle: "DoctApoint Assistant",
+  placeholder: "Choose Response...",
+  headerTitle: "DocApoint Assistant",
   enableSmoothScroll: true,
   enableMobileAutoScroll: true,
   floating: true,
-  floatingStyle: { background: "#d9004c" },
-  botAvatar: "doctor-icon.png",
+  floatingStyle: { background: "var(--primaryColor)" },
+  botAvatar: "bot.png",
+  speechSynthesis: false, // disabled voice
 };
 
 const Chatbot = (props) => {
   let [showChat, setShowChat] = useState(false);
 
   const startChat = () => {
-    setShowChat(true);
+    setShowChat(false);
   };
   const hideChat = () => {
     setShowChat(false);
