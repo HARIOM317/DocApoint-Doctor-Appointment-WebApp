@@ -4,6 +4,8 @@ import StarRatings from "react-star-ratings";
 import { Tag } from "antd";
 import "../../../stylesheets/doctorStylesheets/DoctorProfileView.css";
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+import { useGetDoctorReviewsQuery } from '../../../redux/api/reviewsApi';
+
 
 import {
   FaRegThumbsUp,
@@ -15,6 +17,10 @@ import doctorProfile from "../../../images/home/doctorProfile.jpg";
 const DoctorProfileView = ({ data }) => {
   const { role } = useAuthCheck();
   const services = data?.services?.split(",");
+
+  const { data : reviewData, isError, isLoading } = useGetDoctorReviewsQuery(data.id);
+
+  const reviewDataLen = reviewData ? reviewData.length : 0;
 
   const linkedinLink = `${data.linkedin}`;
   const facebookLink = `${data.facebook}`;
@@ -71,7 +77,7 @@ const DoctorProfileView = ({ data }) => {
                     starSpacing="2px"
                   />
                 </div>
-                <div>(4)</div>
+                <div> {reviewDataLen}</div>
               </div>
             </div>
 
@@ -100,7 +106,7 @@ const DoctorProfileView = ({ data }) => {
               </li>
 
               <li className="mb-2" style={{ fontSize: "1rem" }}>
-                <FaComment /> 4 Feedback
+                <FaComment /> {reviewDataLen} Feedback
               </li>
 
               <li className="mb-2" style={{ fontSize: "1rem" }}>

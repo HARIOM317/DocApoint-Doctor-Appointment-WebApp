@@ -49,7 +49,7 @@ const BookDoctor = () => {
   }, [isSuccess, fIsError, FIsLoading, error?.data?.message]);
 
   let content = null;
-  
+
   if (isLoading)
     content = (
       <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
@@ -69,7 +69,7 @@ const BookDoctor = () => {
           animationData={SomethingWrong}
           style={{ width: "300px" }}
         />
-        <div style={{color: 'var(--headingColor)', fontWeight: 'bold', fontSize: '1.3rem'}}>Something went wrong!</div>
+        <div style={{ color: 'var(--headingColor)', fontWeight: 'bold', fontSize: '1.3rem' }}>Something went wrong!</div>
       </div>
     );
   if (!isLoading && !isError && doctors?.length === 0)
@@ -127,7 +127,7 @@ const BookDoctor = () => {
                   <NavLink to={`/booking/${item?.id}`}>Book Now</NavLink>
                 </div>
 
-                <div className="w-100 d-flex align-items-center justify-content-center">
+                {/* <div className="w-100 d-flex align-items-center justify-content-center">
                   <StarRatings
                     rating={5}
                     starRatedColor="#ffba22"
@@ -140,7 +140,7 @@ const BookDoctor = () => {
                   <span className="d-inline-block text-secondary mt-2">
                     (27)
                   </span>
-                </div>
+                </div> */}
               </div>
             </SwiperSlide>
           ))}

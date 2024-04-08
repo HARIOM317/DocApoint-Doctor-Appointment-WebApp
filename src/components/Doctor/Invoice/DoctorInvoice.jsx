@@ -22,7 +22,7 @@ const DoctorInvoice = () => {
               <img
                 className="avatar-img rounded-circle"
                 style={{ width: "30px", height: "30px" }}
-                src={img}
+                src={data?.appointment?.patient?.img ? data?.appointment?.patient?.img : img}
                 alt=""
               />
               <p className="p-0 m-0 text-nowrap">
@@ -62,7 +62,7 @@ const DoctorInvoice = () => {
       key: "5",
       width: 100,
       render: function (data) {
-        return <div>${data?.totalAmount}</div>;
+        return <div>&#8377;{data?.totalAmount}</div>;
       },
     },
     {

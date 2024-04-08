@@ -30,6 +30,8 @@ const Treatment = () => {
   const [followUpDate, setFollowUpdate] = useState("");
   const [medicineList, setMedicineList] = useState([{ id: 1 }]);
 
+  console.log({data});
+
   useEffect(() => {
     const isInputEmpty =
       !selectAppointmentStatus ||

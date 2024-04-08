@@ -1,3 +1,4 @@
+import { useState } from "react";
 import img from "../../../images/doc/doctor 3.jpg";
 import { Link, NavLink } from "react-router-dom";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
@@ -98,7 +99,7 @@ const PatientFavouriteDoctor = () => {
                   </NavLink>
                 </div>
 
-                <div className="w-100 d-flex align-items-center justify-content-center">
+                {/* <div className="w-100 d-flex align-items-center justify-content-center">
                   <StarRatings
                     rating={5}
                     starRatedColor="#ffba22"
@@ -109,9 +110,9 @@ const PatientFavouriteDoctor = () => {
                     starSpacing="5px"
                   />
                   <span className="d-inline-block text-secondary mt-2">
-                    (27)
+                    ()
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
@@ -128,3 +129,4 @@ const PatientFavouriteDoctor = () => {
 };
 
 export default PatientFavouriteDoctor;
+

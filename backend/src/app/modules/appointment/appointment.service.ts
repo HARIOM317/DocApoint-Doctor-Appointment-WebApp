@@ -196,7 +196,7 @@ const getAppointment = async (id: string): Promise<Appointments | null> => {
         },
         include: {
             doctor: true,
-            patient: true
+            patient: true,
         }
     });
     return result;
@@ -334,7 +334,8 @@ const getDoctorInvoices = async (user: any): Promise<Payment[] | null> => {
                     patient: {
                         select: {
                             firstName: true,
-                            lastName: true
+                            lastName: true,
+                            img: true,
                         }
                     }
                 }

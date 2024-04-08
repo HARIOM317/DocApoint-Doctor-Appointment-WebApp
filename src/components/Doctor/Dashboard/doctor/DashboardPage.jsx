@@ -59,7 +59,7 @@ const DashboardPage = () => {
                 />
                 <div>
                   <p className="p-0 m-0 text-nowrap">
-                    {data?.patient?.firstName + " " + data?.patient?.lastName}
+                    {data?.firstName + " " + data?.lastName}
                   </p>
                 </div>
               </a>

@@ -15,6 +15,7 @@ const Review = ({ doctorId }) => {
   const [showError, setShowError] = useState(false);
 
   const { data, isError, isLoading } = useGetDoctorReviewsQuery(doctorId);
+  // console.log({data});
   const [
     createReview,
     {
