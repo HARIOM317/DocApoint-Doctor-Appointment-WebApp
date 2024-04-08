@@ -24,7 +24,19 @@ const getAllContactUs = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const deleteContactUs = catchAsync(async (req: Request, res: Response) => {
+    const result = await ContactService.deleteContactUs(req.params.id);
+    sendResponse<Contact>(res, {
+        statusCode: 200,
+        message: 'Successfully Deleted ContactUs !!',
+        success: true,
+        data: result,
+    })
+});
+
+
 export const ContactController = {
     ContactUs,
-    getAllContactUs
+    getAllContactUs,
+    deleteContactUs
 }

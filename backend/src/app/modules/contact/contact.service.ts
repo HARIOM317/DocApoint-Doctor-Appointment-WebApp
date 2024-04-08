@@ -33,7 +33,17 @@ const getAllContactUs = async (): Promise<Contact[] | null> => {
     return result;
 }
 
+const deleteContactUs = async (id: string): Promise<Contact | null> => {
+    const result = await prisma.contact.delete({
+        where: {
+            id: id
+        }
+    });
+    return result;
+}
+
 export const ContactService = {
     contactUs,
-    getAllContactUs
+    getAllContactUs,
+    deleteContactUs
 }

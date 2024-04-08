@@ -311,3 +311,14 @@ enum paymentStatus {
   paid
   unpaid
 }
+
+model Admin {
+  id                     String           @id @default(uuid())
+  firstName              String
+  lastName               String
+  email                  String           @unique
+  img                    String?
+  createdAt              DateTime         @default(now())
+  updatedAt              DateTime         @updatedAt
+  @@map("Admin")
+}

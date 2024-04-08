@@ -30,10 +30,13 @@ const Header = () => {
     <div className="nav-popover">
       <div className="my-2">
         <h5 className="text-capitalize">
-          {data?.firstName + " " + data?.lastName}
+          {data?.firstName || "Administrator"}{" "}
+          {data?.lastName || ""}
         </h5>
         <p className="my-0">{data?.email}</p>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to={role === "admin" ? "/admin/dashboard" : "/dashboard"}>
+          Dashboard
+        </Link>
       </div>
       <Button
         variant="outline-danger"

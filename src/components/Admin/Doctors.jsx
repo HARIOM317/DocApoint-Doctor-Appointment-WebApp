@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import AdminLayout from "./AdminLayout";
 import userImg from "../../images/avatar.jpg";
+import "../../stylesheets/adminStylesheets/Appointments.css";
+
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
@@ -23,24 +25,36 @@ const Doctors = () => {
     <AdminLayout>
       <div className="row">
         <div className="col-md-12">
-          <div className="card card-table flex-fill">
-            <div className="card-header">
+          <div className="card card-table">
+            <div className="card-header table-top-heading">
               <h4 className="card-title">Doctors List</h4>
             </div>
             <div className="card-body">
               <div className="table-responsive">
                 <table className="table table-hover table-center mb-0">
                   <thead>
-                    <tr>
-                      <th>Doctor Name</th>
-                      <th>Speciality</th>
-                      <th>Earned</th>
-                      <th>Reviews</th>
+                    <tr
+                      style={{
+                        borderBottom: "1.5px solid var(--borderColor)",
+                      }}
+                    >
+                      <th>Doctor</th>
+                      <th>Specialization</th>
+                      <th>Clinic Name</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Charges</th>
                     </tr>
                   </thead>
                   <tbody>
                     {doctors.map((doctor) => (
-                      <tr key={doctor.id}>
+                      <tr
+                        key={doctor.id}
+                        style={{
+                          borderBottom: "1px solid var(--borderColor)",
+                          lineHeight: "3.5rem",
+                        }}
+                      >
                         <td>
                           <h2 className="table-avatar">
                             <a className="avatar avatar-sm mr-2">
@@ -48,19 +62,44 @@ const Doctors = () => {
                                 className="avatar-img rounded-circle"
                                 src={doctor.img ? doctor.img : userImg}
                                 alt=""
+                                style={{
+                                  width: "30px",
+                                  height: "30px",
+                                  marginRight: "10px",
+                                }}
                               />
                             </a>
-                            <a>{doctor.firstName} {doctor.lastName}</a>
+                            <a>
+                              {doctor.firstName} {doctor.lastName}
+                            </a>
                           </h2>
                         </td>
-                        <td>{doctor.specialization}</td>
-                        <td>${doctor.price}</td>
                         <td>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star text-warning"></i>
-                          <i className="fe fe-star-o text-secondary"></i>
+                          <span className="table-data">
+                            {doctor.specialization
+                              ? doctor.specialization
+                              : "N/A"}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            {doctor.clinicName ? doctor.clinicName : "N/A"}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            {doctor.city ? doctor.city : "N/A"}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            {doctor.state ? doctor.state : "N/A"}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            ₹{doctor.price ? doctor.price : "N/A"}
+                          </span>
                         </td>
                       </tr>
                     ))}
