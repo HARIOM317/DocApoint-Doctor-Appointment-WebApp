@@ -77,7 +77,7 @@ const DoctorProfileView = ({ data }) => {
                     starSpacing="2px"
                   />
                 </div>
-                <div> {reviewDataLen}</div>
+                <div> ({reviewDataLen})</div>
               </div>
             </div>
 

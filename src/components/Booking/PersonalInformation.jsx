@@ -5,6 +5,8 @@ import useAuthCheck from "../../redux/hooks/useAuthCheck";
 const PersonalInformation = ({
   handleChange,
   selectValue,
+  setPiCheck,
+  PiCheck,
   setPatientId = () => {},
 }) => {
   const {
@@ -25,6 +27,7 @@ const PersonalInformation = ({
 
   useEffect(() => {
     if (checked) {
+      setPiCheck(!PiCheck);
       if (data.id) {
         setPatientId(data.id);
         message.success("User Has Found !");

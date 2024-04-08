@@ -39,6 +39,8 @@ const DoctorBooking = () => {
   const [isCheck, setIsChecked] = useState(false);
   const [patientId, setPatientId] = useState("");
   const [orderId, setOrderId] = useState("");
+  const [piCheck, setPiCheck] = useState(false);
+
   const [
     createAppointment,
     {
@@ -78,12 +80,12 @@ const DoctorBooking = () => {
       paymentType,
     } = selectValue;
     const isInputEmpty =
-      !firstName || !lastName || !email || !phone || !reasonForVisit;
+      !firstName || !lastName || !email || !phone || !reasonForVisit || !piCheck;
     const isConfirmInputEmpty =
       !isCheck || !paymentType;
     setIsDisable(isInputEmpty);
     setIsConfirmDisable(isConfirmInputEmpty);
-  }, [selectValue, isCheck]);
+  }, [selectValue, isCheck, piCheck]);
 
   const handleDateChange = (_date, dateString) => {
     setSelectedDate(dateString);
@@ -179,6 +181,8 @@ const DoctorBooking = () => {
           handleChange={handleChange}
           selectValue={selectValue}
           setPatientId={setPatientId}
+          piCheck = {piCheck}
+          setPiCheck = {setPiCheck}
         />
       ),
     },
