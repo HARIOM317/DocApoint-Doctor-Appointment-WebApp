@@ -334,7 +334,8 @@ const getDoctorInvoices = async (user: any): Promise<Payment[] | null> => {
                     patient: {
                         select: {
                             firstName: true,
-                            lastName: true
+                            lastName: true,
+                            img: true,
                         }
                     }
                 }

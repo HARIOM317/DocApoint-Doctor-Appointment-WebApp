@@ -60,10 +60,10 @@ const PatientDashboard = () => {
       },
     },
     {
-      title: "Total Paid",
+      title: "Payment Type",
       key: 2,
       width: 100,
-      dataIndex: "totalAmount",
+      dataIndex: "paymentType",
     },
     {
       title: "Paid On",
@@ -78,20 +78,23 @@ const PatientDashboard = () => {
       },
     },
     {
-      title: "Payment Method",
+      title: "OrderId",
       key: 4,
-      width: 100,
-      dataIndex: "paymentMethod",
+      width: 150,
+      render: function (data) {
+        return <div>{data?.OrderId ? data?.OrderId : "Cash"}</div>;
+      },
     },
     {
-      title: "Payment Type",
-      key: 4,
+      title: "Total Paid",
+      key: 5,
       width: 100,
-      dataIndex: "paymentType",
+      dataIndex: "totalAmount",
     },
+
     {
       title: "Action",
-      key: "5",
+      key: "6",
       width: 100,
       render: function (data) {
         return (

@@ -73,7 +73,7 @@ const getPatientFavourites = async (user: any): Promise<Favourites[]> => {
             patientId: isUserExist.id
         },
         include: {
-            doctor: true
+            doctor: true,
         }
     })
     return favourites;
