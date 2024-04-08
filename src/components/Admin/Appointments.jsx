@@ -62,7 +62,7 @@ const AdminAppointments = () => {
                         <tr
                           key={appointment.id}
                           style={{
-                            borderBottom: "1px solid var(--borderColor)",
+                            borderBottom: "1px solid var(--borderColor)", lineHeight: '3.5rem'
                           }}
                         >
                           <td>

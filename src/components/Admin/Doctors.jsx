@@ -52,6 +52,7 @@ const Doctors = () => {
                         key={doctor.id}
                         style={{
                           borderBottom: "1px solid var(--borderColor)",
+                          lineHeight: "3.5rem",
                         }}
                       >
                         <td>
@@ -61,7 +62,11 @@ const Doctors = () => {
                                 className="avatar-img rounded-circle"
                                 src={doctor.img ? doctor.img : userImg}
                                 alt=""
-                                style={{width: '30px', height: '30px', marginRight: '10px'}}
+                                style={{
+                                  width: "30px",
+                                  height: "30px",
+                                  marginRight: "10px",
+                                }}
                               />
                             </a>
                             <a>
@@ -70,21 +75,31 @@ const Doctors = () => {
                           </h2>
                         </td>
                         <td>
-                          <span>{doctor.specialization}</span>
-                        </td>
-                        <td>
                           <span className="table-data">
-                            {doctor.clinicName}
+                            {doctor.specialization
+                              ? doctor.specialization
+                              : "N/A"}
                           </span>
                         </td>
                         <td>
-                          <span className="table-data">{doctor.city}</span>
+                          <span className="table-data">
+                            {doctor.clinicName ? doctor.clinicName : "N/A"}
+                          </span>
                         </td>
                         <td>
-                          <span className="table-data">{doctor.state}</span>
+                          <span className="table-data">
+                            {doctor.city ? doctor.city : "N/A"}
+                          </span>
                         </td>
                         <td>
-                          <span className="table-data">₹{doctor.price}</span>
+                          <span className="table-data">
+                            {doctor.state ? doctor.state : "N/A"}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            ₹{doctor.price ? doctor.price : "N/A"}
+                          </span>
                         </td>
                       </tr>
                     ))}

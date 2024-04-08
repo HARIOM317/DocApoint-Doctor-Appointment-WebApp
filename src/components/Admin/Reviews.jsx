@@ -3,6 +3,8 @@ import AdminLayout from "./AdminLayout";
 import userImg from "../../images/avatar.jpg";
 import { Rate } from "antd";
 import { getFromLocalStorage } from "../../utils/local-storage";
+import "../../stylesheets/adminStylesheets/Appointments.css";
+
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -32,15 +34,19 @@ const Reviews = () => {
     <AdminLayout>
       <div className="row">
         <div className="col-md-12">
-          <div className="card card-table flex-fill">
-            <div className="card-header">
+          <div className="card card-table">
+            <div className="card-header table-top-heading">
               <h4 className="card-title">Reviews</h4>
             </div>
             <div className="card-body">
               <div className="table-responsive">
                 <table className="table table-hover table-center mb-0">
                   <thead>
-                    <tr>
+                    <tr
+                      style={{
+                        borderBottom: "1.5px solid var(--borderColor)",
+                      }}
+                    >
                       <th>Doctor</th>
                       <th>Patient</th>
                       <th>Description</th>
@@ -50,7 +56,12 @@ const Reviews = () => {
                   </thead>
                   <tbody>
                     {reviews.map((review) => (
-                      <tr key={review.id}>
+                      <tr
+                        key={review.id}
+                        style={{
+                          borderBottom: "1px solid var(--borderColor)",
+                        }}
+                      >
                         <td>
                           {review.doctor && (
                             <div className="d-flex align-items-center">
@@ -62,11 +73,16 @@ const Reviews = () => {
                                     : userImg
                                 }
                                 alt=""
+                                style={{
+                                  minWidth: "30px",
+                                  minHeight: "30px",
+                                  marginRight: "10px",
+                                }}
                               />
-                              <div>
+                              <span className="table-data">
                                 {review.doctor.firstName}{" "}
                                 {review.doctor.lastName}
-                              </div>
+                              </span>
                             </div>
                           )}
                         </td>
@@ -81,18 +97,45 @@ const Reviews = () => {
                                     : userImg
                                 }
                                 alt=""
+                                style={{
+                                  minWidth: "30px",
+                                  minHeight: "30px",
+                                  marginRight: "10px",
+                                }}
                               />
-                              <div>
+                              <span className="table-data">
                                 {review.patient.firstName}{" "}
                                 {review.patient.lastName}
-                              </div>
+                              </span>
                             </div>
                           )}
                         </td>
-                        <td>{review.description}</td>
-                        <td>{review.isRecommended ? "Yes" : "No"}</td>
                         <td>
-                        <Rate disabled defaultValue={parseInt(review.star)} />
+                          <span className="table-data">
+                            {review.description}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            {review.isRecommended ? "Yes" : "No"}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="table-data">
+                            <Rate
+                              disabled
+                              defaultValue={parseInt(review.star)}
+                              style={{
+                                color:
+                                  parseInt(review.star) <= 2
+                                    ? "#ec1839"
+                                    : parseInt(review.star) > 2 &&
+                                      parseInt(review.star) <= 4
+                                    ? "#ffbb00"
+                                    : "#eb9400",
+                              }}
+                            />
+                          </span>
                         </td>
                       </tr>
                     ))}
