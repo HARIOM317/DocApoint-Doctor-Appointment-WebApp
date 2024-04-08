@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import userImg from "../../images/avatar.jpg";
 import { getFromLocalStorage } from "../../utils/local-storage";
 import AdminLayout from "./AdminLayout";
 import "../../stylesheets/adminStylesheets/Appointments.css";

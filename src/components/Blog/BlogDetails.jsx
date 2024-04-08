@@ -1,18 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetSingleBlogQuery } from "../../redux/api/blogApi";
-import { Empty, message } from "antd";
 import BlogAside from "./BlogAside";
 import Footer from "../Shared/Footer/Footer";
 import BlogComment from "./BlogComment";
 import Header from "../Shared/Header/Header";
 import SubHeader from "../Shared/SubHeader";
-import { FaRegUser, FaBusinessTime } from "react-icons/fa";
-import {
-  FaFacebookSquare,
-  FaInstagramSquare,
-  FaLinkedin,
-} from "react-icons/fa";
 import moment from "moment";
 
 import Lottie from "lottie-react";

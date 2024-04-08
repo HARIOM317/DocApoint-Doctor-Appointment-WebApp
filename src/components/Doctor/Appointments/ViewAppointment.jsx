@@ -12,7 +12,6 @@ import ReactToPrint from "react-to-print";
 
 import Lottie from "lottie-react";
 import Loading from "../../../animations/loading.json";
-import NoDataFound from "../../../animations/no_data_found.json";
 import SomethingWrong from "../../../animations/something_wrong.json";
 import userImg from "../../../images/user.png";
 import doctorImg from "../../../images/home/doctorProfile.jpg";

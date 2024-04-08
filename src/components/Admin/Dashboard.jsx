@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import AdminLayout from "./AdminLayout";
-import userImg from "../../images/user.png";
 import "../../stylesheets/adminStylesheets/Dashboard.css";
 
 import { getFromLocalStorage } from "../../utils/local-storage";

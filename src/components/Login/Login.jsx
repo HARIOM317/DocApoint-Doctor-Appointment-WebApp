@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import SignInImg from "../../images/doc/info.svg";
-import SignUpImg from "../../images/doc/register.svg";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Footer from "./Shared/Footer/Footer";
 import { useForm } from "react-hook-form";
-import { FaLocationArrow, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import Header from "./Shared/Header/Header";
 import "../stylesheets/Contact.css";
 import SubHeader from "./Shared/SubHeader";

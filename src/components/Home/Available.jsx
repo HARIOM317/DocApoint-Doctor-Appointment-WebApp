@@ -1,5 +1,4 @@
 import React from "react";
-import img from "../../images/features/feature.png";
 import "../../stylesheets/homeStylesheets/AvailableFeatures.css";
 import AvailableServiceContent from "./AvailableServiceContent";
 import Lottie from "lottie-react";

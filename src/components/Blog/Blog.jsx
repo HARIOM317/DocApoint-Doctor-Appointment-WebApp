@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Footer from "../Shared/Footer/Footer";
 import { useGetAllBlogsQuery } from "../../redux/api/blogApi";
 import { useDebounced } from "../../redux/hooks";
-import { Empty, Pagination, message } from "antd";
+import { Pagination} from "antd";
 import BlogAside from "./BlogAside";
 import { Link } from "react-router-dom";
 import Header from "../Shared/Header/Header";

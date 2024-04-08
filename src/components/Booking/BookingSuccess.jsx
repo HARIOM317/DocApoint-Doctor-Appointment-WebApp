@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import Footer from "../Shared/Footer/Footer";
 import {
   FaBriefcase,
-  FaCalendarCheck,
   FaRegClock,
   FaLocationArrow,
   FaCalendarAlt,
-  FaLink,
 } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 

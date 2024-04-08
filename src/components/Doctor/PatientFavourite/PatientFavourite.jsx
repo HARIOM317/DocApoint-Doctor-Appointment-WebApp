@@ -1,6 +1,4 @@
-import { useState } from "react";
-import img from "../../../images/doc/doctor 3.jpg";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
 import {
   useGetFavouriteQuery,
@@ -9,13 +7,8 @@ import {
 import { useEffect } from "react";
 import { Empty, message, Tooltip } from "antd";
 import {
-  FaLocationArrow,
-  FaCheckCircle,
   FaBookmark,
-  FaDollarSign,
-  FaClock,
 } from "react-icons/fa";
-import StarRatings from "react-star-ratings";
 import "../../../stylesheets/doctorStylesheets/PatientFavorite.css";
 import profileImage from "../../../images/home/doctorProfile.jpg";
 

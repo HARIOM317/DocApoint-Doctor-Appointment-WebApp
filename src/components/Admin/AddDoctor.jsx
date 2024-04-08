@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Select, message, Input } from "antd";
+import { Button, Select, message } from "antd";
 import { getFromLocalStorage } from "../../utils/local-storage";
 import AdminLayout from "./AdminLayout";
 import "../../stylesheets/doctorStylesheets/ProfileSetting.css";
