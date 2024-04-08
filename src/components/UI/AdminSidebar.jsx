@@ -1,13 +1,6 @@
 import React from "react";
 import "../../stylesheets/UIStylesheets/AdminSidebar.css";
-import { FaHome } from "react-icons/fa";
-import { FaListUl } from "react-icons/fa";
-import { FaPeopleArrows } from "react-icons/fa";
-import { FaRegUser } from "react-icons/fa";
-import { FaUserAstronaut } from "react-icons/fa";
-import { FaPlusCircle } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa";
-import { FaBriefcase } from "react-icons/fa";
+import { FaHome, FaListUl, FaRegStar, FaRegAddressCard, FaRegCommentDots, FaBlog, FaPrescription } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const AdminSidebar = () => {
@@ -22,24 +15,36 @@ const AdminSidebar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/admin/appointments"} >
+              <NavLink to={"/admin/appointments"}>
                 <FaListUl /> <span>Appointments</span>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/admin/doctors"}>
-                <FaUserAstronaut /> <span>Doctors</span>
+                <i class="fa-solid fa-user-doctor"></i> <span>Doctors</span>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/admin/addDoctor"}>
-                <FaPlusCircle />
+                <FaRegAddressCard />
                 <span>Add Doctors</span>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/admin/patients"}>
-                <FaRegUser /> <span>Patients</span>
+                <i class="fa-solid fa-hospital-user"></i> <span>Patients</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/prescription"}>
+                <FaPrescription />
+                <span>Prescriptions</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/blogs"}>
+                <FaBlog />
+                <span>Blogs</span>
               </NavLink>
             </li>
             <li>
@@ -49,10 +54,9 @@ const AdminSidebar = () => {
             </li>
             <li>
               <NavLink to={"/admin/contact"}>
-                <FaUserAstronaut /> <span>Contact</span>
+                <FaRegCommentDots /> <span>Contact</span>
               </NavLink>
             </li>
-            
           </ul>
         </nav>
       </div>

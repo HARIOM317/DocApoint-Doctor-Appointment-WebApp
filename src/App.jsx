@@ -17,6 +17,8 @@ import AdminDashboard from "./components/Admin/Dashboard";
 import AdminAppointments from "./components/Admin/Appointments";
 import Doctors from "./components/Admin/Doctors";
 import Patients from "./components/Admin/Patients";
+import AdminPrescription from "./components/Admin/adminPrescription";
+import AdminBlogs from "./components/Admin/AdminBlog";
 import Profile from "./components/Admin/Profile";
 import Transactions from "./components/Admin/Transactions";
 import Specialites from "./components/Admin/Specialites";
@@ -119,10 +121,11 @@ function App() {
         <Route path="/admin/doctors" element={<Doctors />} />
         <Route path="/admin/addDoctor" element={<AddNewDoctor />} />
         <Route path="/admin/patients" element={<Patients />} />
-        <Route path="/admin/profile" element={<Profile />} />
+        <Route path="/admin/prescription" element={<AdminPrescription />} />
+
+        <Route path="/admin/blogs" element={<AdminBlogs />} />
         <Route path="/admin/reviews" element={<AdminReviews />} />
         <Route path="/admin/transaction" element={<Transactions />} />
-        <Route path="/admin/specialites" element={<Specialites />} />
         <Route path="/admin/contact" element={<AdminContacts />} />
 
         <Route path="*" element={<NotFound />} />

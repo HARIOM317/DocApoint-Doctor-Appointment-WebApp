@@ -2,6 +2,7 @@ import { Popover } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button } from "antd";
+import adminAvatar from "../../../images/admin.png";
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
 import {
   FaHome,
@@ -102,7 +103,13 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
             <Popover content={content}>
               <div className="profileImage">
                 <img
-                  src={data?.img ? data?.img : avatar}
+                  src={
+                    data?.img
+                      ? data?.img
+                      : role === "admin"
+                      ? adminAvatar
+                      : avatar
+                  }
                   alt=""
                   className="profileImage shadow img-fluid"
                 />
