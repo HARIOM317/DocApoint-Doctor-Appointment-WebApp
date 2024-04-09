@@ -43,16 +43,16 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
             data: payload,
         });
 
-        const findAmbulance = await prisma.ambulance.findFirst({
-            where: {
-                city: city,
-                status: false,
-            }
-        });
+        // const findAmbulance = await prisma.ambulance.findFirst({
+        //     where: {
+        //         city: city,
+        //         status: false,
+        //     }
+        // });
 
-        if (!findAmbulance) {
-            throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'No available ambulance found!');
-        }
+        // if (!findAmbulance) {
+        //     throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'No available ambulance found!');
+        // }
 
         // model Ambulance {
         //     id           String         @id @default(uuid())
@@ -67,17 +67,17 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
           
         //     @@map("Ambulance")
         //   }
-        const pathName = path.join(__dirname, '../../../../template/emergency.html');
-        const emergencyObj = {
-            status: findAmbulance.status,
-            city: findAmbulance.city,
-            driverName : findAmbulance.driverName,
-            mobile : findAmbulance.mobile,
-            ambulanceNumber : findAmbulance.ambulanceNumber,
-            created: moment(findAmbulance.createdAt).format('LL'),
-            updated : moment(findAmbulance.updatedAt).format('LL')
-        };
-        const replacementObj = emergencyObj;
+        // const pathName = path.join(__dirname, '../../../../template/emergency.html');
+        // const emergencyObj = {
+        //     status: findAmbulance.status,
+        //     city: findAmbulance.city,
+        //     driverName : findAmbulance.driverName,
+        //     mobile : findAmbulance.mobile,
+        //     ambulanceNumber : findAmbulance.ambulanceNumber,
+        //     created: moment(findAmbulance.createdAt).format('LL'),
+        //     updated : moment(findAmbulance.updatedAt).format('LL')
+        // };
+        // const replacementObj = emergencyObj;
         // const subject = `emergency Confirm With Dr ${emergency?.doctor?.firstName + ' ' + emergency?.doctor?.lastName} at ${emergency.scheduleDate} + ' ' + ${emergency.scheduleTime}`
         // const toMail = `${emergency.email + ',' + emergency.doctor?.email}`;
         // EmailtTransporter({ pathName, replacementObj, toMail, subject })
