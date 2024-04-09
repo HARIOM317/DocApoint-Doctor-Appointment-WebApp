@@ -153,6 +153,7 @@ model Appointments {
   lastName           String?
   email              String?
   phone              String?
+  appointmentMode String?       @default("offline")
   address            String?
   description        String?
   scheduleDate       String?

@@ -4,7 +4,6 @@ import useAuthCheck from "../../redux/hooks/useAuthCheck";
 
 const PersonalInformation = ({
   handleChange,
-  handleModeChange,
   selectValue,
   setPiCheck,
   PiCheck,
@@ -18,7 +17,6 @@ const PersonalInformation = ({
     reasonForVisit,
     description,
     address,
-    appointmentMode,
   } = selectValue;
   const [checked, setChecked] = useState(false);
   const { data } = useAuthCheck();
@@ -26,6 +24,8 @@ const PersonalInformation = ({
   const onChange = (e) => {
     setChecked(e.target.checked);
   };
+
+  
 
   useEffect(() => {
     if (checked) {
@@ -143,30 +143,28 @@ const PersonalInformation = ({
 
         <div className="col-md-12 mb-4">
             <div className="d-flex justify-content-start align-items-center gap-5">
-              <div>
-                <input
-                  type="radio"
-                  name="appointmentMode"
-                  value="online"
-                  onChange={(e) => handleModeChange(e)}
-                  // onClick={paymentHandler}
-                  checked={appointmentMode === "online"}
-                  style={{ accentColor: "var(--primaryColor)" }}
-                />
-                <span className="ms-2"></span>
-                <Button >Online Appointment</Button>
-              </div>
+              
               <div >
                 <input
                   type="radio"
                   name="appointmentMode"
                   value="offline"
-                  onChange={(e) => handleModeChange(e)}
-                  checked={appointmentMode === "offline"}
+                  onChange={(e) => handleChange(e)}
                   style={{ accentColor: "var(--primaryColor)" }}
                 />
                 <span className="ms-2"></span>
-                <Button>Offline Appointment</Button>
+                <label>Offline Appointment</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="appointmentMode"
+                  value="online"
+                  onChange={(e) => handleChange(e)}
+                  style={{ accentColor: "var(--primaryColor)" }}
+                />
+                <span className="ms-2"></span>
+                <label >Online Appointment</label>
               </div>
             </div>
           </div>
