@@ -34,11 +34,11 @@ interface EmergencyPayload {
 const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | null | any> => {
     const { patientName, address, mobile, city, subject } = payload;
 
-    if (!address || !patientName || !city || !subject || !mobile) {
-        throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Missing required fields!');
+    if (!address || !patientName || !city || !mobile || !subject) {
+        throw new ApiError(httpStatus.BAD_REQUEST, 'Missing required fields!');
     }
-    try {
 
+    try {
         const EmergencyRes = await prisma.emergency.create({
             data: payload,
         });
@@ -50,8 +50,6 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
             }
         });
 
-        console.log(findAmbulance);
-
         if (!findAmbulance) {
             throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'No available ambulance found!');
         }
@@ -59,19 +57,21 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
         const pathName = path.join(__dirname, '../../../../template/emergency.html');
         const emergencyObj = {
             city: EmergencyRes.city,
-            patientName : EmergencyRes.patientName,
-            mobile : EmergencyRes.mobile,
-            address : EmergencyRes.address
+            patientName: EmergencyRes.patientName,
+            mobile: EmergencyRes.mobile,
+            address: EmergencyRes.address
         };
         const replacementObj = emergencyObj;
-        const subject = `You Booked for ${payload.patientName}`
+        const emailSubject = `You Booked for ${payload.patientName}`;
         const toMail = `${findAmbulance.email}`;
-        EmailtTransporter({ pathName, replacementObj, toMail, subject })
+        await EmailtTransporter({ pathName, replacementObj, toMail, subject: emailSubject });
+
         return findAmbulance;
     } catch (error) {
-        throw new ApiError(httpStatus.NO_CONTENT, "Unable to create Emergency!");
+        throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, "Unable to create Emergency!");
     }
 }
+
 
 const getAllEmergency = async (): Promise<Emergency[] | null> => {
     const result = await prisma.emergency.findMany();
