@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambulance Booked Html</title>
+</head>
+<body>
+    <div style="width: 100%; margin: 0 auto; text-align: center;">
+        <div style="max-width: 600px;; margin-bottom: 5rem; background: #f8f9fa; display: inline-block;">
+            <div style="padding: 10px;">
+                <span style="font-size: 2.5rem; color: #28a745;">✔</span>
+                <h4 style="margin: 10px 0;">Ambulance Booked</h4>
+                <p style="font-weight: bold; color: #007bff;">Patient Name - {{patientName}}</p>
+            </div>
+    
+            <div style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; margin-bottom: 5px;">
+                <!-- <div style="display: flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 1rem;margin-right: 5px;">👜</span><p>With Doctor</p>
+                </div> -->
+
+                <!-- <div style="display: flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 1rem;margin-right: 5px;">📅 Schedule</span><p style="margin: 0;">{{scheduleDate}}, {{scheduleTime}}</p>
+                </div> -->
+                <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+                    <span style="font-size: 1rem;margin-right: 5px;">⏰ Mobile: </span><p style="margin: 0;">{{mobile}}</p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+                    <span style="font-size: 1rem;margin-right: 5px;">📍 </span><p style="margin: 0;"> Address : {{address}}, {{city}}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

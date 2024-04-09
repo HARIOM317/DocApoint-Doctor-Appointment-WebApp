@@ -43,45 +43,31 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
             data: payload,
         });
 
-        // const findAmbulance = await prisma.ambulance.findFirst({
-        //     where: {
-        //         city: city,
-        //         status: false,
-        //     }
-        // });
+        const findAmbulance = await prisma.ambulance.findFirst({
+            where: {
+                city: city,
+                status: false,
+            }
+        });
 
-        // if (!findAmbulance) {
-        //     throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'No available ambulance found!');
-        // }
+        console.log(findAmbulance);
 
-        // model Ambulance {
-        //     id           String         @id @default(uuid())
-        //     driverName  String
-        //     mobile       String
-        //     email         String               
-        //     city         String
-        //     ambulanceNumber      String     
-        //     status        Boolean?       @default(false)
-        //     createdAt    DateTime       @default(now())
-        //     updatedAt    DateTime       @updatedAt
-          
-        //     @@map("Ambulance")
-        //   }
-        // const pathName = path.join(__dirname, '../../../../template/emergency.html');
-        // const emergencyObj = {
-        //     status: findAmbulance.status,
-        //     city: findAmbulance.city,
-        //     driverName : findAmbulance.driverName,
-        //     mobile : findAmbulance.mobile,
-        //     ambulanceNumber : findAmbulance.ambulanceNumber,
-        //     created: moment(findAmbulance.createdAt).format('LL'),
-        //     updated : moment(findAmbulance.updatedAt).format('LL')
-        // };
-        // const replacementObj = emergencyObj;
-        // const subject = `emergency Confirm With Dr ${emergency?.doctor?.firstName + ' ' + emergency?.doctor?.lastName} at ${emergency.scheduleDate} + ' ' + ${emergency.scheduleTime}`
-        // const toMail = `${emergency.email + ',' + emergency.doctor?.email}`;
-        // EmailtTransporter({ pathName, replacementObj, toMail, subject })
-        // return emergency;
+        if (!findAmbulance) {
+            throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'No available ambulance found!');
+        }
+
+        const pathName = path.join(__dirname, '../../../../template/emergency.html');
+        const emergencyObj = {
+            city: EmergencyRes.city,
+            patientName : EmergencyRes.patientName,
+            mobile : EmergencyRes.mobile,
+            address : EmergencyRes.address
+        };
+        const replacementObj = emergencyObj;
+        const subject = `You Booked for ${payload.patientName}`
+        const toMail = `${findAmbulance.email}`;
+        EmailtTransporter({ pathName, replacementObj, toMail, subject })
+        return findAmbulance;
     } catch (error) {
         throw new ApiError(httpStatus.NO_CONTENT, "Unable to create Emergency!");
     }
