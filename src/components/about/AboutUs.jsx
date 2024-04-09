@@ -8,7 +8,7 @@ const AboutUs = () => {
 
   return (
     <>
-      <section className="about" id="about" style={{marginTop: '4rem'}}>
+      <section className="about" id="about" style={{ marginTop: '4rem' }}>
         <div className="container">
           <div className="row">
             <div className="about-content pad-15">
@@ -19,9 +19,7 @@ const AboutUs = () => {
                     companion
                   </h3>
                   <p>
-                    Our mission is to simplify the process of finding and
-                    booking appointments with healthcare professionals, making
-                    quality healthcare accessible to all.
+                    Our mission is to make quality healthcare affordable and accessible for over a billion+ Indians. We believe in empowering our users with the most accurate, comprehensive, and curated information and care, enabling them to make better healthcare decisions.
                   </p>
                 </div>
               </div>

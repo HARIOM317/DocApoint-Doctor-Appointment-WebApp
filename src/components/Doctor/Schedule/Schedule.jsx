@@ -26,9 +26,7 @@ const Schedule = () => {
     day: key,
   });
 
-  console.log({ data });
-  console.log({ timeSlot });
-  console.log(timeSlot.id);
+  // content.log({data});
   const [
     createTimeSlot,
     { isError: AIsError, error, isLoading: AIsLoading, isSuccess },

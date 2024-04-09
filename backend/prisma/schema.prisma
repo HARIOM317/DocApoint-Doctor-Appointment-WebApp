@@ -114,6 +114,33 @@ model Doctor {
   @@map("Doctor")
 }
 
+model Emergency {
+  id           String         @id @default(uuid())
+  patientName  String
+  mobile       String
+  subject      String
+  city         String
+  address      String
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@map("Emergency")
+}
+
+model Ambulance {
+  id           String         @id @default(uuid())
+  driverName  String
+  mobile       String
+  email         String               
+  city         String
+  ambulanceNumber      String     
+  status        Boolean?       @default(false)
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@map("Ambulance")
+}
+
 model Appointments {
   id        String   @id @default(uuid())
   patientId String?
@@ -160,6 +187,9 @@ model Payment {
 
   @@map("Payment")
 }
+
+
+
 
 model Contact {
   id String @id @default(uuid())
