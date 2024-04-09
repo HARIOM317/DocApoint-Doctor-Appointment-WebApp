@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Popover } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
@@ -22,14 +22,14 @@ import {
 import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
-  const { register, handleSubmit, reset  } = useForm({});
+  const { register, handleSubmit, reset } = useForm({});
   const { role } = useAuthCheck();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectValue, setSelectValue] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const [emergency, { isLoading : emergencyLoading, isError, error, isSuccess }] =
-  useCreateEmergencyMutation();
+  const [emergency, { isLoading: emergencyLoading, isError, error, isSuccess }] =
+    useCreateEmergencyMutation();
 
   const onSubmit = async (data) => {
     const obj = data;
@@ -175,8 +175,8 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                     data?.img
                       ? data?.img
                       : role === "admin"
-                      ? adminAvatar
-                      : avatar
+                        ? adminAvatar
+                        : avatar
                   }
                   alt=""
                   className="profileImage shadow img-fluid"
@@ -422,4 +422,4 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
   );
 };
 
-export default HeaderNav;
+export default HeaderNav;

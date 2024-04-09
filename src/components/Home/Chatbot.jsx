@@ -26,21 +26,21 @@ const config = {
   floating: true,
   floatingStyle: { background: "var(--primaryColor)" },
   botAvatar: "bot.png",
+  floatingIcon: (
+    <i
+      className="fa fa-headset"
+      style={{ color: "white", fontSize: "1.5rem" }}
+    />
+  ),
   speechSynthesis: false, // disabled voice
 };
 
 const Chatbot = (props) => {
   let [showChat, setShowChat] = useState(false);
 
-  const startChat = () => {
-    setShowChat(false);
-  };
-  const hideChat = () => {
-    setShowChat(false);
-  };
-
   const handleLinkClick = (url) => {
     window.open(url, "_blank");
+    return "question";
   };
 
   return (
@@ -357,7 +357,7 @@ const Chatbot = (props) => {
             {
               id: "appointment",
               message:
-                "Awesome ! We are provide the speciality for which you would like to book an appointment.",
+                "Awesome ! We are provide the specialization for which you would like to book an appointment.",
               trigger: "appoint-special",
             },
 
