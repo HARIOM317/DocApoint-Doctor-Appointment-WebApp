@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Popover } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button, Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { DatePicker, Select } from "antd";
+import { message } from "antd";
 import adminAvatar from "../../../images/admin.png";
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+import { useCreateEmergencyMutation } from "../../../redux/api/emergencyApi";
 import {
   FaHome,
   FaPhoneAlt,
@@ -20,48 +22,37 @@ import {
 import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
-  const URL = `http://localhost:5000/api/v1/ambulance`;
-  const { register, handleSubmit } = useForm({});
+  const { register, handleSubmit, reset  } = useForm({});
   const { role } = useAuthCheck();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectValue, setSelectValue] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  const [emergency, { isLoading : emergencyLoading, isError, error, isSuccess }] =
+  useCreateEmergencyMutation();
+
   const onSubmit = async (data) => {
     const obj = data;
     const newObj = { ...obj, ...selectValue };
     const formData = new FormData();
-    // selectedImage && formData.append("file", file);
     const changedValue = Object.fromEntries(
       Object.entries(newObj).filter(([key, value]) => value !== "")
     );
     const changeData = JSON.stringify(changedValue);
     formData.append("data", changeData);
-
-    console.log("Changed Data: " + formData.get("data"));
-    try {
-      setIsLoading(true);
-      const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: formData.get("data"),
-      });
-      const data = await response.json();
-      //if response is ok then set success to true
-      if (response.ok) {
-        setIsLoading(false);
-        // clear the fields after success
-        window.location.reload();
-      } else {
-        setIsLoading(false);
-      }
-    } catch (error) {
-      setIsLoading(false);
-      console.error("Error while adding setting appointment:", error);
-    }
+    const dataObject = JSON.parse(changeData);
+    emergency(dataObject);
+    reset();
   };
+
+  useEffect(() => {
+    if (!isLoading && isError) {
+      message.error(error?.data?.message);
+    }
+    if (isSuccess) {
+      message.success("Successfully Emergency Booked");
+    }
+  }, [isLoading, isError, error, isSuccess]);
 
   const { Option } = Select;
 
@@ -385,7 +376,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 <Select
                   defaultValue={"Emergency"}
                   className="dropdown"
-                  onChange={(value) => handleChange(value, "emergency")}
+                  onChange={(value) => handleChange(value, "subject")}
                   placeholder="Select Emergency"
                   style={{ marginTop: "15px" }}
                 >
@@ -400,18 +391,18 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                     Heavy bleeding after an injury or accident
                   </Option>
                   <Option value="Toxicologist">
-                    Poisoning, swallowing something you shouldn't have
+                    Poisoning, swallowing something you shouldn't have
                   </Option>
                   <Option value=" Emergency Medicine Physician.">
                     Seizure, inability to stay alert and awake
                   </Option>
                   <Option value="Allergist">
-                    Sudden facial, mouth, or throat swelling
+                    Sudden facial, mouth, or throat swelling
                   </Option>
                 </Select>
               </div>
             </div>
-            <div className="text-center my-3">
+            {/* <div className="text-center my-3">
               <Button
                 htmlType="submit"
                 type="primary"
@@ -423,7 +414,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                   ? "finding available ambulances ..."
                   : "Emergency Booking"}
               </Button>
-            </div>
+            </div> */}
           </form>
         </div>
       </Modal>
@@ -431,4 +422,4 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
   );
 };
 
-export default HeaderNav;
+export default HeaderNav;
