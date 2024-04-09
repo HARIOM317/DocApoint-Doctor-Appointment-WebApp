@@ -20,7 +20,7 @@ import {
 import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
-  const URL = `http://localhost:5000/api/v1/ambulance`;
+  const URL = "http://localhost:5000/api/v1/ambulance";
   const { register, handleSubmit } = useForm({});
   const { role } = useAuthCheck();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,7 +46,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: formData.get("data"),
+        body: changeData,
       });
       const data = await response.json();
       //if response is ok then set success to true
@@ -385,7 +385,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 <Select
                   defaultValue={"Emergency"}
                   className="dropdown"
-                  onChange={(value) => handleChange(value, "emergency")}
+                  onChange={(value) => handleChange(value, "subject")}
                   placeholder="Select Emergency"
                   style={{ marginTop: "15px" }}
                 >
@@ -400,13 +400,13 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                     Heavy bleeding after an injury or accident
                   </Option>
                   <Option value="Toxicologist">
-                    Poisoning, swallowing something you shouldn't have
+                    Poisoning, swallowing something you shouldn't have
                   </Option>
                   <Option value=" Emergency Medicine Physician.">
                     Seizure, inability to stay alert and awake
                   </Option>
                   <Option value="Allergist">
-                    Sudden facial, mouth, or throat swelling
+                    Sudden facial, mouth, or throat swelling
                   </Option>
                 </Select>
               </div>
