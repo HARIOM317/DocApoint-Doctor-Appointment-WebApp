@@ -31,7 +31,6 @@ import BlogsEdit from "./components/Doctor/Blogs/BlogsEdit";
 import AddBlog from "./components/Doctor/Blogs/AddBlog";
 import Blog from "./components/Blog/Blog";
 import BlogDetails from "./components/Blog/BlogDetails";
-import Emergency from "./components/Emergency";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Service from "./components/Service";
@@ -103,7 +102,6 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/doctors" element={<SearchDoctor />} />
         <Route path="/doctors/profile/:id" element={<DoctorProfile />} />
-        <Route path="/emergency" element={<Emergency />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetails />} />

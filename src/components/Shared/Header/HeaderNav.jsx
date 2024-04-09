@@ -3,6 +3,7 @@ import { Popover } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button, Modal } from "antd";
+import { useForm } from "react-hook-form";
 import { DatePicker, Select } from "antd";
 import adminAvatar from "../../../images/admin.png";
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
@@ -14,14 +15,53 @@ import {
   FaAddressBook,
   FaBloggerB,
   FaSignInAlt,
-  FaBroadcastTower
+  FaBroadcastTower,
 } from "react-icons/fa";
 import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
+  const URL = `http://localhost:5000/api/v1/emergency`;
+  const { register, handleSubmit } = useForm({});
   const { role } = useAuthCheck();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectValue, setSelectValue] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (data) => {
+    const obj = data;
+    const newObj = { ...obj, ...selectValue };
+    const formData = new FormData();
+    // selectedImage && formData.append("file", file);
+    const changedValue = Object.fromEntries(
+      Object.entries(newObj).filter(([key, value]) => value !== "")
+    );
+    const changeData = JSON.stringify(changedValue);
+    formData.append("data", changeData);
+
+    console.log("Changed Data: " + formData.get("data"));
+    try {
+      setIsLoading(true);
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: formData.get("data"),
+      });
+      const data = await response.json();
+      //if response is ok then set success to true
+      if (response.ok) {
+        setIsLoading(false);
+        // clear the fields after success
+        window.location.reload();
+      } else {
+        setIsLoading(false);
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error while adding setting appointment:", error);
+    }
+  };
 
   const { Option } = Select;
 
@@ -277,25 +317,21 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
         onCancel={handleCancel}
       >
         <div className="profile-setting">
-          <form className="row form-row">
-            <div className="col-md-6">
+          <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
+            <div className="col-md-12">
               <div className="form-group mb-2 card-label">
                 <label className="label-style">
-                  First Name <span className="text-danger">*</span>
+                  Patient Name <span className="text-danger">*</span>
                 </label>
-                <input className="text-input-field" placeholder="First Name" />
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group mb-2 card-label">
-                <label className="label-style">
-                  Last Name <span className="text-danger">*</span>
-                </label>
-                <input className="text-input-field" placeholder="Last Name" />
+                <input
+                  className="text-input-field"
+                  {...register("patientName")}
+                  placeholder="Patient Name"
+                />
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-12">
               <div className="form-group mb-2 card-label">
                 <label className="label-style">
                   Phone Number <span className="text-danger">*</span>
@@ -303,34 +339,34 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 <input
                   className="text-input-field"
                   placeholder="Phone Number"
+                  {...register("mobile")}
                 />
               </div>
             </div>
 
-            <div className="col-md-6">
-              <div className="form-group mb-2 card-label">
-                <label className="label-style">
-                  Email <span className="text-danger">*</span>
-                </label>
-                <input className="text-input-field" placeholder="Email" />
-              </div>
-            </div>
-
-            <div className="col-md-6">
+            <div className="col-md-12">
               <div className="form-group mb-2 card-label">
                 <label className="label-style">
                   City <span className="text-danger">*</span>
                 </label>
-                <input className="text-input-field" placeholder="City" />
+                <input
+                  className="text-input-field"
+                  placeholder="City"
+                  {...register("city")}
+                />
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-12">
               <div className="form-group mb-2 card-label">
                 <label className="label-style">
                   Address <span className="text-danger">*</span>
                 </label>
-                <input className="text-input-field" placeholder="Address" />
+                <input
+                  className="text-input-field"
+                  placeholder="Address"
+                  {...register("address")}
+                />
               </div>
             </div>
 
@@ -340,31 +376,45 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                   Emergency Type <span className="text-danger">*</span>
                 </label>
                 <Select
+                  defaultValue={"other"}
+                  onChange={(value) => handleChange(value, "subject")}
                   className="dropdown"
-                  onChange={(value) => handleChange(value, "emergency")}
                   placeholder="Select Emergency Type"
                 >
-                  <Option value="emergency1">
+                  <Option value="Cardiologist">
                     Crushing chest pain, difficulty breathing
                   </Option>
-                  <Option value="emergency2">
+                  <Option value="Neurologist">
                     Sudden face drooping, difficulty speaking, weakness or
                     numbness
                   </Option>
-                  <Option value="emergency3">
+                  <Option value="General Surgeon">
                     Heavy bleeding after an injury or accident
                   </Option>
-                  <Option value="emergency4">
+                  <Option value="Toxicologist">
                     Poisoning, swallowing something you shouldn't have
                   </Option>
-                  <Option value="emergency5">
+                  <Option value=" Emergency Medicine Physician.">
                     Seizure, inability to stay alert and awake
                   </Option>
-                  <Option value="emergency6">
+                  <Option value="Allergist">
                     Sudden facial, mouth, or throat swelling
                   </Option>
                 </Select>
               </div>
+            </div>
+            <div className="text-center my-3">
+              <Button
+                htmlType="submit"
+                type="primary"
+                size="large"
+                loading={isLoading}
+                disabled={isLoading ? true : false}
+              >
+                {isLoading
+                  ? "finding available ambulances ..."
+                  : "Emergency Booking"}
+              </Button>
             </div>
           </form>
         </div>
