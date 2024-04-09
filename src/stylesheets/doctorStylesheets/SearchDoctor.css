@@ -1,7 +1,7 @@
 .doc-img-fluid img {
     height: 200px;
     width: 200px;
-    border: 2px solid var(--borderColor);
+    border: 1.5px solid var(--borderLight);
     border-radius: 50%;
     overflow: hidden;
     object-fit: cover;

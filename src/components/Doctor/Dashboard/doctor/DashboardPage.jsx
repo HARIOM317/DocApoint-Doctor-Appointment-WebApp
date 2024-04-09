@@ -34,7 +34,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      message.success("Succcessfully Appointment Updated");
+      message.success("Successfully Appointment Updated");
     }
     if (isError) {
       message.error(error?.data?.message);
@@ -53,12 +53,12 @@ const DashboardPage = () => {
               <a className="avatar avatar-sm mr-2 d-flex gap-2">
                 <img
                   className="avatar-img rounded-circle"
-                  style={{ width: "30px", height: "30px" }}
+                  style={{ width: "30px", height: "30px", objectFit: 'cover' }}
                   src={data?.patient?.img ? data?.patient?.img : img}
                   alt=""
                 />
                 <div>
-                  <p className="p-0 m-0 text-nowrap" style={{color: 'var(--textColor)'}}>
+                  <p className="p-0 m-0 text-wrap" style={{color: 'var(--textColor)'}}>
                     {data?.firstName + " " + data?.lastName}
                   </p>
                 </div>

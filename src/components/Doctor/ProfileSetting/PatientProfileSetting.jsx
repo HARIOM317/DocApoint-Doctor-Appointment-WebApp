@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
-import moment from 'moment';
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { bloodGrupOptions } from '../../../constant/global';
-import { useUpdatePatientMutation } from '../../../redux/api/patientApi';
-import useAuthCheck from '../../../redux/hooks/useAuthCheck';
-import { message } from 'antd';
-import ImageUpload from '../../UI/form/ImageUpload';
-import pImage from '../../../images/user.png';
-import { DatePicker, Select } from 'antd';
-import "../../../stylesheets/doctorStylesheets/ProfileSetting.css"
+import React, { useEffect, useRef, useState } from "react";
+import moment from "moment";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { bloodGrupOptions } from "../../../constant/global";
+import { useUpdatePatientMutation } from "../../../redux/api/patientApi";
+import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+import { message } from "antd";
+import ImageUpload from "../../UI/form/ImageUpload";
+import pImage from "../../../images/user.png";
+import { DatePicker, Select } from "antd";
+import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const { Option } = Select;
 
@@ -19,8 +19,10 @@ const PatientProfileSetting = () => {
   const [userId, setUserId] = useState("");
   // const [selectBloodGroup, setSelectBloodGroup] = useState('');
   const [selectValue, setSelectValue] = useState({});
-  const [updatePatient, { isSuccess, isError, error, isLoading }] =
-    useUpdatePatientMutation();
+  const [
+    updatePatient,
+    { isSuccess, isError, error, isLoading },
+  ] = useUpdatePatientMutation();
   const [date, setDate] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [file, setFile] = useState(null);
