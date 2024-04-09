@@ -383,7 +383,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                   <Option value="Cardiologist">
                     Crushing chest pain, difficulty breathing
                   </Option>
-                  <Option value="Neurologist">
+                  <Option value="Nueuologist">
                     Sudden face drooping, difficulty speaking, weakness or
                     numbness
                   </Option>
