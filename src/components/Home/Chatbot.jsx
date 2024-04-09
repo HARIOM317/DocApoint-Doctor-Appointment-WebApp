@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const theme = {
   background: "var(--bgColor)",
@@ -36,10 +37,12 @@ const config = {
 };
 
 const Chatbot = (props) => {
+  const navigate = useNavigate();
+
   let [showChat, setShowChat] = useState(false);
 
   const handleLinkClick = (url) => {
-    window.open(url, "_blank");
+    navigate(url);
     return "question";
   };
 
@@ -323,7 +326,7 @@ const Chatbot = (props) => {
                   value: 1,
                   label: "Book Appointment with our Doctor",
                   trigger: () =>
-                    handleLinkClick("http://localhost:3000/doctors"),
+                    handleLinkClick("/doctors/profile/d15f217d-43ad-4271-9857-aaf625db093a"),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
@@ -341,7 +344,7 @@ const Chatbot = (props) => {
                   value: 1,
                   label: "show our Doctor",
                   trigger: () =>
-                    handleLinkClick("http://localhost:3000/doctors"),
+                    handleLinkClick("/doctors"),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
@@ -389,7 +392,7 @@ const Chatbot = (props) => {
                   value: 1,
                   label: "Book Appointment",
                   trigger: () =>
-                    handleLinkClick("http://localhost:3000/doctors"),
+                    handleLinkClick("/doctors"),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
