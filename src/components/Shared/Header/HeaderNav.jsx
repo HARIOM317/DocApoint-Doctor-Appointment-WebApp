@@ -20,7 +20,7 @@ import {
 import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
-  const URL = `http://localhost:5000/api/v1/emergency`;
+  const URL = `http://localhost:5000/api/v1/ambulance`;
   const { register, handleSubmit } = useForm({});
   const { role } = useAuthCheck();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -375,11 +375,19 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 <label className="label-style">
                   Emergency Type <span className="text-danger">*</span>
                 </label>
-                <Select
+                {/* <Select
                   defaultValue={"other"}
-                  onChange={(value) => handleChange(value, "subject")}
                   className="dropdown"
-                  placeholder="Select Emergency Type"
+                  onChange={(value) => handleChange(value, "subject")}
+                  placeholder="Select Emergency"
+                  style={{ marginTop: "15px" }}
+                > */}
+                <Select
+                  defaultValue={"Emergency"}
+                  className="dropdown"
+                  onChange={(value) => handleChange(value, "emergency")}
+                  placeholder="Select Emergency"
+                  style={{ marginTop: "15px" }}
                 >
                   <Option value="Cardiologist">
                     Crushing chest pain, difficulty breathing
