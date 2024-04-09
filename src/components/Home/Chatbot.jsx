@@ -326,7 +326,9 @@ const Chatbot = (props) => {
                   value: 1,
                   label: "Book Appointment with our Doctor",
                   trigger: () =>
-                    handleLinkClick("/doctors/profile/d15f217d-43ad-4271-9857-aaf625db093a"),
+                    handleLinkClick(
+                      "/doctors/profile/d15f217d-43ad-4271-9857-aaf625db093a"
+                    ),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
@@ -343,8 +345,7 @@ const Chatbot = (props) => {
                 {
                   value: 1,
                   label: "show our Doctor",
-                  trigger: () =>
-                    handleLinkClick("/doctors"),
+                  trigger: () => handleLinkClick("/doctors"),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
@@ -391,8 +392,7 @@ const Chatbot = (props) => {
                 {
                   value: 1,
                   label: "Book Appointment",
-                  trigger: () =>
-                    handleLinkClick("/doctors"),
+                  trigger: () => handleLinkClick("/doctors"),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
