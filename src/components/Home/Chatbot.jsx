@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const theme = {
   background: "var(--bgColor)",
@@ -36,10 +37,12 @@ const config = {
 };
 
 const Chatbot = (props) => {
+  const navigate = useNavigate();
+
   let [showChat, setShowChat] = useState(false);
 
   const handleLinkClick = (url) => {
-    window.open(url, "_blank");
+    navigate(url);
     return "question";
   };
 
@@ -256,7 +259,7 @@ const Chatbot = (props) => {
               options: [
                 { value: 1, label: "Dr. Harsh Kamde", trigger: "Doc1" },
                 { value: 2, label: "Dr. Pooja Rajput", trigger: "Doc2" },
-                { value: 3, label: "Dr. Hariom Rajput", trigger: "Doc3" },
+                { value: 3, label: "Dr. Sumit Gupta", trigger: "Doc3" },
                 { value: 4, label: "Other Doctors", trigger: "ODoc" },
               ],
             },
@@ -268,9 +271,36 @@ const Chatbot = (props) => {
             {
               id: "hrsh",
               options: [
-                { value: 1, label: "Neurologist", trigger: "BD" },
-                { value: 2, label: "Cardiologist", trigger: "BD" },
-                { value: 3, label: "Dermatologist", trigger: "BD" },
+                { value: 1, label: "Neurologist", trigger: "hrD" },
+                { value: 2, label: "Cardiologist", trigger: "hrD" },
+                { value: 3, label: "Dermatologist", trigger: "hrD" },
+              ],
+            },
+            {
+              id: "hrD",
+              message:
+                "Awesome ! We are provide the speciality for which you would like to book an appointment with our Doctors.",
+              trigger: "harshSpD",
+            },
+
+            {
+              id: "harshSpD",
+              message: "Thats Great ! what would you like to",
+              trigger: "harshbook",
+            },
+
+            {
+              id: "harshbook",
+              options: [
+                {
+                  value: 1,
+                  label: "Book Appointment with our Doctor",
+                  trigger: () =>
+                    handleLinkClick(
+                      "/doctors/profile/d15f217d-43ad-4271-9857-aaf625db093a"
+                    ),
+                },
+                { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
             },
 
@@ -284,46 +314,85 @@ const Chatbot = (props) => {
               options: [
                 {
                   value: 1,
-                  label: "Common Illnesses",
-                  trigger: "BD",
+                  label: "Pediatrician",
+                  trigger: "pjD",
+                },
+                {
+                  value: 2,
+                  label: "Orthopedic",
+                  trigger: "pjD",
+                },
+                {
+                  value: 3,
+                  label: "Neurologist",
+                  trigger: "pjD",
                 },
               ],
             },
-
             {
-              id: "Doc3",
-              message: "Dr. Hariom Rajput Specialist of the.",
-              trigger: "hari",
-            },
-            {
-              id: "hari",
-              options: [
-                { value: 1, label: "Orthopedic Surgeon", trigger: "BD" },
-                { value: 2, label: "Cardiologist", trigger: "BD" },
-                { value: 3, label: "Ophthalmologist", trigger: "BD" },
-              ],
-            },
-            {
-              id: "BD",
+              id: "pjD",
               message:
                 "Awesome ! We are provide the speciality for which you would like to book an appointment with our Doctors.",
-              trigger: "SpDc",
+              trigger: "poojaSpD",
             },
 
             {
-              id: "SpDc",
+              id: "poojaSpD",
               message: "Thats Great ! what would you like to",
-              trigger: "doctorlbook",
+              trigger: "poojabook",
             },
 
             {
-              id: "doctorlbook",
+              id: "poojabook",
               options: [
                 {
                   value: 1,
                   label: "Book Appointment with our Doctor",
                   trigger: () =>
-                    handleLinkClick("http://localhost:3000/doctors"),
+                    handleLinkClick(
+                      "/doctors/profile/ecd2d6cb-a970-4871-9eae-6724fb7f73b2"
+                    ),
+                },
+                { value: 2, label: "Not Interested", trigger: "q-submit" },
+              ],
+            },
+
+            {
+              id: "Doc3",
+              message: "Dr. Sumit Gupta Specialist of the.",
+              trigger: "hari",
+            },
+            {
+              id: "hari",
+              options: [
+                { value: 1, label: "Orthopedic Surgeon", trigger: "hariD" },
+                { value: 2, label: "Cardiologist", trigger: "hariD" },
+                { value: 3, label: "Ophthalmologist", trigger: "hariD" },
+              ],
+            },
+            {
+              id: "hariD",
+              message:
+                "Awesome ! We are provide the speciality for which you would like to book an appointment with our Doctors.",
+              trigger: "hariSpDc",
+            },
+
+            {
+              id: "hariSpDc",
+              message: "Thats Great ! what would you like to",
+              trigger: "hariDbook",
+            },
+
+            {
+              id: "hariDbook",
+              options: [
+                {
+                  value: 1,
+                  label: "Book Appointment with our Doctor",
+                  trigger: () =>
+                    handleLinkClick(
+                      "/doctors/profile/f13dc13f-a2ab-4545-905f-e5b56bdf5ae1"
+                    ),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
@@ -340,8 +409,7 @@ const Chatbot = (props) => {
                 {
                   value: 1,
                   label: "show our Doctor",
-                  trigger: () =>
-                    handleLinkClick("http://localhost:3000/doctors"),
+                  trigger: () => handleLinkClick("/doctors"),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
@@ -366,7 +434,7 @@ const Chatbot = (props) => {
               options: [
                 {
                   value: 1,
-                  label: "Common Illnesses",
+                  label: "Pediatrician",
                   trigger: "App-bkng",
                 },
                 { value: 2, label: "Neurologist", trigger: "App-bkng" },
@@ -388,8 +456,7 @@ const Chatbot = (props) => {
                 {
                   value: 1,
                   label: "Book Appointment",
-                  trigger: () =>
-                    handleLinkClick("http://localhost:3000/doctors"),
+                  trigger: () => handleLinkClick("/doctors"),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],

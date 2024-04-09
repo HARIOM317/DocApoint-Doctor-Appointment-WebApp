@@ -30,6 +30,7 @@ const CheckoutPage = ({
   const totalAmount = Number(price) + 10 + gst;
 
   const [amount, setAmount] = useState(0);
+  const [appointmentType, setAppointmentType] = useState("offline");
   const currency = "INR";
   const receiptId = "qwsaq1";
 
