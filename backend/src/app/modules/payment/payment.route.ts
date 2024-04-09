@@ -1,6 +1,8 @@
 import express from 'express';
 const router = express.Router();
 const Razorpay = require("razorpay");
+import { Payment } from "@prisma/client";
+import prisma from "../../../shared/prisma";
 const crypto = require("crypto");
 require("dotenv").config();
 
@@ -45,6 +47,11 @@ router.post("/order/validate", async (req, res) => {
         paymentId: razorpay_payment_id,
     });
 
+});
+
+router.get("/revenue",async (req, res)=>{
+    const result = await prisma.payment.findMany();
+    return result;
 });
 
 export const PaymentRouter = router;

@@ -23,6 +23,8 @@ const contactUs = async (payload: ContactPayload): Promise<Contact | null | any>
         const contact_res = await prisma.contact.create({
             data: payload,
         });
+
+        
     } catch (error) {
         throw new ApiError(httpStatus.NO_CONTENT, "Unable to send message !")
     }
