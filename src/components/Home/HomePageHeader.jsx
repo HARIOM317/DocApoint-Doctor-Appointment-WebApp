@@ -56,12 +56,14 @@ const HomePageHeader = () => {
                     Book Appointment
                   </NavLink>
                 )}
-                <NavLink
-                  to={"/track-appointment"}
-                  className="btn-get-started scrollto"
-                >
-                  Track Appointment
-                </NavLink>
+                {role === "patient" && (
+                  <NavLink
+                    to={"/track-appointment"}
+                    className="btn-get-started scrollto"
+                  >
+                    Track Appointment
+                  </NavLink>
+                )}
               </div>
             </div>
 

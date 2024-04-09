@@ -1,0 +1,24 @@
+.treatment{
+    border: 1.5px solid var(--borderColor);
+    border-radius: 8px;
+    background: var(--bgLight);
+}
+
+/* .treatment .patients-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+} */
+
+.treatment .patients-info .patient-name{
+    color: var(--headingColor);
+    text-align: center;
+}
+
+.treatment .patients-info .patient-data{
+    color: var(--textColor);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    
+}

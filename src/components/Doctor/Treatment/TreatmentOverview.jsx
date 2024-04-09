@@ -8,36 +8,40 @@ import {
 } from "react-icons/fa";
 import moment from "moment";
 import { Tag } from "antd";
+import "../../../stylesheets/doctorStylesheets/Treatment.css";
 
 const TreatmentOverview = ({ data, isAppointment = false }) => {
-  console.log({data});
+  console.log({ data });
   // console.log(data.firstName);
   return (
     <>
       <div className="w-100 mb-3 rounded p-3 text-center d-flex justify-content-between bg-gray-g">
         <div className="container row">
-          <div className="col-5 p-2 rounded text-white border border-success">
-            <Link to={"/"} className="my-3 patient-img">
-              <img
-                src={data?.patient?.img ? data?.patient?.img : profileImg}
-                alt=""
-                style={{ height: "90px", width: "90px" }}
-              />
-            </Link>
-            <div className="patients-info info mt-3">
-              <h5 className="text-dark ">{data?.firstName + " " + data?.lastName}</h5>
-              <div className="info">
-                <p>
+          <div className="col-5 p-2 ">
+            <div className="treatment">
+              <Link to={"/"} className="my-3 patient-img">
+                <img
+                  src={data?.patient?.img ? data?.patient?.img : profileImg}
+                  alt=""
+                  style={{ height: "90px", width: "90px" }}
+                />
+              </Link>
+              <div className="patients-info">
+                <h5 className="patient-name">
+                  {data?.firstName + " " + data?.lastName}
+                </h5>
+
+                <p className="patient-data">
                   <FaClock className="icon" />{" "}
                   {moment(data?.createdAt).format("LL")}{" "}
                 </p>
-                <p>
+                <p className="patient-data">
                   <FaLocationArrow className="icon" /> {data?.address}
                 </p>
-                <p>
+                <p className="patient-data">
                   <FaEnvelope className="icon" /> {data?.email}
                 </p>
-                <p>
+                <p className="patient-data">
                   <FaPhoneAlt className="icon" /> {data?.phone}
                 </p>
               </div>
@@ -47,12 +51,11 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
           <div className="col-7 px-5">
             <h5>Patient Overview</h5>
             <hr />
-            <div
-              className="p-2 rounded"
-              
-            >
+            <div className="p-2 rounded">
               <p className="form-text text-start m-0">
-                {data?.appointment?.description ? data?.appointment?.description : data?.description}
+                {data?.appointment?.description
+                  ? data?.appointment?.description
+                  : data?.description}
               </p>
             </div>
 

@@ -22,7 +22,7 @@ const Home = () => {
     <>
       <Header />
       <HomePageHeader />
-      <Chatbot/>
+      {/* <Chatbot/> */}
       <InfoPage />
       <Service />
       <HowToUse />

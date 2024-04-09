@@ -33,7 +33,7 @@ const PatientDashboard = () => {
             <div>
               <img
                 className="avatar-img rounded-circle"
-                style={{ width: "30px", height: "30px" }}
+                style={{ width: "30px", height: "30px", objectFit: 'cover' }}
                 src={
                   data?.appointment?.doctor?.img
                     ? data?.appointment?.doctor?.img

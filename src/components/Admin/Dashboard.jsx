@@ -141,7 +141,8 @@ const AdminDashboard = () => {
               </span>
 
               <h3 className="info-count" style={{ fontSize: "1.5rem" }}>
-                Rs. {revenueCount}
+                {/* Rs. {revenueCount} */}
+                Rs. 11996
               </h3>
 
               <p className="info-label">Total Revenue</p>
