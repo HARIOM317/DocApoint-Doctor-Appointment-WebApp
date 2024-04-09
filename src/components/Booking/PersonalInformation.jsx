@@ -141,7 +141,7 @@ const PersonalInformation = ({
           </div>
         </div>
 
-        <div className="col-md-12 mb-4">
+        {/* <div className="col-md-12 mb-4">
             <div className="d-flex justify-content-start align-items-center gap-5">
               <div>
                 <input
@@ -169,7 +169,7 @@ const PersonalInformation = ({
                 <Button>Offline Appointment</Button>
               </div>
             </div>
-          </div>
+          </div> */}
       </div>
     </form>
   );
