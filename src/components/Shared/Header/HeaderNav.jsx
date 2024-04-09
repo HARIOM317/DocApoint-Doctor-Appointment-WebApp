@@ -313,7 +313,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
         title="Book Emergency Appointment"
         open={isModalOpen}
         okText="Book Appointment"
-        onOk={handleOk}
+        onOk={handleSubmit(onSubmit)}
         onCancel={handleCancel}
       >
         <div className="profile-setting">
