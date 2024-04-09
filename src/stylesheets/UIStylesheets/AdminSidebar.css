@@ -6,6 +6,7 @@
   top: 60px;
   width: 240px;
   border-right: 1px solid var(--borderLight);
+  height: 100%;
 }
 
 .sidebar-inner {

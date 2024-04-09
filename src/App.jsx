@@ -14,6 +14,8 @@ import ChangePassword from "./components/Doctor/ChangePassword/ChangePassword";
 
 // Admin Components
 import AdminDashboard from "./components/Admin/Dashboard";
+import Emergencies from "./components/Admin/Emergencies";
+import Ambulance from "./components/Admin/Ambulance";
 import AdminAppointments from "./components/Admin/Appointments";
 import Doctors from "./components/Admin/Doctors";
 import Patients from "./components/Admin/Patients";
@@ -118,6 +120,8 @@ function App() {
 
         {/* Admin Dashboard  */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/emergency" element={<Emergencies />} />
+        <Route path="/admin/ambulance" element={<Ambulance />} />
         <Route path="/admin/appointments" element={<AdminAppointments />} />
         <Route path="/admin/doctors" element={<Doctors />} />
         <Route path="/admin/addDoctor" element={<AddNewDoctor />} />

@@ -411,7 +411,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 </Select>
               </div>
             </div>
-            <div className="text-center my-3">
+            {/* <div className="text-center my-3">
               <Button
                 htmlType="submit"
                 type="primary"
@@ -423,7 +423,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                   ? "finding available ambulances ..."
                   : "Emergency Booking"}
               </Button>
-            </div>
+            </div> */}
           </form>
         </div>
       </Modal>

@@ -1,6 +1,14 @@
 import React from "react";
 import "../../stylesheets/UIStylesheets/AdminSidebar.css";
-import { FaHome, FaListUl, FaRegStar, FaRegAddressCard, FaRegCommentDots, FaBlog, FaPrescription } from "react-icons/fa";
+import {
+  FaHome,
+  FaListUl,
+  FaRegStar,
+  FaRegAddressCard,
+  FaRegCommentDots,
+  FaBlog,
+  FaPrescription,
+} from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const AdminSidebar = () => {
@@ -12,6 +20,18 @@ const AdminSidebar = () => {
             <li>
               <NavLink to={"/admin/dashboard"}>
                 <FaHome /> <span>Dashboard</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/emergency"} activeClassName="active" end>
+                <i class="fa-solid fa-tower-broadcast"></i>
+                <span>Emergencies</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/ambulance"} activeClassName="active" end>
+                <i class="fa-solid fa-truck-medical"></i>
+                <span>Ambulance</span>
               </NavLink>
             </li>
             <li>
