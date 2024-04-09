@@ -323,7 +323,9 @@ const Chatbot = (props) => {
                   value: 1,
                   label: "Book Appointment with our Doctor",
                   trigger: () =>
-                    handleLinkClick("http://localhost:3000/doctors"),
+                    handleLinkClick(
+                      "http://localhost:3000/booking/d15f217d-43ad-4271-9857-aaf625db093a"
+                    ),
                 },
                 { value: 2, label: "Not Interested", trigger: "q-submit" },
               ],
