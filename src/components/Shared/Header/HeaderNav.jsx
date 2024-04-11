@@ -32,6 +32,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
     useCreateEmergencyMutation();
 
   const onSubmit = async (data) => {
+    setIsLoading(true);
     const obj = data;
     const newObj = { ...obj, ...selectValue };
     const formData = new FormData();
@@ -46,13 +47,15 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
   };
 
   useEffect(() => {
-    if (!isLoading && isError) {
+    if (!emergencyLoading && isError) {
       message.error(error?.data?.message);
+      setIsLoading(false);
     }
     if (isSuccess) {
       message.success("Successfully Emergency Booked");
+      setIsLoading(false);
     }
-  }, [isLoading, isError, error, isSuccess]);
+  }, [emergencyLoading, isError, error, isSuccess]);
 
   const { Option } = Select;
 
@@ -303,7 +306,8 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
       <Modal
         title="Book Emergency Appointment"
         open={isModalOpen}
-        okText="Book Appointment"
+        disabled={isLoading ? true : false}
+        okText={isLoading ? "Loading..." : "Book Appointment"}
         onOk={handleSubmit(onSubmit)}
         onCancel={handleCancel}
       >
@@ -366,13 +370,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 <label className="label-style">
                   Emergency Type <span className="text-danger">*</span>
                 </label>
-                {/* <Select
-                  defaultValue={"other"}
-                  className="dropdown"
-                  onChange={(value) => handleChange(value, "subject")}
-                  placeholder="Select Emergency"
-                  style={{ marginTop: "15px" }}
-                > */}
+
                 <Select
                   defaultValue={"Emergency"}
                   className="dropdown"

@@ -7,6 +7,7 @@ import { EmergencyService } from "./emergency.services";
 
 const createEmergency = catchAsync(async (req: Request, res: Response) => {
     const result = await EmergencyService.createEmergency(req.body);
+    console.log(result);
     sendResponse(res, {
         statusCode: 200,
         message: 'Successfully Emergency Created !!',

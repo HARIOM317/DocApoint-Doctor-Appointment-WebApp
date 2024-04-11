@@ -7,6 +7,7 @@ import { CloudinaryHelper } from "../../../helpers/uploadHelper";
 import { EmailtTransporter } from "../../../helpers/emailTransporter";
 import * as path from 'path';
 import moment from 'moment';
+import { any } from "zod";
 
 const prisma = new PrismaClient();
 
@@ -41,7 +42,7 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
     const currentDate = new Date(); // Get the current date and time
     const days: Day[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const dayName: Day = days[currentDate.getDay()]; // Get the day of the week (0-6) and use it to index the days array
-    console.log(dayName); // Output the day name
+    // console.log(dayName); // Output the day name
 
     try {
         const findAmbulance = await prisma.ambulance.findFirst({
@@ -61,7 +62,8 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
             }
         });
 
-        // console.log(DoctorTimeSlotData);
+        let replacementObjArray = [];
+
 
         for (const slot of DoctorTimeSlotData) {
             const doctorData = await prisma.doctor.findFirst({
@@ -98,24 +100,23 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
                     driverName : findAmbulance.driverName,
                     ambulanceNumber : findAmbulance.ambulanceNumber
                 };
-                const replacementObj = emergencyObj;
+                replacementObjArray.push(emergencyObj); 
                 const emailSubject = `You Booked for ${payload.patientName}`;
                 const toMail = `${findAmbulance.email}`;
-                await EmailtTransporter({ pathName, replacementObj, toMail, subject: emailSubject });
-
-                return replacementObj;
+                await EmailtTransporter({ pathName, replacementObj : emergencyObj, toMail, subject: emailSubject });
+                console.log(replacementObjArray)
+                // return replacementObj;
             }
         }
 
-        // console.log(findDoctor);
+        console.log(replacementObjArray);
 
 
-        // return findAmbulance;
+        return replacementObjArray;
     } catch (error) {
         throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, "Unable to create Emergency!");
     }
 }
-
 
 const getAllEmergency = async (): Promise<Emergency[] | null> => {
     const result = await prisma.emergency.findMany();
