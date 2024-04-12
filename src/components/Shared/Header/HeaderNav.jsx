@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Popover } from "antd";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button, Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { DatePicker, Select } from "antd";
+import { message } from "antd";
 import adminAvatar from "../../../images/admin.png";
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+import { useCreateEmergencyMutation } from "../../../redux/api/emergencyApi";
 import {
   FaHome,
   FaPhoneAlt,
@@ -20,48 +22,42 @@ import {
 import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
-  const URL = "http://localhost:5000/api/v1/ambulance";
-  const { register, handleSubmit } = useForm({});
+  const { register, handleSubmit, reset } = useForm({});
   const { role } = useAuthCheck();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectValue, setSelectValue] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  const [
+    emergency,
+    { isLoading: emergencyLoading, isError, error, isSuccess },
+  ] = useCreateEmergencyMutation();
+
   const onSubmit = async (data) => {
+    setIsLoading(true);
     const obj = data;
     const newObj = { ...obj, ...selectValue };
     const formData = new FormData();
-    // selectedImage && formData.append("file", file);
     const changedValue = Object.fromEntries(
       Object.entries(newObj).filter(([key, value]) => value !== "")
     );
     const changeData = JSON.stringify(changedValue);
     formData.append("data", changeData);
-
-    console.log("Changed Data: " + formData.get("data"));
-    try {
-      setIsLoading(true);
-      const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: changeData,
-      });
-      const data = await response.json();
-      //if response is ok then set success to true
-      if (response.ok) {
-        setIsLoading(false);
-        // clear the fields after success
-        window.location.reload();
-      } else {
-        setIsLoading(false);
-      }
-    } catch (error) {
-      setIsLoading(false);
-      console.error("Error while adding setting appointment:", error);
-    }
+    const dataObject = JSON.parse(changeData);
+    emergency(dataObject);
+    reset();
   };
+
+  useEffect(() => {
+    if (!emergencyLoading && isError) {
+      message.error(error?.data?.message);
+      setIsLoading(false);
+    }
+    if (isSuccess) {
+      message.success("Successfully Emergency Booked");
+      setIsLoading(false);
+    }
+  }, [emergencyLoading, isError, error, isSuccess]);
 
   const { Option } = Select;
 
@@ -312,7 +308,8 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
       <Modal
         title="Book Emergency Appointment"
         open={isModalOpen}
-        okText="Book Appointment"
+        disabled={isLoading ? true : false}
+        okText={isLoading ? "Loading..." : "Book Appointment"}
         onOk={handleSubmit(onSubmit)}
         onCancel={handleCancel}
       >
@@ -375,13 +372,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                 <label className="label-style">
                   Emergency Type <span className="text-danger">*</span>
                 </label>
-                {/* <Select
-                  defaultValue={"other"}
-                  className="dropdown"
-                  onChange={(value) => handleChange(value, "subject")}
-                  placeholder="Select Emergency"
-                  style={{ marginTop: "15px" }}
-                > */}
+
                 <Select
                   defaultValue={"Emergency"}
                   className="dropdown"
@@ -392,7 +383,7 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                   <Option value="Cardiologist">
                     Crushing chest pain, difficulty breathing
                   </Option>
-                  <Option value="Neurologist">
+                  <Option value="Nueuologist">
                     Sudden face drooping, difficulty speaking, weakness or
                     numbness
                   </Option>

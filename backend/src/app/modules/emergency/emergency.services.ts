@@ -1,4 +1,4 @@
-import { Admin, Emergency, PrismaClient } from "@prisma/client";
+import { Admin, Emergency, PrismaClient, Day } from "@prisma/client";
 import ApiError from "../../../errors/apiError";
 import httpStatus from "http-status";
 import { Request } from "express";
@@ -7,6 +7,7 @@ import { CloudinaryHelper } from "../../../helpers/uploadHelper";
 import { EmailtTransporter } from "../../../helpers/emailTransporter";
 import * as path from 'path';
 import moment from 'moment';
+import { any } from "zod";
 
 const prisma = new PrismaClient();
 
@@ -34,15 +35,16 @@ interface EmergencyPayload {
 const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | null | any> => {
     const { patientName, address, mobile, city, subject } = payload;
 
-    if (!address || !patientName || !city || !subject || !mobile) {
-        throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Missing required fields!');
+    if (!address || !patientName || !city || !mobile || !subject) {
+        throw new ApiError(httpStatus.BAD_REQUEST, 'Missing required fields!');
     }
+
+    const currentDate = new Date(); // Get the current date and time
+    const days: Day[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const dayName: Day = days[currentDate.getDay()]; // Get the day of the week (0-6) and use it to index the days array
+    // console.log(dayName); // Output the day name
+
     try {
-
-        const EmergencyRes = await prisma.emergency.create({
-            data: payload,
-        });
-
         const findAmbulance = await prisma.ambulance.findFirst({
             where: {
                 city: city,
@@ -50,26 +52,69 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
             }
         });
 
-        console.log(findAmbulance);
-
         if (!findAmbulance) {
             throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'No available ambulance found!');
         }
 
-        const pathName = path.join(__dirname, '../../../../template/emergency.html');
-        const emergencyObj = {
-            city: EmergencyRes.city,
-            patientName : EmergencyRes.patientName,
-            mobile : EmergencyRes.mobile,
-            address : EmergencyRes.address
-        };
-        const replacementObj = emergencyObj;
-        const subject = `You Booked for ${payload.patientName}`
-        const toMail = `${findAmbulance.email}`;
-        EmailtTransporter({ pathName, replacementObj, toMail, subject })
-        return findAmbulance;
+        const DoctorTimeSlotData = await prisma.doctorTimeSlot.findMany({
+            where: {
+                day: dayName
+            }
+        });
+
+        let replacementObjArray = [];
+
+
+        for (const slot of DoctorTimeSlotData) {
+            const doctorData = await prisma.doctor.findFirst({
+                where: {
+                    id: slot.doctorId,
+                    specialization: subject
+                }
+            });
+
+            if (doctorData) {
+                const EmergencyRes = await prisma.emergency.create({
+                    data: payload,
+                });
+
+                // Update the status of the ambulance in the database
+                const updateAmbulance = await prisma.ambulance.update({
+                    where: {
+                        id: findAmbulance.id // Assuming you have an 'id' field in your ambulance model
+                    },
+                    data: {
+                        status: true
+                    }
+                });
+
+                const pathName = path.join(__dirname, '../../../../template/emergency.html');
+                const emergencyObj = {
+                    city: EmergencyRes.city,
+                    patientName: EmergencyRes.patientName,
+                    mobile: EmergencyRes.mobile,
+                    address: EmergencyRes.address,
+                    firstName : doctorData.firstName,
+                    lastName: doctorData.lastName,
+                    email : doctorData.email,
+                    driverName : findAmbulance.driverName,
+                    ambulanceNumber : findAmbulance.ambulanceNumber
+                };
+                replacementObjArray.push(emergencyObj); 
+                const emailSubject = `You Booked for ${payload.patientName}`;
+                const toMail = `${findAmbulance.email}`;
+                await EmailtTransporter({ pathName, replacementObj : emergencyObj, toMail, subject: emailSubject });
+                console.log(replacementObjArray)
+                // return replacementObj;
+            }
+        }
+
+        console.log(replacementObjArray);
+
+
+        return replacementObjArray;
     } catch (error) {
-        throw new ApiError(httpStatus.NO_CONTENT, "Unable to create Emergency!");
+        throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, "Unable to create Emergency!");
     }
 }
 

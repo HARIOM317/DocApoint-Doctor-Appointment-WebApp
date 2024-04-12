@@ -18,8 +18,7 @@ const createAppointment = async (payload: any): Promise<Appointments | null | an
         })
         if (!isUserExist) {
             patientInfo['patientId'] = null
-        }
-    }
+        }    }
 
     const isDoctorExist = await prisma.doctor.findUnique({
         where: {

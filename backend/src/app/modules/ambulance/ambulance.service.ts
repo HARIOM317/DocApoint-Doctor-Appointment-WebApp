@@ -40,7 +40,7 @@ interface AmbulancePayload {
 
 const createAmbulance = async (payload: AmbulancePayload): Promise<Ambulance | null | any> => {
     const { driverName, email, mobile, city, ambulanceNumber} = payload;
-    console.log({payload});
+    // console.log({payload});
     if (!email || !driverName || !city || !ambulanceNumber || !mobile) {
         throw new ApiError(httpStatus.INTERNAL_SERVER_ERROR, 'Missing required fields!');
     }
