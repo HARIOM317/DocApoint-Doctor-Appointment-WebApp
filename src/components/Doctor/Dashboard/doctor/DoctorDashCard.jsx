@@ -38,13 +38,13 @@ const DoctorDashCard = () => {
 
   const cardData = [
     {
-      icon: <i class="fa-solid fa-hospital-user icon"></i>,
+      icon: <FaHospital className="icon" />,
       title: "Total Patient",
       amount: totalPatient,
       date: formattedDate,
     },
     {
-      icon: <i class="fa-solid fa-calendar-check icon"></i>,
+      icon: <FaHospitalUser className="icon active" />,
       title: "Total Appointments",
       amount: totalAppoint,
       date: formattedDate,

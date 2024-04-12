@@ -12,6 +12,7 @@ import SignUpAnimation from "../../animations/sign-up.json";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [signUp, setSignUp] = useState(false);
   const [isSignUpMobile, setIsSignUpMobile] = useState(false);
 
   const handleSignInClick = () => {
@@ -51,16 +52,17 @@ const Login = () => {
             <SignIn handleSignUpMobileClick={handleSignUpMobileClick} />
 
             {/* Sign Up Form */}
-            <SignUp handleSignInMobileClick={handleSignInMobileClick} />
+            <SignUp
+              handleSignInMobileClick={handleSignInMobileClick}
+              setSignUp={setSignUp}
+            />
           </div>
 
           <div className="panels-container">
             <div className="panel left-panel">
               <div className="content">
                 <h3>Already a Member?</h3>
-                <p>
-                 I have already an account
-                </p>
+                <p>I have already an account</p>
                 <button
                   className="btn-light"
                   id="sign-in-btn"
@@ -81,9 +83,7 @@ const Login = () => {
             <div className="panel right-panel">
               <div className="content">
                 <h3>New Member?</h3>
-                <p>
-                  I don't have an account
-                </p>
+                <p>I don't have an account</p>
                 <button
                   className="btn-light"
                   id="sign-up-btn"

@@ -48,7 +48,6 @@ import Dashboard from "./components/Doctor/Dashboard/Dashboard";
 import PrivateOutlet from "./components/Shared/PrivateOutlet";
 import NotFound from "./components/UI/NotFound";
 import Login from "./components/Login/Login";
-import OnlineCallMeating from "./components/onlineMeating/VideoCallMeating";
 
 function App() {
   return (
@@ -109,7 +108,6 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/track-appointment" element={<TrackAppointment />} />
-        <Route path="/onlinemeet" element={<OnlineCallMeating/>} />
         <Route
           path="/reset-password/:userId/:uniqueString"
           element={<ForgotPassword />}
