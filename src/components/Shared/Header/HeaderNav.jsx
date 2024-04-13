@@ -28,8 +28,10 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
   const [selectValue, setSelectValue] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const [emergency, { isLoading: emergencyLoading, isError, error, isSuccess }] =
-    useCreateEmergencyMutation();
+  const [
+    emergency,
+    { isLoading: emergencyLoading, isError, error, isSuccess },
+  ] = useCreateEmergencyMutation();
 
   const onSubmit = async (data) => {
     setIsLoading(true);
@@ -178,8 +180,8 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
                     data?.img
                       ? data?.img
                       : role === "admin"
-                        ? adminAvatar
-                        : avatar
+                      ? adminAvatar
+                      : avatar
                   }
                   alt=""
                   className="profileImage shadow img-fluid"

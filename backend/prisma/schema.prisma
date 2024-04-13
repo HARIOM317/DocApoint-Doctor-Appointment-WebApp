@@ -118,7 +118,7 @@ model Emergency {
   id           String         @id @default(uuid())
   patientName  String
   mobile       String
-  subject      String?
+  subject      String
   city         String
   address      String
   createdAt    DateTime       @default(now())
@@ -153,7 +153,6 @@ model Appointments {
   lastName           String?
   email              String?
   phone              String?
-  appointmentMode String?       @default("offline")
   address            String?
   description        String?
   scheduleDate       String?

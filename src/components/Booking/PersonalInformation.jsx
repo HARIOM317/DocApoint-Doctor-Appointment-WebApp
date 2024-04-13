@@ -1,4 +1,4 @@
-import { Checkbox, message, Button } from "antd";
+import { Checkbox, message } from "antd";
 import { useEffect, useState } from "react";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
 
@@ -24,8 +24,6 @@ const PersonalInformation = ({
   const onChange = (e) => {
     setChecked(e.target.checked);
   };
-
-  
 
   useEffect(() => {
     if (checked) {
@@ -140,34 +138,6 @@ const PersonalInformation = ({
             />
           </div>
         </div>
-
-        {/* <div className="col-md-12 mb-4">
-            <div className="d-flex justify-content-start align-items-center gap-5">
-              
-              <div >
-                <input
-                  type="radio"
-                  name="appointmentMode"
-                  value="offline"
-                  onChange={(e) => handleChange(e)}
-                  style={{ accentColor: "var(--primaryColor)" }}
-                />
-                <span className="ms-2"></span>
-                <label>Offline Appointment</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="appointmentMode"
-                  value="online"
-                  onChange={(e) => handleChange(e)}
-                  style={{ accentColor: "var(--primaryColor)" }}
-                />
-                <span className="ms-2"></span>
-                <label >Online Appointment</label>
-              </div>
-            </div>
-          </div> */}
       </div>
     </form>
   );

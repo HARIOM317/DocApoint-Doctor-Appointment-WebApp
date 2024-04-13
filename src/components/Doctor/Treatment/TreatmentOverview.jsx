@@ -28,7 +28,7 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
               </Link>
               <div className="patients-info">
                 <h5 className="patient-name">
-                  {data?.firstName + " " + data?.lastName}
+                  {data?.appointment?.firstName + " " + data?.appointment?.lastName}
                 </h5>
 
                 <p className="patient-data">
@@ -36,13 +36,13 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
                   {moment(data?.createdAt).format("LL")}{" "}
                 </p>
                 <p className="patient-data">
-                  <FaLocationArrow className="icon" /> {data?.address}
+                  <FaLocationArrow className="icon" /> {data?.appointment?.address}
                 </p>
                 <p className="patient-data">
-                  <FaEnvelope className="icon" /> {data?.email}
+                  <FaEnvelope className="icon" /> {data?.appointment?.email}
                 </p>
                 <p className="patient-data">
-                  <FaPhoneAlt className="icon" /> {data?.phone}
+                  <FaPhoneAlt className="icon" /> {data?.appointment?.phone}
                 </p>
               </div>
             </div>

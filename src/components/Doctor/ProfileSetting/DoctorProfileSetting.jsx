@@ -129,6 +129,7 @@ const DoctorProfileSetting = () => {
                 {...register("email")}
                 className="text-input-field"
                 placeholder="Email Address"
+                disabled
               />
             </div>
           </div>
