@@ -1,19 +1,19 @@
 import { tagTypes } from "../tag-types";
 import { baseApi } from "./baseApi"
-const EMERGENCY_URL = '/emergency'
+const AMBULANCE_URL = '/ambulance'
 
-export const emergencyApi = baseApi.injectEndpoints({
+export const ambulanceApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
-        createEmergency: build.mutation({
+        createAmbulance: build.mutation({
             query: (data) => ({
-                url: `${EMERGENCY_URL}`,
+                url: `${AMBULANCE_URL}`,
                 method: 'POST',
                 data: data,
             })
         }),
-        getAllEmergency: build.query({
+        getAllAmbulance: build.query({
             query: () => ({
-                url: `${EMERGENCY_URL}`,
+                url: `${AMBULANCE_URL}`,
                 method: 'GET'
             }),
             providesTags: [tagTypes.contacts]
@@ -22,4 +22,4 @@ export const emergencyApi = baseApi.injectEndpoints({
     })
 })
 
-export const { useCreateEmergencyMutation, useGetAllEmergencyQuery } = emergencyApi;
+export const { useCreateAmbulanceMutation, useGetAllAmbulanceQuery } = ambulanceApi;
