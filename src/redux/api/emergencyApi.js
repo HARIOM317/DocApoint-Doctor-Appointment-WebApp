@@ -21,7 +21,7 @@ export const emergencyApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {
-  useCreateEmergencyMutation,
-  useGetAllContactUsQuery,
-} = emergencyApi;
+
+export const { useCreateEmergencyMutation, useGetAllEmergencyQuery } = emergencyApi;
+
+

@@ -104,12 +104,12 @@ const createEmergency = async (payload: EmergencyPayload): Promise<Emergency | n
                 const emailSubject = `You Booked for ${payload.patientName}`;
                 const toMail = `${findAmbulance.email}`;
                 await EmailtTransporter({ pathName, replacementObj : emergencyObj, toMail, subject: emailSubject });
-                console.log(replacementObjArray)
+                // console.log(replacementObjArray)
                 // return replacementObj;
             }
         }
 
-        console.log(replacementObjArray);
+        // console.log(replacementObjArray);
 
 
         return replacementObjArray;
