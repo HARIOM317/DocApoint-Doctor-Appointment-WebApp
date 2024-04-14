@@ -15,11 +15,11 @@ const HealthHome = () => {
                 <i class="fa-solid fa-dumbbell"></i>
               </span>
 
-              <Button className="show-btn">
-                <NavLink to={"/health/exercise"}>Exercise</NavLink>
-              </Button>
+              <NavLink to={"/health/exercise"} className="show-btn">
+                Exercise
+              </NavLink>
 
-              <p className="info-label">Show Body Exercises</p>
+              <p className="info-label">View All Body Exercises</p>
             </div>
           </div>
 
@@ -29,9 +29,7 @@ const HealthHome = () => {
                 <i class="fa-solid fa-utensils"></i>
               </span>
 
-              <Button className="show-btn">
-                <NavLink>Diet</NavLink>
-              </Button>
+              <NavLink className="show-btn">Diet</NavLink>
 
               <p className="info-label">Manage Your Diet</p>
             </div>
@@ -43,9 +41,7 @@ const HealthHome = () => {
                 <i class="fa-solid fa-user-shield"></i>
               </span>
 
-              <Button className="show-btn">
-                <NavLink>Preventions</NavLink>
-              </Button>
+              <NavLink className="show-btn">Preventions</NavLink>
 
               <p className="info-label">View Suggested Preventions</p>
             </div>
@@ -57,11 +53,9 @@ const HealthHome = () => {
                 <i class="fa-solid fa-gauge"></i>
               </span>
 
-              <Button className="show-btn">
-                <NavLink>View Health Profile</NavLink>
-              </Button>
+              <NavLink className="show-btn">Health Profile</NavLink>
 
-              <p className="info-label">View Report</p>
+              <p className="info-label">View Your Health Report</p>
             </div>
           </div>
         </div>

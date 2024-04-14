@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
 import img from "../../../images/doc/doctor 3.jpg";
 import "../../../stylesheets/doctorStylesheets/Appointments.css";
@@ -21,8 +21,10 @@ import { clickToCopyClipBoard } from "../../../utils/copyClipBoard";
 
 const Appointments = () => {
   const { data, isError, isLoading } = useGetDoctorAppointmentsQuery({});
-  const [updateAppointment, { isError: updateIsError, isSuccess, error }] =
-    useUpdateAppointmentMutation();
+  const [
+    updateAppointment,
+    { isError: updateIsError, isSuccess, error },
+  ] = useUpdateAppointmentMutation();
 
   const updatedApppointmentStatus = (id, type) => {
     const changeObj = {
@@ -64,34 +66,43 @@ const Appointments = () => {
 
                 <Tooltip title="Copy Tracking ID" className="tracking-id">
                   <Button className="copyBtn">
-                    <h6>
-                      Tracking
-                      <Tag
-                        color="#12c762"
-                        className="ms-2 text-uppercase"
-                        onClick={() => clickToCopyClipBoard(item?.trackingId)}
-                      >
-                        {item?.trackingId}
-                      </Tag>
-                    </h6>
+                    Tracking ID
+                    <Tag
+                      color="#12c762"
+                      className="ms-2 text-uppercase"
+                      onClick={() => clickToCopyClipBoard(item?.trackingId)}
+                    >
+                      {item?.trackingId}
+                    </Tag>
                   </Button>
                 </Tooltip>
 
                 <div className="w-100">
                   <p className="text-data">
-                    <FaClock className="icon" />{" "}
+                    <span className="icon">
+                      <FaClock />
+                    </span>{" "}
                     {moment(item?.appointmentTime).format("MMM Do, YY")}{" "}
                   </p>
 
                   <p className="text-data">
-                    <FaLocationArrow className="icon" /> {item?.address}
+                    <span className="icon">
+                      <FaLocationArrow />
+                    </span>{" "}
+                    {item?.address}
                   </p>
 
                   <p className="text-data">
-                    <FaEnvelope className="icon" /> {item?.email}
+                    <span className="icon">
+                      <FaEnvelope />
+                    </span>{" "}
+                    {item?.email}
                   </p>
                   <p className="text-data">
-                    <FaPhoneAlt className="icon" /> {item?.phone}
+                    <span className="icon">
+                      <FaPhoneAlt />
+                    </span>{" "}
+                    {item?.phone}
                   </p>
                 </div>
               </div>
@@ -100,33 +111,53 @@ const Appointments = () => {
                 <div className="w-100">
                   <p className="text-data">
                     Current Status{" "}
-                    <Tag color="#f50" className="text-uppercase tag">
+                    <Tag
+                      color="#ffdac8"
+                      className="text-uppercase tag"
+                      style={{ border: "1.5px solid #ccaea0" }}
+                    >
                       {item?.status}
                     </Tag>
                   </p>
                   <p className="text-data">
                     Patient Status{" "}
-                    <Tag color="#2db7f5" className="text-uppercase tag">
+                    <Tag
+                      color="#bceaff"
+                      className="text-uppercase tag"
+                      style={{ border: "1.5px solid #96bbcc" }}
+                    >
                       {item?.patientType ? item?.patientType : "Normal"}
                     </Tag>
                   </p>
                   <p className="text-data">
                     Is Follow Up{" "}
-                    <Tag color="#f50" className="text-uppercase tag">
+                    <Tag
+                      color="#e4efab"
+                      className="text-uppercase tag"
+                      style={{ border: "1.5px solid #b3bc86" }}
+                    >
                       {item?.isFollowUp ? "Yes" : "No"}
                     </Tag>
                   </p>
                   <p className="text-data">
                     {" "}
                     Is Paid{" "}
-                    <Tag color="#87d068" className="text-uppercase tag">
+                    <Tag
+                      color="#ceecc2"
+                      className="text-uppercase tag"
+                      style={{ border: "1.5px solid #a1b998" }}
+                    >
                       {item?.paymentStatus}
                     </Tag>
                   </p>
                   <p className="text-data">
                     {" "}
-                    Prescribed -{" "}
-                    <Tag color="#2db7f5" className="text-uppercase tag">
+                    Prescribed{" "}
+                    <Tag
+                      color="#d3c5ff"
+                      className="text-uppercase tag"
+                      style={{ border: "1.5px solid #a89dcc" }}
+                    >
                       {item?.prescriptionStatus}
                     </Tag>
                   </p>

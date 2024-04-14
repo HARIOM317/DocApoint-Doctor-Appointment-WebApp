@@ -11,98 +11,122 @@ import { Tag } from "antd";
 import "../../../stylesheets/doctorStylesheets/Treatment.css";
 
 const TreatmentOverview = ({ data, isAppointment = false }) => {
-  console.log({ data });
-  // console.log(data.firstName);
   return (
     <>
-      <div className="w-100 mb-3 rounded p-3 text-center d-flex justify-content-between bg-gray-g">
-        <div className="container row">
+      <div className="w-100 mb-3 p-3 text-center d-flex justify-content-between patient-treatment">
+        <div className="row ">
           <div className="col-5 p-2 ">
             <div className="treatment">
-              <Link to={"/"} className="my-3 patient-img">
+              <div>
                 <img
                   src={data?.patient?.img ? data?.patient?.img : profileImg}
                   alt=""
-                  style={{ height: "90px", width: "90px" }}
+                  className="patient-img"
                 />
-              </Link>
-              <div className="patients-info">
+
                 <h5 className="patient-name">
                   {data?.firstName + " " + data?.lastName}
                 </h5>
+              </div>
 
-                <p className="patient-data">
-                  <FaClock className="icon" />{" "}
+              <div className="patients-info">
+                <div className="patient-data">
+                  <span className="icon">
+                    <FaClock />
+                  </span>{" "}
                   {moment(data?.createdAt).format("LL")}{" "}
-                </p>
-                <p className="patient-data">
-                  <FaLocationArrow className="icon" /> {data?.address}
-                </p>
-                <p className="patient-data">
-                  <FaEnvelope className="icon" /> {data?.email}
-                </p>
-                <p className="patient-data">
-                  <FaPhoneAlt className="icon" /> {data?.phone}
-                </p>
+                </div>
+                <div className="patient-data">
+                  <span className="icon">
+                    <FaLocationArrow />
+                  </span>{" "}
+                  {data?.address}
+                </div>
+                <div className="patient-data">
+                  <span className="icon">
+                    <FaEnvelope />
+                  </span>{" "}
+                  {data?.email}
+                </div>
+                <div className="patient-data">
+                  <span className="icon">
+                    <FaPhoneAlt />{" "}
+                  </span>
+                  {data?.phone}
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="col-7 px-5">
-            <h5>Patient Overview</h5>
-            <hr />
-            <div className="p-2 rounded">
-              <p className="form-text text-start m-0">
-                {data?.appointment?.description
-                  ? data?.appointment?.description
-                  : data?.description}
-              </p>
+          <div className="col-7 px-5 overview">
+            <div>
+              <h5 style={{ color: "var(--textColor)" }}>Patient Overview</h5>
+              <hr />
+              <div className="p-2 rounded">
+                <p className="form-text m-0" style={{ textAlign: "justify" }}>
+                  {data?.appointment?.description
+                    ? data?.appointment?.description
+                    : data?.description}
+                </p>
+              </div>
             </div>
 
             <div className="text-start mt-3">
-              <h6>
-                Patient Type :
+              <div className="patient-status">
+                Patient Status
                 <span className="btn-status btn-st-success">
-                  <Tag color="#87d068" className="ms-2 text-uppercase">
+                  <Tag
+                    color="#c6f4b4"
+                    className="ms-2 text-uppercase tag"
+                    style={{ border: "1.5px solid #9cc18e" }}
+                  >
                     {isAppointment ? data?.appointment?.patientType : "Normal"}
                   </Tag>
                 </span>
-              </h6>
-              <h6>
-                Current Status :
+              </div>
+              <div className="patient-status">
+                Current Status
                 <span className="btn-status btn-st-danger">
-                  <Tag color="#f50" className="ms-2 text-uppercase">
+                  <Tag
+                    color="#ffc4a7"
+                    className="ms-2 text-uppercase tag"
+                    style={{ border: "1.5px solid #cc9c85" }}
+                  >
                     {isAppointment ? data?.appointment?.status : data?.status}
                   </Tag>
                 </span>
-              </h6>
-              <h6>
-                Payment Status :
+              </div>
+              <div className="patient-status">
+                Payment Status
                 <span className="btn-status btn-st-success">
-                  <Tag color="#87d068" className="ms-2 text-uppercase">
+                  <Tag
+                    color="#f9bfff"
+                    className="ms-2 text-uppercase tag"
+                    style={{ border: "1.5px solid #c798cc" }}
+                  >
                     {isAppointment
                       ? data?.appointment?.paymentStatus
                       : data?.paymentStatus}
                   </Tag>
                 </span>
-              </h6>
-              <h6>
-                Prescription Status :
+              </div>
+              <div className="patient-status">
+                Prescription Status
                 <span className="btn-status btn-st-danger">
-                  <Tag color="#2db7f5" className="ms-2 text-uppercase">
+                  <Tag
+                    color="#a7f6ee"
+                    className="ms-2 text-uppercase tag"
+                    style={{ border: "1.5px solid #84c3bc" }}
+                  >
                     {isAppointment
                       ? data?.appointment?.prescriptionStatus
                       : data?.prescriptionStatus}
                   </Tag>
                 </span>
-              </h6>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="w-100 mb-3 rounded p-2 text-start bg-gray-g">
-        <Link to={"/"}>Show Previous Medical History ? </Link>
       </div>
     </>
   );

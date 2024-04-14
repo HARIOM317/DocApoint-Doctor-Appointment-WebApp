@@ -75,6 +75,9 @@
   color: var(--primaryColor);
   background: white;
   transition: 0.3s all ease;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
 }
 
 .health-home .info-card .show-btn:hover {

@@ -127,7 +127,6 @@ const getPrescriptionById = async (id: string): Promise<Prescription | null> => 
         },
         include: {
             medicines: true,
-            appointment.firstName : true,
             appointment: {
                 select: {
                     scheduleDate: true,

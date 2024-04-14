@@ -16,6 +16,7 @@
   --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.15);
   --shadowAll: 0px 2px 15px rgba(0, 0, 0, 0.15);
   --shadowAllLight: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  --materialShadow: 0 2.5px 2px -1px rgba(32, 31, 31, 0.45);
   --line-color: #58567c !important;
 }
 
@@ -28,7 +29,7 @@
   font-family: "Poppins";
 }
 
-.ant-btn-primary{
+.ant-btn-primary {
   background: #ec1839 !important;
   color: #fff !important;
   transition: all 0.5s ease !important;
@@ -36,7 +37,7 @@
   box-shadow: none !important;
 }
 
-.ant-btn-primary:hover{
+.ant-btn-primary:hover {
   background: #b9122c !important ;
 }
 
@@ -59,7 +60,7 @@
   background: var(--primaryColor) !important;
 }
 
-.swiper-wrapper{
+.swiper-wrapper {
   margin-bottom: 50px !important;
 }
 
@@ -152,8 +153,7 @@ textarea.text-form-input-field {
   background: var(--bgColor) !important;
 }
 
-
-.heading{
+.heading {
   color: var(--headingColor);
   text-transform: capitalize;
   font-weight: 500;

@@ -42,6 +42,8 @@
     color: var(--primaryColor) !important;
     background: var(--bgColor);
     border: 1px solid var(--borderColor);
+    border-left: 1.5px solid var(--borderColor);
+    border-right: 1.5px solid var(--borderColor);
 }
 
 .dashboard-menu ul li a .icon {
@@ -61,13 +63,16 @@
     border-radius: 50%;
     height: 100px;
     width: 100px;
-    border: none;
+    border: 1px solid var(--borderColor);
     object-fit: cover;
+    margin-bottom: 8px;
 }
 .profile-details h5{
     font-size: 18px;
     font-weight: 700;
+    color: var(--headingColor);
 }
 .profile-details p{
-    font-size: 13px;
+    font-size: 14px;
+    color: var(--textLight);
 }
