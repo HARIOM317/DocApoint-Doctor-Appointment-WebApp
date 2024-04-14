@@ -11,6 +11,7 @@ import Reviews from "./components/Doctor/Reviews/Reviews";
 import Schedule from "./components/Doctor/Schedule/Schedule";
 import ProfileSetting from "./components/Doctor/ProfileSetting/ProfileSetting";
 import ChangePassword from "./components/Doctor/ChangePassword/ChangePassword";
+import HealthHome from "./components/health/health_home";
 
 // Admin Components
 import AdminDashboard from "./components/Admin/Dashboard";
@@ -49,6 +50,19 @@ import PrivateOutlet from "./components/Shared/PrivateOutlet";
 import NotFound from "./components/UI/NotFound";
 import Login from "./components/Login/Login";
 
+
+// Exercises
+import Exercises from "./components/health/Exercises";
+import AbsExercises from "./components/health/exercises_components/AbsExercise";
+import BackExercises from "./components/health/exercises_components/BackExercise";
+import BicepExercises from "./components/health/exercises_components/BicepExercise";
+import CardioExercises from "./components/health/exercises_components/CardioExercise";
+import ChestExercises from "./components/health/exercises_components/ChestExercise";
+import ForearmsExercises from "./components/health/exercises_components/ForearmsExercise";
+import LegExercises from "./components/health/exercises_components/LegExercise";
+import ShoulderExercises from "./components/health/exercises_components/ShoulderExercise";
+import TricepExercises from "./components/health/exercises_components/TricepExercise";
+
 function App() {
   return (
     <Router>
@@ -56,7 +70,9 @@ function App() {
         {/* Dashboard Routs */}
         <Route element={<PrivateOutlet />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/health" element={<HealthHome />} />
           <Route path="/dashboard/appointments" element={<Appointments />} />
+
           <Route
             path="/dashboard/appointments/:id"
             element={<ViewAppointment />}
@@ -95,6 +111,18 @@ function App() {
             path="/dashboard/favourite"
             element={<PatientFavouriteDoctor />}
           />
+
+          {/* Exercises */}
+          <Route path="/health/exercise" element={<Exercises />} />
+          <Route path="/health/exercise/abs" element={<AbsExercises />} />
+          <Route path="/health/exercise/back" element={<BackExercises />} />
+          <Route path="/health/exercise/biceps" element={<BicepExercises />} />
+          <Route path="/health/exercise/cardio" element={<CardioExercises />} />
+          <Route path="/health/exercise/chest" element={<ChestExercises />} />
+          <Route path="/health/exercise/forearms" element={<ForearmsExercises />} />
+          <Route path="/health/exercise/legs" element={<LegExercises />} />
+          <Route path="/health/exercise/shoulder" element={<ShoulderExercises />} />
+          <Route path="/health/exercise/triceps" element={<TricepExercises />} />
         </Route>
 
         {/* Routes */}

@@ -18,6 +18,7 @@ import {
   FaBlog,
   FaSignOutAlt,
   FaLock,
+  FaHeartbeat
 } from "react-icons/fa";
 
 function formatDate(date) {
@@ -108,6 +109,12 @@ const DashboardSidebar = () => {
               <NavLink to={"/dashboard"} activeClassName="active" end>
                 <FaTable className="icon" />
                 <span>Dashboard</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/health"} activeClassName="active" end>
+                <FaHeartbeat className="icon" />
+                <span>Manage Health</span>
               </NavLink>
             </li>
             <li>
