@@ -13,7 +13,7 @@ import "../../../stylesheets/doctorStylesheets/Treatment.css";
 const TreatmentOverview = ({ data, isAppointment = false }) => {
   return (
     <>
-      <div className="w-100 mb-3 p-3 text-center d-flex justify-content-between patient-treatment">
+      <div className="w-100 mb-3 p-3 text-center patient-treatment">
         <div className="row ">
           <div className="col-5 p-2 ">
             <div className="treatment">
@@ -25,7 +25,7 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
                 />
 
                 <h5 className="patient-name">
-                  {data?.firstName + " " + data?.lastName}
+                  {data?.patient?.firstName + " " + data?.patient?.lastName}
                 </h5>
               </div>
 
@@ -34,25 +34,25 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
                   <span className="icon">
                     <FaClock />
                   </span>{" "}
-                  {moment(data?.createdAt).format("LL")}{" "}
+                  {moment(data?.patient?.createdAt).format("LL")}{" "}
                 </div>
                 <div className="patient-data">
                   <span className="icon">
                     <FaLocationArrow />
                   </span>{" "}
-                  {data?.address}
+                  {data?.patient?.address}
                 </div>
                 <div className="patient-data">
                   <span className="icon">
                     <FaEnvelope />
                   </span>{" "}
-                  {data?.email}
+                  {data?.patient?.email}
                 </div>
                 <div className="patient-data">
                   <span className="icon">
                     <FaPhoneAlt />{" "}
                   </span>
-                  {data?.phone}
+                  {data?.patient?.phone}
                 </div>
               </div>
             </div>
