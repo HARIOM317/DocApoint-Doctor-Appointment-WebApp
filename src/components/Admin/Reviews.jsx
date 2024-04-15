@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import userImg from "../../images/avatar.jpg";
 import { Rate } from "antd";
 import { getFromLocalStorage } from "../../utils/local-storage";
@@ -31,7 +31,7 @@ const Reviews = () => {
   };
 
   return (
-    <AdminLayout>
+    <DashboardLayout>
       <div className="row">
         <div className="col-md-12">
           <div className="card card-table">
@@ -152,7 +152,7 @@ const Reviews = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

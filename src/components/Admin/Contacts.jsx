@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import { getFromLocalStorage } from "../../utils/local-storage";
 import { FaTrash } from "react-icons/fa";
 import { message } from "antd";
@@ -51,7 +51,7 @@ const AdminContacts = () => {
   };
 
   return (
-    <AdminLayout>
+    <DashboardLayout>
       <div className="row">
         <div className="col-md-12">
           <div className="card card-table table-top-heading">
@@ -113,7 +113,7 @@ const AdminContacts = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

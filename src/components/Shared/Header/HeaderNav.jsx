@@ -281,16 +281,19 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               Blog
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              onClick={showModal}
-              className={({ isActive }) =>
-                isActive ? "nav-link scrollto" : ""
-              }
-            >
-              <FaBroadcastTower className="icon" /> Emergency
-            </NavLink>
-          </li>
+          {role !== "admin" && role !== "doctor" && (
+            <li>
+              <NavLink
+                onClick={showModal}
+                className={({ isActive }) =>
+                  isActive ? "nav-link scrollto" : ""
+                }
+              >
+                <FaBroadcastTower className="icon" /> Emergency
+              </NavLink>
+            </li>
+          )}
+
           {!isLoggedIn && (
             <li>
               <Link to={"/login"} className="nav-link scrollto">

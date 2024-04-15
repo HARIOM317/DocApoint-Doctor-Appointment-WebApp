@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import "../../stylesheets/adminStylesheets/Dashboard.css";
 
 import { getFromLocalStorage } from "../../utils/local-storage";
@@ -96,8 +96,34 @@ const AdminDashboard = () => {
 
   return (
     <>
-      <AdminLayout>
-        <div className="row">
+      <DashboardLayout>
+        <div className="page-header">
+          <div className="row">
+            <div className="col-sm-12">
+              <h3
+                style={{
+                  color: "var(--headingColor)",
+                  fontWeight: "500",
+                  fontSize: "1.5rem",
+                }}
+              >
+                Welcome Administrator!
+              </h3>
+              <ul className="breadcrumb">
+                <li
+                  style={{
+                    color: "var(--textLight)",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Welcome back in your dashboard
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="row mt-4">
           <div className="col-lg-3 col-sm-6 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon first-icon">
@@ -149,7 +175,7 @@ const AdminDashboard = () => {
             </div>
           </div>
         </div>
-      </AdminLayout>
+      </DashboardLayout>
     </>
   );
 };

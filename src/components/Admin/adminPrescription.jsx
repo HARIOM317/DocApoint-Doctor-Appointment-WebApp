@@ -1,4 +1,4 @@
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import CustomTable from "../UI/component/CustomTable";
 import { Button, Tag, message } from "antd";
 import { FaRegEye, FaEdit, FaRegTimesCircle } from "react-icons/fa";
@@ -151,7 +151,7 @@ const AdminPrescription = () => {
   };
 
   return (
-    <AdminLayout>
+    <DashboardLayout>
       <div className="w-100 mb-3 rounded">
         <CustomTable
           loading={isLoading}
@@ -162,7 +162,7 @@ const AdminPrescription = () => {
           showSizeChanger={true}
         />
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

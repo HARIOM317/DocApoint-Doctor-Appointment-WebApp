@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Select, message } from "antd";
 import { getFromLocalStorage } from "../../utils/local-storage";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import "../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const { Option } = Select;
@@ -83,7 +83,7 @@ const AddNewDoctor = () => {
   }, [isLoading, isError, error, isSuccess]);
 
   return (
-    <AdminLayout>
+    <DashboardLayout>
       <div className="profile-setting">
         <div className="w-100 mb-3 rounded mb-5 p-2">
           <h5 className="text-title ms-2 mb-2 mt-3">Add Doctor </h5>
@@ -129,13 +129,12 @@ const AddNewDoctor = () => {
 
             <div className="col-md-6">
               <div className="form-group mb-2 card-label">
-                
                 <Select
                   defaultValue={"Gender"}
                   className="dropdown"
                   onChange={(value) => handleChange(value, "gender")}
                   placeholder="Select Gender"
-                  style={{marginTop: "15px"}}
+                  style={{ marginTop: "15px" }}
                 >
                   <Option value="male">Male</Option>
                   <Option value="female">Female</Option>
@@ -185,7 +184,7 @@ const AddNewDoctor = () => {
           </form>
         </div>
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

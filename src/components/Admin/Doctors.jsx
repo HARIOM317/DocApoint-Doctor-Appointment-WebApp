@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import userImg from "../../images/avatar.jpg";
 import "../../stylesheets/adminStylesheets/Appointments.css";
-
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
@@ -22,7 +21,7 @@ const Doctors = () => {
   };
 
   return (
-    <AdminLayout>
+    <DashboardLayout>
       <div className="row">
         <div className="col-md-12">
           <div className="card card-table">
@@ -66,7 +65,7 @@ const Doctors = () => {
                                   width: "30px",
                                   height: "30px",
                                   marginRight: "10px",
-                                  objectFit: 'cover'
+                                  objectFit: "cover",
                                 }}
                               />
                             </a>
@@ -111,7 +110,7 @@ const Doctors = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

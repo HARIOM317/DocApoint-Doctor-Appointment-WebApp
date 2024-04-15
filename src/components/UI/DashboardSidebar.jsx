@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import img from "../../images/user.png";
+import adminImg from "../../images/admin.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
 import { loggedOut } from "../../service/auth.service";
@@ -18,8 +19,13 @@ import {
   FaBlog,
   FaSignOutAlt,
   FaLock,
-  FaHeartbeat
+  FaHeartbeat,
+  FaHome,
+  FaListUl,
+  FaRegAddressCard,
+  FaRegCommentDots,
 } from "react-icons/fa";
+
 
 function formatDate(date) {
   const options = { day: "2-digit", month: "short", year: "numeric" };
@@ -70,7 +76,7 @@ const DashboardSidebar = () => {
         {role === "doctor" ? (
           <div className="profile-info text-center">
             <Link to={"/dashboard/profile-setting"}>
-              <img src={data?.img ? data?.img : img} alt="" />
+              <img src={data?.img ? data?.img : img} alt="DOCTOR" />
             </Link>
             <div className="profile-details">
               <h5 className="mb-0">{data?.firstName + " " + data?.lastName}</h5>
@@ -79,10 +85,10 @@ const DashboardSidebar = () => {
               </div>
             </div>
           </div>
-        ) : (
+        ) : role === "patient" ? (
           <div className="profile-info text-center">
             <Link to={"/dashboard/profile-setting"}>
-              <img src={data?.img ? data?.img : img} alt="" />
+              <img src={data?.img ? data?.img : img} alt="USER" />
             </Link>
             <div className="profile-details">
               <h5 className="mb-0">{data?.firstName + " " + data?.lastName}</h5>
@@ -98,6 +104,15 @@ const DashboardSidebar = () => {
                 </p>
                 <p className=" form-text m-0">{data?.email}</p>
               </div>
+            </div>
+          </div>
+        ) : (
+          <div className="profile-info text-center">
+            <Link to={"/dashboard/profile-setting"}>
+              <img src={adminImg} alt="ADMIN" />
+            </Link>
+            <div className="profile-details">
+              <h5 className="mb-0">Administrator</h5>
             </div>
           </div>
         )}
@@ -149,7 +164,7 @@ const DashboardSidebar = () => {
               </NavLink>
             </li>
           </ul>
-        ) : (
+        ) : role === "doctor" ? (
           <ul>
             <li>
               <NavLink to={"/dashboard"} activeClassName="active" end>
@@ -239,6 +254,71 @@ const DashboardSidebar = () => {
               <NavLink to={"/"}>
                 <FaSignOutAlt className="icon" end />
                 <span onClick={hanldeSignOut}>Logout</span>
+              </NavLink>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <NavLink to={"/admin/dashboard"} activeClassName="active" end>
+                <FaHome className="icon" /> <span>Dashboard</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/emergency"} activeClassName="active" end>
+                <i class="fa-solid fa-tower-broadcast icon"></i>
+                <span>Emergencies</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/ambulance"} activeClassName="active" end>
+                <i class="fa-solid fa-truck-medical icon"></i>
+                <span>Ambulance</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/appointments"} activeClassName="active" end>
+                <FaListUl className="icon" /> <span>Appointments</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/doctors"} activeClassName="active" end>
+                <i class="fa-solid fa-user-doctor icon"></i>{" "}
+                <span>Doctors</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/addDoctor"} activeClassName="active" end>
+                <FaRegAddressCard className="icon" />
+                <span>Add Doctors</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/patients"} activeClassName="active" end>
+                <i class="fa-solid fa-hospital-user icon"></i>{" "}
+                <span>Patients</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/prescription"} activeClassName="active" end>
+                <FaPrescription className="icon" />
+                <span>Prescriptions</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/blogs"} activeClassName="active" end>
+                <FaBlog className="icon" />
+                <span>Blogs</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/reviews"} activeClassName="active" end>
+                <FaRegStar className="icon" /> <span>Reviews</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/admin/contact"} activeClassName="active" end>
+                <FaRegCommentDots className="icon" /> <span>Contact</span>
               </NavLink>
             </li>
           </ul>
