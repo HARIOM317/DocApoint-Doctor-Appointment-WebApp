@@ -80,7 +80,7 @@ const PatientProfileSetting = () => {
           <div className="col-md-12">
             <div className="form-group">
               <div className="change-avatar d-flex gap-2 align-items-center">
-                <Link to={"/"} className="my-3 patient-img">
+                <Link to={"/dashboard"} className="my-3 patient-img">
                   <img
                     src={selectedImage ? selectedImage : data?.img || pImage}
                     alt=""

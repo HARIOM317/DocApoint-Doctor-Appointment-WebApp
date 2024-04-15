@@ -81,7 +81,7 @@ const DashboardSidebar = () => {
           </div>
         ) : (
           <div className="profile-info text-center">
-            <Link to={"/"}>
+            <Link to={"/dashboard/profile-setting"}>
               <img src={data?.img ? data?.img : img} alt="" />
             </Link>
             <div className="profile-details">

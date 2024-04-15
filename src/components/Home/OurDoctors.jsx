@@ -71,8 +71,11 @@ const OurDoctors = () => {
                 </div>
                 <div className="member-info">
                   <h4>{item?.firstName + " " + item?.lastName}</h4>
-                  <span>{item?.designation}</span>
-                  <p>{item?.specialization}</p>
+                  <span>
+                    {item?.designation === null
+                      ? item?.specialization
+                      : item?.designation}
+                  </span>
 
                   <div className="social">
                     <NavLink

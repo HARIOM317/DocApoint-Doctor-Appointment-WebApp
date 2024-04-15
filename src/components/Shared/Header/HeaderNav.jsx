@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { Drawer, Button, Modal } from "antd";
 import { useForm } from "react-hook-form";
-import { DatePicker, Select } from "antd";
+import { Select } from "antd";
 import { message } from "antd";
 import adminAvatar from "../../../images/admin.png";
 import useAuthCheck from "../../../redux/hooks/useAuthCheck";
@@ -63,10 +63,6 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
 
   const showModal = () => {
     setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
   };
 
   const handleCancel = () => {
@@ -153,16 +149,18 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
               Blog
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              onClick={showModal}
-              className={({ isActive }) =>
-                isActive ? "nav-link scrollto" : ""
-              }
-            >
-              Emergency
-            </NavLink>
-          </li>
+          {role !== "admin" && role !== "doctor" && (
+            <li>
+              <NavLink
+                onClick={showModal}
+                className={({ isActive }) =>
+                  isActive ? "nav-link scrollto" : ""
+                }
+              >
+                Emergency
+              </NavLink>
+            </li>
+          )}
           {!isLoggedIn && (
             <li>
               <Link to={"/login"} className="nav-link scrollto">

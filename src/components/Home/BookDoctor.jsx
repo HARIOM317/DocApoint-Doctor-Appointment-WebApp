@@ -121,7 +121,9 @@ const BookDoctor = () => {
                     {item?.firstName + " " + item?.lastName}
                   </span>
                   <span className="job">
-                    {item?.designation} {item?.specialization}
+                    {item?.designation === null
+                      ? item?.specialization
+                      : item?.designation}
                   </span>
                 </div>
 

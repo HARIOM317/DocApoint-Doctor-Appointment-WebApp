@@ -79,6 +79,7 @@ const Reviews = () => {
                                   minWidth: "30px",
                                   minHeight: "30px",
                                   marginRight: "10px",
+                                  objectFit: "cover",
                                 }}
                               />
                               <span className="table-data">
@@ -105,6 +106,7 @@ const Reviews = () => {
                                   minWidth: "30px",
                                   minHeight: "30px",
                                   marginRight: "10px",
+                                  objectFit: "cover",
                                 }}
                               />
                               <span className="table-data">

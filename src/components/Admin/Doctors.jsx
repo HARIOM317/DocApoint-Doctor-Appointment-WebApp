@@ -66,6 +66,7 @@ const Doctors = () => {
                                   width: "30px",
                                   height: "30px",
                                   marginRight: "10px",
+                                  objectFit: 'cover'
                                 }}
                               />
                             </a>

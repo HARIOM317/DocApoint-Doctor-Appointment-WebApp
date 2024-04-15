@@ -88,7 +88,9 @@ const About = () => {
                     />
                     <h2>{item?.firstName + " " + item?.lastName}</h2>
                     <p>
-                      {item?.designation} {item?.specialization}
+                      {item?.designation === null
+                        ? item?.specialization
+                        : item?.designation}
                     </p>
 
                     <NavLink

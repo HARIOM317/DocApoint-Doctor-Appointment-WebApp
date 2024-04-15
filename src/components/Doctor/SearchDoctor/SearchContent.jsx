@@ -1,9 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import StarRatings from 'react-star-ratings';
-import { Tag } from 'antd';
+import React from "react";
+import { Link } from "react-router-dom";
+import StarRatings from "react-star-ratings";
+import { Tag } from "antd";
 import "../../../stylesheets/doctorStylesheets/SearchDoctor.css";
-import { FaLocationArrow, FaRegThumbsUp, FaRupeeSign, FaComment } from "react-icons/fa";
+import {
+  FaLocationArrow,
+  FaRegThumbsUp,
+  FaRupeeSign,
+  FaComment,
+} from "react-icons/fa";
 import doctorProfile from "../../../images/home/doctorProfile.jpg";
 
 const SearchContent = ({ data }) => {
@@ -25,8 +30,11 @@ const SearchContent = ({ data }) => {
                 Dr. {data?.firstName + " " + data?.lastName}
               </Link>
             </h5>
-            <p style={{ color: "var(--textLight)" }}>{data?.designation}</p>
-            <p style={{ color: "var(--textLight)" }}>{data?.specialization}</p>
+            <p style={{ color: "var(--textLight)" }}>
+              {data?.specialization === null
+                ? data?.designation
+                : data?.specialization}
+            </p>
 
             <div className="d-flex align-items-center">
               <div>
