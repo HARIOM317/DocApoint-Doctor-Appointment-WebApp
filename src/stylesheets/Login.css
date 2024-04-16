@@ -1,23 +1,24 @@
 .login-form {
-  margin: 0;
   padding: 0;
+  margin: 0;
+  margin-top: 4rem;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
   background: #fff;
 }
 
 .login-form .login-container {
   position: relative;
   width: 70vw;
-  height: 95vh;
+  height: 90vh;
   background: var(--bgColor);
   border: 1.5px solid var(--borderLight);
   border-bottom: none;
   border-radius: 15px;
-  box-shadow: 0 2.5px 2px -1px rgba(32, 31, 31, 0.45);
+  box-shadow: var(--materialShadow);
   overflow: hidden;
 }
 
@@ -328,20 +329,21 @@
 
 /* Media Query */
 @media (max-width: 992px) {
+  .login-form {
+    margin-top: 2.8rem;
+    margin-bottom: 0;
+  }
   .login-form .login-container {
     border-radius: 0;
     width: 100vw;
     height: 100vh;
   }
-}
-
-@media (max-width: 672px) {
-  .login-form .login-container .password-validatity p {
-    line-height: 12px;
+  .login-form .login-container .pageCloseBtn{
+    display: none;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .login-form .login-container::before {
     display: none;
   }
@@ -370,6 +372,12 @@
   .login-form .login-container .account-text {
     display: initial;
     margin-top: 30px;
+  }
+}
+
+@media (max-width: 672px) {
+  .login-form .login-container .password-validatity p {
+    line-height: 12px;
   }
 }
 

@@ -163,9 +163,14 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
           )}
           {!isLoggedIn && (
             <li>
-              <Link to={"/login"} className="nav-link scrollto">
+              <NavLink
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive ? "nav-link scrollto active" : ""
+                }
+              >
                 Login
-              </Link>
+              </NavLink>
             </li>
           )}
         </ul>
@@ -296,10 +301,15 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
 
           {!isLoggedIn && (
             <li>
-              <Link to={"/login"} className="nav-link scrollto">
+              <NavLink
+                to={"/login"}
+                className={({ isActive }) =>
+                  isActive ? "nav-link scrollto active" : "nav-link"
+                }
+              >
                 <FaSignInAlt className="icon" />
                 Login
-              </Link>
+              </NavLink>
             </li>
           )}
         </ul>

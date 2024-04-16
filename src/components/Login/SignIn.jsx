@@ -76,7 +76,15 @@ const SignIn = ({ handleSignUpMobileClick }) => {
         <h2 className="title" style={{ marginBottom: "3rem" }}>
           Forgot Password
         </h2>
-        <div style={{color: "var(--textLight)", textAlign: 'center', marginBottom: '0.5rem'}}>To Forgot Your Password Please Enter your email</div>
+        <div
+          style={{
+            color: "var(--textLight)",
+            textAlign: "center",
+            marginBottom: "0.5rem",
+          }}
+        >
+          To Forgot Your Password Please Enter your email
+        </div>
 
         <div className="input-field">
           <i className="fas fa-user"></i>
@@ -94,14 +102,14 @@ const SignIn = ({ handleSignUpMobileClick }) => {
           className="text-bold"
           style={{
             cursor: "pointer",
-            color: "var(--primaryColor)",
+            color: "var(--primaryHoverColor)",
             width: "100%",
             textAlign: "end",
             marginRight: "2.5rem",
             padding: "0.25rem 0 0.5rem 0.5rem",
           }}
         >
-          Stil Remember Password ?
+          Still Remember Password ?
         </div>
 
         <button
@@ -177,7 +185,7 @@ const SignIn = ({ handleSignUpMobileClick }) => {
           className="text-bold"
           style={{
             cursor: "pointer",
-            color: "var(--primaryColor)",
+            color: "var(--primaryHoverColor)",
             width: "100%",
             textAlign: "end",
             marginRight: "2.5rem",
@@ -210,7 +218,12 @@ const SignIn = ({ handleSignUpMobileClick }) => {
 
         <p className="account-text">
           Don't have an account?{" "}
-          <a href="" id="sign-up-btn2" style={{color: 'var(--primaryColor)'}} onClick={handleSignUpMobileClick}>
+          <a
+            href=""
+            id="sign-up-btn2"
+            style={{ color: "var(--primaryHoverColor)" }}
+            onClick={handleSignUpMobileClick}
+          >
             Sign Up
           </a>
         </p>

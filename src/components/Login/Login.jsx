@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
+import Header from "../Shared/Header/Header";
+import Footer from "../Shared/Footer/Footer";
+
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../../stylesheets/Login.css";
 import Lottie from "lottie-react";
 import SignInAnimation from "../../animations/sign-in.json";
 import SignUpAnimation from "../../animations/sign-up.json";
-
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -35,6 +37,8 @@ const Login = () => {
 
   return (
     <>
+      <Header />
+
       <div className="login-form">
         <div
           className={`login-container ${isSignUp ? "sign-up-mode" : ""} ${
@@ -103,6 +107,8 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
