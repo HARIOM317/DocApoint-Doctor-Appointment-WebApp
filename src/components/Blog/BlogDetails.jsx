@@ -97,13 +97,11 @@ const BlogDetails = () => {
               style={{ margin: "0.5rem auto 2rem auto" }}
             >
               <div className="d-flex gap-1 align-items-center justify-content-center">
-                {/* <FaRegUser className="form-text" /> */}
                 <span className="blog-author-main">
                   {data?.user?.firstName + " " + data?.user?.lastName}
                 </span>
               </div>
               <div className="d-flex gap-1 text-muted align-items-center justify-content-center">
-                {/* <FaBusinessTime className="form-text" /> */}
                 <span className="blog-date-main">
                   {moment(data?.cretedAt).format("LL")}
                 </span>
@@ -144,7 +142,7 @@ const BlogDetails = () => {
     <>
       <Header />
       <SubHeader title="Blog Details" subtitle={data?.title} />
-      <div className="container-fluid" style={{ marginTop: 150 }}>
+      <div className="container-fluid" style={{ marginTop: 100 }}>
         <div className="row mx-2">
           <div className="col-md-9 col-sm-12">
             {content}
@@ -156,7 +154,7 @@ const BlogDetails = () => {
               }}
             />
             <div className="d-flex justify-content-end">
-              <div className="col-md-5 col-lg-4 ml-lg-0 text-end text-md-end">
+              <div className="col-md-5 col-lg-4 ml-lg-0 text-end text-md-end w-100">
                 <h5
                   className="d-inline me-2"
                   style={{ color: "var(--headingColor)", fontSize: "1rem" }}
