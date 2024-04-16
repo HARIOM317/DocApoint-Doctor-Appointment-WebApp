@@ -22,7 +22,6 @@ const Home = () => {
     <>
       <Header />
       <HomePageHeader />
-      <Chatbot />
       <InfoPage />
       <Service />
       <HowToUse />
@@ -33,6 +32,7 @@ const Home = () => {
       <Gallery />
       <Testimonial />
       <FAQs />
+      <Chatbot />
       <Footer />
     </>
   );

@@ -1,8 +1,8 @@
-import img1 from '../../images/services/icu.jpg';
-import img2 from '../../images/services/patient_ward.jpg';
-import img3 from '../../images/services/test_room.jpg';
-import img4 from '../../images/services/laboratory.jpg';
-import img5 from '../../images/services/chamber.jpg';
+import img1 from "../../images/services/icu.jpg";
+import img2 from "../../images/services/patient_ward.jpg";
+import img3 from "../../images/services/test_room.jpg";
+import img4 from "../../images/services/laboratory.jpg";
+import img5 from "../../images/services/chamber.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -24,6 +24,16 @@ const AvailableServiceContent = () => {
         loop={true}
         centeredSlides={true}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
+        breakpoints={{
+          280: {
+            slidesPerView: 2,
+            centeredSlides: false,
+          },
+          460: {
+            slidesPerView: 3,
+            centeredSlides: true,
+          },
+        }}
       >
         {availabeServiceArray.map((item) => (
           <SwiperSlide key={item.title} className="my-2">

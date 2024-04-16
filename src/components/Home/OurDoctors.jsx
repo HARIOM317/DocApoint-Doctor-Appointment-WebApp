@@ -61,7 +61,7 @@ const OurDoctors = () => {
         {doctors &&
           doctors?.map((item, key) => (
             <div className="col-lg-6 mt-3" key={key + 2}>
-              <div className="member d-flex align-items-start">
+              <div className="member">
                 <div className="pic">
                   <img
                     src={item.img == null ? profileImage : item.img}
@@ -70,7 +70,7 @@ const OurDoctors = () => {
                   />
                 </div>
                 <div className="member-info">
-                  <h4>{item?.firstName + " " + item?.lastName}</h4>
+                  <h4>Dr. {item?.firstName + " " + item?.lastName}</h4>
                   <span>
                     {item?.designation === null
                       ? item?.specialization

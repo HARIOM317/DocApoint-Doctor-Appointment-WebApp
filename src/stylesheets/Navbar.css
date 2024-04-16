@@ -3,7 +3,7 @@
   margin-bottom: 0;
   color: var(--textColor);
 }
-.nav-popover p{
+.nav-popover p {
   color: var(--textLight);
 }
 .nav-popover a {
@@ -12,18 +12,18 @@
   font-weight: 500;
 }
 
-.nav-popover a:hover{
+.nav-popover a:hover {
   color: #152330;
 }
 
-.nav-popover .logout-btn{
+.nav-popover .logout-btn {
   border: 1.5px solid var(--primaryColor);
   background: #fff;
   color: var(--primaryColor);
   font-weight: 500;
 }
 
-.nav-popover .logout-btn:hover{
+.nav-popover .logout-btn:hover {
   color: #b9122c !important;
   border-color: #b9122c !important;
 }
@@ -212,16 +212,6 @@
   visibility: visible;
 }
 
-@media (max-width: 1366px) {
-  .navbar .dropdown .dropdown ul {
-    left: -90%;
-  }
-
-  .navbar .dropdown .dropdown:hover > ul {
-    left: -100%;
-  }
-}
-
 .mobile-nav-toggle {
   color: var(--textColor);
   font-size: 28px;
@@ -230,16 +220,6 @@
   line-height: 0;
   transition: 0.5s;
   margin-left: 5px;
-}
-
-@media (max-width: 991px) {
-  .mobile-nav-toggle {
-    display: block;
-  }
-
-  #navbar ul {
-    display: none;
-  }
 }
 
 .appointment-btn {
@@ -260,19 +240,6 @@
   background: var(--skin-gradient);
   color: white;
   transform: scale(1.025);
-}
-
-@media (max-width: 768px) {
-  .appointment-btn {
-    margin: 1rem 1rem 1rem 1rem;
-    padding: 6px 18px;
-  }
-}
-
-@media (max-width: 413px) {
-  .appointment-btn {
-    display: none;
-  }
 }
 
 .mobile-menu-nav {
@@ -297,4 +264,60 @@
 
 .ant-drawer-body {
   background-color: var(--bgLight);
+}
+
+.ant-drawer-header{
+  background: var(--bgLight);
+}
+
+/* Media Query */
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover > ul {
+    left: -100%;
+  }
+}
+
+@media (max-width: 1204px) {
+  .navbar a,
+  .navbar a:focus {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  #navbar ul {
+    display: none;
+  }
+
+  .navbar a,
+  .navbar a:focus,
+  .navbar a:active {
+    font-size: 1.2rem;
+  }
+
+  .mobile-menu-nav a:hover,
+  .mobile-menu-nav a.active {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .appointment-btn {
+    margin: 1rem 1rem 1rem 1rem;
+    padding: 6px 18px;
+  }
+}
+
+@media (max-width: 413px) {
+  .appointment-btn {
+    display: none;
+  }
 }

@@ -22,53 +22,55 @@ const Testimonial = () => {
           data.slice(0, 10)?.map((item, key) => (
             <SwiperSlide key={item.id + key}>
               <div
-                className="p-3 my-5"
+                className="p-3 my-5 mx-0"
                 key={item?.id + key}
                 style={{
-                  maxWidth: "600px",
                   background: "var(--bgLight)",
                   border: "1.5px solid var(--borderColor)",
-                  boxShadow: "var(--shadowAll)",
+                  boxShadow: "var(--materialShadow)",
                   borderRadius: "16px",
+                  height: "300px",
                 }}
               >
-                <div className="d-flex gap-2 align-items-center">
+                <div className="d-flex flex-column gap-2 align-items-start justify-content-between h-100">
                   <div className="review-img">
                     {item.patient.img && (
                       <img src={item.patient.img} alt="" className="shadow" />
                     )}
+                    <div style={{ marginTop: "0.5rem", textWrap: "nowrap" }}>
+                      <h5 className="text-secondary">
+                        {item?.patient?.firstName +
+                          " " +
+                          item?.patient?.lastName}
+                      </h5>
+                    </div>
                   </div>
-                  <div style={{ marginTop: "1rem", marginLeft: "1rem" }}>
-                    <h5 className="text-secondary">
-                      {item?.patient?.firstName + " " + item?.patient?.lastName}
-                    </h5>
-                  </div>
-                </div>
 
-                <p
-                  className="text-start text-secondary"
-                  style={{
-                    minHeight: "72px",
-                    overflow: "hidden",
-                    marginTop: "1.5rem",
-                  }}
-                >
-                  {" "}
-                  {truncate(item?.description, 150)}
-                </p>
-                <div>
-                  <p className="recomended">
-                    <FaCheckDouble /> Recomended
-                  </p>
-                  <StarRatings
-                    rating={5}
-                    starRatedColor="#f4c150"
-                    numberOfStars={5}
-                    name="rating"
-                    className="star"
-                    starDimension="20px"
-                    starSpacing="5px"
-                  />
+                  <div style={{ marginTop: "1rem" }}>
+                    <p
+                      className="text-start text-secondary"
+                      style={{
+                        minHeight: "72px",
+                        overflow: "hidden",
+                        marginTop: "1rem",
+                      }}
+                    >
+                      {" "}
+                      {truncate(item?.description, 100)}
+                    </p>
+                    <p className="recomended">
+                      <FaCheckDouble /> Recommended
+                    </p>
+                    <StarRatings
+                      rating={5}
+                      starRatedColor="#f4c150"
+                      numberOfStars={5}
+                      name="rating"
+                      className="star"
+                      starDimension="20px"
+                      starSpacing="5px"
+                    />
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
@@ -115,19 +117,21 @@ const Testimonial = () => {
           />
         </div>
       ) : (
-        <div className="row d-flex justify-content-center">
+        <div>
           <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
+            spaceBetween={20}
+            slidesPerView={2}
             modules={[Autoplay]}
             loop={true}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             breakpoints={{
-              576: {
+              280: {
                 slidesPerView: 1,
+                centeredSlides: true,
               },
-              1100: {
+              992: {
                 slidesPerView: 2,
+                centeredSlides: false,
               },
             }}
           >

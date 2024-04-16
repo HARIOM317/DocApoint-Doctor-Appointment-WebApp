@@ -4,7 +4,6 @@
   text-align: justify;
 }
 
-
 .our-services-info {
   margin-top: 2rem !important;
 }
@@ -13,7 +12,7 @@
   width: 70%;
   height: 80%;
   margin-top: 1.5rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0.8rem 0.8rem;
+  box-shadow: var(--materialShadow);
   border: 1px solid var(--bg-black-50);
   border-radius: 1.5rem;
 }
@@ -55,8 +54,9 @@
   border: 0.1rem solid var(--primaryColor);
   font-size: 1.5rem;
   color: var(--primaryColor);
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .our-services-data {
@@ -78,19 +78,17 @@
   padding-left: 3rem !important;
 }
 
-
 .award-img {
-    height: 120px;
-    margin-bottom: 10px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    background: #eff0f3;
-    object-fit: cover;
-    overflow: hidden;
-    border-radius: 15px;
+  height: 120px;
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: #eff0f3;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 15px;
 }
-
 
 /* Our Specialist Section */
 .top-specialist {
@@ -143,21 +141,44 @@
 
 /* Media Query */
 @media (max-width: 992px) {
-  .appointment .my-btn{
+  .appointment .my-btn {
     width: 50%;
   }
 
-  .top-specialist .main-heading{
+  .top-specialist .main-heading {
     text-align: center;
   }
 }
 
 @media (max-width: 576px) {
-  .appointment .my-btn{
+  .appointment .my-btn {
     width: 80%;
   }
 
-  .appointment .container{
+  .appointment .container {
     padding: 0 3rem;
+  }
+}
+
+@media (max-width: 518px) {
+  .our-services .our-services-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .our-services-info .our-services-data {
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  .our-services-info .our-services-data .sub-heading {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .our-services-list{
+    margin: 0;
+    /* padding: 0; */
   }
 }

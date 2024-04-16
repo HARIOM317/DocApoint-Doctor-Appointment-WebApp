@@ -5,19 +5,22 @@ import { Link } from "react-router-dom";
 
 const InfoPage = () => {
   return (
-    <section className="why-us mt-5 mt-md-0">
+    <section className="why-us mt-md-0">
       <div className="container">
         <div className="row">
           <div className="col-lg-4 d-flex align-items-stretch">
-            <div className="content">
-              <h3>Why DocApoint?</h3>
-              <p>
-                Choose DocApoint for effortless healthcare management. Our
-                platform offers seamless appointment booking, real-time schedule
-                updates, and secure digital prescriptions. With user-friendly
-                features for patients and doctors, docApoint streamlines the
-                healthcare process, ensuring a smooth experience for all.
-              </p>
+            <div className="content d-flex justify-content-between align-items-center flex-column h-100">
+              <div>
+                <h3>Why DocApoint?</h3>
+                <p>
+                  Choose DocApoint for effortless healthcare management. Our
+                  platform offers seamless appointment booking, real-time
+                  schedule updates, and secure digital prescriptions. With
+                  user-friendly features for patients and doctors, docApoint
+                  streamlines the healthcare process, ensuring a smooth
+                  experience for all.
+                </p>
+              </div>
               <div className="text-center">
                 <Link to="/about" className="more-btn">
                   Learn More <i className="bx bx-chevron-right"></i>

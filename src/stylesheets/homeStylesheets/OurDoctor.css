@@ -4,11 +4,15 @@
 
 .doctors .member {
   position: relative;
-  box-shadow: var(--shadowAll);
+  box-shadow: var(--materialShadow);
   padding: 30px;
   border: 1.5px solid var(--borderColor);
   border-radius: 10px;
   background: var(--bgLight);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .doctors .member .pic {
@@ -95,4 +99,25 @@
 
 .doctors .member .social a + a {
   margin-left: 8px;
+}
+
+@media (max-width: 576px){
+  .doctors{
+    margin: 1.5rem;
+  }
+
+  .doctors .member{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .doctors .member .pic{
+    margin-bottom: 1.5rem;
+    border-color: var(--borderColor);
+  }
+
+  .doctors .member .social{
+    justify-content: center;
+  }
 }

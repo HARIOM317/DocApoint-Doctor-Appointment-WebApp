@@ -5,7 +5,7 @@ import { useGetDoctorsQuery } from "../../redux/api/doctorApi";
 import { FaRegBookmark } from "react-icons/fa";
 import { useAddFavouriteMutation } from "../../redux/api/favouriteApi";
 import { message, Tooltip } from "antd";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { sliderSettings } from "../../utils/common";
 import profileImage from "../../images/home/doctorProfile.jpg";
 import StarRatings from "react-star-ratings";
@@ -118,7 +118,7 @@ const BookDoctor = () => {
 
                 <div className="text-data">
                   <span className="name">
-                    {item?.firstName + " " + item?.lastName}
+                    Dr. {item?.firstName + " " + item?.lastName}
                   </span>
                   <span className="job">
                     {item?.designation === null

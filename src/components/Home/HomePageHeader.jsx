@@ -14,7 +14,7 @@ const HomePageHeader = () => {
       <section className="homepage margin-top-max">
         <section className="container main-header-container">
           <div className="row">
-            <div className="col-12 col-lg-6 header-left-side d-flex justify-content-center flex-column align-items-start order-lg-first order-last">
+            <div className="col-12 col-lg-6 header-left-side order-lg-first order-last">
               <h3 className="sih-offers">
                 DocApoint is{" "}
                 <TypeAnimation
@@ -39,27 +39,27 @@ const HomePageHeader = () => {
                 reviews, improving the healthcare experience for all.
               </p>
 
-              <div className="d-flex justify-content-start gap-2">
+              <div>
                 {role === "patient" ? (
-                  <NavLink to={"/doctors"} className="btn-get-started scrollto">
+                  <NavLink to={"/doctors"} className="btn-get-started">
                     Book Appointment
                   </NavLink>
                 ) : role === "doctor" ? (
                   <NavLink
                     to={"/dashboard/appointments"}
-                    className="btn-get-started scrollto"
+                    className="btn-get-started"
                   >
                     Check Appointments
                   </NavLink>
                 ) : (
-                  <NavLink to={"/login"} className="btn-get-started scrollto">
+                  <NavLink to={"/login"} className="btn-get-started">
                     Book Appointment
                   </NavLink>
                 )}
                 {role === "patient" && (
                   <NavLink
                     to={"/track-appointment"}
-                    className="btn-get-started scrollto"
+                    className="btn-get-started"
                   >
                     Track Appointment
                   </NavLink>
@@ -68,7 +68,7 @@ const HomePageHeader = () => {
             </div>
 
             {/* Main Header Right Side */}
-            <div className="col-12 col-lg-6 header-right-side d-flex justify-content-center align-items-center main-header-section-images order-md-first order-sm-first">
+            <div className="col-12 col-lg-6 header-right-side main-header-section-images order-md-first order-sm-first">
               <div>
                 <img src={doctorImg} alt="Doctor" style={{ width: "100%" }} />
               </div>

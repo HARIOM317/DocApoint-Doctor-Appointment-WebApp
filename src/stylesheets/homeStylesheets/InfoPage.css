@@ -1,5 +1,7 @@
 .why-us .content {
   padding: 30px;
+  height: 100%;
+  /* margin-top: 10px; */
   background: var(--bgColor);
   border-radius: 8px;
   border: 1.5px solid var(--borderLight);
@@ -99,4 +101,10 @@
   font-size: 0.85rem;
   color: var(--textLight);
   margin: 0.25rem auto;
+}
+
+@media (max-width: 576px){
+  .why-us{
+    padding: 0 10px;
+  }
 }
