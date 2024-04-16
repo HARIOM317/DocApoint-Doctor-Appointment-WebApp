@@ -107,11 +107,11 @@
   text-align: justify;
   color: var(--textLight);
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--borderColor);
+  border-bottom: 1.5px solid var(--borderColor);
 }
 
 /* Media Query */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .about .about-content .about-card {
     flex: 0 0 100%;
     max-width: 100%;
@@ -123,5 +123,20 @@
 
   .about .container {
     padding: 0 3rem;
+  }
+
+  .about .about-content .about-card {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about .about-content .timeline .timeline-item {
+    margin-left: 0;
+  }
+
+  .about .container {
+    padding: 0 1rem;
   }
 }
