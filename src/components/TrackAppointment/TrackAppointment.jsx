@@ -1,16 +1,18 @@
-import Footer from '../Shared/Footer/Footer';
-import Header from '../Shared/Header/Header';
+import Footer from "../Shared/Footer/Footer";
+import Header from "../Shared/Header/Header";
 import "../../stylesheets/TrackAppointment.css";
-import { Input, message } from 'antd';
-import { useTrackAppointmentMutation } from '../../redux/api/appointmentApi';
-import TrackDetailPage from './TrackDetailPage';
-import { useEffect, useState } from 'react';
-import AvailableServiceContent from '../Home/AvailableServiceContent';
+import { Input, message } from "antd";
+import { useTrackAppointmentMutation } from "../../redux/api/appointmentApi";
+import TrackDetailPage from "./TrackDetailPage";
+import { useEffect, useState } from "react";
+import AvailableServiceContent from "../Home/AvailableServiceContent";
 const { Search } = Input;
 
 const TrackAppointment = () => {
-  const [trackAppointment, { data, isSuccess, isLoading, isError, error }] =
-    useTrackAppointmentMutation();
+  const [
+    trackAppointment,
+    { data, isSuccess, isLoading, isError, error },
+  ] = useTrackAppointmentMutation();
   const [showInfo, setShowInfo] = useState(false);
 
   const onSearch = (value) => {
@@ -44,40 +46,33 @@ const TrackAppointment = () => {
         {showInfo ? (
           content
         ) : (
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ marginTop: "10rem" }}
-          >
-            <div>
-              <div className="mb-5 section-title text-center">
-                <h2>Track Your Apppointment</h2>
-                <p style={{color: 'var(--textLight)'}}>
-                  Enter your appointment id to track your appointment status
-                </p>
-              </div>
-              <div className="mx-auto d-flex justify-content-center">
-                <Search
-                  placeholder="Track Your Appointment..."
-                  allowClear
-                  enterButton="Track"
-                  onSearch={onSearch}
-                  style={{ width: 400 }}
-                  size="large"
-                />
-              </div>
-
-              <section
-                className="container"
-                style={{ marginBottom: "8rem", marginTop: "5rem" }}
-              >
-                <div className="flex" style={{ maxWidth: "900px" }}>
-                  <div className="mb-4 section-title text-center">
-                    <h5 className="text-uppercase">Availabe Service</h5>
-                  </div>
-                  <AvailableServiceContent />
-                </div>
-              </section>
+          <div style={{ marginTop: "10rem" }} className="track-appointment">
+            <div className="mb-5 section-title text-center apt-heading">
+              <h2>Track Your Appointment</h2>
+              <p style={{ color: "var(--textLight)" }}>
+                Enter your appointment id to track your appointment status
+              </p>
             </div>
+            <div className="mx-auto search-bar">
+              <Search
+                placeholder="Track Your Appointment..."
+                allowClear
+                enterButton="Track"
+                onSearch={onSearch}
+                size="large"
+                className="search-input"
+              />
+            </div>
+
+            <section
+              className="container"
+              style={{ marginBottom: "8rem", marginTop: "5rem" }}
+            >
+              <div className="mb-4 section-title text-center">
+                <h5 className="text-uppercase">Available Service</h5>
+              </div>
+              <AvailableServiceContent />
+            </section>
           </div>
         )}
       </div>
