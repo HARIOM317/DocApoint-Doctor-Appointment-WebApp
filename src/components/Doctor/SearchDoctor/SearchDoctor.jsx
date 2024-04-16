@@ -7,7 +7,7 @@ import { Pagination, Select, Button } from "antd";
 import Header from "../../Shared/Header/Header";
 import SubHeader from "../../Shared/SubHeader";
 import Search from "antd/es/input/Search";
-import { FaSearch, FaRedoAlt } from "react-icons/fa";
+import { FaRedoAlt } from "react-icons/fa";
 
 import Lottie from "lottie-react";
 import Loading from "../../../animations/loading.json";
@@ -259,18 +259,14 @@ const SearchDoctor = () => {
         </div>
 
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12 col-lg-12 col-xl-12">
-              {content}
-              <div className="text-center mt-5 mb-5">
-                <Pagination
-                  showSizeChanger
-                  onShowSizeChange={onShowSizeChange}
-                  total={meta?.total}
-                  pageSize={size}
-                />
-              </div>
-            </div>
+          {content}
+          <div className="text-center mt-5 mb-5">
+            <Pagination
+              showSizeChanger
+              onShowSizeChange={onShowSizeChange}
+              total={meta?.total}
+              pageSize={size}
+            />
           </div>
         </div>
       </div>
