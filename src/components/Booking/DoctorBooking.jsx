@@ -262,7 +262,7 @@ const DoctorBooking = () => {
 
   const steps = [
     {
-      title: "Select Appointment Date & Time",
+      title: "Select Date",
       content: (
         <SelectDateAndTime
           content={content}
@@ -275,7 +275,7 @@ const DoctorBooking = () => {
       ),
     },
     {
-      title: "Patient Information",
+      title: "Patient Details",
       content: (
         <PersonalInformation
           handleChange={handleChange}
@@ -352,7 +352,7 @@ const DoctorBooking = () => {
         className="container"
         style={{ marginBottom: "12rem", marginTop: "8rem" }}
       >
-        <Steps current={current} items={items} />
+        <Steps current={current} items={items} className="stepper" />
         <div className="mb-5 mt-3 mx-3">{steps[current].content}</div>
         <div className="text-end mx-3">
           {current < steps.length - 1 && (

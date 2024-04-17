@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import img from "../../images/doc/doctor 3.jpg";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Checkbox } from "antd";
 import "../../stylesheets/bookingStylesheets/BookingCheckout.css";
 
 const CheckoutPage = ({
@@ -26,8 +26,8 @@ const CheckoutPage = ({
   };
 
   let price = data?.price ? data.price : 60;
-  const gst = (5 / 100) * Number(price);
-  const totalAmount = Number(price) + 10 + gst;
+  const gst = ((5 / 100) * Number(price)).toFixed(2);
+  const totalAmount = Number(price) + 10 + Number(gst);
 
   const [amount, setAmount] = useState(0);
   const currency = "INR";
@@ -152,12 +152,13 @@ const CheckoutPage = ({
                     </li>
                   </ul>
 
+                  <hr />
+
                   <ul className="booking-total">
                     <li className="d-flex justify-content-between">
                       <span className="fw-bold">Total</span>
                       <span className="total-cost">Rs. {totalAmount}</span>
                     </li>
-                    <hr />
                   </ul>
                 </div>
               </div>
@@ -179,7 +180,7 @@ const CheckoutPage = ({
                   style={{ accentColor: "var(--primaryColor)" }}
                 />
                 <span className="ms-2"></span>
-                <Button >Payment Now</Button>
+                <label>Payment Now</label>
               </div>
               <div className="payment-radio credit-card-option mt-4">
                 <input
@@ -191,33 +192,32 @@ const CheckoutPage = ({
                   style={{ accentColor: "var(--primaryColor)" }}
                 />
                 <span className="ms-2"></span>
-                <Button>Cash</Button>
+                <label>Cash</label>
               </div>
             </div>
           </div>
-
-          <div className="terms-accept">
-            <div className="custom-checkbox">
-              <input
-                type="checkbox"
-                id="terms_accept"
-                className="me-2"
-                checked={isCheck}
-                onChange={handleCheck}
-              />
-              <label htmlFor="terms_accept">
-                {" "}
-                I have read and accept{" "}
-                <a
-                  className="text-primary"
-                  style={{ cursor: "pointer", textDecoration: "none" }}
-                >
-                  Terms &amp; Conditions
-                </a>
-              </label>
-            </div>
-          </div>
         </div>
+      </div>
+
+      <div className="terms-accept mt-5">
+        <Checkbox
+          checked={isCheck}
+          onChange={handleCheck}
+          htmlFor="terms_accept"
+          style={{ fontSize: "1rem", color: "var(--textColor)" }}
+        >
+          {" "}
+          I have read and accept{" "}
+          <a
+            style={{
+              cursor: "pointer",
+              textDecoration: "none",
+              color: "var(--primaryHoverColor)",
+            }}
+          >
+            Terms & Conditions
+          </a>
+        </Checkbox>
       </div>
     </div>
   );

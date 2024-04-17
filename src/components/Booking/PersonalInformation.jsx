@@ -40,12 +40,8 @@ const PersonalInformation = ({
   return (
     <form className="rounded p-3 mt-5">
       <div className="row">
-        <Checkbox checked={checked} onChange={onChange}>
-          Already Have an Account ?
-        </Checkbox>
-
         <div className="col-md-6 col-sm-12">
-          <div className="form-group my-4">
+          <div className="form-group mb-4">
             <input
               onChange={(e) => handleChange(e)}
               name="firstName"
@@ -58,7 +54,7 @@ const PersonalInformation = ({
         </div>
 
         <div className="col-md-6 col-sm-12">
-          <div className="form-group my-4">
+          <div className="form-group mb-4">
             <input
               onChange={(e) => handleChange(e)}
               name="lastName"
@@ -69,7 +65,6 @@ const PersonalInformation = ({
             />
           </div>
         </div>
-
 
         <div className="col-md-6 col-sm-12">
           <div className="form-group mb-4">
@@ -83,7 +78,6 @@ const PersonalInformation = ({
             />
           </div>
         </div>
-
 
         <div className="col-md-6 col-sm-12">
           <div className="form-group mb-4">
@@ -138,6 +132,10 @@ const PersonalInformation = ({
             />
           </div>
         </div>
+
+        <Checkbox checked={checked} onChange={onChange}>
+          Already Have an Account ?
+        </Checkbox>
       </div>
     </form>
   );

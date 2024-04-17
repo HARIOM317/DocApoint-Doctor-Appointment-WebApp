@@ -12,7 +12,7 @@ const SelectDateAndTime = ({
   return (
     <div style={{ marginTop: "5rem" }}>
       <dir className="row">
-        <div className="col-md-5 col-sm-12">
+        <div className="col-md-5 col-sm-12 mb-5">
           <div>
             <h5 className="heading">Selected Doctor</h5>
             {content}
@@ -27,7 +27,9 @@ const SelectDateAndTime = ({
 
         <div className="col-md-7 col-sm-12">
           {selectedDate && (
-            <h5 style={{color: "var(--textColor)", marginBottom: '1.5rem', fontSize: '1.3rem', fontWeight: '500'}}>
+            <h5
+            className="selected-datetime"
+            >
               Selected Date: {selectedDate && moment(selectedDate).format("LL")}
               {selectTime && " and Time: " + selectTime}
             </h5>
@@ -35,7 +37,7 @@ const SelectDateAndTime = ({
           <div className="date-card rounded">
             <div className="row text-center">
               {!selectedDate ? (
-                <h5 className="heading d-flex justify-content-center align-items-center mt-5">
+                <h5 className="date-heading d-flex justify-content-center align-items-center mt-5">
                   Please Select A Date First
                 </h5>
               ) : (

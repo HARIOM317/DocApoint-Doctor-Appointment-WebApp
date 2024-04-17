@@ -51,11 +51,7 @@
 .invoice-section{
     background: var(--bgLight);
     border: 1.5px solid var(--borderColor);
-}
-
-.payment-section{
-    background: var(--bgLight);
-    border: 1.5px solid var(--borderColor);
+    box-shadow: var(--materialShadow);
 }
 
 .input-field-style{
@@ -68,4 +64,10 @@
 .input-field-style:focus{
     border-color: var(--borderColor) !important;
     box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+    .payment-options{
+        margin-top: 2rem;
+    }
 }
