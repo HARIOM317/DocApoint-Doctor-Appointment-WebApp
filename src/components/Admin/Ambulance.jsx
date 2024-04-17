@@ -28,7 +28,7 @@ const Ambulance = () => {
   return (
     <>
       <DashboardLayout>
-        <div className="row my-5">
+        <div className="row my-3">
           <div className="col-md-12">
             <div className="card card-table">
               <div className="card-header table-top-heading">
@@ -51,13 +51,7 @@ const Ambulance = () => {
                     </thead>
                     <tbody>
                       {ambulance.map((ambulance) => (
-                        <tr
-                          key={ambulance.id}
-                          style={{
-                            borderBottom: "1px solid var(--borderColor)",
-                            lineHeight: "3.5rem",
-                          }}
-                        >
+                        <tr key={ambulance.id} className="table-row">
                           <td>
                             <span className="table-data">
                               {ambulance.driverName}

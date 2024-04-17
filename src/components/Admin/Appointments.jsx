@@ -33,7 +33,7 @@ const AdminAppointments = () => {
   return (
     <>
       <DashboardLayout>
-        <div className="row my-5">
+        <div className="row my-3">
           <div className="col-md-12">
             <div className="card card-table">
               <div className="card-header table-top-heading">
@@ -58,12 +58,7 @@ const AdminAppointments = () => {
                     </thead>
                     <tbody>
                       {appointments.map((appointment) => (
-                        <tr
-                          key={appointment.id}
-                          style={{
-                            borderBottom: "1px solid var(--borderColor)", lineHeight: '3.5rem'
-                          }}
-                        >
+                        <tr key={appointment.id} className="table-row">
                           <td>
                             <span className="table-data">
                               <NavLink

@@ -124,7 +124,7 @@ const AdminDashboard = () => {
         </div>
 
         <div className="row mt-4">
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon first-icon">
                 <i class="fa-solid fa-user-doctor"></i>
@@ -136,7 +136,7 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon second-icon">
                 <i class="fa-solid fa-hospital-user"></i>
@@ -148,7 +148,7 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon third-icon">
                 <i class="fa-solid fa-calendar-check"></i>
@@ -160,7 +160,7 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon forth-icon">
                 <i class="fa-solid fa-hand-holding-dollar"></i>

@@ -30,7 +30,7 @@ const Emergencies = () => {
   return (
     <>
       <DashboardLayout>
-        <div className="row my-5">
+        <div className="row my-3">
           <div className="col-md-12">
             <div className="card card-table">
               <div className="card-header table-top-heading">
@@ -54,13 +54,7 @@ const Emergencies = () => {
                     </thead>
                     <tbody>
                       {emergency.map((emergency) => (
-                        <tr
-                          key={emergency.id}
-                          style={{
-                            borderBottom: "1px solid var(--borderColor)",
-                            lineHeight: "3.5rem",
-                          }}
-                        >
+                        <tr key={emergency.id} className="table-row">
                           <td>
                             <span className="table-data">
                               {emergency.patientName}
@@ -78,7 +72,9 @@ const Emergencies = () => {
                           </td>
 
                           <td>
-                            <span className="table-data">{emergency.address}</span>
+                            <span className="table-data">
+                              {emergency.address}
+                            </span>
                           </td>
 
                           <td>

@@ -190,7 +190,7 @@ const PrescriptionView = () => {
                 className="row"
                 style={{ borderTop: "1.5px solid var(--borderColor)" }}
               >
-                <div className="col-md-3 col-sm-3 col-xl-3 symptoms-section">
+                <div className="col-md-4 col-sm-4 col-xl-4 symptoms-section">
                   <div className="mt-3">
                     <div>
                       <h5>SYMPTOMS</h5>
@@ -222,11 +222,14 @@ const PrescriptionView = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-9 col-sm-9 col-xl-9 px-0">
+                <div className="col-md-8 col-sm-8 col-xl-8 px-0">
                   <Table
                     columns={columns}
                     dataSource={data?.medicines}
                     pagination={false}
+                    scroll={{
+                      x: 500,
+                    }}
                   />
                 </div>
               </div>

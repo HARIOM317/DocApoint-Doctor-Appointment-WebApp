@@ -30,7 +30,7 @@ const CustomTable = ({
       onChange={onTableChange}
       pagination={paginationConfig}
       scroll={{
-        y: 500,
+        x: 500,
       }}
     />
   );
