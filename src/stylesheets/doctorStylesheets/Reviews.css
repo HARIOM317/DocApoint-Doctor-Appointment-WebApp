@@ -1,9 +1,24 @@
-.review-img{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
+.review-img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
-.review-img img{
-    object-fit: cover;
-    object-position: top;
+.review-img img {
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Doctor Profile Review Section */
+.doctor-review .recommend-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .doctor-review .recommend-btn {
+    flex-direction: column;
+  }
 }

@@ -15,7 +15,7 @@
 
 .availability .availabilityCard > i {
   font-size: 2.5rem;
-  color:  var(--primaryColor);
+  color: var(--primaryColor);
   margin-bottom: 10px;
 }
 
@@ -31,4 +31,29 @@
   font-size: 0.85rem;
   color: var(--textLight);
   font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .availability .availabilityCard {
+    height: auto;
+    flex: 0 0 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .availability .availabilityCard {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .availability .availabilityCard {
+    flex: 0 0 60%;
+  }
+}
+
+@media (max-width: 402px) {
+  .availability .availabilityCard {
+    flex: 0 0 90%;
+  }
 }

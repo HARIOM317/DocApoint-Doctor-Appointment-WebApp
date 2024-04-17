@@ -72,7 +72,7 @@ const DoctorProfile = () => {
       <Header />
       <SubHeader
         title="Doctor Details"
-        subtitle="Lorem ipsum dolor sit amet."
+        subtitle="Know more about the doctor and their availability."
       />
       <div
         className="container"
