@@ -92,7 +92,7 @@ const OverView = ({ data }) => {
               style={{ width: "300px" }}
             />
 
-            <h5 style={{color: "var(--textLight)", fontSize: '1rem', fontWeight: 'bold'}}>No Services and Specialization Found!</h5>
+            <h5 style={{color: "var(--textLight)", fontSize: '1rem', fontWeight: 'bold', textAlign: 'center', marginTop: '1rem'}}>No Services and Specialization Found!</h5>
           </div>
         )}
       </div>

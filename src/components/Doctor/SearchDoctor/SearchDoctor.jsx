@@ -71,7 +71,7 @@ const SearchDoctor = () => {
   if (isLoading)
     content = (
       <>
-        <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+        <div className="m-0 p-0 d-flex align-items-center justify-content-center">
           <Lottie
             loop={true}
             animationData={Loading}
@@ -93,6 +93,7 @@ const SearchDoctor = () => {
             color: "var(--headingColor)",
             fontWeight: "bold",
             fontSize: "1.3rem",
+            textAlign: 'center'
           }}
         >
           Something went wrong!
