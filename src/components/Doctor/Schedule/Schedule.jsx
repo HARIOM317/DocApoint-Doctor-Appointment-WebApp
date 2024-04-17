@@ -1,11 +1,16 @@
-import DashboardLayout from '../DashboardLayout/DashboardLayout';
-import React, { useEffect, useState } from 'react';
-import { Space, Tag, Button, Empty, message } from 'antd';
-import { useCreateTimeSlotMutation, useGetDoctorTimeSlotQuery, useUpdateTimeSlotMutation, useDeleteTimeSlotMutation } from '../../../redux/api/timeSlotApi';
+import DashboardLayout from "../DashboardLayout/DashboardLayout";
+import React, { useEffect, useState } from "react";
+import { Space, Tag, Button, Empty, message } from "antd";
+import {
+  useCreateTimeSlotMutation,
+  useGetDoctorTimeSlotQuery,
+  useUpdateTimeSlotMutation,
+  useDeleteTimeSlotMutation,
+} from "../../../redux/api/timeSlotApi";
 import { FaWindowClose, FaPlus } from "react-icons/fa";
-import UseModal from '../../UI/UseModal';
-import TimePicer from '../../UI/form/TimePicer';
-import TabForm from '../../UI/form/TabForm';
+import UseModal from "../../UI/UseModal";
+import TimePicer from "../../UI/form/TimePicer";
+import TabForm from "../../UI/form/TabForm";
 
 const Schedule = () => {
   const [key, setKey] = useState("sunday");
@@ -201,21 +206,42 @@ const Schedule = () => {
                   <h6>Maximum Patient Limit : {item?.maximumPatient}</h6>
                 )}
               </div>
-              <Space size={[0, "small"]} wrap>
+              <Space
+                size={[0, "small"]}
+                wrap
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
                 {item?.timeSlot &&
                   item?.timeSlot.map((time, index) => (
                     <Tag
                       closable
                       onClose={() => deleteHandler(item?.id)}
                       closeIcon={
-                        <span style={{ color: "white", fontSize: '14px', marginLeft: '10px' }}>
+                        <span
+                          style={{
+                            color: "white",
+                            fontSize: "14px",
+                            marginLeft: "10px",
+                            textAlign: "center",
+                          }}
+                        >
                           <FaWindowClose />
                         </span>
                       }
                       bordered={false}
                       color="processing"
                       key={index + 2}
-                      style={{ background: "var(--primaryColor)", color: "#fff", padding: '8px 16px', fontSize: '14px', fontWeight: '500' }}
+                      style={{
+                        background: "var(--primaryColor)",
+                        color: "#fff",
+                        padding: "8px 16px",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                      }}
                     >
                       {time?.startTime} - {time?.endTime}
                     </Tag>

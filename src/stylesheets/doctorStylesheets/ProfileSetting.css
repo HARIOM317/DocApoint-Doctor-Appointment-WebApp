@@ -1,3 +1,11 @@
+.change-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 2rem;
+}
+
 .profile-setting .text-input-field {
   width: 100%;
   border: 1.5px solid var(--borderLight);
@@ -80,5 +88,12 @@
   .profile-setting .upload-btn {
     margin-top: 3rem;
     text-align: center;
+  }
+
+  .change-avatar {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
   }
 }

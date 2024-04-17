@@ -1,3 +1,18 @@
+.review {
+  margin-bottom: 3rem;
+}
+
+.review .review-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.review .review-bar .star-rating {
+  text-align: end;
+}
+
 .review-img {
   height: 40px;
   width: 40px;
@@ -20,5 +35,17 @@
 @media (max-width: 768px) {
   .doctor-review .recommend-btn {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .review .review-bar {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .review .review-bar .star-rating {
+    text-align: start;
+    margin-bottom: 10px;
   }
 }

@@ -75,7 +75,7 @@ const DoctorProfileSetting = () => {
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12 mb-5">
             <div className="form-group">
-              <div className="change-avatar d-flex gap-2 align-items-center">
+              <div className="change-avatar">
                 <Link to={"/dashboard"} className="my-3 patient-img">
                   <img
                     src={selectedImage ? selectedImage : data?.img || dImage}

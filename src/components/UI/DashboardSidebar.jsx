@@ -255,7 +255,7 @@ const DashboardSidebar = () => {
             <li>
               <NavLink to={"/dashboard/blogs"} activeClassName="active" end>
                 <FaBlog className="icon" />
-                <span>Blogs (Will move to Admin)</span>
+                <span>Write Blogs</span>
               </NavLink>
             </li>
 
@@ -522,7 +522,7 @@ const DashboardSidebar = () => {
               <li>
                 <NavLink to={"/dashboard/blogs"} activeClassName="active" end>
                   <FaBlog className="icon" />
-                  <span>Blogs (Will move to Admin)</span>
+                  <span>Write Blogs</span>
                 </NavLink>
               </li>
 

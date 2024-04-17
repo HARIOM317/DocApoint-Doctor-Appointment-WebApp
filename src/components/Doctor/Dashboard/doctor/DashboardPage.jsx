@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import img from '../../../../images/user.png';
+import React, { useEffect, useState } from "react";
+import img from "../../../../images/user.png";
 import { FaEye, FaCheck, FaTimes, FaBriefcaseMedical } from "react-icons/fa";
-import { useGetDoctorAppointmentsQuery, useUpdateAppointmentMutation } from '../../../../redux/api/appointmentApi';
-import moment from 'moment';
-import { Button, message } from 'antd';
-import CustomTable from '../../../UI/component/CustomTable';
-import { Tabs, Tag } from 'antd';
-import { Link } from 'react-router-dom';
+import {
+  useGetDoctorAppointmentsQuery,
+  useUpdateAppointmentMutation,
+} from "../../../../redux/api/appointmentApi";
+import moment from "moment";
+import { Button, message } from "antd";
+import CustomTable from "../../../UI/component/CustomTable";
+import { Tabs, Tag } from "antd";
+import { Link } from "react-router-dom";
 import "../../../../stylesheets/DashboardStyle.css";
 
 const DashboardPage = () => {
@@ -14,11 +17,12 @@ const DashboardPage = () => {
   const { data, refetch, isLoading } = useGetDoctorAppointmentsQuery({
     sortBy,
   });
-  const [updateAppointment, { isError, isSuccess, error }] =
-    useUpdateAppointmentMutation();
+  const [
+    updateAppointment,
+    { isError, isSuccess, error },
+  ] = useUpdateAppointmentMutation();
 
   const handleOnselect = (value) => {
-    // eslint-disable-next-line eqeqeq
     setSortBy(value == 1 ? "upcoming" : value == 2 ? "today" : sortBy);
     refetch();
   };
@@ -43,40 +47,55 @@ const DashboardPage = () => {
 
   const upcomingColumns = [
     {
-      title: "Patient Name",
+      title: "Profile",
       key: "1",
-      width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <>
             <div className="table-avatar">
-              <a className="avatar avatar-sm mr-2 d-flex gap-2">
-                <img
-                  className="avatar-img rounded-circle"
-                  style={{ width: "30px", height: "30px", objectFit: 'cover' }}
-                  src={data?.patient?.img ? data?.patient?.img : img}
-                  alt=""
-                />
-                <div>
-                  <p className="p-0 m-0 text-wrap" style={{color: 'var(--textColor)'}}>
-                    {data?.firstName + " " + data?.lastName}
-                  </p>
-                </div>
-              </a>
+              <img
+                className="avatar-img rounded-circle"
+                style={{ width: "30px", height: "30px", objectFit: "cover" }}
+                src={data?.patient?.img ? data?.patient?.img : img}
+                alt=""
+              />
             </div>
           </>
         );
       },
     },
     {
-      title: "App Date",
+      title: "Patient Name",
       key: "2",
+      render: function(data) {
+        return (
+          <>
+            <div>
+              <p
+                className="p-0 m-0 text-wrap"
+                style={{ color: "var(--textColor)" }}
+              >
+                {data?.firstName + " " + data?.lastName}
+              </p>
+            </div>
+          </>
+        );
+      },
+    },
+    {
+      title: "Appointment Date",
+      key: "3",
       width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <div>
             {moment(data?.scheduleDate).format("LL")}{" "}
-            <span className="d-block" style={{color: 'var(--textLight)', fontWeight: '500'}}>{data?.scheduleTime}</span>
+            <span
+              className="d-block"
+              style={{ color: "var(--textLight)", fontWeight: "500" }}
+            >
+              {data?.scheduleTime}
+            </span>
           </div>
         );
       },
@@ -84,8 +103,7 @@ const DashboardPage = () => {
     {
       title: "Status",
       key: "4",
-      width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <Tag
             color="#ffcacb"
@@ -107,8 +125,7 @@ const DashboardPage = () => {
     {
       title: "Action",
       key: "5",
-      width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <div className="d-flex flex-column gap-2">
             {data.prescriptionStatus === "notIssued" ? (
@@ -123,11 +140,7 @@ const DashboardPage = () => {
               </Link>
             ) : (
               <Link to={`/dashboard/prescription/${data?.prescription[0]?.id}`}>
-                <Button
-                  icon={<FaEye />}
-                  size="medium"
-                  className="view-btn"
-                >
+                <Button icon={<FaEye />} size="medium" className="view-btn">
                   View
                 </Button>
               </Link>

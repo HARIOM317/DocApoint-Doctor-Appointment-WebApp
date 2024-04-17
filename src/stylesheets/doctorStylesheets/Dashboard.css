@@ -74,3 +74,9 @@
   color: var(--textLight);
   font-size: 14px;
 }
+
+@media (max-width: 576px) {
+  .count-card{
+    margin: 0 1rem;
+  }
+}

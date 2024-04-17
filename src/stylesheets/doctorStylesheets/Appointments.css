@@ -82,7 +82,7 @@
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  text-align: center;
+  text-align: end;
   color: var(--textLight);
   font-size: 14px;
   font-weight: 500;
@@ -156,7 +156,7 @@
 }
 
 .patients-info .info .icon {
-  font-size: 23px !important;
+  font-size: 23px;
 }
 
 .patient-img img {
@@ -176,4 +176,43 @@
   font-size: 14px;
   font-weight: 600;
   color: #757575;
+}
+
+@media (max-width: 1197px) {
+  .appointment-details {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .appointments .profile-card {
+    min-width: 450px;
+  }
+}
+
+@media (max-width: 576px) {
+  .appointments .profile-card {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 402px) {
+  .appointments .profile-card {
+    min-width: 300px;
+  }
+
+  .appointments .profile-card .text-data {
+    font-size: 12px;
+  }
+
+  .appointments .profile-card .tag {
+    padding: 2px 4px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 350px) {
+  .appointments .profile-card {
+    min-width: auto;
+  }
 }

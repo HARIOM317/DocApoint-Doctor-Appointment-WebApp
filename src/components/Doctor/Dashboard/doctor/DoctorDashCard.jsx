@@ -38,7 +38,7 @@ const DoctorDashCard = () => {
     : [];
 
   return (
-    <div className="row mb-5">
+    <div className="row count-card mb-5">
       <div className="col-lg-4 col-sm-6 col-12 mb-3">
         <div className="dash-card">
           <span className="info-icon first-icon">
