@@ -15,7 +15,7 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
     <>
       <div className="w-100 mb-3 p-3 text-center patient-treatment">
         <div className="row ">
-          <div className="col-5 p-2 ">
+          <div className="col-lg-12 col-xl-5 p-2 ">
             <div className="treatment">
               <div>
                 <img
@@ -58,7 +58,7 @@ const TreatmentOverview = ({ data, isAppointment = false }) => {
             </div>
           </div>
 
-          <div className="col-7 px-5 overview">
+          <div className="col-lg-12 col-xl-7 overview">
             <div>
               <h5 style={{ color: "var(--textColor)" }}>Patient Overview</h5>
               <hr />

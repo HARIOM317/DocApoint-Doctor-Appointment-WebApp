@@ -6,6 +6,7 @@ import { Button, message } from 'antd';
 import DashboardLayout from '../DashboardLayout/DashboardLayout';
 import ImageUpload from '../../UI/form/ImageUpload';
 import BlogIcon from '../../../images/blogIcon.png';
+import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const BlogsEdit = () => {
   const { id } = useParams();
@@ -41,8 +42,11 @@ const BlogsEdit = () => {
   return (
     <DashboardLayout>
       <div
-        className="card mb-5 p-2 shadow-sm profile-setting"
-        style={{ background: "var(--bgLight)" }}
+        className="card mb-5 p-2 profile-setting"
+        style={{
+          background: "var(--bgLight)",
+          boxShadow: "var(--materialShadow)",
+        }}
       >
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-12">
@@ -74,11 +78,10 @@ const BlogsEdit = () => {
           </div>
 
           <div className="col-md-12">
-            <div className="d-flex gap-2 align-items-center">
+            <div className="upload-blog-img">
               <div className="my-3">
                 <img
-                  className=""
-                  style={{ maxWidth: "150px" }}
+                  className="blog-img"
                   src={selectedImage ? selectedImage : data?.img || BlogIcon}
                   alt=""
                 />
@@ -92,7 +95,7 @@ const BlogsEdit = () => {
             </div>
           </div>
 
-          <div className="text-center my-3">
+          <div className="upload-btn">
             <Button
               htmlType="submit"
               type="primary"
