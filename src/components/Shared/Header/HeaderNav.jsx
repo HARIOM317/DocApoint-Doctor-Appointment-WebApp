@@ -199,7 +199,6 @@ const HeaderNav = ({ open, setOpen, isLoggedIn, data, avatar, content }) => {
       {/* Mobile drawer */}
       <Drawer
         placement={"right"}
-        width={500}
         onClose={onClose}
         open={open}
         size={"default"}

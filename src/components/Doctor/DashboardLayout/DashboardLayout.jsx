@@ -10,10 +10,10 @@ const DashboardLayout = ({ children }) => {
         style={{ marginTop: 100, marginBottom: 50 }}
       >
         <div className="row">
-          <div className="col-md-5 col-lg-4 col-xl-3">
+          <div className="col-md-4 col-lg-4 col-xl-3">
             <DashboardSidebar />
           </div>
-          <div className="col-md-7 col-lg-8 col-xl-9">{children}</div>
+          <div className="col-md-8 col-lg-8 col-xl-9">{children}</div>
         </div>
       </div>
     </>

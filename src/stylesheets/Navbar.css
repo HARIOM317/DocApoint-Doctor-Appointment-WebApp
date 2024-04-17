@@ -99,7 +99,7 @@
   background: var(--bgColor);
   font-weight: 500;
   border: 1.5px solid var(--borderColor);
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .navbar {
@@ -165,7 +165,6 @@
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  /* background: var(--bgColor); */
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
 }
@@ -248,11 +247,11 @@
 }
 .mobile-menu-nav .icon {
   font-size: 1.3rem;
-  margin-right: 20px;
+  margin-right: 1rem;
 }
 .mobile-menu-nav li {
   margin-bottom: 10px;
-  padding: 8px 5px;
+  padding: 4px 0;
 }
 .mobile-menu-nav li a {
   padding: 8px 16px;
