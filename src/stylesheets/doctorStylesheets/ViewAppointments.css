@@ -157,9 +157,26 @@ page[size="A4"][layout="portrait"] {
 
   .patient-info .patient-data h4 {
     margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .patient-info .patient-data .appointment-para {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .doctor-info .doctor-data .doc-detail {
     text-align: center;
+  }
+}
+
+@media (max-width: 476px) {
+  .patient-info .patient-data .appointment-para {
+    flex-direction: column;
+    gap: 0;
   }
 }

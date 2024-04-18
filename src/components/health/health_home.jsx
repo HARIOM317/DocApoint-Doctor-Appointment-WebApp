@@ -9,7 +9,7 @@ const HealthHome = () => {
     <>
       <DashboardLayout>
         <div className="row health-home">
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon first-icon">
                 <i class="fa-solid fa-dumbbell"></i>
@@ -23,7 +23,7 @@ const HealthHome = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon second-icon">
                 <i class="fa-solid fa-utensils"></i>
@@ -35,7 +35,7 @@ const HealthHome = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon third-icon">
                 <i class="fa-solid fa-user-shield"></i>
@@ -47,7 +47,7 @@ const HealthHome = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-sm-6 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon forth-icon">
                 <i class="fa-solid fa-gauge"></i>

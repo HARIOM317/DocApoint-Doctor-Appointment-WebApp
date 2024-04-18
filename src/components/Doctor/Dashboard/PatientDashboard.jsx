@@ -77,10 +77,10 @@ const PatientDashboard = () => {
     {
       title: "Paid On",
       key: 3,
-      width: 100,
+      width: 150,
       render: function(data) {
         return (
-          <div style={{ color: "var(--textColor)" }}>
+          <div style={{ color: "var(--textColor)", textWrap: 'nowrap' }}>
             {moment(data?.createdAt).format("LL")}
           </div>
         );
@@ -265,14 +265,6 @@ const PatientDashboard = () => {
                 <FaRegEye />
               </Button>
             </Link>
-            {/* <Link to={`/dashboard/appointment/treatment/edit/${data.id}`}>
-              <Button type='primary' size='small' className="bg-primary" style={{ margin: "5px 5px" }}>
-                <FaEdit />
-              </Button>
-            </Link> */}
-            {/* <Button onClick={() => deleteHandler(data.id)} size='small' type='primary' style={{ margin: "5px 5px" }} danger>
-              <FaRegTimesCircle />
-            </Button> */}
           </div>
         );
       },
@@ -317,9 +309,9 @@ const PatientDashboard = () => {
       },
     },
     {
-      title: "App Date",
+      title: "Appointment Date",
       key: 22,
-      width: 100,
+      width: 150,
       render: function(data) {
         return (
           <div style={{ color: "var(--textColor)" }}>

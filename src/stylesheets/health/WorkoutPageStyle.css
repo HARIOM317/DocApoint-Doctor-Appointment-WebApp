@@ -27,7 +27,7 @@
   justify-content: space-between;
   border: 1.5px solid var(--borderColor);
   border-bottom: 0;
-  box-shadow: 0 2.5px 2px -1px rgba(32, 31, 31, 0.45);
+  box-shadow: var(--materialShadow);
   border-radius: 8px;
   padding: 1rem 2rem;
 }
@@ -92,4 +92,30 @@
   max-width: 50px;
   min-height: 50px;
   max-height: 50px;
+}
+
+@media (max-width: 1200px) {
+  .workout__exercise {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workout__exercise__image img {
+    width: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .workout__exercise__image img {
+    width: 100%;
+  }
+
+  .workout__exercise--reverse .workout__exercise__content {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .workout__exercise {
+    padding: 1rem 1rem;
+  }
 }

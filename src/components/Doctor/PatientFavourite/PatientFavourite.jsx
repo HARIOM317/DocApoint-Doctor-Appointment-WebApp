@@ -86,7 +86,7 @@ const PatientFavouriteDoctor = () => {
       <>
         {data &&
           data?.map((item) => (
-            <div className="favorite-doctor col-md-4 col-sm-12">
+            <div className="favorite-doctor col-xl-4 col-lg-6 col-md-12 col-sm-12">
               <div className="flexColCenter profile-card">
                 <a
                   style={{

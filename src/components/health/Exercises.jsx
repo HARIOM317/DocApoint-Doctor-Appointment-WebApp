@@ -1,7 +1,6 @@
 import React from "react";
 import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import "../../stylesheets/health/Exercises.css";
-import { Button } from "antd";
 import { NavLink } from "react-router-dom";
 
 import absExercise from "../../images/Exercises/abs.jpg";
@@ -91,7 +90,7 @@ const Exercises = () => {
           {workoutData.map((item, index) => {
             return (
               <>
-                <div className="col-lg-4 col-sm-6 col-12 mb-3">
+                <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
                   <div className="info-card">
                     <span className="exercise-img">
                       <img src={item.image} alt="" />
