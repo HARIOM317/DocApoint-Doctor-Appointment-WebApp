@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import DashboardLayout from "../DashboardLayout/DashboardLayout";
-import img from "../../../images/doc/doctor 3.jpg";
+import img from "../../../images/user.png";
 import "../../../stylesheets/doctorStylesheets/Appointments.css";
 import {
   useGetDoctorAppointmentsQuery,

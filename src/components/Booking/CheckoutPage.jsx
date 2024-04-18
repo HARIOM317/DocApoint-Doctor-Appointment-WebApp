@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import img from "../../images/doc/doctor 3.jpg";
+import img from "../../images/home/doctorProfile.jpg";
 import { Link } from "react-router-dom";
 import { Checkbox } from "antd";
 import "../../stylesheets/bookingStylesheets/BookingCheckout.css";
