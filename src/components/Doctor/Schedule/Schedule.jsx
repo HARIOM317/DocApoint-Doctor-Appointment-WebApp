@@ -277,54 +277,62 @@ const Schedule = () => {
             <div className="row form-row hours-cont">
               {timeSlot &&
                 timeSlot?.map((item, index) => (
-                  <div
-                    className="col-12 col-md-10 d-flex align-items-center justify-content-between"
-                    key={index + item.id}
-                  >
-                    <div className="row form-row">
-                      <div className="col-12 col-md-6">
-                        <div className="form-group">
-                          <label>Start Time</label>
-                          <TimePicer
-                            handleFunction={handleEditStartTime}
-                            time={item.startTime}
-                            id={item.id}
-                          />
+                  <>
+                    <div
+                      className="col-12 col-md-12 d-flex align-items-center justify-content-between"
+                      key={index + item.id}
+                    >
+                      <div className="row form-row">
+                        <div className="col-12 col-md-6 col-sm-12 my-3">
+                          <div className="form-group">
+                            <label style={{ marginRight: "8px" }}>
+                              Start Time
+                            </label>
+                            <TimePicer
+                              handleFunction={handleEditStartTime}
+                              time={item.startTime}
+                              id={item.id}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-12 col-md-6 col-sm-12 my-3">
+                          <div className="form-group">
+                            <label style={{ marginRight: "8px" }}>
+                              End Time
+                            </label>
+                            <TimePicer
+                              handleFunction={handleEditEndTime}
+                              time={item.startTime}
+                              id={item.id}
+                            />
+                          </div>
                         </div>
                       </div>
-                      <div className="col-12 col-md-6">
-                        <div className="form-group">
-                          <label>End Time</label>
-                          <TimePicer
-                            handleFunction={handleEditEndTime}
-                            time={item.startTime}
-                            id={item.id}
-                          />
-                        </div>
-                      </div>
+                      <Button
+                        type="primary"
+                        size="medium"
+                        htmlType="submit"
+                        onClick={() => remove(item?.id)}
+                        icon={<FaWindowClose />}
+                        className="d-flex align-items-center justify-content-center"
+                        style={{
+                          width: "40px",
+                          height: "30px",
+                          marginTop: "20px",
+                        }}
+                      ></Button>
                     </div>
-                    <Button
-                      type="primary"
-                      size="medium"
-                      htmlType="submit"
-                      onClick={() => remove(item?.id)}
-                      icon={<FaWindowClose />}
-                      className="d-flex align-items-center justify-content-center"
-                      style={{
-                        width: "40px",
-                        height: "30px",
-                        marginTop: "20px",
-                      }}
-                    ></Button>
-                  </div>
+
+                    <hr style={{ color: "var(--headingColor)" }} />
+                  </>
                 ))}
             </div>
           </div>
 
-          <div className=" my-2 w-25">
+          <div className="my-3" style={{ width: "150px" }}>
             <Button
               type="primary"
-              size="small"
+              size="medium"
               htmlType="submit"
               onClick={(e) => addField(e)}
               block
@@ -347,54 +355,62 @@ const Schedule = () => {
             <div className="row form-row hours-cont">
               {addTimeSlot &&
                 addTimeSlot?.map((item, index) => (
-                  <div
-                    className="col-12 col-md-10 d-flex align-items-center justify-content-between"
-                    key={index + 100}
-                  >
-                    <div className="row form-row">
-                      <div className="col-12 col-md-6">
-                        <div className="form-group">
-                          <label>Start Time</label>
-                          <TimePicer
-                            handleFunction={handleStartTime}
-                            time={item.startTime}
-                            id={item.id}
-                          />
+                  <>
+                    <div
+                      className="col-12 col-md-12 d-flex align-items-center justify-content-between"
+                      key={index + 100}
+                    >
+                      <div className="row form-row">
+                        <div className="col-12 col-md-6 col-sm-12 my-3">
+                          <div className="form-group">
+                            <label style={{ marginRight: "8px" }}>
+                              Start Time
+                            </label>
+                            <TimePicer
+                              handleFunction={handleStartTime}
+                              time={item.startTime}
+                              id={item.id}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-12 col-md-6 col-sm-12 my-3">
+                          <div className="form-group">
+                            <label style={{ marginRight: "8px" }}>
+                              End Time
+                            </label>
+                            <TimePicer
+                              handleFunction={handleEndTime}
+                              time={item.endTime}
+                              id={item.id}
+                            />
+                          </div>
                         </div>
                       </div>
-                      <div className="col-12 col-md-6">
-                        <div className="form-group">
-                          <label>End Time</label>
-                          <TimePicer
-                            handleFunction={handleEndTime}
-                            time={item.endTime}
-                            id={item.id}
-                          />
-                        </div>
-                      </div>
+                      <Button
+                        type="primary"
+                        size="medium"
+                        htmlType="submit"
+                        onClick={() => removeFromAddTimeSlot(item?.id)}
+                        className="d-flex align-items-center justify-content-center"
+                        style={{
+                          width: "40px",
+                          height: "30px",
+                          marginTop: "20px",
+                        }}
+                        icon={<FaWindowClose />}
+                      ></Button>
                     </div>
-                    <Button
-                      type="primary"
-                      size="small"
-                      htmlType="submit"
-                      onClick={() => removeFromAddTimeSlot(item?.id)}
-                      className="d-flex align-items-center justify-content-center"
-                      style={{
-                        width: "40px",
-                        height: "30px",
-                        marginTop: "20px",
-                      }}
-                      icon={<FaWindowClose />}
-                    ></Button>
-                  </div>
+
+                    <hr style={{ color: "var(--headingColor)" }} />
+                  </>
                 ))}
             </div>
           </div>
 
-          <div className=" my-2 w-25">
+          <div className="my-3" style={{ width: "150px" }}>
             <Button
               type="primary"
-              size="small"
+              size="medium"
               htmlType="submit"
               onClick={(e) => addInAddTimeSlot(e)}
               block
