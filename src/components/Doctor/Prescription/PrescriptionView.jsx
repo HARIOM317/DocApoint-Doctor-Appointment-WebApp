@@ -246,10 +246,7 @@ const PrescriptionView = () => {
         className="content"
         style={{ marginTop: "10rem", marginBottom: "7rem" }}
       >
-        <div
-          className="d-flex justify-content-end"
-          style={{ marginRight: "8rem" }}
-        >
+        <div className="d-flex justify-content-end print-btn">
           <ReactToPrint
             bodyClass="print-agreement"
             content={() => ref.current}

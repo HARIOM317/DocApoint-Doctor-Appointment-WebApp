@@ -219,8 +219,7 @@ const BookingInvoice = () => {
         style={{ marginBottom: "7rem", marginTop: "10rem" }}
       >
         <div
-          className="d-flex justify-content-end mb-4"
-          style={{ marginRight: "8rem" }}
+          className="d-flex justify-content-end mb-4 print-btn"
         >
           <ReactToPrint
             bodyClass="print-agreement"

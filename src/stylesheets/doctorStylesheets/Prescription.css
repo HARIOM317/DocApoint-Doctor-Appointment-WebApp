@@ -37,6 +37,16 @@
   font-size: 1.5rem;
 }
 
+.print-btn {
+  margin-right: 10rem;
+}
+
+@media (max-width: 992px) {
+  .print-btn {
+    margin-right: 1rem;
+  }
+}
+
 @media (max-width: 576px) {
   .symptoms-section {
     border-right: 0;

@@ -58,7 +58,7 @@ const ViewAppointment = () => {
     content = (
       <>
         <page size="A4" className="mx-auto p-3 pb-3 my-5">
-          <div className="d-flex justify-content-between rounded p-2">
+          <div className="appointment-view p-2">
             <div>
               <p
                 className="form-text text-black mb-0"
@@ -92,9 +92,7 @@ const ViewAppointment = () => {
               </Tooltip>
             </div>
 
-            <div
-              style={{ fontWeight: "bold", fontSize: "14px", textAlign: "end" }}
-            >
+            <div className="appointment-status">
               {data?.patientType && (
                 <p className="mb-1">
                   Patient Type{" "}
@@ -140,7 +138,7 @@ const ViewAppointment = () => {
             </div>
           </div>
 
-          <div>
+          <div className="appointment-info">
             <h4 className="appointment-heading">APPOINTMENT INFORMATION</h4>
             <div className="border border-light-subtle rounded p-3">
               <p className="mb-2 appointment-text">
@@ -148,7 +146,11 @@ const ViewAppointment = () => {
                 <Tag
                   bordered={true}
                   color="#f50"
-                  style={{ padding: "4px 8px", marginLeft: "10px" }}
+                  style={{
+                    padding: "4px 8px",
+                    marginLeft: "10px",
+                    textWrap: "wrap",
+                  }}
                 >
                   Sagar MultiSpeciality Hospital, Bhopal, In
                 </Tag>
@@ -176,10 +178,10 @@ const ViewAppointment = () => {
             </div>
           </div>
 
-          <div>
+          <div className="doctor-info">
             <h4 className="appointment-heading">DOCTOR INFORMATION</h4>
             {data?.doctor && (
-              <div className="border border-light-subtle rounded p-3 d-flex gap-3">
+              <div className="border border-light-subtle rounded p-3 doctor-data">
                 <div>
                   <img
                     src={data?.doctor?.img ? data?.doctor?.img : doctorImg}
@@ -195,17 +197,17 @@ const ViewAppointment = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="mb-1">
+                  <h4 className="mb-1 doc-detail">
                     {data?.doctor?.firstName && data?.doctor?.lastName
                       ? `${data.doctor.firstName} ${data.doctor.lastName}`
                       : data?.doctor?.firstName || data?.doctor?.lastName}
                   </h4>
-                  <p className="mb-1 appointment-para">
+                  <p className="mb-1 appointment-para doc-detail">
                     {data?.doctor?.specialization
                       ? data?.doctor?.specialization
                       : data?.doctor?.designation}
                   </p>
-                  <p className="mb-1 appointment-para">
+                  <p className="mb-1 appointment-para doc-detail">
                     {data?.doctor?.college}
                   </p>
                 </div>
@@ -213,9 +215,9 @@ const ViewAppointment = () => {
             )}
           </div>
 
-          <div>
+          <div className="patient-info">
             <h4 className="appointment-heading">PATIENT INFORMATION</h4>
-            <div className="border border-light-subtle rounded p-3 d-flex gap-3">
+            <div className="border border-light-subtle rounded p-3 patient-data">
               <div>
                 <img
                   src={data?.patient?.img ? data?.patient?.img : userImg}
@@ -231,7 +233,7 @@ const ViewAppointment = () => {
                 />
               </div>
               <div>
-                <h4 className="mb-1">
+                <h4>
                   {data?.firstName + " " + data?.lastName}
                 </h4>
 
@@ -296,10 +298,10 @@ const ViewAppointment = () => {
   return (
     <>
       <Header />
-      <div style={{ margin: "5rem 10rem" }}>
+      <div style={{ margin: "5rem 0" }}>
         <div
           className="d-flex justify-content-end mb-4"
-          style={{ marginRight: "8rem" }}
+          style={{ marginRight: "1rem" }}
         >
           <ReactToPrint
             bodyClass="print-agreement"
