@@ -1,4 +1,4 @@
-.exercises .info-card {
+.diets .info-card {
   border: 1.5px solid var(--borderLight);
   border-bottom: 0;
   height: 360px;
@@ -11,11 +11,11 @@
   transition: all 0.35s ease;
 }
 
-.exercises .info-card:hover{
+.diets .info-card:hover{
   transform: scaleY(1.02);
 }
 
-.exercises .info-card .exercise-img img {
+.diets .info-card .diet-img img {
   width: 100%;
   min-height: 180px;
   max-height: 180px;
@@ -26,7 +26,7 @@
   object-fit: cover;
 }
 
-.exercises .info-card .content {
+.diets .info-card .content {
   height: 180px;
   position: absolute;
   bottom: 0;
@@ -37,14 +37,14 @@
   flex-direction: column;
 }
 
-.exercises .info-card .name{
+.diets .info-card .name{
   width: 100%;
   text-align: start;
   margin-top: 12px;
   margin-left: 20px;
 }
 
-.exercises .info-card .exercise-name {
+.diets .info-card .diet-name {
   font-size: 1rem;
   background: linear-gradient(#ff5643, #cf2f3c);
   padding: 6px 16px;
@@ -54,7 +54,7 @@
   border: none;
 }
 
-.exercises .info-card .exercise-benefits {
+.diets .info-card .diet-benefits {
   font-size: 14px;
   font-weight: 500;
   margin: 0;
@@ -63,13 +63,13 @@
   text-align: justify;
 }
 
-.exercises .info-card .btn{
+.diets .info-card .btn{
   text-align: end;
   width: 100%;
   border: none;
 }
 
-.exercises .info-card .show-btn {
+.diets .info-card .show-btn {
   border: 1.5px solid var(--primaryColor);
   color: var(--primaryColor);
   background: #fff;
@@ -79,7 +79,7 @@
   font-size: 14px;
 }
 
-.exercises .info-card .show-btn:hover {
+.diets .info-card .show-btn:hover {
   border: 1.5px solid var(--primaryHoverColor);
   color: var(--primaryHoverColor);
 }

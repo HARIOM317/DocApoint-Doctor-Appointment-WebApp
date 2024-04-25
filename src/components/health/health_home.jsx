@@ -29,7 +29,9 @@ const HealthHome = () => {
                 <i class="fa-solid fa-utensils"></i>
               </span>
 
-              <NavLink className="show-btn">Diet</NavLink>
+              <NavLink to={"/health/diets"} className="show-btn">
+                Diet
+              </NavLink>
 
               <p className="info-label">Manage Your Diet</p>
             </div>

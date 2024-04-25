@@ -63,6 +63,10 @@ import LegExercises from "./components/health/exercises_components/LegExercise";
 import ShoulderExercises from "./components/health/exercises_components/ShoulderExercise";
 import TricepExercises from "./components/health/exercises_components/TricepExercise";
 
+// Diets
+import Diets from "./components/health/Diets";
+import WeightLossDiets from "./components/health/diets_components/WeightLossDiets";
+
 function App() {
   return (
     <Router>
@@ -119,10 +123,26 @@ function App() {
           <Route path="/health/exercise/biceps" element={<BicepExercises />} />
           <Route path="/health/exercise/cardio" element={<CardioExercises />} />
           <Route path="/health/exercise/chest" element={<ChestExercises />} />
-          <Route path="/health/exercise/forearms" element={<ForearmsExercises />} />
+          <Route
+            path="/health/exercise/forearms"
+            element={<ForearmsExercises />}
+          />
           <Route path="/health/exercise/legs" element={<LegExercises />} />
-          <Route path="/health/exercise/shoulder" element={<ShoulderExercises />} />
-          <Route path="/health/exercise/triceps" element={<TricepExercises />} />
+          <Route
+            path="/health/exercise/shoulder"
+            element={<ShoulderExercises />}
+          />
+          <Route
+            path="/health/exercise/triceps"
+            element={<TricepExercises />}
+          />
+
+          {/* Diets */}
+          <Route path="/health/diets" element={<Diets />} />
+          <Route
+            path="/health/diets/weight-loss"
+            element={<WeightLossDiets />}
+          />
         </Route>
 
         {/* Routes */}
