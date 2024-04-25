@@ -422,8 +422,7 @@ const dietAPI = [
         quantity: "1 slice whole grain bread, 1/2 avocado, 2 scrambled eggs",
         availableNutrition: "Provides healthy fats, protein, and carbohydrates",
         benefits: "Supports muscle growth and provides sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -433,8 +432,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, 1/4 cup granola, mixed berries",
         availableNutrition: "High in protein, calcium, and antioxidants",
         benefits: "Promotes muscle repair and provides a healthy snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
 
@@ -446,8 +444,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, 1/2 cup chickpeas, mixed vegetables, olive oil dressing",
         availableNutrition: "Rich in protein, fiber, and essential nutrients",
         benefits: "Promotes muscle repair and aids in weight gain",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
 
@@ -459,8 +456,7 @@ const dietAPI = [
           "1 banana, 2 tablespoons peanut butter, 1 cup almond milk, handful of spinach",
         availableNutrition: "Provides protein, healthy fats, and vitamins",
         benefits: "Supports muscle growth and provides a quick snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -471,8 +467,7 @@ const dietAPI = [
           "1 cup mixed vegetables, 4 oz tofu, soy sauce, ginger, garlic",
         availableNutrition: "Rich in protein, fiber, and vitamins",
         benefits: "Promotes muscle repair and provides a satisfying snack",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -482,8 +477,7 @@ const dietAPI = [
         quantity: "1/2 cup chickpeas, curry sauce, 1/2 cup brown rice",
         availableNutrition: "High in protein, fiber, and essential nutrients",
         benefits: "Supports muscle recovery and provides a hearty meal",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -777,8 +771,7 @@ const dietAPI = [
         availableNutrition: "High in protein, vitamins, and antioxidants",
         benefits:
           "Supports muscle recovery and growth, provides sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -789,8 +782,7 @@ const dietAPI = [
         availableNutrition:
           "Rich in protein, healthy fats, and natural sweetness",
         benefits: "Promotes muscle repair and provides a satisfying snack",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
 
@@ -802,8 +794,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, 1/2 cup black beans, mixed vegetables, lime-cilantro dressing",
         availableNutrition: "High in protein, fiber, and essential nutrients",
         benefits: "Aids in muscle repair and provides lasting energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
 
@@ -815,8 +806,7 @@ const dietAPI = [
         availableNutrition:
           "Provides protein, healthy fats, and natural sugars",
         benefits: "Promotes muscle recovery and satisfies cravings",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -826,8 +816,7 @@ const dietAPI = [
         quantity: "1/2 cup cottage cheese, 1/2 cup diced pineapple",
         availableNutrition: "High in protein and vitamin C",
         benefits: "Supports muscle growth and aids in digestion",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -838,8 +827,7 @@ const dietAPI = [
           "1 cup cooked lentils, mixed vegetables, soy sauce, ginger, garlic",
         availableNutrition: "Rich in protein, fiber, and vitamins",
         benefits: "Promotes muscle repair and provides essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -1116,8 +1104,7 @@ const dietAPI = [
           "1 cup spinach, 1/2 banana, 1/2 cup frozen mixed berries, 1 tablespoon almond butter, 1 cup almond milk",
         availableNutrition: "Rich in vitamins, minerals, and antioxidants",
         benefits: "Provides a quick energy boost and supports overall health",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1127,8 +1114,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, 1 teaspoon honey, handful of almonds",
         availableNutrition: "High in protein, calcium, and healthy fats",
         benefits: "Sustains energy levels and supports muscle repair",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1139,8 +1125,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, mixed greens, 1/4 avocado, cherry tomatoes, cucumber slices, balsamic vinaigrette",
         availableNutrition: "Rich in protein, fiber, and healthy fats",
         benefits: "Provides sustained energy and supports satiety",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1150,8 +1135,7 @@ const dietAPI = [
         quantity: "1 medium apple, 2 tablespoons peanut butter",
         availableNutrition: "Provides carbohydrates, protein, and healthy fats",
         benefits: "Offers a quick energy boost and satisfies hunger",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1161,8 +1145,7 @@ const dietAPI = [
         quantity: "1/4 cup mixed nuts and dried fruits",
         availableNutrition: "Provides energy-dense nutrients and antioxidants",
         benefits: "Offers a convenient and nutritious snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1173,8 +1156,7 @@ const dietAPI = [
           "1 cup mixed vegetables, 4 oz tofu, soy sauce, ginger, garlic",
         availableNutrition: "Rich in protein, fiber, and essential nutrients",
         benefits: "Provides sustained energy and supports muscle repair",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -1449,8 +1431,7 @@ const dietAPI = [
         availableNutrition:
           "Rich in healthy fats, vitamins E and C, and antioxidants",
         benefits: "Promotes hair and skin health, boosts collagen production",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1461,8 +1442,7 @@ const dietAPI = [
           "1 cup mixed berries (strawberries, blueberries, raspberries)",
         availableNutrition: "High in vitamins, antioxidants, and fiber",
         benefits: "Supports skin health, fights free radicals",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1474,8 +1454,7 @@ const dietAPI = [
         availableNutrition:
           "Provides protein, healthy fats, and essential nutrients",
         benefits: "Nourishes hair follicles, hydrates skin",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1485,8 +1464,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, handful of almonds",
         availableNutrition: "High in protein, calcium, and healthy fats",
         benefits: "Strengthens hair and nails, promotes skin elasticity",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1496,8 +1474,7 @@ const dietAPI = [
         quantity: "1 cup carrot sticks, 2 tablespoons hummus",
         availableNutrition: "Rich in beta-carotene, fiber, and protein",
         benefits: "Improves skin complexion, supports hair growth",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1507,8 +1484,7 @@ const dietAPI = [
         quantity: "1 cup spinach, 1 cup mushrooms, garlic, soy sauce",
         availableNutrition: "Packed with vitamins, minerals, and antioxidants",
         benefits: "Promotes hair strength, rejuvenates skin cells",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -1782,8 +1758,7 @@ const dietAPI = [
           "2 eggs, 1 cup spinach, 1/2 cup mushrooms, 1/4 cup shredded cheese",
         availableNutrition: "High in calcium, vitamin D, and protein",
         benefits: "Supports bone health and provides essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1793,8 +1768,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, 1/4 cup almonds",
         availableNutrition: "Rich in calcium, protein, and healthy fats",
         benefits: "Promotes bone strength and provides energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1804,8 +1778,7 @@ const dietAPI = [
         quantity: "4 oz tofu, 1 cup broccoli, soy sauce, garlic, ginger",
         availableNutrition: "High in calcium, vitamin K, and protein",
         benefits: "Supports bone density and provides antioxidants",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1815,8 +1788,7 @@ const dietAPI = [
         quantity: "1 oz cheese, 4 whole grain crackers",
         availableNutrition: "Provides calcium and fiber",
         benefits: "Promotes bone health and satiety",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1826,8 +1798,7 @@ const dietAPI = [
         quantity: "1 cup kale, olive oil, sea salt",
         availableNutrition: "High in calcium, vitamin K, and antioxidants",
         benefits: "Supports bone density and provides a crunchy snack",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -1837,8 +1808,7 @@ const dietAPI = [
         quantity: "4 oz grilled salmon, 1/2 cup cooked quinoa, mixed greens",
         availableNutrition: "Rich in omega-3 fatty acids, protein, and fiber",
         benefits: "Supports bone health and overall well-being",
-        image:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        image: "",
         type: "vegetarian",
       },
     ],
@@ -2103,8 +2073,7 @@ const dietAPI = [
         availableNutrition: "Provides healthy fats, protein, and fiber",
         benefits:
           "Promotes satiety and provides essential nutrients for the day",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2114,8 +2083,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, 1/2 cup mixed berries",
         availableNutrition: "Rich in protein, probiotics, and antioxidants",
         benefits: "Supports gut health and provides energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2126,8 +2094,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, mixed vegetables, balsamic vinaigrette",
         availableNutrition: "High in protein, fiber, and vitamins",
         benefits: "Supports muscle repair and provides sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2137,8 +2104,7 @@ const dietAPI = [
         quantity: "1/4 cup mixed nuts and seeds, dried fruits",
         availableNutrition: "Provides healthy fats, protein, and energy",
         benefits: "A satisfying and nutritious snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2150,8 +2116,7 @@ const dietAPI = [
         availableNutrition: "Rich in vitamins, fiber, and healthy fats",
         benefits:
           "Provides a crunchy and satisfying snack with essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2162,8 +2127,7 @@ const dietAPI = [
           "Bell peppers stuffed with spinach, mushrooms, quinoa, and cheese",
         availableNutrition: "High in vitamins, minerals, and antioxidants",
         benefits: "A nutritious and flavorful dinner option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -2440,8 +2404,7 @@ const dietAPI = [
         availableNutrition:
           "Rich in omega-3 fatty acids, fiber, and antioxidants",
         benefits: "Supports brain health and provides sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2453,8 +2416,7 @@ const dietAPI = [
         availableNutrition:
           "Provides brain-boosting nutrients, antioxidants, and healthy fats",
         benefits: "Enhances cognitive function and provides a refreshing snack",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2467,8 +2429,7 @@ const dietAPI = [
           "High in iron, folate, and vitamins for mental alertness",
         benefits:
           "Promotes mental clarity and focus with nutrient-rich ingredients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2480,8 +2441,7 @@ const dietAPI = [
         availableNutrition:
           "Provides sustained energy with a mix of carbohydrates, protein, and healthy fats",
         benefits: "Boosts focus and concentration without added sugars",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2493,8 +2453,7 @@ const dietAPI = [
           "Contains antioxidants and brain-boosting nutrients",
         benefits:
           "Improves mental alertness and provides a healthy snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2506,8 +2465,7 @@ const dietAPI = [
         availableNutrition: "High in protein and vitamins for brain function",
         benefits:
           "Supports mental clarity and focus with a nutritious dinner option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -2782,8 +2740,7 @@ const dietAPI = [
           "Provides fiber, vitamins, minerals, and healthy fats",
         benefits:
           "Supports digestion, provides sustained energy, and boosts mood",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2795,8 +2752,7 @@ const dietAPI = [
           "Rich in vitamins, minerals, antioxidants, and fiber",
         benefits:
           "Promotes detoxification, boosts immunity, and provides hydration",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2809,8 +2765,7 @@ const dietAPI = [
           "High in protein, fiber, healthy fats, and antioxidants",
         benefits:
           "Supports heart health, promotes satiety, and aids in weight management",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2823,8 +2778,7 @@ const dietAPI = [
           "Provides vitamins, minerals, fiber, and healthy fats",
         benefits:
           "Low in calories, promotes satiety, and supports healthy digestion",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2836,8 +2790,7 @@ const dietAPI = [
           "Rich in protein, probiotics, antioxidants, and fiber",
         benefits:
           "Supports gut health, provides sustained energy, and satisfies sweet cravings",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -2850,8 +2803,7 @@ const dietAPI = [
           "High in protein, vitamins, minerals, and antioxidants",
         benefits:
           "Supports muscle repair, aids in weight management, and promotes overall health",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -3127,8 +3079,7 @@ const dietAPI = [
         availableNutrition: "Rich in fiber, vitamins, and antioxidants",
         benefits:
           "Provides sustained energy and essential nutrients for pregnancy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3139,8 +3090,7 @@ const dietAPI = [
           "1/2 cup Greek yogurt, 1/4 cup granola, mixed fruit (e.g., berries, banana)",
         availableNutrition: "Provides probiotics, protein, and healthy carbs",
         benefits: "Supports gut health and provides energy between meals",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3152,8 +3102,7 @@ const dietAPI = [
         availableNutrition: "High in protein, fiber, and healthy fats",
         benefits:
           "Supports baby's development and provides essential nutrients for mom",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3165,8 +3114,7 @@ const dietAPI = [
         availableNutrition: "Provides energy, protein, and vitamins",
         benefits:
           "A convenient and nutritious snack option for busy moms-to-be",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3177,8 +3125,7 @@ const dietAPI = [
           "Assorted vegetable sticks (carrots, cucumber, bell peppers) with 2 tablespoons hummus",
         availableNutrition: "Rich in vitamins, fiber, and healthy fats",
         benefits: "Provides a light and satisfying snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3188,8 +3135,7 @@ const dietAPI = [
         quantity: "4 oz tofu, mixed vegetables, soy sauce, brown rice",
         availableNutrition: "High in protein, fiber, and essential nutrients",
         benefits: "Promotes healthy development for both mom and baby",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -3465,8 +3411,7 @@ const dietAPI = [
         quantity: "2 eggs, bell peppers, onions, spinach, tomatoes",
         availableNutrition: "High in protein, vitamins, and minerals",
         benefits: "Provides sustained energy and promotes fullness",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3476,8 +3421,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, mixed berries, granola",
         availableNutrition: "Rich in protein, probiotics, and antioxidants",
         benefits: "Supports gut health and provides energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3488,8 +3432,7 @@ const dietAPI = [
           "Mixed greens, chickpeas, cucumbers, feta cheese, lemon-tahini dressing",
         availableNutrition: "High in protein, fiber, and essential nutrients",
         benefits: "Promotes satiety and aids in digestion",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3499,8 +3442,7 @@ const dietAPI = [
         quantity: "Avocado, tomatoes, onions, lime, assorted vegetable sticks",
         availableNutrition: "Provides healthy fats, vitamins, and fiber",
         benefits: "A satisfying and nutritious snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3510,8 +3452,7 @@ const dietAPI = [
         quantity: "Assorted mixed nuts (almonds, walnuts, cashews)",
         availableNutrition: "Rich in healthy fats, protein, and antioxidants",
         benefits: "Promotes satiety and provides energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3522,8 +3463,7 @@ const dietAPI = [
           "Grilled portobello mushroom caps, whole grain burger bun, lettuce, tomato, onion",
         availableNutrition: "High in fiber, vitamins, and minerals",
         benefits: "A delicious and filling dinner option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -3787,8 +3727,7 @@ const dietAPI = [
           "1/2 cup rolled oats, 1 cup almond milk, 1/2 cup mixed berries, 1 tablespoon almonds",
         availableNutrition: "High in fiber, antioxidants, and healthy fats",
         benefits: "Stabilizes blood sugar levels and provides sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3799,8 +3738,7 @@ const dietAPI = [
         availableNutrition:
           "Rich in protein, probiotics, and omega-3 fatty acids",
         benefits: "Supports gut health and helps regulate blood sugar",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "img/greek_yogurt_chia.jpg",
         type: "vegetarian",
       },
       {
@@ -3812,8 +3750,7 @@ const dietAPI = [
           "Low in carbohydrates and calories, high in fiber and protein",
         benefits:
           "Helps maintain stable blood sugar levels and promotes satiety",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3825,8 +3762,7 @@ const dietAPI = [
           "Low in carbohydrates, rich in vitamins and minerals",
         benefits:
           "Provides a crunchy and hydrating snack option without spiking blood sugar",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3837,8 +3773,7 @@ const dietAPI = [
         availableNutrition: "Provides fiber, healthy fats, and protein",
         benefits:
           "A satisfying and balanced snack that helps control blood sugar levels",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -3850,8 +3785,7 @@ const dietAPI = [
           "Low glycemic index, high in fiber and essential nutrients",
         benefits:
           "Promotes stable blood sugar levels and provides a nutritious meal",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -4125,8 +4059,7 @@ const dietAPI = [
           "1/2 cup rolled oats, 1 cup almond milk, 1/4 cup mixed berries, 1 tablespoon almonds",
         availableNutrition: "Rich in fiber, antioxidants, and healthy fats",
         benefits: "Helps lower blood pressure and cholesterol levels",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4137,8 +4070,7 @@ const dietAPI = [
         availableNutrition:
           "Provides protein, calcium, and omega-3 fatty acids",
         benefits: "Supports heart health and helps control blood pressure",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4149,8 +4081,7 @@ const dietAPI = [
           "Fresh spinach leaves, 1/2 cup chickpeas, 1/4 avocado, lemon-tahini dressing",
         availableNutrition: "High in potassium, magnesium, and vitamins",
         benefits: "Aids in blood pressure regulation and heart health",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4160,8 +4091,7 @@ const dietAPI = [
         quantity: "Carrot sticks with 2 tablespoons hummus",
         availableNutrition: "Provides fiber, vitamins, and healthy fats",
         benefits: "Helps control blood pressure and promotes satiety",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4172,8 +4102,7 @@ const dietAPI = [
         availableNutrition: "Rich in protein, calcium, and hydration",
         benefits:
           "Supports blood pressure management and provides a light snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4185,8 +4114,7 @@ const dietAPI = [
         availableNutrition:
           "High in fiber, antioxidants, and essential nutrients",
         benefits: "Supports heart health and aids in blood pressure control",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -4447,8 +4375,7 @@ const dietAPI = [
           "1/2 cup rolled oats, 1 tablespoon almonds, 1/4 cup mixed berries",
         availableNutrition: "High in fiber, antioxidants, and healthy fats",
         benefits: "Helps lower cholesterol levels and supports heart health",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4459,8 +4386,7 @@ const dietAPI = [
         availableNutrition: "Provides fiber, healthy fats, and vitamins",
         benefits:
           "A convenient and nutritious snack option to manage cholesterol",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4470,8 +4396,7 @@ const dietAPI = [
         quantity: "1 cup cooked chickpeas, mixed vegetables, stir-fry sauce",
         availableNutrition: "Rich in protein, fiber, and essential nutrients",
         benefits: "Supports cholesterol management and provides satiety",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4481,8 +4406,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, 1 teaspoon honey",
         availableNutrition: "High in protein and probiotics",
         benefits: "Supports gut health and helps regulate cholesterol levels",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4492,8 +4416,7 @@ const dietAPI = [
         quantity: "1/2 avocado, whole grain crackers",
         availableNutrition: "Provides healthy fats, fiber, and plant sterols",
         benefits: "Helps lower LDL (bad) cholesterol levels",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4504,8 +4427,7 @@ const dietAPI = [
         availableNutrition:
           "Rich in plant-based protein, vitamins, and minerals",
         benefits: "Supports heart health and aids in cholesterol management",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -4782,8 +4704,7 @@ const dietAPI = [
         availableNutrition:
           "Rich in soluble fiber, potassium, and healthy fats",
         benefits: "Promotes digestive health and provides sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4794,8 +4715,7 @@ const dietAPI = [
         availableNutrition:
           "Provides probiotics, omega-3 fatty acids, and natural sweeteners",
         benefits: "Supports gut health and aids in digestion",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4806,8 +4726,7 @@ const dietAPI = [
         availableNutrition: "High in fiber, vitamins, and minerals",
         benefits:
           "Easy to digest and provides essential nutrients for gut health",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4820,8 +4739,7 @@ const dietAPI = [
           "Provides fiber, antioxidants, and omega-3 fatty acids",
         benefits:
           "Supports digestive regularity and provides essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4832,8 +4750,7 @@ const dietAPI = [
         availableNutrition:
           "Provides carbohydrates, healthy fats, and minerals",
         benefits: "Easy to digest and provides satiety",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -4843,8 +4760,7 @@ const dietAPI = [
         quantity: "Assorted steamed vegetables, 1/2 cup cooked quinoa",
         availableNutrition: "High in fiber, protein, and antioxidants",
         benefits: "Gentle on the stomach and provides essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -4857,7 +4773,7 @@ const dietAPI = [
         availableNutrition: "High in protein, iron, and vitamins",
         benefits:
           "Easy-to-digest protein with added fiber for digestive health",
-        img: "",
+        img: "img/scrambled_eggs_spinach.jpg",
         type: "non-vegetarian",
       },
       {
@@ -5122,8 +5038,7 @@ const dietAPI = [
           "1 banana, 1/2 cup mixed berries, 1 scoop plant-based protein powder, 1/4 cup almond milk, oppings (granola, nuts, seeds)",
         availableNutrition: "Rich in protein, antioxidants, and vitamins",
         benefits: "Provides energy and supports muscle recovery",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5134,8 +5049,7 @@ const dietAPI = [
         availableNutrition:
           "Provides complex carbohydrates, healthy fats, and energy",
         benefits: "A convenient and nutritious snack for sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5146,8 +5060,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, 1/2 cup black beans, mixed vegetables, avocado slices",
         availableNutrition: "High in protein, fiber, and essential nutrients",
         benefits: "Supports muscle repair and provides sustained energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5157,8 +5070,7 @@ const dietAPI = [
         quantity: "1/2 cup Greek yogurt, mixed berries, granola",
         availableNutrition: "Rich in protein, probiotics, and antioxidants",
         benefits: "Supports muscle recovery and provides energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5169,8 +5081,7 @@ const dietAPI = [
         availableNutrition:
           "Provides carbohydrates, healthy fats, and potassium",
         benefits: "A quick and energizing snack for pre-workout fuel",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5180,8 +5091,7 @@ const dietAPI = [
         quantity: "Mixed vegetables, tofu, soy sauce, brown rice",
         availableNutrition: "High in protein, fiber, and vitamins",
         benefits: "Supports muscle recovery and provides essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -5455,8 +5365,7 @@ const dietAPI = [
         availableNutrition:
           "Rich in vitamins, minerals, antioxidants, and fiber",
         benefits: "Provides a nutritious and energizing start to the day",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5468,8 +5377,7 @@ const dietAPI = [
         availableNutrition:
           "Provides protein, fiber, vitamins, and healthy fats",
         benefits: "A satisfying and portable snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5480,8 +5388,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, 1/2 cup black beans, mixed vegetables, salsa",
         availableNutrition: "High in protein, fiber, vitamins, and minerals",
         benefits: "Promotes satiety and provides essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5492,8 +5399,7 @@ const dietAPI = [
           "1/4 cup mixed nuts, seeds, and dried fruits (e.g., almonds, walnuts, pumpkin seeds, raisins)",
         availableNutrition: "Provides protein, healthy fats, and energy",
         benefits: "A convenient and nutritious snack for on-the-go",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5505,8 +5411,7 @@ const dietAPI = [
         availableNutrition:
           "Low in calories and rich in vitamins, minerals, and antioxidants",
         benefits: "Refreshing and hydrating snack with various health benefits",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5517,8 +5422,7 @@ const dietAPI = [
           "Assorted vegetables (e.g., bell peppers, broccoli, snap peas) stir-fried with tofu in a soy ginger sauce",
         availableNutrition: "Provides protein, fiber, vitamins, and minerals",
         benefits: "A flavorful and nutritious dinner option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -5794,8 +5698,7 @@ const dietAPI = [
         quantity: "1/2 cup quinoa, 1 cup almond milk, mixed berries",
         availableNutrition: "High in protein, fiber, and antioxidants",
         benefits: "Provides sustained energy and supports digestion",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5805,8 +5708,7 @@ const dietAPI = [
         quantity: "2 rice cakes, 2 tablespoons almond butter",
         availableNutrition: "Provides healthy fats, protein, and carbohydrates",
         benefits: "A satisfying and gluten-free snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5817,8 +5719,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, mixed greens, avocado slices, 1/2 cup chickpeas",
         availableNutrition: "Rich in protein, fiber, and healthy fats",
         benefits: "Supports muscle repair and provides essential nutrients",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5829,8 +5730,7 @@ const dietAPI = [
           "1/2 cup Greek yogurt, 1/4 cup gluten-free granola, 1 teaspoon honey",
         availableNutrition: "High in protein, calcium, and antioxidants",
         benefits: "Supports gut health and provides energy",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5841,8 +5741,7 @@ const dietAPI = [
           "Assorted vegetable slices (carrots, cucumbers, bell peppers) with guacamole",
         availableNutrition: "Rich in vitamins, minerals, and healthy fats",
         benefits: "Provides a satisfying and nutritious snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -5852,8 +5751,7 @@ const dietAPI = [
         quantity: "4 oz tofu, mixed vegetables, 1/2 cup brown rice",
         availableNutrition: "High in protein, fiber, and essential nutrients",
         benefits: "A filling and gluten-free dinner option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],
@@ -6134,8 +6032,7 @@ const dietAPI = [
           "1/2 cup rolled oats, 1 cup almond milk, 1 tablespoon maple syrup, 1/4 cup mixed berries",
         availableNutrition: "Provides fiber, vitamins, and minerals",
         benefits: "A dairy-free alternative to traditional breakfast options",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -6146,8 +6043,7 @@ const dietAPI = [
           "1 banana, 1/2 cup mixed berries, 1 cup coconut milk, handful of spinach",
         availableNutrition: "Rich in antioxidants, vitamins, and healthy fats",
         benefits: "Provides a refreshing and dairy-free snack option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -6158,8 +6054,7 @@ const dietAPI = [
           "1/2 cup cooked quinoa, mixed vegetables, avocado dressing (avocado, lime juice, olive oil)",
         availableNutrition: "High in protein, fiber, and healthy fats",
         benefits: "A dairy-free and nutritious lunch option",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -6170,8 +6065,7 @@ const dietAPI = [
           "1/4 cup mixed nuts (almonds, cashews, walnuts) with dried fruits (raisins, apricots)",
         availableNutrition: "Provides healthy fats, protein, and energy",
         benefits: "A satisfying and dairy-free snack choice",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -6181,8 +6075,7 @@ const dietAPI = [
         quantity: "2 rice cakes topped with almond butter",
         availableNutrition: "Rich in protein, fiber, and healthy fats",
         benefits: "A crunchy and dairy-free option for a light snack",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
       {
@@ -6193,8 +6086,7 @@ const dietAPI = [
           "Assorted vegetables stir-fried with tofu in a soy sauce-based marinade",
         availableNutrition: "High in protein, vitamins, and minerals",
         benefits: "A satisfying and dairy-free dinner choice",
-        img:
-          "https://img.freepik.com/free-photo/top-view-plate-with-keto-diet-food-golden-fork-knife_23-2149260372.jpg?t=st=1713980293~exp=1713983893~hmac=1d0851b34571a876626b7b0aec0c91ce772673d2a50918630796cd819c909b6f&w=996",
+        img: "",
         type: "vegetarian",
       },
     ],

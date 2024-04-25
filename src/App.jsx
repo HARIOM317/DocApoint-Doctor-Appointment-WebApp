@@ -66,6 +66,9 @@ import TricepExercises from "./components/health/exercises_components/TricepExer
 // Diets
 import Diets from "./components/health/Diets";
 import WeightLossDiets from "./components/health/diets_components/WeightLossDiets";
+import WeightGainDiets from "./components/health/diets_components/WeightGainDiets";
+
+import TestSymptoms from "./components/health/TestSymptoms";
 
 function App() {
   return (
@@ -142,6 +145,15 @@ function App() {
           <Route
             path="/health/diets/weight-loss"
             element={<WeightLossDiets />}
+          />
+          <Route
+            path="/health/diets/weight-gain"
+            element={<WeightGainDiets />}
+          />
+
+          <Route
+            path="/health/test-health-by-symptoms"
+            element={<TestSymptoms />}
           />
         </Route>
 

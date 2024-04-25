@@ -56,6 +56,12 @@
   background: #e6ffe8;
 }
 
+.health-home .info-card .fifth-icon {
+  color: #c4006d;
+  border-color: #d5cad0;
+  background: #f1e5eb;
+}
+
 .health-home .info-card .info-count {
   font-size: 2.5rem;
   font-weight: bolder;
