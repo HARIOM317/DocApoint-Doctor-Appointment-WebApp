@@ -125,7 +125,7 @@ const PersonalInformation = ({
               rows={8}
               onChange={(e) => handleChange(e)}
               name="description"
-              value={description && description}
+              value={description && description}s
               className="text-form-input-field"
               placeholder="Description (Optional)"
               type="text"
