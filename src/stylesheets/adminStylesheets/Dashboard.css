@@ -69,3 +69,9 @@
     font-size: 1rem;
     margin: 0;
 }
+
+@media (max-width: 768px){
+    .info-card{
+        margin: 1rem 2rem;
+    }
+}

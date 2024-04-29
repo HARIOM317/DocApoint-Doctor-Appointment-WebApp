@@ -1,6 +1,7 @@
 /* Appointment Tab Style */
 .appointment-details {
   border: 1.5px solid var(--borderColor);
+  box-shadow: var(--materialShadow);
   margin-bottom: 1.5rem;
   border-radius: 8px;
   background: var(--bgLight);
@@ -29,7 +30,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 390px;
+  height: 350px;
   min-width: 380px;
   background: var(--bgLight);
   border-radius: 8px;
@@ -38,10 +39,9 @@
 }
 
 .appointments .image {
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
-  background: var(--secondaryColor);
   margin-bottom: 10px;
 }
 
@@ -54,21 +54,23 @@
 }
 
 .appointments .profile-card h5 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   color: var(--headingColor);
 }
 
 .appointments .profile-card .tracking-id {
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 .appointments .profile-card .copyBtn {
   background: #fff;
+  color: var(--textColor);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .appointments .profile-card .copyBtn:hover {
-  color: var(--textColor);
   border-color: var(--borderColor);
   background: var(--bgColor);
 }
@@ -79,11 +81,12 @@
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  text-align: center;
+  text-align: end;
   color: var(--textLight);
   font-size: 14px;
   font-weight: 500;
   gap: 10px;
+  margin: 10px 0;
 }
 
 .appointments .profile-card .icon {
@@ -91,17 +94,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   background: var(--bgColor);
   border: 1px solid var(--borderColor);
-  padding: 4px;
+  padding: 6px;
   text-align: center;
   border-radius: 50%;
 }
 
 .appointments .profile-card .tag {
   padding: 4px 8px;
+  width: 100px;
+  text-align: center;
+  color: var(--textColor);
 }
 
 .appointments .profile-card .accept-button {
@@ -149,7 +155,7 @@
 }
 
 .patients-info .info .icon {
-  font-size: 23px !important;
+  font-size: 23px;
 }
 
 .patient-img img {
@@ -169,4 +175,43 @@
   font-size: 14px;
   font-weight: 600;
   color: #757575;
+}
+
+@media (max-width: 1197px) {
+  .appointment-details {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .appointments .profile-card {
+    min-width: 450px;
+  }
+}
+
+@media (max-width: 576px) {
+  .appointments .profile-card {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 402px) {
+  .appointments .profile-card {
+    min-width: 300px;
+  }
+
+  .appointments .profile-card .text-data {
+    font-size: 12px;
+  }
+
+  .appointments .profile-card .tag {
+    padding: 2px 4px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 350px) {
+  .appointments .profile-card {
+    min-width: auto;
+  }
 }

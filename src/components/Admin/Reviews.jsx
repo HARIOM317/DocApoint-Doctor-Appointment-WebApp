@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import AdminLayout from "./AdminLayout";
-import userImg from "../../images/avatar.jpg";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
+import userImg from "../../images/user.png";
+import doctorImg from "../../images/home/doctorProfile.jpg";
 import { Rate } from "antd";
 import { getFromLocalStorage } from "../../utils/local-storage";
 import "../../stylesheets/adminStylesheets/Appointments.css";
@@ -31,8 +32,8 @@ const Reviews = () => {
   };
 
   return (
-    <AdminLayout>
-      <div className="row">
+    <DashboardLayout>
+      <div className="row my-3">
         <div className="col-md-12">
           <div className="card card-table">
             <div className="card-header table-top-heading">
@@ -58,9 +59,7 @@ const Reviews = () => {
                     {reviews.map((review) => (
                       <tr
                         key={review.id}
-                        style={{
-                          borderBottom: "1px solid var(--borderColor)",
-                        }}
+                        className="table-row"
                       >
                         <td>
                           {review.doctor && (
@@ -70,7 +69,7 @@ const Reviews = () => {
                                 src={
                                   review.doctor.img
                                     ? review.doctor.img
-                                    : userImg
+                                    : doctorImg
                                 }
                                 alt=""
                                 style={{
@@ -79,6 +78,7 @@ const Reviews = () => {
                                   minWidth: "30px",
                                   minHeight: "30px",
                                   marginRight: "10px",
+                                  objectFit: "cover",
                                 }}
                               />
                               <span className="table-data">
@@ -105,6 +105,7 @@ const Reviews = () => {
                                   minWidth: "30px",
                                   minHeight: "30px",
                                   marginRight: "10px",
+                                  objectFit: "cover",
                                 }}
                               />
                               <span className="table-data">
@@ -150,7 +151,7 @@ const Reviews = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

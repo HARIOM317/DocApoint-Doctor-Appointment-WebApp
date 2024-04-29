@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import {
   useDeleteBlogMutation,
   useGetAllBlogsQuery,
@@ -127,7 +127,7 @@ const AdminBlogs = () => {
     setSortOrder("");
   };
   return (
-    <AdminLayout>
+    <DashboardLayout>
       <div className="w-100 mb-3 rounded">
         <CustomTable
           loading={isLoading}
@@ -141,7 +141,7 @@ const AdminBlogs = () => {
           totalPages={meta?.total}
         />
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

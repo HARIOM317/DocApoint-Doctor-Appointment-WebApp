@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import { getFromLocalStorage } from "../../utils/local-storage";
 import { FaTrash } from "react-icons/fa";
 import { message } from "antd";
@@ -51,11 +51,11 @@ const AdminContacts = () => {
   };
 
   return (
-    <AdminLayout>
-      <div className="row">
+    <DashboardLayout>
+      <div className="row my-3">
         <div className="col-md-12">
           <div className="card card-table table-top-heading">
-            <div className="card-header">
+            <div className="card-header table-top-heading">
               <h4 className="card-title">Contacts</h4>
             </div>
             <div className="card-body">
@@ -77,10 +77,7 @@ const AdminContacts = () => {
                   </thead>
                   <tbody>
                     {reviews.map((review) => (
-                      <tr
-                        key={review.id}
-                        style={{ borderBottom: "1px solid var(--borderColor)" }}
-                      >
+                      <tr key={review.id} className="table-row">
                         <td>
                           <span className="table-data">{review.email}</span>
                         </td>
@@ -113,7 +110,7 @@ const AdminContacts = () => {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </DashboardLayout>
   );
 };
 

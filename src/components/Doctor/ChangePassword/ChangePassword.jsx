@@ -8,8 +8,8 @@ const ChangePassword = () => {
     <DashboardLayout>
       <div className="change-password">
         <h5 className="text-title mt-3 text-center">Change Your Password</h5>
-        
-        <form className="container row form-row px-5 mx-auto my-5 text-center">
+
+        <form className="container row form-row px-3 mx-auto my-5 text-center">
           <div className="col-md-12">
             <div className="form-group mb-3">
               <input

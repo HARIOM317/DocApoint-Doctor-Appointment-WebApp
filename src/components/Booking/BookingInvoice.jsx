@@ -10,15 +10,60 @@ import { useRef } from "react";
 import { FaPrint } from "react-icons/fa";
 import ReactToPrint from "react-to-print";
 
+import Lottie from "lottie-react";
+import Loading from "../../animations/loading.json";
+import NoDataFound from "../../animations/no_data_found.json";
+import SomethingWrong from "../../animations/something_wrong.json";
+
 const BookingInvoice = () => {
   const ref = useRef();
   const { id } = useParams();
   const { data, isLoading, isError } = useGetAppointmentedPaymentInfoQuery(id);
 
   let content = null;
-  if (isLoading) content = <div>Loading ...</div>;
-  if (!isLoading && isError) content = <div>Something went Wrong!</div>;
-  if (!isLoading && !isError && !data) content = <Empty />;
+
+  if (isLoading)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+
+  if (!isLoading && isError)
+    content = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
+
+  if (!isLoading && !isError && !data)
+    content = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+
   if (!isLoading && !isError && data)
     content = (
       <>
@@ -26,14 +71,13 @@ const BookingInvoice = () => {
           <div className="invoice-content">
             <div className="invoice-item">
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 col-sm-6">
                   <div className="invoice-logo">
                     <img src={logo} alt="" />
                   </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 col-sm-6">
                   <p className="invoice-details">
-                    {/* <strong>Order:</strong> #00124 <br /> */}
                     <strong>Issued:</strong>{" "}
                     {moment(data.createdAt).format("LL")}
                   </p>
@@ -43,7 +87,7 @@ const BookingInvoice = () => {
 
             <div className="invoice-item">
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 col-sm-6">
                   <div className="invoice-info">
                     <strong className="customer-text">Invoice From</strong>
                     <p className="invoice-details invoice-details-two">
@@ -65,7 +109,7 @@ const BookingInvoice = () => {
                     </p>
                   </div>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 col-sm-6">
                   <div className="invoice-info invoice-info2">
                     <strong className="customer-text">Invoice To</strong>
                     <p className="invoice-details">
@@ -87,8 +131,10 @@ const BookingInvoice = () => {
                   <div className="invoice-info">
                     <strong className="customer-text">Payment Method</strong>
                     <p className="invoice-details invoice-details-two">
-                    Payment Type: {data?.paymentType} <br />
-                      {data?.paymentType === "razorpay" ? `Order Id: ${data?.OrderId}`: ""}
+                      Payment Type: {data?.paymentType} <br />
+                      {data?.paymentType === "razorpay"
+                        ? `Order Id: ${data?.OrderId}`
+                        : ""}
                       <br />
                     </p>
                   </div>
@@ -106,16 +152,28 @@ const BookingInvoice = () => {
                           <th className="text-center">Doctor Fee</th>
                           <th className="text-center">Gst</th>
                           <th className="text-center">Booking Fee</th>
-                          <th className="text-right">Total</th>
+                          <th
+                            className="text-right"
+                            style={{ textAlign: "right" }}
+                          >
+                            Total
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>General Consultation</td>
-                          <td className="text-center">${data?.DoctorFee}</td>
-                          <td className="text-center">${data?.Gst}</td>
-                          <td className="text-center">${data?.bookingFee}</td>
-                          <td className="text-right">${data?.totalAmount}</td>
+                          <td className="text-center">Rs. {data?.DoctorFee}</td>
+                          <td className="text-center">Rs. {data?.Gst}</td>
+                          <td className="text-center">
+                            Rs. {data?.bookingFee}
+                          </td>
+                          <td
+                            className="text-right"
+                            style={{ textAlign: "right" }}
+                          >
+                            Rs. {data?.totalAmount}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -128,7 +186,7 @@ const BookingInvoice = () => {
                         <tr>
                           <th>Subtotal:</th>
                           <td>
-                            <span>${data?.totalAmount}</span>
+                            <span>Rs. {data?.totalAmount}</span>
                           </td>
                         </tr>
                         <tr>
@@ -140,7 +198,7 @@ const BookingInvoice = () => {
                         <tr>
                           <th>Total Amount:</th>
                           <td>
-                            <span>${data?.totalAmount}</span>
+                            <span>Rs. {data?.totalAmount}</span>
                           </td>
                         </tr>
                       </tbody>
@@ -148,17 +206,6 @@ const BookingInvoice = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="other-info">
-              <h4>Other information</h4>
-              <p className="text-muted mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                sed dictum ligula, cursus blandit risus. Maecenas eget metus non
-                tellus dignissim aliquam ut a ex. Maecenas sed vehicula dui, ac
-                suscipit lacus. Sed finibus leo vitae lorem interdum, eu
-                scelerisque tellus fermentum. Curabitur sit amet lacinia lorem.
-                Nullam finibus pellentesque libero.
-              </p>
             </div>
           </div>
         </div>
@@ -172,8 +219,7 @@ const BookingInvoice = () => {
         style={{ marginBottom: "7rem", marginTop: "10rem" }}
       >
         <div
-          className="d-flex justify-content-end mb-4"
-          style={{ marginRight: "8rem" }}
+          className="d-flex justify-content-end mb-4 print-btn"
         >
           <ReactToPrint
             bodyClass="print-agreement"

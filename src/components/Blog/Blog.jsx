@@ -92,8 +92,7 @@ const Blog = () => {
         {blogData &&
           blogData?.map((item, index) => (
             <div
-              className="col-md-4 col-sm-12 mb-5"
-              style={{ maxWidth: "25rem" }}
+              className="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-5"
               key={item?.id + index}
             >
               <div className="card text-center blog-card">

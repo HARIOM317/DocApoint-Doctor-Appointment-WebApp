@@ -313,7 +313,7 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
           <a
             href=""
             id="sign-in-btn2"
-            style={{ color: "var(--primaryColor)" }}
+            style={{ color: "var(--primaryHoverColor)" }}
             onClick={handleSignInMobileClick}
           >
             Sign In

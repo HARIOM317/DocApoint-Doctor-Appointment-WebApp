@@ -16,24 +16,33 @@ import { clickToCopyClipBoard } from "../../../utils/copyClipBoard";
 const PatientDashboard = () => {
   const { data, isLoading: pIsLoading } = useGetPatientAppointmentsQuery();
 
-  const { data: prescriptionData, prescriptionIsLoading } =
-    useGetPatientPrescriptionQuery();
+  const {
+    data: prescriptionData,
+    prescriptionIsLoading,
+  } = useGetPatientPrescriptionQuery();
 
-  const { data: invoices, isLoading: InvoicesIsLoading } =
-    useGetPatientInvoicesQuery();
+  const {
+    data: invoices,
+    isLoading: InvoicesIsLoading,
+  } = useGetPatientInvoicesQuery();
 
   const InvoiceColumns = [
     {
       title: "Doctor",
       key: 1,
       width: 180,
-      render: function (data) {
+      render: function(data) {
         return (
           <div className="avatar avatar-sm mr-2 d-flex gap-2">
             <div>
               <img
                 className="avatar-img rounded-circle"
-                style={{ width: "30px", height: "30px", objectFit: 'cover' }}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  objectFit: "cover",
+                  border: "1px solid var(--borderColor)",
+                }}
                 src={
                   data?.appointment?.doctor?.img
                     ? data?.appointment?.doctor?.img
@@ -68,10 +77,10 @@ const PatientDashboard = () => {
     {
       title: "Paid On",
       key: 3,
-      width: 100,
-      render: function (data) {
+      width: 150,
+      render: function(data) {
         return (
-          <div style={{ color: "var(--textColor)" }}>
+          <div style={{ color: "var(--textColor)", textWrap: 'nowrap' }}>
             {moment(data?.createdAt).format("LL")}
           </div>
         );
@@ -81,7 +90,7 @@ const PatientDashboard = () => {
       title: "OrderId",
       key: 4,
       width: 150,
-      render: function (data) {
+      render: function(data) {
         return <div>{data?.OrderId ? data?.OrderId : "Cash"}</div>;
       },
     },
@@ -89,7 +98,7 @@ const PatientDashboard = () => {
       title: "Total Paid",
       key: 5,
       width: 100,
-      render: function (data) {
+      render: function(data) {
         return <div>&#8377;{data?.totalAmount}</div>;
       },
       // dataIndex: "totalAmount",
@@ -99,7 +108,7 @@ const PatientDashboard = () => {
       title: "Action",
       key: "6",
       width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <Link to={`/booking/invoice/${data?.appointment?.id}`}>
             <Button type="primary" size="medium">
@@ -115,14 +124,19 @@ const PatientDashboard = () => {
       title: "Doctor",
       key: 11,
       width: 180,
-      render: function (data) {
+      render: function(data) {
         return (
           <>
             <div className="avatar avatar-sm mr-2 d-flex gap-2">
               <div>
                 <img
                   className="avatar-img rounded-circle"
-                  style={{ width: "30px", height: "30px" }}
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    objectFit: "cover",
+                    border: "1px solid var(--borderColor)",
+                  }}
                   src={data?.doctor?.img ? data?.doctor?.img : img}
                   alt=""
                 />
@@ -172,7 +186,7 @@ const PatientDashboard = () => {
     {
       title: "Appointment Date",
       key: 12,
-      render: function (data) {
+      render: function(data) {
         return (
           <div style={{ color: "var(--textColor)" }}>
             {moment(data?.appointment?.scheduleDate).format("LL")}{" "}
@@ -190,7 +204,7 @@ const PatientDashboard = () => {
       title: "Follow-Update",
       dataIndex: "followUpdate",
       key: 4,
-      render: function (data) {
+      render: function(data) {
         return (
           <Tag
             color="#c9fbc1"
@@ -211,7 +225,7 @@ const PatientDashboard = () => {
       title: "Archived",
       dataIndex: "isArchived",
       key: 4,
-      render: function ({ isArchived }) {
+      render: function({ isArchived }) {
         return (
           <Tag
             color={isArchived ? "#ffc9af" : "#b4d2e9"}
@@ -233,7 +247,7 @@ const PatientDashboard = () => {
       title: "Action",
       key: 13,
       width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <div className="d-flex">
             <Link to={`/dashboard/prescription/${data.id}`}>
@@ -251,14 +265,6 @@ const PatientDashboard = () => {
                 <FaRegEye />
               </Button>
             </Link>
-            {/* <Link to={`/dashboard/appointment/treatment/edit/${data.id}`}>
-              <Button type='primary' size='small' className="bg-primary" style={{ margin: "5px 5px" }}>
-                <FaEdit />
-              </Button>
-            </Link> */}
-            {/* <Button onClick={() => deleteHandler(data.id)} size='small' type='primary' style={{ margin: "5px 5px" }} danger>
-              <FaRegTimesCircle />
-            </Button> */}
           </div>
         );
       },
@@ -269,14 +275,19 @@ const PatientDashboard = () => {
       title: "Doctor",
       key: 20,
       width: 180,
-      render: function (data) {
+      render: function(data) {
         return (
           <>
             <div className="avatar avatar-sm mr-2 d-flex gap-2">
               <div>
                 <img
                   className="avatar-img rounded-circle"
-                  style={{ width: "30px", height: "30px" }}
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    objectFit: "cover",
+                    border: "1px solid var(--borderColor)",
+                  }}
                   src={data?.doctor?.img ? data?.doctor?.img : img}
                   alt=""
                 />
@@ -298,10 +309,10 @@ const PatientDashboard = () => {
       },
     },
     {
-      title: "App Date",
+      title: "Appointment Date",
       key: 22,
-      width: 100,
-      render: function (data) {
+      width: 150,
+      render: function(data) {
         return (
           <div style={{ color: "var(--textColor)" }}>
             {moment(data?.scheduleDate).format("LL")}{" "}
@@ -314,7 +325,7 @@ const PatientDashboard = () => {
       title: "Booking Date",
       key: 22,
       width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <div style={{ color: "var(--textColor)" }}>
             {moment(data?.createdAt).format("LL")}
@@ -326,7 +337,7 @@ const PatientDashboard = () => {
       title: "Status",
       key: 24,
       width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <Tag
             color="#ffcacb"
@@ -349,7 +360,7 @@ const PatientDashboard = () => {
       title: "Action",
       key: 25,
       width: 100,
-      render: function (data) {
+      render: function(data) {
         return (
           <Link to={`/dashboard/appointments/${data.id}`}>
             <Button type="primary">View</Button>

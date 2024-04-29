@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import img from '../../../images/user.png'
+import React, { useEffect, useState } from "react";
+import img from "../../../images/user.png";
 import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
-import moment from 'moment';
-import StarRatings from 'react-star-ratings';
-import { useCreateReviewMutation, useGetDoctorReviewsQuery } from '../../../redux/api/reviewsApi';
-import { Button, Radio, message, Space, Rate } from 'antd';
-import { useForm } from 'react-hook-form';
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+import moment from "moment";
+import StarRatings from "react-star-ratings";
+import {
+  useCreateReviewMutation,
+  useGetDoctorReviewsQuery,
+} from "../../../redux/api/reviewsApi";
+import { Button, Radio, message, Space, Rate } from "antd";
+import { useForm } from "react-hook-form";
+import "../../../stylesheets/doctorStylesheets/Reviews.css";
+const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
 const Review = ({ doctorId }) => {
   const { register, handleSubmit } = useForm({});
@@ -60,7 +64,8 @@ const Review = ({ doctorId }) => {
 
   let content = null;
   if (!isLoading && isError) content = <div>Something Went Wrong !</div>;
-  if (!isLoading && !isError && data?.length === 0) content = <div>No Review Yet</div>;
+  if (!isLoading && !isError && data?.length === 0)
+    content = <div>No Review Yet</div>;
   if (!isLoading && !isError && data?.length > 0)
     content = (
       <>
@@ -76,7 +81,11 @@ const Review = ({ doctorId }) => {
                     <h5 className="text-nowrap">
                       {item?.patient?.firstName + " " + item?.patient?.lastName}
                     </h5>
-                    <p className={item?.isRecommended ?"text-success" : "text-danger"}>
+                    <p
+                      className={
+                        item?.isRecommended ? "text-success" : "text-danger"
+                      }
+                    >
                       {item?.isRecommended ? (
                         <FaRegThumbsUp />
                       ) : (
@@ -102,7 +111,10 @@ const Review = ({ doctorId }) => {
                     />
                   </div>
                   <div className="">
-                    Reviewed {moment(item?.createdAt).startOf("day").fromNow()}
+                    Reviewed{" "}
+                    {moment(item?.createdAt)
+                      .startOf("day")
+                      .fromNow()}
                   </div>
                 </div>
               </div>
@@ -113,12 +125,13 @@ const Review = ({ doctorId }) => {
           ))}
       </>
     );
+
   return (
     <>
       <div>
         <div className="w-100 mb-3 rounded py-3 px-2">{content}</div>
 
-        <div>
+        <div className="doctor-review">
           <div className="text-center mb-5">
             <div className="section-title mb-3">
               <h2>Write a review</h2>
@@ -149,7 +162,7 @@ const Review = ({ doctorId }) => {
               </div>
               <div className="form-group mb-3">
                 <Radio.Group onChange={onChange} value={recommend}>
-                  <Space direction="horizontal">
+                  <Space className="recommend-btn">
                     <Radio value={1}>I Recommend the Doctor</Radio>
                     <Radio value={2}>I Don't Recommend the Doctor</Radio>
                   </Space>

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getFromLocalStorage } from "../../utils/local-storage";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import "../../stylesheets/adminStylesheets/Appointments.css";
-import { Tag, Tooltip } from "antd";
-import { clickToCopyClipBoard } from "../../utils/copyClipBoard";
-import { NavLink } from "react-router-dom";
 
 const Emergencies = () => {
   const [emergency, setEmergency] = useState([]);
@@ -32,8 +29,8 @@ const Emergencies = () => {
   }, []);
   return (
     <>
-      <AdminLayout>
-        <div className="row my-5">
+      <DashboardLayout>
+        <div className="row my-3">
           <div className="col-md-12">
             <div className="card card-table">
               <div className="card-header table-top-heading">
@@ -57,13 +54,7 @@ const Emergencies = () => {
                     </thead>
                     <tbody>
                       {emergency.map((emergency) => (
-                        <tr
-                          key={emergency.id}
-                          style={{
-                            borderBottom: "1px solid var(--borderColor)",
-                            lineHeight: "3.5rem",
-                          }}
-                        >
+                        <tr key={emergency.id} className="table-row">
                           <td>
                             <span className="table-data">
                               {emergency.patientName}
@@ -81,7 +72,9 @@ const Emergencies = () => {
                           </td>
 
                           <td>
-                            <span className="table-data">{emergency.address}</span>
+                            <span className="table-data">
+                              {emergency.address}
+                            </span>
                           </td>
 
                           <td>
@@ -98,7 +91,7 @@ const Emergencies = () => {
             </div>
           </div>
         </div>
-      </AdminLayout>
+      </DashboardLayout>
     </>
   );
 };

@@ -24,4 +24,31 @@
     overflow: hidden;
     overflow-y: scroll;
     border: 1.5px solid var(--borderColor);
+    box-shadow: var(--materialShadow);
+}
+
+.selected-datetime{
+    margin-bottom: 1.5rem;
+    color: var(--textColor);
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: 500;
+    line-height: 2rem;
+}
+
+.date-heading{
+    color: var(--headingColor);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+@media (max-width: 576px) {
+    .date-heading{
+        font-size: 1rem;
+    }
+
+    .stepper{
+        margin: 1rem 2rem;
+        height: 200px;
+    }
 }

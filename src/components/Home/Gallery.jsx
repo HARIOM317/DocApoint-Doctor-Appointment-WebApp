@@ -31,8 +31,8 @@ const Gallery = () => {
     image10,
   ];
   return (
-    <section className="gallery container">
-      <div className="text-center mb-5">
+    <section className="gallery">
+      <div className="text-center mb-4">
         <div className="section-title mb-3">
           <h2>Gallery</h2>
           <p style={{ color: "var(--textLight)" }}>
@@ -42,7 +42,7 @@ const Gallery = () => {
       </div>
 
       <div className="paddings innerWidth">
-        <Swiper {...sliderSettings}>
+        <Swiper {...sliderSettings} >
           {/* Buttons for slider */}
           <SliderButtons />
 

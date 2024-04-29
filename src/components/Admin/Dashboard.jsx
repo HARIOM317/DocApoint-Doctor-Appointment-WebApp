@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AdminLayout from "./AdminLayout";
+import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import "../../stylesheets/adminStylesheets/Dashboard.css";
 
 import { getFromLocalStorage } from "../../utils/local-storage";
@@ -96,9 +96,35 @@ const AdminDashboard = () => {
 
   return (
     <>
-      <AdminLayout>
-        <div className="row">
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+      <DashboardLayout>
+        <div className="page-header">
+          <div className="row">
+            <div className="col-sm-12">
+              <h3
+                style={{
+                  color: "var(--headingColor)",
+                  fontWeight: "500",
+                  fontSize: "1.5rem",
+                }}
+              >
+                Welcome Administrator!
+              </h3>
+              <ul className="breadcrumb">
+                <li
+                  style={{
+                    color: "var(--textLight)",
+                    fontSize: "1rem",
+                  }}
+                >
+                  Welcome back in your dashboard
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="row mt-4">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon first-icon">
                 <i class="fa-solid fa-user-doctor"></i>
@@ -110,7 +136,7 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon second-icon">
                 <i class="fa-solid fa-hospital-user"></i>
@@ -122,7 +148,7 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon third-icon">
                 <i class="fa-solid fa-calendar-check"></i>
@@ -134,7 +160,7 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="col-lg-3 col-sm-6 col-12 mb-3">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
             <div className="info-card">
               <span className="info-icon forth-icon">
                 <i class="fa-solid fa-hand-holding-dollar"></i>
@@ -149,7 +175,7 @@ const AdminDashboard = () => {
             </div>
           </div>
         </div>
-      </AdminLayout>
+      </DashboardLayout>
     </>
   );
 };

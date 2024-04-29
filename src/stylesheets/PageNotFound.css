@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 
 .page-not-found .lottie-animation {
@@ -46,6 +47,6 @@
 
   .page-not-found p {
     text-align: justify;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
   }
 }

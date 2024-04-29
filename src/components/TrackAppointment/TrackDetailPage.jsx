@@ -25,7 +25,7 @@ const TrackDetailPage = ({ data, setShowInfo }) => {
   const doctorLastName = data?.doctor?.lastName ? data?.doctor?.lastName : "";
   return (
     <>
-      <div className="container mb-2" style={{ marginTop: "8rem" }}>
+      <div className="container mb-2" style={{ marginTop: "6rem" }}>
         <Button
           type="primary"
           icon={<FaArrowAltCircleLeft />}
@@ -38,7 +38,7 @@ const TrackDetailPage = ({ data, setShowInfo }) => {
       <div className="container track-detail rounded">
         <div className="row">
           {/* Profile Card */}
-          <div className="col-md-4">
+          <div className="col-md-5">
             <div className="d-flex flex-column gap-4 justify-content-around">
               {/* Patient Card */}
               <div className="card p-3 text-center profile-card">
@@ -83,7 +83,7 @@ const TrackDetailPage = ({ data, setShowInfo }) => {
                     </div>
                     <div className="text-start">
                       <h6 className="name">
-                        {doctorFirstName + " " + doctorLastName}
+                        Dr. {doctorFirstName + " " + doctorLastName}
                       </h6>
                       <p className="address">{data?.doctor?.designation}</p>
                     </div>
@@ -94,10 +94,16 @@ const TrackDetailPage = ({ data, setShowInfo }) => {
           </div>
 
           {/* Appointment Details */}
-          <div className="col-md-8">
+          <div className="col-md-7">
             <div className="detail-card">
-              <h4 className="text-start text-capitalized">
-                Status : {data?.status}
+              <h4
+                className="text-start"
+                style={{
+                  textTransform: "capitalize",
+                  color: "var(--primaryHoverColor)",
+                }}
+              >
+                Status: {data?.status}
               </h4>
               <p className="text-secondary text-start my-2">
                 {appointStatusDsc.appointment[data?.status]}

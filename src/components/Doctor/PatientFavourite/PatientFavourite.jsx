@@ -5,12 +5,15 @@ import {
   useRemoveFavouriteMutation,
 } from "../../../redux/api/favouriteApi";
 import { useEffect } from "react";
-import { Empty, message, Tooltip } from "antd";
-import {
-  FaBookmark,
-} from "react-icons/fa";
+import { message, Tooltip } from "antd";
+import { FaBookmark } from "react-icons/fa";
 import "../../../stylesheets/doctorStylesheets/PatientFavorite.css";
 import profileImage from "../../../images/home/doctorProfile.jpg";
+
+import Lottie from "lottie-react";
+import Loading from "../../../animations/loading.json";
+import NoDataFound from "../../../animations/no_data_found.json";
+import SomethingWrong from "../../../animations/something_wrong.json";
 
 const PatientFavouriteDoctor = () => {
   const { data, isLoading, isError } = useGetFavouriteQuery();
@@ -33,14 +36,57 @@ const PatientFavouriteDoctor = () => {
   }, [isSuccess, fIsError]);
 
   let content = null;
-  if (!isLoading && isError) content = <div>Something Went Wrong !</div>;
-  if (!isLoading && !isError && data?.length === 0) content = <Empty />;
+
+  if (isLoading)
+    content = (
+      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={Loading}
+          style={{ width: "300px" }}
+        />
+      </div>
+    );
+
+  if (!isLoading && isError)
+    content = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
+
+  if (!isLoading && !isError && data?.length === 0)
+    content = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{
+            width: "300px",
+          }}
+        />
+      </div>
+    );
+
   if (!isLoading && !isError && data?.length > 0)
     content = (
       <>
         {data &&
           data?.map((item) => (
-            <div className="favorite-doctor col-md-4 col-sm-12">
+            <div className="favorite-doctor col-xl-4 col-lg-6 col-md-12 col-sm-12">
               <div className="flexColCenter profile-card">
                 <a
                   style={{
@@ -114,12 +160,9 @@ const PatientFavouriteDoctor = () => {
   return (
     <DashboardLayout>
       <h5 className="text-title mb-2 mt-3">My Favorite Doctors</h5>
-      <div className="row">
-        {content}
-      </div>
+      <div className="row">{content}</div>
     </DashboardLayout>
   );
 };
 
 export default PatientFavouriteDoctor;
-

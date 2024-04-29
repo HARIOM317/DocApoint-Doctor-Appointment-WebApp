@@ -1,0 +1,85 @@
+.diets .info-card {
+  border: 1.5px solid var(--borderLight);
+  border-bottom: 0;
+  height: 360px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  background: var(--bgLight);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 2.5px 2px -1px rgba(32, 31, 31, 0.45);
+  transition: all 0.35s ease;
+}
+
+.diets .info-card:hover{
+  transform: scaleY(1.02);
+}
+
+.diets .info-card .diet-img img {
+  width: 100%;
+  min-height: 180px;
+  max-height: 180px;
+  position: absolute;
+  border-radius: 7px 7px 0 0;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.diets .info-card .content {
+  height: 180px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.diets .info-card .name{
+  width: 100%;
+  text-align: start;
+  margin-top: 12px;
+  margin-left: 20px;
+}
+
+.diets .info-card .diet-name {
+  font-size: 1rem;
+  background: linear-gradient(#ff5643, #cf2f3c);
+  padding: 6px 16px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  border: none;
+}
+
+.diets .info-card .diet-benefits {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--textLight);
+  padding: 10px;
+  text-align: justify;
+}
+
+.diets .info-card .btn{
+  text-align: end;
+  width: 100%;
+  border: none;
+}
+
+.diets .info-card .show-btn {
+  border: 1.5px solid var(--primaryColor);
+  color: var(--primaryColor);
+  background: #fff;
+  font-weight: 500;
+  padding: 4px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.diets .info-card .show-btn:hover {
+  border: 1.5px solid var(--primaryHoverColor);
+  color: var(--primaryHoverColor);
+}

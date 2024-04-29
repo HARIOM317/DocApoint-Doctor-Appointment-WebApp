@@ -3,7 +3,6 @@ import "../stylesheets/About.css";
 import Header from "./Shared/Header/Header";
 import Footer from "./Shared/Footer/Footer";
 import SubHeader from "./Shared/SubHeader";
-import { useGetAllBlogsQuery } from "../redux/api/blogApi";
 import { useGetDoctorsQuery } from "../redux/api/doctorApi";
 import AboutUs from "./about/AboutUs";
 import Achievements from "./about/Achievements";
@@ -16,14 +15,12 @@ import NoDataFound from "../animations/no_data_found.json";
 import SomethingWrong from "../animations/something_wrong.json";
 
 const About = () => {
-  const { data, isError, isLoading } = useGetAllBlogsQuery({});
   const {
     data: doctorData,
     isLoading: DoctorIsLoading,
     isError: doctorIsError,
   } = useGetDoctorsQuery({});
 
-  const blogData = data?.blogs;
   const doctors = doctorData?.doctors;
 
   let doctorContent = null;
@@ -85,10 +82,13 @@ const About = () => {
                       src={item.img == null ? doctorProfile : item.img}
                       alt="Doctor"
                       className="img-fluid"
+                      style={{ objectFit: "cover" }}
                     />
                     <h2>{item?.firstName + " " + item?.lastName}</h2>
                     <p>
-                      {item?.designation} {item?.specialization}
+                      {item?.designation === null
+                        ? item?.specialization
+                        : item?.designation}
                     </p>
 
                     <NavLink

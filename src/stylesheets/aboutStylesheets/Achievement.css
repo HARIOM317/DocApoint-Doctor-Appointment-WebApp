@@ -1,6 +1,6 @@
 .achievement-card {
   background: #fff;
-  box-shadow: var(--shadowAll);
+  box-shadow: var(--materialShadow);
   border-radius: 20px;
   padding: 2rem;
   display: flex;

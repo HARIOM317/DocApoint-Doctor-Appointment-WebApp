@@ -69,7 +69,7 @@ const Service = () => {
 
       <div
         className="container services"
-        style={{ marginTop: 100, marginBottom: 50 }}
+        style={{ marginTop: 50, marginBottom: 50 }}
       >
         <div className="section-title text-center">
           <h2 className="text-uppercase">Our Services</h2>
@@ -80,7 +80,7 @@ const Service = () => {
 
         <div className="row" style={{ marginTop: 50 }}>
           {ServiceAPI.map((item) => (
-            <div className="col-lg-3 col-md-6 col-sm-12" key={item.id}>
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12" key={item.id}>
               <div className="card mb-5 service-card">
                 <img
                   src={item.img}

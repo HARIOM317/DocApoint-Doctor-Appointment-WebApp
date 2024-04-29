@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useCreateBlogMutation } from '../../../redux/api/blogApi';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { Button, message } from 'antd';
-import DashboardLayout from '../DashboardLayout/DashboardLayout';
-import useAuthCheck from '../../../redux/hooks/useAuthCheck';
-import ImageUpload from '../../UI/form/ImageUpload';
-import BlogIcon from '../../../images/blogIcon.png';
+import React, { useEffect, useState } from "react";
+import { useCreateBlogMutation } from "../../../redux/api/blogApi";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { Button, message } from "antd";
+import DashboardLayout from "../DashboardLayout/DashboardLayout";
+import useAuthCheck from "../../../redux/hooks/useAuthCheck";
+import ImageUpload from "../../UI/form/ImageUpload";
+import BlogIcon from "../../../images/blogIcon.png";
 import "../../../stylesheets/doctorStylesheets/ProfileSetting.css";
 
 const AddBlog = () => {
   const { data: userData } = useAuthCheck();
-  const [createBlog, { isLoading, isError, error, isSuccess }] =
-    useCreateBlogMutation();
+  const [
+    createBlog,
+    { isLoading, isError, error, isSuccess },
+  ] = useCreateBlogMutation();
   const { register, handleSubmit } = useForm({});
   const [selectedImage, setSelectedImage] = useState(null);
   const [file, setFile] = useState(null);
@@ -79,11 +81,10 @@ const AddBlog = () => {
           </div>
 
           <div className="col-md-12">
-            <div className="d-flex gap-2 align-items-center">
+            <div className="upload-blog-img">
               <div className="my-3">
                 <img
-                  className=""
-                  style={{ maxWidth: "150px" }}
+                  className="blog-img"
                   src={selectedImage ? selectedImage : BlogIcon}
                   alt=""
                 />
@@ -96,7 +97,7 @@ const AddBlog = () => {
               </div>
             </div>
           </div>
-          <div className="text-center my-3">
+          <div className="upload-btn">
             <Button
               htmlType="submit"
               type="primary"

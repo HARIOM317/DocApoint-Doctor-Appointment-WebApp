@@ -1,5 +1,5 @@
 import React from 'react';
-import img from '../../../images/doc/doctor 3.jpg';
+import img from '../../../images/user.png';
 import DashboardLayout from '../DashboardLayout/DashboardLayout';
 import { useGetDoctorPatientsQuery } from '../../../redux/api/appointmentApi';
 import moment from 'moment';
@@ -17,8 +17,8 @@ const MyPatients = () => {
       <>
         {data &&
           data?.map((item) => (
-            <div className="my-patient col-md-4 col-sm-12">
-              <div className="flexColCenter profile-card">
+            <div className="my-patient col-xl-4 col-lg-6 col-md-12 col-sm-6 col-xs-12">
+              <div className="profile-card">
                 <div className="image">
                   <img
                     className="profile-img"
@@ -36,14 +36,14 @@ const MyPatients = () => {
                   </p>
 
                   <p className="text-data">
-                    <FaLocationArrow className="icon" /> {item?.address}
+                    <FaLocationArrow className="icon" /> {item?.address ? item?.address : 'N/A'}
                   </p>
 
                   <p className="text-data">
                     <FaEnvelope className="icon" /> {item?.email}
                   </p>
                   <p className="text-data">
-                    <FaPhoneAlt className="icon" /> {item?.mobile}
+                    <FaPhoneAlt className="icon" /> {item?.mobile ? item?.mobile : 'N/A'}
                   </p>
                 </div>
               </div>

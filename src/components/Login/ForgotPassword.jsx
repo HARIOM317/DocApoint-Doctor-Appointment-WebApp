@@ -4,13 +4,16 @@ import Footer from "../Shared/Footer/Footer";
 import { Button, Form, Input, message } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
 import { useResetConfirmMutation } from "../../redux/api/authApi";
+import "../../stylesheets/doctorStylesheets/ChangePassword.css";
 
 const ForgotPassword = () => {
   const [matchePass, setMatchPass] = useState(true);
   const { userId, uniqueString } = useParams();
   const navigate = useNavigate();
-  const [resetConfirm, { isError, isLoading, isSuccess, error }] =
-    useResetConfirmMutation();
+  const [
+    resetConfirm,
+    { isError, isLoading, isSuccess, error },
+  ] = useResetConfirmMutation();
 
   const onFinish = (values) => {
     const { password, rePassword } = values;
@@ -36,10 +39,11 @@ const ForgotPassword = () => {
     <>
       <Header />
       <div className="d-flex justify-content-center">
-        <div
-          style={{ marginTop: "8rem", marginBottom: "8rem", minWidth: "450px" }}
-        >
-          <div className="card bg-white shadow p-3 border-0">
+        <div className="reset-password">
+          <div
+            className="card bg-white p-3"
+            style={{ boxShadow: "var(--materialShadow)" }}
+          >
             <div>
               <Form layout="vertical" onFinish={onFinish} autoComplete="off">
                 <Form.Item

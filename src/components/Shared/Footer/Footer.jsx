@@ -82,6 +82,37 @@ const Footer = () => {
                       </li>
                     </ul>
                   </div>
+                ) : role === "admin" ? (
+                  <div className="col-6 col-lg-3">
+                    <h2>DocApoint</h2>
+                    <ul>
+                      <li>
+                        <NavLink to="/">
+                          <FaAngleDoubleRight className="icon" /> Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/about">
+                          <FaAngleDoubleRight className="icon" /> About
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/service">
+                          <FaAngleDoubleRight className="icon" /> Services
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/contact">
+                          <FaAngleDoubleRight className="icon" /> Contact
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/blog">
+                          <FaAngleDoubleRight className="icon" /> Blog
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
                 ) : (
                   <div className="col-6 col-lg-3">
                     <h2>DocApoint</h2>
@@ -171,6 +202,49 @@ const Footer = () => {
                       <li>
                         <NavLink to="/dashboard/profile-setting">
                           <FaAngleDoubleRight className="icon" /> Profile
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                ) : role === "admin" ? (
+                  <div className="col-6 col-lg-3">
+                    <h2>Dashboard</h2>
+                    <ul>
+                      <li>
+                        <NavLink to={"/admin/dashboard"}>
+                          <FaAngleDoubleRight className="icon" /> Dashboard
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/admin/addDoctor"}>
+                          <FaAngleDoubleRight className="icon" /> Add Doctor
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/admin/emergency">
+                          <FaAngleDoubleRight className="icon" /> Emergency
+                          Appointments
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/admin/appointments"}>
+                          <FaAngleDoubleRight className="icon" /> Appointments
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/admin/doctors"}>
+                          <FaAngleDoubleRight className="icon" /> Doctors
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/admin/prescription">
+                          <FaAngleDoubleRight className="icon" /> Prescriptions
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/admin/reviews"}>
+                          <FaAngleDoubleRight className="icon" /> Patient
+                          Reviews
                         </NavLink>
                       </li>
                     </ul>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Shared/Footer/Footer";
-import img from "../../images/doc/doctor 3.jpg";
+import img from "../../images/home/doctorProfile.jpg";
 import "../../stylesheets/bookingStylesheets/DoctorBooking.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Empty, Button, message, Steps } from "antd";
 import { useGetDoctorQuery } from "../../redux/api/doctorApi";
-import { FaArchway } from "react-icons/fa";
 import { useGetAppointmentTimeQuery } from "../../redux/api/timeSlotApi";
 import moment from "moment";
 import SelectDateAndTime from "./SelectDateAndTime";
@@ -16,6 +15,11 @@ import { useDispatch } from "react-redux";
 import { addInvoice } from "../../redux/feature/invoiceSlice";
 import Header from "../Shared/Header/Header";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
+
+import Lottie from "lottie-react";
+import Loading from "../../animations/loading.json";
+import NoDataFound from "../../animations/no_data_found.json";
+import SomethingWrong from "../../animations/something_wrong.json";
 
 const DoctorBooking = () => {
   const dispatch = useDispatch();
@@ -60,7 +64,11 @@ const DoctorBooking = () => {
     isLoading: dIsLoading,
     isError: dIsError,
     error: dError,
-  } = useGetAppointmentTimeQuery({ day: selectDay, date: selectedDate, id: doctorId });
+  } = useGetAppointmentTimeQuery({
+    day: selectDay,
+    date: selectedDate,
+    id: doctorId,
+  });
 
   const [selectValue, setSelectValue] = useState(initialValue);
   const [IsdDisable, setIsDisable] = useState(true);
@@ -80,22 +88,36 @@ const DoctorBooking = () => {
       paymentType,
     } = selectValue;
     const isInputEmpty =
-      !firstName || !lastName || !email || !phone || !reasonForVisit || !piCheck;
-    const isConfirmInputEmpty =
-      !isCheck || !paymentType;
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !reasonForVisit ||
+      !piCheck;
+    const isConfirmInputEmpty = !isCheck || !paymentType;
     setIsDisable(isInputEmpty);
     setIsConfirmDisable(isConfirmInputEmpty);
   }, [selectValue, isCheck, piCheck]);
 
   const handleDateChange = (_date, dateString) => {
     setSelectedDate(dateString);
-    setSelecDay(moment(dateString).format("dddd").toLowerCase());
+    setSelecDay(
+      moment(dateString)
+        .format("dddd")
+        .toLowerCase()
+    );
     refetch();
   };
   const disabledDateTime = (current) =>
     current &&
-    (current < moment().add(1, "day").startOf("day") ||
-      current > moment().add(8, "days").startOf("day"));
+    (current <
+      moment()
+        .add(1, "day")
+        .startOf("day") ||
+      current >
+        moment()
+          .add(8, "days")
+          .startOf("day"));
   const handleSelectTime = (date) => {
     setSelectTime(date);
   };
@@ -108,10 +130,43 @@ const DoctorBooking = () => {
   };
 
   let dContent = null;
-  if (dIsLoading) dContent = <div>Loading ...</div>;
-  if (!dIsLoading && dIsError) dContent = <div>Something went Wrong!</div>;
+  if (dIsLoading)
+    dContent = (
+      <div>
+        <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+          <Lottie
+            loop={true}
+            animationData={Loading}
+            style={{ width: "200px" }}
+          />
+        </div>
+      </div>
+    );
+
+  if (!dIsLoading && dIsError)
+    dContent = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "150px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1rem",
+            textAlign: "center",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
+
   if (!dIsLoading && !dIsError && time.length === 0)
     dContent = <Empty children="Doctor Is not Available" />;
+
   if (!dIsLoading && !dIsError && time.length > 0)
     dContent = (
       <>
@@ -135,8 +190,54 @@ const DoctorBooking = () => {
 
   //What to render
   let content = null;
-  if (!isLoading && isError) content = <div>Something Went Wrong!</div>;
-  if (!isLoading && !isError && data?.id === undefined) content = <Empty />;
+
+  if (isLoading)
+    content = (
+      <>
+        <div className="m-0 p-0 d-flex align-items-center justify-content-center">
+          <Lottie
+            loop={true}
+            animationData={Loading}
+            style={{ width: "300px" }}
+          />
+        </div>
+      </>
+    );
+
+  if (!isLoading && isError)
+    content = (
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={SomethingWrong}
+          style={{ width: "300px" }}
+        />
+        <div
+          style={{
+            color: "var(--headingColor)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+            textAlign: "center",
+          }}
+        >
+          Something went wrong!
+        </div>
+      </div>
+    );
+
+  if (!isLoading && !isError && data?.id === undefined)
+    content = (
+      <div className=" m-0 p-0 d-flex align-items-center justify-content-center">
+        <Lottie
+          loop={true}
+          animationData={NoDataFound}
+          style={{
+            width: "300px",
+          }}
+        />
+      </div>
+    );
+
   if (!isLoading && !isError && data?.id)
     content = (
       <>
@@ -151,8 +252,7 @@ const DoctorBooking = () => {
             >
               Dr. {data?.firstName + " " + data?.lastName}
             </Link>
-            <p className="form-text mb-0">
-              <FaArchway />{" "}
+            <p className="form-text mb-0" style={{fontWeight: '500'}}>
               {data?.specialization + "," + data?.experienceHospitalName}
             </p>
           </div>
@@ -162,7 +262,7 @@ const DoctorBooking = () => {
 
   const steps = [
     {
-      title: "Select Appointment Date & Time",
+      title: "Select Date",
       content: (
         <SelectDateAndTime
           content={content}
@@ -175,14 +275,14 @@ const DoctorBooking = () => {
       ),
     },
     {
-      title: "Patient Information",
+      title: "Patient Details",
       content: (
         <PersonalInformation
           handleChange={handleChange}
           selectValue={selectValue}
           setPatientId={setPatientId}
-          piCheck = {piCheck}
-          setPiCheck = {setPiCheck}
+          piCheck={piCheck}
+          setPiCheck={setPiCheck}
         />
       ),
     },
@@ -229,7 +329,7 @@ const DoctorBooking = () => {
     obj.payment = {
       paymentType: selectValue.paymentType,
       paymentId: paymentId,
-      orderId: orderId
+      orderId: orderId,
     };
     createAppointment(obj);
   };
@@ -252,7 +352,7 @@ const DoctorBooking = () => {
         className="container"
         style={{ marginBottom: "12rem", marginTop: "8rem" }}
       >
-        <Steps current={current} items={items} />
+        <Steps current={current} items={items} className="stepper" />
         <div className="mb-5 mt-3 mx-3">{steps[current].content}</div>
         <div className="text-end mx-3">
           {current < steps.length - 1 && (

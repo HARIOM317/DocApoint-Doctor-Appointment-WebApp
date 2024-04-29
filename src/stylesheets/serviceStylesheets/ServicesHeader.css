@@ -1,10 +1,11 @@
-.service-header{
-    margin-top: 3rem;
+.service-header {
+  margin-top: 3rem;
 }
+
 .service-header .service-container {
   width: 80vw;
   padding: 2rem;
-  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.1);
+  box-shadow: var(--materialShadow);
   background-color: #fff;
   border-radius: 0.5rem;
   border: 1.5px solid var(--borderLight);
@@ -45,4 +46,10 @@
   color: var(--textColor);
   margin: 1rem !important;
   text-align: justify;
+}
+
+@media (max-width: 576px) {
+  .service-header .service-container {
+    padding: 1rem;
+  }
 }

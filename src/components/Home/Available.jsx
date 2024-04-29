@@ -10,7 +10,7 @@ const Availabe = () => {
     <section className="container section-features">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-7">
+          <div className="col-lg-7 col-md-12">
             <div className="mb-4 section-title text-center">
               <h2 className="text-uppercase">Availabe Service</h2>
               <p style={{ color: "var(--textLight)" }}>
@@ -20,7 +20,7 @@ const Availabe = () => {
             <AvailableServiceContent />
           </div>
 
-          <div className="col-md-5 features-img">
+          <div className="col-lg-5 col-md-12 features-img">
             <Lottie
               loop={true}
               animationData={OurServices}

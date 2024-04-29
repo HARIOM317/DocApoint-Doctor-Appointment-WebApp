@@ -31,6 +31,7 @@ import {
 } from "../../../redux/api/medicineApi";
 import { useMessageEffect } from "../../../utils/messageSideEffect";
 import TreatmentOverview from "./TreatmentOverview";
+import "../../../stylesheets/doctorStylesheets/Treatment.css";
 
 const TreatmentEdit = () => {
   const [
@@ -178,66 +179,80 @@ const TreatmentEdit = () => {
     "Successfully Medicine Updated!"
   );
 
-  console.log({data});
+  console.log({ data });
 
   return (
     <DashboardLayout>
       <TreatmentOverview data={data} isAppointment={true} />
-      <div className="w-100 mb-3 rounded p-3 bg-gray-g">
+      <div className="w-100 mb-3 rounded p-3 bg-gray-g treatment-options">
         <div className="text-center mb-2 d-flex justify-content-center">
-          <h5 className="border-success border-bottom w-25 pb-2 border-5">
+          <h5
+            className=" w-25 pb-2"
+            style={{
+              borderBottom: "2px solid var(--headingColor)",
+              color: "var(--headingColor)",
+              marginBottom: "2rem",
+            }}
+          >
             Start Treatment
           </h5>
         </div>
 
         <form className="row form-row" onSubmit={handleSubmit(onSubmit)}>
-          <div className="col-md-6">
-            <div className="form-group mb-4">
-              <div className="mb-2">
-                <h6 className="card-title text-secondary">
-                  Change Appointment Status
-                </h6>
-              </div>
-              {isReadyData && (
-                <SelectForm
-                  showSearch={true}
-                  options={appointemntStatusOption}
-                  setSelectData={setSelectAppointmentStatus}
-                  defaultValue={data?.appointment?.status}
-                />
-              )}
-            </div>
-          </div>
+          <div className="col-md-12">
+            <div className="card p-3 mb-3">
+              <h6 className="card-title text-secondary">Change Status</h6>
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="form-group mb-4">
+                    <div className="card-label">
+                      <label className="label-style">
+                        Change Appointment Status
+                      </label>
+                    </div>
+                    {isReadyData && (
+                      <SelectForm
+                        showSearch={true}
+                        options={appointemntStatusOption}
+                        setSelectData={setSelectAppointmentStatus}
+                        defaultValue={data?.appointment?.status}
+                      />
+                    )}
+                  </div>
+                </div>
 
-          <div className="col-md-6">
-            <div className="form-group mb-4">
-              <div className="mb-2">
-                <h6 className="card-title text-secondary">
-                  Change Patient Status
-                </h6>
+                <div className="col-md-6">
+                  <div className="form-group mb-4">
+                    <div className="card-label">
+                      <label className="label-style">
+                        Change Patient Status
+                      </label>
+                    </div>
+                    {isReadyData && (
+                      <SelectForm
+                        showSearch={true}
+                        options={PatientStatus}
+                        setSelectData={setPatientStatus}
+                        defaultValue={data?.appointment?.patientType}
+                      />
+                    )}
+                  </div>
+                </div>
               </div>
-              {isReadyData && (
-                <SelectForm
-                  showSearch={true}
-                  options={PatientStatus}
-                  setSelectData={setPatientStatus}
-                  defaultValue={data?.appointment?.patientType}
-                />
-              )}
             </div>
           </div>
 
           <div className="col-md-12">
             <div className="card p-3 mb-3">
               <h6 className="card-title text-secondary">
-                Identify Disease & Symtomps
+                Identify Disease & Symptoms
               </h6>
 
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group mb-3">
-                    <div>
-                      <label>Daignosis</label>
+                    <div className="card-label">
+                      <label className="label-style">Diagnosis</label>
                     </div>
                     {isReadyData && (
                       <SelectForm
@@ -252,8 +267,8 @@ const TreatmentEdit = () => {
 
                 <div className="col-md-6">
                   <div className="form-group mb-3">
-                    <div>
-                      <label>Disease</label>
+                    <div className="card-label">
+                      <label className="label-style">Disease</label>
                     </div>
                     {isReadyData && (
                       <SelectForm
@@ -273,8 +288,10 @@ const TreatmentEdit = () => {
             <div className="card mb-2 p-3 mt-2">
               <h6 className="card-title text-secondary">Medical Checkup</h6>
               <div className="row form-row">
-                <div className="form-group mb-2 card-label">
-                  <label>Medical Checkup</label>
+                <div className="form-group mb-2">
+                  <div className="card-label">
+                    <label className="label-style">Medical Checkup</label>
+                  </div>
                   {isReadyData && (
                     <SelectForm
                       mode={true}
@@ -283,7 +300,7 @@ const TreatmentEdit = () => {
                       defaultValue={defatulTests}
                     />
                   )}
-                  <small className="form-text text-muted">
+                  <small style={{ color: "var(--textLight)" }}>
                     Note : Type & Press enter to add new services
                   </small>
                 </div>
@@ -297,11 +314,49 @@ const TreatmentEdit = () => {
               {isReadyData &&
                 medicineList?.map((item, index) => (
                   <div
-                    className="row form-row mb-4 position-relative border border-success rounded m-2 p-2"
+                    className="row form-row mb-4 position-relative rounded m-2 mt-4 p-2"
                     key={index + 1}
+                    style={{ border: "1.5px solid var(--borderLight)" }}
                   >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "flex-end",
+                      }}
+                    >
+                      <a
+                        style={{
+                          cursor: "pointer",
+                          color: "#c11340",
+                        }}
+                        onClick={() => removeFromNewMedicineList(item?.id)}
+                      >
+                        <FaRegTrashAlt />
+                      </a>
+                    </div>
+
+                    <div className="position-absolute text-end mb-3 top-0">
+                      <Popconfirm
+                        title="Delete medicine"
+                        description="Are you sure to delete this medicine?"
+                        onConfirm={() => removeFromOldMedicineList(item.id)}
+                        okText="Yes"
+                        cancelText="No"
+                      >
+                        <Button
+                          loading={deleteIsloading}
+                          danger
+                          icon={<FaRegTrashAlt />}
+                          style={{ border: "none" }}
+                        />
+                      </Popconfirm>
+                    </div>
+
                     <div className="col-md-6 mb-3">
-                      <label>Medicine Name</label>
+                      <div className="card-label">
+                        <label className="label-style">Medicine Name</label>
+                      </div>
                       <div className="form-group mb-2">
                         <InputAutoCompleteForm
                           id={item.id}
@@ -313,7 +368,9 @@ const TreatmentEdit = () => {
                     </div>
 
                     <div className="col-md-6 mb-3">
-                      <label>Dosage</label>
+                      <div className="card-label">
+                        <label className="label-style">Dosage</label>
+                      </div>
                       <div className="form-group mb-2">
                         <SelectFormForMedicine
                           id={item.id}
@@ -327,7 +384,9 @@ const TreatmentEdit = () => {
                     </div>
 
                     <div className="col-md-6 mb-3">
-                      <label>Frequency</label>
+                      <div className="card-label">
+                        <label className="label-style">Frequency</label>
+                      </div>
                       <div className="form-group mb-2">
                         <SelectFormForMedicine
                           id={item.id}
@@ -341,7 +400,11 @@ const TreatmentEdit = () => {
                     </div>
 
                     <div className="col-md-6 mb-3">
-                      <label>Start Date / End Date</label>
+                      <div className="card-label">
+                        <label className="label-style">
+                          Start Date / End Date
+                        </label>
+                      </div>
                       <div className="form-group mb-2">
                         <Space direction="vertical" size={12}>
                           <MedicineRangePickerForm
@@ -363,39 +426,25 @@ const TreatmentEdit = () => {
                         />
                       </Tooltip>
                     </div>
-
-                    <div className="position-absolute text-end mb-3 top-0">
-                      <Popconfirm
-                        title="Delete medicine"
-                        description="Are you sure to delete this medicine?"
-                        onConfirm={() => removeFromOldMedicineList(item.id)}
-                        okText="Yes"
-                        cancelText="No"
-                      >
-                        <Button
-                          loading={deleteIsloading}
-                          danger
-                          icon={<FaRegTrashAlt />}
-                        />
-                      </Popconfirm>
-                    </div>
                   </div>
                 ))}
 
               {addMedicine.length > 0 && (
                 <>
-                  <div
-                    className="card p-3 mb-3"
-                    
-                  >
-                    <h5>Add New Medicine</h5>
+                  <div className="card p-3 mb-3">
+                    <h6 className="card-title text-secondary">
+                      Add New Medicine
+                    </h6>
                     {addMedicine?.map((item, index) => (
                       <div
-                        className="row form-row mb-4 position-relative border border-success rounded m-2 p-2"
+                        className="row form-row mb-4 position-relative rounded m-2 mt-4 p-2"
                         key={index + 1}
+                        style={{ border: "1.5px solid var(--borderLight)" }}
                       >
                         <div className="col-md-6 mb-3">
-                          <label>Medicine Name</label>
+                          <div className="card-label">
+                            <label className="label-style">Medicine Name</label>
+                          </div>
                           <div className="form-group mb-2">
                             <InputAutoCompleteForm
                               id={item.id}
@@ -406,7 +455,9 @@ const TreatmentEdit = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label>Dosage</label>
+                          <div className="card-label">
+                            <label className="label-style">Dosage</label>
+                          </div>
                           <div className="form-group mb-2">
                             <SelectFormForMedicine
                               id={item.id}
@@ -419,7 +470,9 @@ const TreatmentEdit = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label>Frequency</label>
+                          <div className="card-label">
+                            <label className="label-style">Frequency</label>
+                          </div>
                           <div className="form-group mb-2">
                             <SelectFormForMedicine
                               id={item.id}
@@ -432,7 +485,11 @@ const TreatmentEdit = () => {
                         </div>
 
                         <div className="col-md-6 mb-3">
-                          <label>Start Date / End Date</label>
+                          <div className="card-label">
+                            <label className="label-style">
+                              Start Date / End Date
+                            </label>
+                          </div>
                           <div className="form-group mb-2">
                             <Space direction="vertical" size={12}>
                               <MedicineRangePickerForm
@@ -443,13 +500,6 @@ const TreatmentEdit = () => {
                             </Space>
                           </div>
                         </div>
-
-                        <a
-                          className="text-danger position-absolute text-end mb-3 top-0"
-                          onClick={() => removeFromNewMedicineList(item?.id)}
-                        >
-                          <FaRegTrashAlt />
-                        </a>
                       </div>
                     ))}
                   </div>
@@ -484,7 +534,9 @@ const TreatmentEdit = () => {
           </div>
 
           <div className="col-md-12 mb-3">
-            <label>Follow Up Date</label>
+            <div className="card-label">
+              <label className="label-style">Follow Up Date</label>
+            </div>
             <div className="form-group mb-2">
               <DatePicker
                 presets={DatePickerSinglePresets}
@@ -498,7 +550,9 @@ const TreatmentEdit = () => {
 
           <div className="col-md-12 mb-3">
             <div className="form-group mb-2">
-              <label>Instruction</label>
+              <div className="card-label">
+                <label className="label-style">Instruction</label>
+              </div>
               {isReadyData && (
                 <TextArea
                   rows={4}
