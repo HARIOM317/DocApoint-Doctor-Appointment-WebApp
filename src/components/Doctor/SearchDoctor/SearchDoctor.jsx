@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../../Shared/Footer/Footer";
 import SearchContent from "./SearchContent";
 import { useDebounced } from "../../../utils/hooks/useDebounced";
@@ -8,6 +8,7 @@ import Header from "../../Shared/Header/Header";
 import SubHeader from "../../Shared/SubHeader";
 import Search from "antd/es/input/Search";
 import { FaRedoAlt } from "react-icons/fa";
+import { useLocation } from 'react-router-dom';
 
 import Lottie from "lottie-react";
 import Loading from "../../../animations/loading.json";
@@ -26,6 +27,18 @@ const SearchDoctor = () => {
   const [specialization, setSpecialization] = useState("Specialization");
   const [specialist, setSpecialist] = useState("");
   const [priceRange, setPriceRange] = useState({});
+
+  const location = useLocation();
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const specialist = queryParams.get("specialist"); 
+
+    if (specialist) {
+      setSpecialization(specialist);
+      setSpecialist(specialist);
+    }
+  }, [location]); 
+
 
   query["limit"] = size;
   query["page"] = page;

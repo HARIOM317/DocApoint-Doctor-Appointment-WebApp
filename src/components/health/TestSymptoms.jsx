@@ -163,7 +163,10 @@ const TestSymptoms = () => {
   };
 
   const handleBookSpecialist = () => {
-    alert("You booked a "+specialist+" specialist");
+    // alert("You booked a "+specialist+" specialist");
+    // Redirect to the specialist booking page along with the specialist name
+    window.location.href = `/doctors?specialist=${specialist}&rating=high`;
+
   }
 
   const onSearch = () => {
