@@ -14,6 +14,7 @@ import HowToUse from "./HowToUse";
 import FAQs from "./FAQs";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
 import Chatbot from "./Chatbot";
+import NewChatbot from "./NewChatbot";
 
 const Home = () => {
   const { role } = useAuthCheck();
@@ -33,6 +34,7 @@ const Home = () => {
       <Testimonial />
       <FAQs />
       {/* <Chatbot /> */}
+      <NewChatbot />
       <Footer />
     </>
   );
