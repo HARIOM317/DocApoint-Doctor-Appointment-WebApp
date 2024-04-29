@@ -11,6 +11,7 @@ const TestSymptoms = () => {
   const [searched, setSearched] = useState(false);
 
   const [predictedDisease, setPredictedDisease] = useState("");
+  const [specialist, setSpecialist] = useState("");
   const [disDes, setDisDes] = useState("");
   const [myDiet, setMyDiet] = useState([]);
   const [precautions, setPrecautions] = useState([]);
@@ -161,12 +162,16 @@ const TestSymptoms = () => {
     setSelectedValues(selected);
   };
 
+  const handleBookSpecialist = () => {
+    alert("You booked a "+specialist+" specialist");
+  }
+
   const onSearch = () => {
     const selectedString = selectedValues.join(", ");
-    const proxyUrl = "http://localhost:8080/";
+    // const proxyUrl = "http://localhost:8080/";
     const apiUrl = "https://diagnose-api.onrender.com/predict";
 
-    fetch(proxyUrl + apiUrl, {
+    fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -193,6 +198,7 @@ const TestSymptoms = () => {
         setPrecautions(data.precautions[0]);
         setWorkout(data.workout);
         setPredictedDisease(data.predicted_disease);
+        setSpecialist(data.specialist);
 
         setSearched(true);
 
@@ -203,6 +209,7 @@ const TestSymptoms = () => {
         console.log("precautions:", precautions);
         console.log("workout:", workout);
         console.log("predictedDisease:", predictedDisease);
+        console.log("Suggested Specialist:", specialist);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -262,6 +269,22 @@ const TestSymptoms = () => {
                 <div className="disease-info">
                   <h6 className="disease-name">{predictedDisease}</h6>
                   <p className="prediction-para">{disDes}</p>
+                </div>
+              </div>
+            )}
+
+            {specialist && (
+              <div>
+                <h3 className="prediction-heading">Suggested Specialist</h3>
+                <div className="disease-info pb-3">
+                  <h6 className="disease-name">{specialist}</h6>
+                  <Button
+                    type="primary"
+                    className="search-btn"
+                    onClick={handleBookSpecialist}
+                  >
+                    Book Now
+                  </Button>
                 </div>
               </div>
             )}
