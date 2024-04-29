@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import { AppointmentService } from "./appointment.service";
-import { Appointments, Patient } from "@prisma/client";
+import { Appointments, Patient, Prescription } from "@prisma/client";
 
 const createAppointment = catchAsync(async (req: Request, res: Response) => {
     const result = await AppointmentService.createAppointment(req.body);
@@ -155,6 +155,17 @@ const getDoctorInvoices = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const getDoctorPatientsHistory = catchAsync(async (req: Request, res: Response) => {
+    const result = await AppointmentService.getDoctorPatientsHistory(req.user);
+    sendResponse<Prescription[]>(res, {
+        statusCode: 200,
+        message: 'Successfully retrieve doctor patients Prescription !!',
+        success: true,
+        data: result
+    })
+})
+
+
 export const AppointmentController = {
     getDoctorAppointmentsById,
     updateAppointmentByDoctor,
@@ -170,5 +181,6 @@ export const AppointmentController = {
     getDoctorInvoices,
     createAppointmentByUnAuthenticateUser,
     getAppointmentByTrackingId,
-    getAppointmentsByDoctorId
+    getAppointmentsByDoctorId,
+    getDoctorPatientsHistory
 }

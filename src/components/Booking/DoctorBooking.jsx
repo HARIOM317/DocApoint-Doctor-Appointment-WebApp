@@ -94,7 +94,7 @@ const DoctorBooking = () => {
       !email ||
       !phone ||
       !reasonForVisit ||
-      !piCheck;
+      !piCheck || medicalHistory==="Share Medical History";
     const isConfirmInputEmpty = !isCheck || !paymentType;
     setIsDisable(isInputEmpty);
     setIsConfirmDisable(isConfirmInputEmpty);

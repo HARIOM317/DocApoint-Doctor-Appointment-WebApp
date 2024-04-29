@@ -6,6 +6,7 @@ import moment from 'moment';
 import { EmailtTransporter } from "../../../helpers/emailTransporter";
 import * as path from 'path';
 import config from "../../../config";
+import { Prescription } from "@prisma/client";
 
 const createAppointment = async (payload: any): Promise<Appointments | null | any> => {
 
@@ -468,6 +469,99 @@ const updateAppointmentByDoctor = async (user: any, payload: Partial<Appointment
     return result;
 }
 
+
+
+const getDoctorPatientsHistory = async (user: any):  Promise<Prescription[] | null> => {
+    const { userId } = user;
+
+    // Check if the user is a doctor
+    const isDoctor = await prisma.doctor.findUnique({
+        where: {
+            id: userId
+        }
+    });
+    if (!isDoctor) {
+        throw new ApiError(httpStatus.NOT_FOUND, 'Doctor Account is not found !!');
+    }
+
+    // Find the first appointment with medical history for the doctor
+    const appointment = await prisma.appointments.findFirst({ 
+        where: {
+            doctorId: userId,
+            medicalHistory: "yes",
+            patientId: { not: null } 
+        },
+        select: {
+            patientId: true
+        }
+    });
+
+    // If no appointment found, return an empty array
+    if (!appointment) {
+        return [];
+    }
+
+    // Find prescriptions for the patient
+    const patientsPrescriptions = await prisma.prescription.findMany({ 
+        where: {
+            patientId: appointment.patientId as string
+        },
+        include: {
+            medicines: true,
+            appointment: {
+                select: {
+                    scheduleDate: true,
+                    scheduleTime: true,
+                    status: true,
+                    trackingId: true,
+                    firstName: true,
+                    lastName: true,
+                    address:true,
+                    email: true,
+                    phone: true,
+                    patientType: true,
+                    paymentStatus: true,
+                    prescriptionStatus: true,
+                    description: true,
+                }
+            },
+            doctor: {
+                select: {
+                    firstName: true,
+                    lastName: true,
+                    designation: true,
+                    email: true,
+                    college: true,
+                    address: true,
+                    country: true,
+                    state: true,
+                    specialization: true
+                }
+            },
+            patient: {
+                select: {
+                    firstName: true,
+                    lastName: true,
+                    gender: true,
+                    dateOfBirth: true,
+                    email: true,
+                    bloodGroup: true,
+                    address: true,
+                    img: true,
+                    city: true,
+                    country: true,
+                    state: true,
+                }
+            }
+        }
+    });
+
+    // Return the prescriptions
+    return patientsPrescriptions;
+};
+
+
+
 export const AppointmentService = {
     createAppointment,
     getAllAppointments,
@@ -483,5 +577,6 @@ export const AppointmentService = {
     getDoctorInvoices,
     createAppointmentByUnAuthenticateUser,
     getAppointmentByTrackingId,
-    getAppointmentsByDoctorId
+    getAppointmentsByDoctorId,
+    getDoctorPatientsHistory
 }

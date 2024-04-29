@@ -135,7 +135,7 @@ const PersonalInformation = ({
               name="description"
               value={description && description}s
               className="text-form-input-field"
-              placeholder="Description (Optional)"
+              placeholder="Description"
               type="text"
             />
           </div>
