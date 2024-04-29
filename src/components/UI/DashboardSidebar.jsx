@@ -25,6 +25,7 @@ import {
   FaListUl,
   FaRegAddressCard,
   FaRegCommentDots,
+  FaBookMedical
 } from "react-icons/fa";
 
 function formatDate(date) {
@@ -209,6 +210,16 @@ const DashboardSidebar = () => {
               >
                 <i class="fa-solid fa-user-group icon"></i>
                 <span>My Patients</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={"/dashboard/patient-medical-history"}
+                activeClassName="active"
+                end
+              >
+                <FaBookMedical className="icon" />
+                <span>Patient History</span>
               </NavLink>
             </li>
             <li>

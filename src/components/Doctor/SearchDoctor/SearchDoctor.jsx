@@ -78,7 +78,7 @@ const SearchDoctor = () => {
 
   const { data, isLoading, isError } = useGetDoctorsQuery({
     ...query,
-    sortBy,
+    sortBy: sortBy === "Sort By Rating" ? "averageRating" : sortBy,
     sortOrder,
   });
 
@@ -161,7 +161,7 @@ const SearchDoctor = () => {
   const onSelectSortBy = (value) => {
     if (value === "Sort By Rating") {
       setSortBy("averageRating");
-      setSortOrder("desc");
+      setSortOrder("asc");
     } else {
       setSortBy(value);
       setSortOrder("");

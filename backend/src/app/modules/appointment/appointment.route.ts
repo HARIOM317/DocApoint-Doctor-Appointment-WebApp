@@ -10,6 +10,7 @@ router.get('/', AppointmentController.getAllAppointment);
 router.get('/patient/appointments',auth(AuthUser.PATIENT), AppointmentController.getPatientAppointmentById);
 router.get('/patient/invoices',auth(AuthUser.PATIENT), AppointmentController.getPatientPaymentInfo);
 router.get('/doctor/invoices',auth(AuthUser.DOCTOR), AppointmentController.getDoctorInvoices);
+router.get('/doctor/patient-medical-history',auth(AuthUser.DOCTOR), AppointmentController.getDoctorPatientsHistory);
 
 router.get('/doctor/appointments',auth(AuthUser.DOCTOR), AppointmentController.getDoctorAppointmentsById);
 router.get('/admin/appointments',auth(AuthUser.ADMIN), AppointmentController.getAllAppointment);

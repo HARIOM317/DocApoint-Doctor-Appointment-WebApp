@@ -46,6 +46,7 @@ import TreatmentEdit from "./components/Doctor/Treatment/TreatmentEdit";
 import ViewAppointment from "./components/Doctor/Appointments/ViewAppointment";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Doctor/Dashboard/Dashboard";
+import PatientMedicalHistory from "./components/Doctor/PatientHistory/PatientMedicalHistory";
 import PrivateOutlet from "./components/Shared/PrivateOutlet";
 import NotFound from "./components/UI/NotFound";
 import Login from "./components/Login/Login";
@@ -94,6 +95,10 @@ function App() {
             element={<TreatmentEdit />}
           />
           <Route path="/dashboard/my-patients" element={<MyPatients />} />
+          <Route
+            path="/dashboard/patient-medical-history"
+            element={<PatientMedicalHistory />}
+          />
           <Route path="/dashboard/prescription" element={<Prescription />} />
           <Route
             path="/dashboard/prescription/:id"
