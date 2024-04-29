@@ -44,6 +44,7 @@ const DoctorBooking = () => {
   const [patientId, setPatientId] = useState("");
   const [orderId, setOrderId] = useState("");
   const [piCheck, setPiCheck] = useState(false);
+  const [medicalHistory, setMedicalHistory] = useState("Share Medical History");
 
   const [
     createAppointment,
@@ -283,6 +284,8 @@ const DoctorBooking = () => {
           setPatientId={setPatientId}
           piCheck={piCheck}
           setPiCheck={setPiCheck}
+          medicalHistory={medicalHistory}
+          setMedicalHistory={setMedicalHistory}
         />
       ),
     },
@@ -324,6 +327,7 @@ const DoctorBooking = () => {
       scheduleDate: selectedDate,
       scheduleTime: selectTime,
       doctorId: doctorId,
+      medicalHistory:medicalHistory,
       patientId: role !== "" && role === "patient" ? patientId : undefined,
     };
     obj.payment = {

@@ -11,6 +11,9 @@ CREATE TYPE "Gender" AS ENUM ('male', 'female');
 CREATE TYPE "prescriptionStatus" AS ENUM ('issued', 'notIssued');
 
 -- CreateEnum
+CREATE TYPE "status" AS ENUM ('true', 'false');
+
+-- CreateEnum
 CREATE TYPE "paymentStatus" AS ENUM ('paid', 'unpaid');
 
 -- CreateTable
@@ -89,6 +92,10 @@ CREATE TABLE "Doctor" (
     "state" TEXT,
     "country" TEXT,
     "postalCode" TEXT,
+    "linkedin" TEXT,
+    "facebook" TEXT,
+    "instagram" TEXT,
+    "twitter" TEXT,
     "price" TEXT,
     "services" TEXT,
     "specialization" TEXT,
@@ -112,6 +119,35 @@ CREATE TABLE "Doctor" (
 );
 
 -- CreateTable
+CREATE TABLE "Emergency" (
+    "id" TEXT NOT NULL,
+    "patientName" TEXT NOT NULL,
+    "mobile" TEXT NOT NULL,
+    "subject" TEXT NOT NULL,
+    "city" TEXT NOT NULL,
+    "address" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Emergency_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Ambulance" (
+    "id" TEXT NOT NULL,
+    "driverName" TEXT NOT NULL,
+    "mobile" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "city" TEXT NOT NULL,
+    "ambulanceNumber" TEXT NOT NULL,
+    "status" BOOLEAN DEFAULT false,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Ambulance_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Appointments" (
     "id" TEXT NOT NULL,
     "patientId" TEXT,
@@ -131,6 +167,7 @@ CREATE TABLE "Appointments" (
     "prescriptionStatus" "prescriptionStatus" DEFAULT 'notIssued',
     "isFollowUp" BOOLEAN DEFAULT false,
     "patientType" TEXT,
+    "medicalHistory" TEXT DEFAULT 'No',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -141,14 +178,27 @@ CREATE TABLE "Appointments" (
 CREATE TABLE "Payment" (
     "id" TEXT NOT NULL,
     "appointmentId" TEXT NOT NULL,
-    "paymentMethod" TEXT NOT NULL,
-    "paymentType" TEXT NOT NULL,
+    "paymentType" TEXT,
+    "PaymentId" TEXT,
+    "OrderId" TEXT,
     "DoctorFee" INTEGER NOT NULL,
     "bookingFee" INTEGER NOT NULL,
-    "vat" INTEGER,
+    "Gst" INTEGER,
     "totalAmount" INTEGER NOT NULL,
 
     CONSTRAINT "Payment_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Contact" (
+    "id" TEXT NOT NULL,
+    "firstName" TEXT,
+    "lastName" TEXT,
+    "email" TEXT,
+    "subject" TEXT,
+    "text" TEXT,
+
+    CONSTRAINT "Contact_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -223,7 +273,7 @@ CREATE TABLE "DoctorTimeSlot" (
 
 -- CreateTable
 CREATE TABLE "ScheduleDay" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "startTime" TEXT NOT NULL,
     "endTime" TEXT NOT NULL,
     "doctorTimeSlotId" TEXT,
@@ -244,6 +294,19 @@ CREATE TABLE "Blogs" (
     CONSTRAINT "Blogs_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Admin" (
+    "id" TEXT NOT NULL,
+    "firstName" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "img" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Admin_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "Auth_email_key" ON "Auth"("email");
 
@@ -258,6 +321,9 @@ CREATE UNIQUE INDEX "Appointments_trackingId_key" ON "Appointments"("trackingId"
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Favourites_doctorId_key" ON "Favourites"("doctorId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Admin_email_key" ON "Admin"("email");
 
 -- AddForeignKey
 ALTER TABLE "Appointments" ADD CONSTRAINT "Appointments_patientId_fkey" FOREIGN KEY ("patientId") REFERENCES "Patient"("id") ON DELETE SET NULL ON UPDATE CASCADE;
