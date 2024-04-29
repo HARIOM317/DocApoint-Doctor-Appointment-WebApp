@@ -11,6 +11,7 @@ import profileImage from "../../images/home/doctorProfile.jpg";
 import StarRatings from "react-star-ratings";
 import { Autoplay } from "swiper/modules";
 import { Pagination } from "swiper/modules";
+import { useGetDoctorReviewsQuery } from "../../redux/api/reviewsApi";
 
 import Lottie from "lottie-react";
 import Loading from "../../animations/loading.json";
@@ -27,6 +28,11 @@ import "swiper/css/pagination";
 const BookDoctor = () => {
   const { data, isError, isLoading } = useGetDoctorsQuery({ limit: 10 });
   const doctors = data?.doctors;
+
+  // const { data: reviewData } = useGetDoctorReviewsQuery(data.doctorId.id);
+
+  // const reviewDataLen = reviewData ? reviewData.length : 0;
+
   const [
     addFavourite,
     { isSuccess, isLoading: FIsLoading, isError: fIsError, error },
@@ -145,7 +151,7 @@ const BookDoctor = () => {
                     starSpacing="5px"
                   />
                   <span className="d-inline-block text-secondary mt-2">
-                    (27)
+                    (3)
                   </span>
                 </div>
               </div>
