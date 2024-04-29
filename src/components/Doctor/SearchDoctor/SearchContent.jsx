@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import { Tag } from "antd";
 import "../../../stylesheets/doctorStylesheets/SearchDoctor.css";
+import { useGetDoctorReviewsQuery } from "../../../redux/api/reviewsApi";
 import {
   FaLocationArrow,
   FaRegThumbsUp,
@@ -13,6 +14,11 @@ import doctorProfile from "../../../images/home/doctorProfile.jpg";
 
 const SearchContent = ({ data }) => {
   const services = data?.services?.split(",");
+  const { data: reviewData } = useGetDoctorReviewsQuery(data.id);
+  console.log(reviewData);
+
+  const reviewDataLen = reviewData ? reviewData.length : 0;
+
   return (
     <div className="mb-4 rounded available-doctors">
       <div className="p-3 doctor-profile-card">
@@ -50,7 +56,7 @@ const SearchContent = ({ data }) => {
                     starSpacing="2px"
                   />
                 </div>
-                <div>(4)</div>
+                <div>({reviewDataLen})</div>
               </div>
 
               <div className="clinic-details">
@@ -75,7 +81,7 @@ const SearchContent = ({ data }) => {
                 <FaRegThumbsUp /> 97%
               </li>
               <li>
-                <FaComment /> 4 Feedback
+                <FaComment /> {reviewDataLen} Feedback
               </li>
 
               <li>
