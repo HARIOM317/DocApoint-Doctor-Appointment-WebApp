@@ -163,7 +163,7 @@ model Appointments {
   prescriptionStatus prescriptionStatus? @default(notIssued)
   isFollowUp         Boolean?            @default(false)
   patientType        String?
-
+  medicalHistory     String?             @default("No")
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
   prescription Prescription[]

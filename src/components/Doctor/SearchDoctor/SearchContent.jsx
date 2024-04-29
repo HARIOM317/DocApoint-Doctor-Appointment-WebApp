@@ -13,9 +13,10 @@ import {
 import doctorProfile from "../../../images/home/doctorProfile.jpg";
 
 const SearchContent = ({ data }) => {
+
   const services = data?.services?.split(",");
   const { data: reviewData } = useGetDoctorReviewsQuery(data.id);
-  console.log(reviewData);
+
 
   // Total Feedback
   const reviewDataLen = reviewData ? reviewData.length : 0;

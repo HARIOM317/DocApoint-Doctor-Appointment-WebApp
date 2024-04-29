@@ -120,7 +120,6 @@ const getAllPrescriptions = async (): Promise<Prescription[] | null> => {
 }
 
 const getPrescriptionById = async (id: string): Promise<Prescription | null> => {
-    // console.log(id);
     const result = await prisma.prescription.findUnique({
         where: {
             id: id

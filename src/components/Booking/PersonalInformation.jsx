@@ -7,6 +7,8 @@ const PersonalInformation = ({
   selectValue,
   setPiCheck,
   PiCheck,
+  setMedicalHistory,
+  medicalHistory,
   setPatientId = () => {},
 }) => {
   const {
@@ -21,7 +23,7 @@ const PersonalInformation = ({
   const [checked, setChecked] = useState(false);
   const { data } = useAuthCheck();
 
-  const [medicalHistory, setMedicalHistory] = useState("Share Medical History");
+  // const [medicalHistory, setMedicalHistory] = useState("Share Medical History");
 
   const onChange = (e) => {
     setChecked(e.target.checked);
@@ -131,7 +133,7 @@ const PersonalInformation = ({
               rows={8}
               onChange={(e) => handleChange(e)}
               name="description"
-              value={description && description}
+              value={description && description}s
               className="text-form-input-field"
               placeholder="Description (Optional)"
               type="text"
@@ -142,6 +144,22 @@ const PersonalInformation = ({
         <Checkbox checked={checked} onChange={onChange}>
           Already Have an Account ?
         </Checkbox>
+
+        {/* <div className="col-md-6">
+            <div className="form-group mb-2 card-label">
+              <label className="label-style">Gender</label>
+              <Select
+                defaultValue={data?.gender ? data?.gender : "Select"}
+                className="dropdown"
+                onChange={(value) => handleChange(value, "gender")}
+                placeholder="Select Gender"
+              >
+                <Option value="male">Male</Option>
+                <Option value="female">Female</Option>
+                <Option value="other">Other</Option>
+              </Select>
+            </div>
+          </div> */}
 
         <div style={{marginTop: '1rem'}}>
           <Select
