@@ -16,7 +16,7 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const WeightLossDiets = () => {
+const WeightGainDiets = () => {
   const handleChange = (value) => {};
 
   const onSearch = (value) => {};
@@ -73,9 +73,9 @@ const WeightLossDiets = () => {
 
           {/* Recommended Diets */}
           <section className="diet-view">
-            <h1 className="diet-heading">Weight loss</h1>
+            <h1 className="diet-heading">Weight Gain</h1>
             <div className="healthy-diets">
-              {dietAPI[0].flexitariansDiet.map((item, index) => {
+              {dietAPI[1].flexitariansDiet.map((item, index) => {
                 return (
                   <div
                     className={
@@ -116,7 +116,7 @@ const WeightLossDiets = () => {
           <section className="avoiding-diets">
             <h1 className="diet-heading">Avoid These Foods</h1>
             <div className="row">
-              {dietAPI[0].avoidingDiet.map((item, index) => {
+              {dietAPI[1].avoidingDiet.map((item, index) => {
                 return (
                   <>
                     <div
@@ -167,8 +167,8 @@ const WeightLossDiets = () => {
               loop={true}
               autoplay={{ delay: 2500, disableOnInteraction: false }}
             >
-              {dietAPI[0].recommendedExercises &&
-                dietAPI[0].recommendedExercises.map((item, index) => {
+              {dietAPI[1].recommendedExercises &&
+                dietAPI[1].recommendedExercises.map((item, index) => {
                   return (
                     <SwiperSlide key={index}>
                       <div className="mb-3" key={index}>
@@ -208,4 +208,4 @@ const WeightLossDiets = () => {
     </>
   );
 };
-export default WeightLossDiets;
+export default WeightGainDiets;

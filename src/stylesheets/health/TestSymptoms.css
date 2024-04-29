@@ -1,0 +1,45 @@
+.test-symptoms .prediction-heading{
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: var(--headingColor);
+    text-transform: uppercase;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.test-symptoms .disease-info{
+    border: 1.5px solid var(--borderColor);
+    border-radius: 8px;
+    background: var(--bgLight);
+    padding: 1rem;
+    margin: 0;
+    padding-bottom: 0;
+    box-shadow: var(--shadow);
+}
+
+.test-symptoms .disease-info .disease-name{
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--primaryColor);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.test-symptoms .disease-info .prediction-para{
+    color: var(--textLight);
+    font-size: 1rem;
+}
+
+.test-symptoms .predicted-item{
+    background: var(--bgLight);
+    border: 1px solid var(--borderColor);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+    color: var(--textColor);
+    border-bottom: 0;
+    box-shadow: var(--materialShadow);
+    margin: 8px;
+    text-transform: capitalize;
+}

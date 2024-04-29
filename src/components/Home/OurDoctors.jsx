@@ -15,7 +15,7 @@ const OurDoctors = () => {
 
   if (isLoading)
     content = (
-      <div className=" m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+      <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
         <Lottie
           loop={true}
           animationData={Loading}
