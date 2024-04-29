@@ -68,6 +68,7 @@ import Diets from "./components/health/Diets";
 import WeightLossDiets from "./components/health/diets_components/WeightLossDiets";
 import WeightGainDiets from "./components/health/diets_components/WeightGainDiets";
 
+// import HealthDashboard from "./components/health/HealthDashboard";
 import TestSymptoms from "./components/health/TestSymptoms";
 
 function App() {
@@ -150,6 +151,11 @@ function App() {
             path="/health/diets/weight-gain"
             element={<WeightGainDiets />}
           />
+
+          {/* <Route
+            path="/health/health-dashboard"
+            element={<HealthDashboard />}
+          /> */}
 
           <Route
             path="/health/test-health-by-symptoms"

@@ -55,7 +55,12 @@ const HealthHome = () => {
                 <i class="fa-solid fa-gauge"></i>
               </span>
 
-              <NavLink className="show-btn">Health Profile</NavLink>
+              <NavLink
+                to={"/health/health-dashboard"}
+                className="show-btn"
+              >
+                Health Profile
+              </NavLink>
 
               <p className="info-label">View Your Health Report</p>
             </div>
@@ -67,7 +72,10 @@ const HealthHome = () => {
                 <i class="fa-solid fa-microscope"></i>
               </span>
 
-              <NavLink to={"/health/test-health-by-symptoms"} className="show-btn">
+              <NavLink
+                to={"/health/test-health-by-symptoms"}
+                className="show-btn"
+              >
                 Test by Symptoms
               </NavLink>
 

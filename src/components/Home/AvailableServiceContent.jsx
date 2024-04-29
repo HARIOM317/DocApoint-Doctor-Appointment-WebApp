@@ -10,10 +10,10 @@ import { Navigation, Autoplay } from "swiper/modules";
 const AvailableServiceContent = () => {
   const availabeServiceArray = [
     { title: "ICU", img: img1 },
-    { title: "Chamber", img: img5 },
     { title: "Patient Ward", img: img2 },
     { title: "Test Room", img: img3 },
     { title: "Laboratory", img: img4 },
+    { title: "Chamber", img: img5 },
   ];
   return (
     <div className="d-flex justify-content-center align-items-center gap-4">

@@ -3,7 +3,6 @@ import DashboardLayout from "../../Doctor/DashboardLayout/DashboardLayout";
 import "../../../stylesheets/health/DietView.css";
 import dietAPI from "../../../apis/dietAPI";
 
-import { sliderSettings } from "../../../utils/common";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { Pagination } from "swiper/modules";
@@ -18,14 +17,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const WeightLossDiets = () => {
+  const handleChange = (value) => {};
 
-  const handleChange = (value) => {
-    
-  };
-
-  const onSearch = (value) => {
-    
-  };
+  const onSearch = (value) => {};
 
   return (
     <>
@@ -153,12 +147,24 @@ const WeightLossDiets = () => {
           <section className="recommended-exercises">
             <h1 className="exercise-heading">Recommended Exercises</h1>
             <Swiper
-              {...sliderSettings}
-              modules={[Pagination, Autoplay]}
-              loop={true}
+              slidesPerView={3}
+              spaceBetween={10}
               pagination={{
                 clickable: true,
               }}
+              breakpoints={{
+                576: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1100: {
+                  slidesPerView: 3,
+                },
+              }}
+              modules={[Pagination, Autoplay]}
+              loop={true}
               autoplay={{ delay: 2500, disableOnInteraction: false }}
             >
               {dietAPI[0].recommendedExercises &&

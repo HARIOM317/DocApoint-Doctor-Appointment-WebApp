@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import DashboardLayout from "../Doctor/DashboardLayout/DashboardLayout";
 import "../../stylesheets/health/TestSymptoms.css";
-import Search from "antd/es/input/Search";
-
 import { Select, Space, Button } from "antd";
-import { FaMagento } from "react-icons/fa";
+
+import Lottie from "lottie-react";
+import testYourSelf from "../../animations/test_yourself.json";
 
 const TestSymptoms = () => {
   const [selectedValues, setSelectedValues] = useState([]);
+  const [searched, setSearched] = useState(false);
+
+  const [predictedDisease, setPredictedDisease] = useState("");
+  const [disDes, setDisDes] = useState("");
+  const [myDiet, setMyDiet] = useState([]);
+  const [precautions, setPrecautions] = useState([]);
+  const [workout, setWorkout] = useState([]);
+  const [medications, setMedications] = useState([]);
 
   let symptoms = [
     "itching",
@@ -144,13 +152,10 @@ const TestSymptoms = () => {
     "yellow_crust_ooze",
   ];
 
-  const options = [];
-  for (let i = 0; i < symptoms.length; i++) {
-    options.push({
-      value: symptoms[i],
-      label: symptoms[i],
-    });
-  }
+  const options = symptoms.map((symptom) => ({
+    value: symptom,
+    label: symptom,
+  }));
 
   const handleChange = (selected) => {
     setSelectedValues(selected);
@@ -158,7 +163,50 @@ const TestSymptoms = () => {
 
   const onSearch = () => {
     const selectedString = selectedValues.join(", ");
-    console.log({ symptoms: selectedString });
+    const proxyUrl = "http://localhost:8080/";
+    const apiUrl = "https://diagnose-api.onrender.com/predict";
+
+    fetch(proxyUrl + apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ symptoms: selectedString }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setDisDes(data.dis_des);
+        setMedications(
+          data.medications[0]
+            .replace("[", "")
+            .replace("]", "")
+            .split(", ")
+            .map((medication) => medication.replace(/'/g, ""))
+        );
+        setMyDiet(
+          data.my_diet[0]
+            .replace("[", "")
+            .replace("]", "")
+            .split(", ")
+            .map((diet) => diet.replace(/'/g, ""))
+        );
+        setPrecautions(data.precautions[0]);
+        setWorkout(data.workout);
+        setPredictedDisease(data.predicted_disease);
+
+        setSearched(true);
+
+        // Printing data on console
+        console.log("disDes:", disDes);
+        console.log("medications:", medications);
+        console.log("myDiet:", myDiet);
+        console.log("precautions:", precautions);
+        console.log("workout:", workout);
+        console.log("predictedDisease:", predictedDisease);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -188,7 +236,118 @@ const TestSymptoms = () => {
             </Button>
           </div>
 
-          <section></section>
+          <section className="test-symptoms">
+            {!searched && (
+              <div className="m-0 p-0 d-flex flex-column align-items-center justify-content-center">
+                <Lottie
+                  loop={true}
+                  animationData={testYourSelf}
+                  style={{ width: "300px" }}
+                />
+                <div
+                  style={{
+                    color: "var(--headingColor)",
+                    fontWeight: "bold",
+                    fontSize: "1.3rem",
+                  }}
+                >
+                  Test Yourself
+                </div>
+              </div>
+            )}
+
+            {predictedDisease && (
+              <div>
+                <h3 className="prediction-heading">Disease</h3>
+                <div className="disease-info">
+                  <h6 className="disease-name">{predictedDisease}</h6>
+                  <p className="prediction-para">{disDes}</p>
+                </div>
+              </div>
+            )}
+
+            {myDiet.length > 0 && (
+              <div>
+                <h3 className="prediction-heading">Recommended Diets</h3>
+                <div className="row">
+                  {myDiet.map((data, index) => {
+                    return (
+                      <>
+                        <div
+                          className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12"
+                          key={index}
+                        >
+                          <p className="predicted-item">{data}</p>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {medications.length > 0 && (
+              <div>
+                <h3 className="prediction-heading">Recommended Medications</h3>
+
+                <div className="row">
+                  {medications.map((data, index) => {
+                    return (
+                      <>
+                        <div
+                          className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12"
+                          key={index}
+                        >
+                          <p className="predicted-item">{data}</p>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {precautions.length > 0 && (
+              <div>
+                <h3 className="prediction-heading">Recommended Precautions</h3>
+
+                <div className="row">
+                  {precautions.map((data, index) => {
+                    return (
+                      <>
+                        <div
+                          className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12"
+                          key={index}
+                        >
+                          <p className="predicted-item">{data}</p>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {workout.length > 0 && (
+              <div>
+                <h3 className="prediction-heading">Recommended Workouts</h3>
+                <div className="row">
+                  {workout.map((data, index) => {
+                    return (
+                      <>
+                        <div
+                          className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12"
+                          key={index}
+                        >
+                          <p className="predicted-item">{data}</p>
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </section>
         </>
       </DashboardLayout>
     </>
