@@ -62,7 +62,7 @@ const Testimonial = () => {
                       <FaCheckDouble /> Recommended
                     </p>
                     <StarRatings
-                      rating={5}
+                      rating={parseInt(item?.star)}
                       starRatedColor="#f4c150"
                       numberOfStars={5}
                       name="rating"

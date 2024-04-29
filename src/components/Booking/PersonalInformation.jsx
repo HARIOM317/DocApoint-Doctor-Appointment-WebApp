@@ -1,4 +1,4 @@
-import { Checkbox, message } from "antd";
+import { Checkbox, message, Select } from "antd";
 import { useEffect, useState } from "react";
 import useAuthCheck from "../../redux/hooks/useAuthCheck";
 
@@ -21,8 +21,14 @@ const PersonalInformation = ({
   const [checked, setChecked] = useState(false);
   const { data } = useAuthCheck();
 
+  const [medicalHistory, setMedicalHistory] = useState("Share Medical History");
+
   const onChange = (e) => {
     setChecked(e.target.checked);
+  };
+
+  const onSelectHistoryShare = (value) => {
+    setMedicalHistory(value);
   };
 
   useEffect(() => {
@@ -136,6 +142,26 @@ const PersonalInformation = ({
         <Checkbox checked={checked} onChange={onChange}>
           Already Have an Account ?
         </Checkbox>
+
+        <div style={{marginTop: '1rem'}}>
+          <Select
+            value={medicalHistory}
+            style={{
+              width: 220,
+            }}
+            onChange={onSelectHistoryShare}
+            options={[
+              {
+                value: "no",
+                label: "No",
+              },
+              {
+                value: "yes",
+                label: "Yes",
+              },
+            ]}
+          />
+        </div>
       </div>
     </form>
   );

@@ -19,12 +19,12 @@ const SearchDoctor = () => {
   const query = {};
   const [page, setPage] = useState(1);
   const [size, setSize] = useState(10);
-  const [sortBy, setSortBy] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [gender, setGender] = useState("Gender");
   const [sortByGender, setSorByGender] = useState("");
   const [specialization, setSpecialization] = useState("Specialization");
+  const [sortBy, setSortBy] = useState("rating");
   const [specialist, setSpecialist] = useState("");
   const [priceRange, setPriceRange] = useState({});
 
@@ -69,13 +69,19 @@ const SearchDoctor = () => {
 
     setGender("Gender");
     setSpecialization("Specialization");
+    setSortBy("Rating");
   };
 
   if (!!debounced) {
     query.searchTerm = debounced;
   }
 
-  const { data, isLoading, isError } = useGetDoctorsQuery({ ...query });
+  const { data, isLoading, isError } = useGetDoctorsQuery({
+    ...query,
+    sortBy,
+    sortOrder,
+  });
+
   const doctorsData = data?.doctors;
   const meta = data?.meta;
 
@@ -151,6 +157,22 @@ const SearchDoctor = () => {
     setSpecialization(value);
     setSpecialist(value);
   };
+
+  const onSelectSortBy = (value) => {
+    if (value === "Sort By Rating") {
+      setSortBy("averageRating");
+      setSortOrder("desc");
+    } else {
+      setSortBy(value);
+      setSortOrder("");
+    }
+  };
+
+  if (sortBy === "rating") {
+    query["sortBy"] = "averageRating";
+  } else {
+    query["sortBy"] = sortBy;
+  }
 
   const onRangeChange = (range) => {
     const obj = {
@@ -243,6 +265,20 @@ const SearchDoctor = () => {
                 {
                   value: "Orthopedic",
                   label: "Orthopedic",
+                },
+              ]}
+            />
+
+            <Select
+              value={sortBy}
+              style={{
+                width: 200,
+              }}
+              onChange={onSelectSortBy}
+              options={[
+                {
+                  value: "Sort By Rating",
+                  label: "Sort By Rating",
                 },
               ]}
             />

@@ -17,7 +17,17 @@ const SearchContent = ({ data }) => {
   const { data: reviewData } = useGetDoctorReviewsQuery(data.id);
   console.log(reviewData);
 
+  // Total Feedback
   const reviewDataLen = reviewData ? reviewData.length : 0;
+  let totalRating = 0;
+
+  // Calculate total rating
+  reviewData?.forEach((review) => {
+    totalRating += parseInt(review.star);
+  });
+
+  // Calculate average rating
+  const averageRating = reviewDataLen > 0 ? totalRating / reviewDataLen : 0;
 
   return (
     <div className="mb-4 rounded available-doctors">
@@ -37,7 +47,11 @@ const SearchContent = ({ data }) => {
                   Dr. {data?.firstName + " " + data?.lastName}
                 </Link>
               </h5>
-              <p style={{ color: "var(--textLight)" }}>
+              <p
+                style={{
+                  color: "var(--textLight)",
+                }}
+              >
                 {data?.specialization === null
                   ? data?.designation
                   : data?.specialization}
@@ -48,7 +62,7 @@ const SearchContent = ({ data }) => {
               <div className="d-flex align-items-start">
                 <div>
                   <StarRatings
-                    rating={4.5}
+                    rating={averageRating}
                     starRatedColor="#f4c150"
                     numberOfStars={5}
                     name="rating"
