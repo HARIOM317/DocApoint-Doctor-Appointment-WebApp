@@ -8,6 +8,7 @@ import {
   usePatientSignUpMutation,
 } from "../../redux/api/authApi";
 import { message } from "antd";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
   const [error, setError] = useState({});
@@ -157,6 +158,8 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
     }
   };
 
+  const onCaptchaHandle = () => {};
+
   return (
     <>
       {/* Sign Up Form */}
@@ -205,6 +208,13 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
             value={user.password}
           />
         </div>
+
+        {/* Captcha */}
+        <ReCAPTCHA
+          sitekey="6LfzMcspAAAAAL3MW_EIfm6e3rrdg721b2lAoTO1"
+          onChange={onCaptchaHandle}
+          style={{margin: '1rem'}}
+        />
 
         {error.length && <h6 className="text-danger text-center">{error}</h6>}
         {infoError && <h6 className="text-danger text-center">{infoError}</h6>}
