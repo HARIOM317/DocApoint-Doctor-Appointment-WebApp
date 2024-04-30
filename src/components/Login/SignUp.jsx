@@ -14,6 +14,7 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
   const [error, setError] = useState({});
   const [infoError, setInfoError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [captchaChecked, setCaptchaChecked] = useState(false);
   const formField = {
     firstName: "",
     lastName: "",
@@ -158,7 +159,9 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
     }
   };
 
-  const onCaptchaHandle = () => {};
+  const onCaptchaHandle = () => {
+    setCaptchaChecked(true);
+  };
 
   return (
     <>
@@ -213,7 +216,7 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
         <ReCAPTCHA
           sitekey="6LfzMcspAAAAAL3MW_EIfm6e3rrdg721b2lAoTO1"
           onChange={onCaptchaHandle}
-          style={{margin: '1rem'}}
+          style={{ margin: "1rem" }}
         />
 
         {error.length && <h6 className="text-danger text-center">{error}</h6>}
@@ -227,7 +230,8 @@ const SignUp = ({ handleSignInMobileClick, setSignUp }) => {
             passwordValidation.numeric &&
             passwordValidation.upperLowerCase &&
             passwordValidation.specailChar &&
-            emailError.emailError
+            emailError.emailError &&
+            captchaChecked
               ? ""
               : true
           }

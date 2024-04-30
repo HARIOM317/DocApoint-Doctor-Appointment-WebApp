@@ -9,11 +9,14 @@ import {
 } from "../../redux/api/authApi";
 import { message } from "antd";
 import { useMessageEffect } from "../../utils/messageSideEffect";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 const SignIn = ({ handleSignUpMobileClick }) => {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [infoError, setInfoError] = useState("");
   const [show, setShow] = useState(true);
+  const [captchaChecked, setCaptchaChecked] = useState(false);
   const {
     register,
     handleSubmit,
@@ -68,6 +71,10 @@ const SignIn = ({ handleSignUpMobileClick }) => {
 
   const handleShowForgotPassword = () => {
     setShowForgotPassword(!showForgotPassword);
+  };
+
+  const onCaptchaHandle = () => {
+    setCaptchaChecked(true);
   };
 
   return showForgotPassword ? (
@@ -194,11 +201,20 @@ const SignIn = ({ handleSignUpMobileClick }) => {
         >
           Forgot Password ?
         </div>
+
+        {/* Captcha */}
+        <ReCAPTCHA
+          sitekey="6LfzMcspAAAAAL3MW_EIfm6e3rrdg721b2lAoTO1"
+          onChange={onCaptchaHandle}
+          style={{ margin: "1rem" }}
+        />
+
         <button
           className="btn"
           type="submit"
           value="sign In"
           style={{ marginBottom: "3rem", boxShadow: "none" }}
+          disabled={captchaChecked ? "" : true}
         >
           {isLoading ? (
             <Spinner
