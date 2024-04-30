@@ -25,6 +25,7 @@ const SearchDoctor = () => {
   const [sortByGender, setSorByGender] = useState("");
   const [specialization, setSpecialization] = useState("Specialization");
   const [sortBy, setSortBy] = useState("rating");
+  const [sortByRating, setSortByRating] = useState("");
   const [specialist, setSpecialist] = useState("");
   const [priceRange, setPriceRange] = useState({});
 
@@ -62,10 +63,10 @@ const SearchDoctor = () => {
     setSize(10);
     setSortOrder("");
     setSearchTerm("");
-    setSortOrder("");
     setSorByGender("");
     setSpecialist("");
     setPriceRange({});
+    setSortByRating("");
 
     setGender("Gender");
     setSpecialization("Specialization");
