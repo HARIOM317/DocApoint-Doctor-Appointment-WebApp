@@ -326,4 +326,4 @@ const SearchDoctor = () => {
   );
 };
 
-export default SearchDoctor;
+export default SearchDoctor;
