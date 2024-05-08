@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import Header from "../../Shared/Header/Header";
 import SubHeader from "../../Shared/SubHeader";
 import { useGetDoctorQuery } from "../../../redux/api/doctorApi";
-import { Empty, message } from "antd";
 import { Tabs } from "antd";
 import OverView from "./OverView";
 import Location from "./Location";

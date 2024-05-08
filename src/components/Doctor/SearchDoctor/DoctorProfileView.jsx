@@ -13,11 +13,20 @@ const DoctorProfileView = ({ data }) => {
   const { role } = useAuthCheck();
   const services = data?.services?.split(",");
 
-  const { data: reviewData, isError, isLoading } = useGetDoctorReviewsQuery(
-    data.id
-  );
+  const { data: reviewData } = useGetDoctorReviewsQuery(data.id);
 
+  // Total Feedback
   const reviewDataLen = reviewData ? reviewData.length : 0;
+
+  let totalRating = 0;
+
+  // Calculate total rating
+  reviewData?.forEach((review) => {
+    totalRating += parseInt(review.star);
+  });
+
+  // Calculate average rating
+  const averageRating = reviewDataLen > 0 ? totalRating / reviewDataLen : 0;  
 
   const linkedinLink = `${data.linkedin}`;
   const facebookLink = `${data.facebook}`;
@@ -43,7 +52,10 @@ const DoctorProfileView = ({ data }) => {
             <p className="doctor-detail">
               <i
                 class="fa-solid fa-hand-holding-medical"
-                style={{ fontSize: "1.3rem", marginRight: "6px" }}
+                style={{
+                  fontSize: "1.3rem",
+                  marginRight: "6px",
+                }}
               ></i>{" "}
               {data?.specialization ? data?.specialization : "N/A"}
             </p>
@@ -51,7 +63,10 @@ const DoctorProfileView = ({ data }) => {
             <p className="doctor-detail">
               <i
                 class="fa-solid fa-map-location-dot"
-                style={{ fontSize: "1.3rem", marginRight: "6px" }}
+                style={{
+                  fontSize: "1.3rem",
+                  marginRight: "6px",
+                }}
               ></i>{" "}
               {data?.city} {data?.city ? ", " : "Bhopal , In"} {data?.country}
             </p>
@@ -67,7 +82,7 @@ const DoctorProfileView = ({ data }) => {
             <div className="star-rating">
               <div>
                 <StarRatings
-                  rating={4.5}
+                  rating={averageRating}
                   starRatedColor="#f4c150"
                   numberOfStars={5}
                   name="rating"
@@ -81,28 +96,36 @@ const DoctorProfileView = ({ data }) => {
             <div className="social-media-icons">
               <NavLink
                 to={linkedinLink}
-                style={{ background: "#0a63bc" }}
+                style={{
+                  background: "#0a63bc",
+                }}
                 target="_blank"
               >
                 <i className="bx bxl-linkedin"></i>
               </NavLink>
               <NavLink
                 to={facebookLink}
-                style={{ background: "#3b5998" }}
+                style={{
+                  background: "#3b5998",
+                }}
                 target="_blank"
               >
                 <i className="bx bxl-facebook"></i>
               </NavLink>
               <NavLink
                 to={instagramLink}
-                style={{ background: "#db1c8a" }}
+                style={{
+                  background: "#db1c8a",
+                }}
                 target="_blank"
               >
                 <i className="bx bxl-instagram"></i>
               </NavLink>
               <NavLink
                 to={twitterLink}
-                style={{ background: "#03a9f4" }}
+                style={{
+                  background: "#03a9f4",
+                }}
                 target="_blank"
               >
                 <i className="bx bxl-twitter"></i>
@@ -115,15 +138,30 @@ const DoctorProfileView = ({ data }) => {
           <div className="clini-infos other-details">
             <div>
               <ul>
-                <li className="mb-2" style={{ fontSize: "1rem" }}>
+                <li
+                  className="mb-2"
+                  style={{
+                    fontSize: "1rem",
+                  }}
+                >
                   <FaRegThumbsUp /> 97%
                 </li>
 
-                <li className="mb-2" style={{ fontSize: "1rem" }}>
+                <li
+                  className="mb-2"
+                  style={{
+                    fontSize: "1rem",
+                  }}
+                >
                   <FaComment /> {reviewDataLen} Feedback
                 </li>
 
-                <li className="mb-2" style={{ fontSize: "1rem" }}>
+                <li
+                  className="mb-2"
+                  style={{
+                    fontSize: "1rem",
+                  }}
+                >
                   <FaRupeeSign /> {data?.price ? data?.price : "50"}
                 </li>
               </ul>
