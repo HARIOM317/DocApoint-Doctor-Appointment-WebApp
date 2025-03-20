@@ -51,7 +51,6 @@ import PrivateOutlet from "./components/Shared/PrivateOutlet";
 import NotFound from "./components/UI/NotFound";
 import Login from "./components/Login/Login";
 
-
 // Exercises
 import Exercises from "./components/health/Exercises";
 import AbsExercises from "./components/health/exercises_components/AbsExercise";
