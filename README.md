@@ -5,7 +5,7 @@
 [![Repo Size](https://img.shields.io/badge/repo%20size-25MB-blue.svg?style=for-the-badge)](https://github.com/HARIOM317/DocApoint-Doctor-Appointment-WebApp) 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=for-the-badge)](https://github.com/HARIOM317/DocApoint-Doctor-Appointment-WebApp)
 
-DocApoint is a full-stack MERN application designed to streamline healthcare management while promoting overall wellness. With a modern, premium look powered by Ant Design components, DocApoint offers role-based dashboards for doctors, patients, and administrators. In addition to appointment scheduling and management, the platform now features an innovative health dashboard with advanced analytics and a machine learning model to recommend personalized exercises, diets, and lifestyle adjustments based on user goals.
+DocApoint is a full-stack MERN application designed to streamline healthcare management while promoting overall wellness. With a modern, premium look powered by Ant Design components, DocApoint offers role-based dashboards for doctors, patients, and administrators. In addition to appointment scheduling and management, the platform now features an innovative health dashboard with advanced analytics and a machine learning model to recommend personalized exercises, diets, and lifestyle adjustments based on user goals and health symptoms.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/23618f7c-b349-4876-b9b1-b1249cced392" alt="DocApoint" />
@@ -89,7 +89,6 @@ DocApoint is a comprehensive healthcare management and wellness platform that ca
 
     ```bash
     npm install
-  
 
 3. **Configure environment variables:**
 Create a .env file in the root directory and add the following variables:
@@ -156,41 +155,45 @@ Test Symptoms: http://localhost:3000/health/test-health-by-symptoms
 ---
 
 ## 🤝 Contributing
-Contributions are highly appreciated! Follow these steps to contribute:
 
-Fork the Repository
+We ❤️ your contributions! Please follow these steps for any contribution:
 
-Clone Your Fork
-
-git clone https://github.com/HARIOM317/DocApoint.git
-cd DocApoint
-Create a New Branch
-
-git checkout -b feature/your-feature-name
-Make Your Changes & Commit
-
-git add .
-git commit -m "✨ Add [feature/fix]: description"
-Push to Your Fork & Create a Pull Request
-
-git push origin feature/your-feature-name
-
-Submit a Pull Request on GitHub
+1. **Fork the Repository**
+2. **Clone Your Fork**
+    ```bash
+    git clone https://github.com/HARIOM317/DocApoint-Doctor-Appointment-WebApp.git
+    cd DocApoint-Doctor-Appointment-WebApp
+    ```
+3. **Create a New Branch**
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+4. **Make Your Changes & Commit**
+    ```bash
+    git add .
+    git commit -m "✨ Add [feature/fix]: description"
+    ```
+5. **Push to Your Fork & Create a PR**
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+6. **Submit a Pull Request** on GitHub 🚀
 
 ---
 
 ## 📜 License
-DocApoint is licensed under the MIT License. View the full license here.
+
+**DocApoint** is licensed under the **MIT License**. You can view the Full License [here](LICENSE).
 
 ---
 
 ## 📩 Contact
 For further information, feedback, or support, please reach out:
 
-Project Maintainer: Hariom Singh Rajput
+  - Project Maintainer: Hariom Singh Rajput and Team Velocity
 
-GitHub: [@HARIOM317](https://github.com/HARIOM317)
+  - GitHub: [@HARIOM317](https://github.com/HARIOM317)
 
-LinkedIn: [@in/hariom-singh-mewada](https://www.linkedin.com/in/hariom-singh-mewada/)
+  - LinkedIn: [@in/hariom-singh-mewada](https://www.linkedin.com/in/hariom-singh-mewada/)
 
 DocApoint – Empowering healthcare and wellness through technology.
