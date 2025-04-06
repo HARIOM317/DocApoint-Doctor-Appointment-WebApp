@@ -2,7 +2,7 @@
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)](https://github.com/HARIOM317/DocApoint-Doctor-Appointment-WebApp) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE) 
-[![Repo Size](https://img.shields.io/badge/repo%20size-25MB-blue.svg?style=for-the-badge)](https://github.com/HARIOM317/DocApoint-Doctor-Appointment-WebApp) 
+[![Repo Size](https://img.shields.io/badge/repo%20size-150MB-blue.svg?style=for-the-badge)](https://github.com/HARIOM317/DocApoint-Doctor-Appointment-WebApp) 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=for-the-badge)](https://github.com/HARIOM317/DocApoint-Doctor-Appointment-WebApp)
 
 DocApoint is a full-stack MERN application designed to streamline healthcare management while promoting overall wellness. With a modern, premium look powered by Ant Design components, DocApoint offers role-based dashboards for doctors, patients, and administrators. In addition to appointment scheduling and management, the platform now features an innovative health dashboard with advanced analytics and a machine learning model to recommend personalized exercises, diets, and lifestyle adjustments based on user goals and health symptoms.
